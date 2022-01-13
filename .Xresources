@@ -1,0 +1,12 @@
+URxvt.scrollBar : false
+
+URxvt.cursorBlink : true
+
+URxvt.visualBell : true
+
+URxvt.fading : 60
+
+URxvt.font : xft:Cascadia Code-9, xft:Noto Sans CJK JP
+
+URxvt.background : #f9f9f9
+URxvt.foreground : #000000
