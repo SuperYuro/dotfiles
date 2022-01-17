@@ -1,6 +1,3 @@
-# install requirement packages
-sudo pacman -S git
-
 # make install directory
 cd ~/
 mkdir git
