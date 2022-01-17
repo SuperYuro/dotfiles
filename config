@@ -187,5 +187,4 @@ bar {
         status_command i3status
 }
 
-exec --no-startup-id "feh --bg-fill /home/yuro/background/Lenovo/ThinkPad-ThinkCentre_wallpaper.png"
-exec --no-startup-id "ibus-daemon"
+exec --no-startup-id "ibus-daemon -d"
