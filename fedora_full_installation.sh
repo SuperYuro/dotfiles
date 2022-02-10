@@ -6,8 +6,8 @@ dnf install -y https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-re
 dnf install -y google-chrome-stable
 
 # install Vivaldi Browser
-dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
-dnf install -y vivaldi-stable
+# dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
+# dnf install -y vivaldi-stable
 
 # install Brave Browser
 dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
@@ -18,12 +18,6 @@ dnf install -y brave-browser
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 dnf install -y code
-
-# install Groups
-dnf groupinstall -y '3d printing' 'audio production' 'authoring and publishing' 'c development tools and libraries' 'design suite' 'development tools' 'editors' 'engineering and scientific' 'neuron modelling simulators' 'office/productivity' 'python science'
-
-# install packages
-dnf install -y gcc g++ make automake cmake git vim VirtualBox wine google-chrome-stable texlive-scheme-full libreoffice ibus-mozc google-noto-sans cascadia-fonts-all
 
 # install Development Tools
 dnf groupinstall -y 'Development Tools'
@@ -48,10 +42,10 @@ dnf groupinstall -y 'Office/Productivity'
 # install LaTeX Tools
 dnf install -y texlive-scheme-full
 
-# install Japanese IME
+# install Japanese Input Method
 dnf install -y ibus-mozc
 
-# install Additional Fonts
+# install Fonts
 dnf install -y google-noto-sans-fonts
 dnf install -y cascadia-fonts-all
 
