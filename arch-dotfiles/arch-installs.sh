@@ -1,11 +1,11 @@
 # install editors
 sudo pacman -S vim emacs
-paru visual-studio-code-bin
+paru -S visual-studio-code-bin
 
 # install Web Browser
 sudo pacman -S firefox
-paru google-chrome
-paru brave-bin
+paru -S google-chrome
+paru -S brave-bin
 
 # install C development tools
 sudo pacman -S gcc g++ gdb make automake cmake
@@ -14,7 +14,8 @@ sudo pacman -S gcc g++ gdb make automake cmake
 sudo pacman -S python3 python3-pip
 
 # install japanese IME
-paru ibus-mozc
+paru -S ibus-mozc
+paru -S emacs-mozc
 
 # install fonts
 sudo pacman -S noto-fonts-cjk noto-fonts

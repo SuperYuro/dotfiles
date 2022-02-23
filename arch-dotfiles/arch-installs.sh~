@@ -1,4 +1,0 @@
-# install editors
-pacman -S vim emacs
-
-# install 
