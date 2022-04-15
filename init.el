@@ -1,8 +1,8 @@
 ;;; init.el --- My init.el  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Naoya Yamashita
+;; Copyright (C) 2020  Yuta Muro
 
-;; Author: Naoya Yamashita <conao3@gmail.com>
+;; Author: Yuta Muro <a.gpgtdmgp@gmail.com>
 
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -35,6 +35,7 @@
   (customize-set-variable
    'package-archives '(("gnu"   . "https://elpa.gnu.org/packages/")
                        ("melpa" . "https://melpa.org/packages/")
+                       ("melpa-stable" . "https://stable.melpa.org/packages/")
                        ("org"   . "https://orgmode.org/elpa/")))
   (package-initialize)
   (unless (package-installed-p 'leaf)
@@ -53,11 +54,28 @@
     ;; initialize leaf-keywords.el
     (leaf-keywords-init)))
 
-;; ここにいっぱい設定を書く
+;; 設定をここに書く
+;; いろいろなテーマをインストールする
+(leaf cyberpunk-theme :ensure t)
+(leaf solarized-theme :ensure t)
+(leaf cherry-blossom-theme :ensure t)
+(leaf abyss-theme :ensure t)
+(leaf arc-dark-theme :ensure t)
+(leaf spacemacs-theme :ensure t)
+(leaf zenburn-theme :ensure t)
+(leaf doom-themes :ensure t)
+(leaf vscode-dark-plus-theme :ensure t)
+(leaf blackboard-theme :ensure t)
+
+;; アイコンの文字化け防止
+(leaf all-the-icons :ensure t)
+
+;; emacsの設定
 (leaf emacs
   :config
   (load-theme 'high-contrast t)
   (add-to-list 'default-frame-alist '(font . "Hack Nerd Font-10"))
+  (add-to-list 'exec-path (expand-file-name "/usr/bin"))
   (display-time)
   (require 'linum)
   (global-linum-mode 1)
@@ -67,6 +85,7 @@
   (setq inhibit-startup-message t)
   (define-key global-map "\C-h" 'delete-backward-char))
 
+;; mozc（日本語IME）の設定
 (leaf mozc
   :ensure t
   :config
@@ -234,6 +253,8 @@
          ("M-p" . flycheck-previous-error))
   :global-minor-mode global-flycheck-mode)
 
+(leaf flycheck-rust :ensure t)
+
 (leaf company
   :doc "Modular text completion framework"
   :req "emacs-24.3"
@@ -276,10 +297,32 @@
   :custom
   (yas-snippet-dirs . '("~/.emacs.d/yasnippets")))
 
-(leaf lsp-java
+(leaf lsp-mode
   :ensure t
-  :config
-  (add-hook 'java-mode-hook #'lsp))
+  :init (yas-global-mode)
+  :bind ("C-c h" . lsp-describe-thing-at-point)
+  :custom ((lsp-rust-server 'rls)
+           (c-mode-hook 'lsp)
+           (c++-mode-hook 'lsp)
+           (java-mode-hook 'lsp)
+           (rust-mode-hook 'lsp)
+           (python-mode-hook 'lsp)))
+
+(leaf lsp-ui :ensure t)
+
+(leaf lsp-java :ensure t)
+
+(leaf lsp-python-ms :ensure t)
+
+(leaf rust-mode
+  :ensure t
+  :custom rust-format-on-save t)
+
+(leaf flycheck-rust :ensure t)
+
+(leaf cargo
+  :ensure t
+  :hook (rust-mode . cargo-minor-mode))
 
 (provide 'init)
 
