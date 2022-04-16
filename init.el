@@ -66,6 +66,7 @@
 (leaf doom-themes :ensure t)
 (leaf vscode-dark-plus-theme :ensure t)
 (leaf blackboard-theme :ensure t)
+(leaf nimbus-theme :ensure t)
 
 ;; アイコンの文字化け防止
 (leaf all-the-icons :ensure t)
@@ -73,9 +74,8 @@
 ;; emacsの設定
 (leaf emacs
   :config
-  (load-theme 'high-contrast t)
+  (load-theme 'solarized-dark t)
   (add-to-list 'default-frame-alist '(font . "Hack Nerd Font-10"))
-  (add-to-list 'exec-path (expand-file-name "/usr/bin"))
   (display-time)
   (require 'linum)
   (global-linum-mode 1)
@@ -301,22 +301,26 @@
   :ensure t
   :init (yas-global-mode)
   :bind ("C-c h" . lsp-describe-thing-at-point)
-  :custom ((lsp-rust-server 'rls)
-           (c-mode-hook 'lsp)
-           (c++-mode-hook 'lsp)
-           (java-mode-hook 'lsp)
-           (rust-mode-hook 'lsp)
-           (python-mode-hook 'lsp)))
+  :config (add-to-list 'exec-path '(expand-file-name "/home/yuro/.cargo/bin"))
+           (add-hook 'c-mode-hook #'lsp)
+           (add-hook 'c++-mode-hook #'lsp)
+           (add-hook 'python-mode-hook #'lsp)
+  :custom (lsp-rust-server 'rls))
 
 (leaf lsp-ui :ensure t)
 
-(leaf lsp-java :ensure t)
+(leaf lsp-latex
+  :ensure t
+  :config (add-hook 'latex-mode-hook #'lsp))
 
-(leaf lsp-python-ms :ensure t)
+(leaf lsp-java
+  :ensure t
+  :config (add-hook 'java-mode-hook #'lsp))
 
 (leaf rust-mode
   :ensure t
-  :custom rust-format-on-save t)
+  :custom (rust-format-on-save t)
+  :config (add-hook 'rust-mode-hook #'lsp))
 
 (leaf flycheck-rust :ensure t)
 
