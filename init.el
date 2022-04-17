@@ -300,11 +300,12 @@
 (leaf lsp-mode
   :ensure t
   :init (yas-global-mode)
+  :hook ((rust-mode . lsp)
+		 (c-mode . lsp)
+		 (c++-mode . lsp)
+		 (python-mode . lsp))
   :bind ("C-c h" . lsp-describe-thing-at-point)
   :config (add-to-list 'exec-path '(expand-file-name "/home/yuro/.cargo/bin"))
-           (add-hook 'c-mode-hook #'lsp)
-           (add-hook 'c++-mode-hook #'lsp)
-           (add-hook 'python-mode-hook #'lsp)
   :custom (lsp-rust-server 'rls))
 
 (leaf lsp-ui :ensure t)
