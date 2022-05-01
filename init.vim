@@ -1,5 +1,5 @@
 :set number
-:set relativenumber
+" :set relativenumber
 :set autoindent
 :set tabstop=4
 :set shiftwidth=4
@@ -35,7 +35,7 @@ nmap <F8> :TagbarToggle<CR>
 
 :set completeopt-=preview " For No Previews
 
-:colorscheme zellner
+:colorscheme jellybeans
 
 nnoremap <C-f> :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
