@@ -15,7 +15,6 @@
 ;; GNU General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
@@ -55,6 +54,8 @@
     (leaf-keywords-init)))
 
 ;; 設定をここに書く
+(setq exec-path (cons (expand-file-name "/usr/bin") exec-path))
+(setq exec-path (cons (expand-file-name "~/.cargo/bin") exec-path))
 ;; いろいろなテーマをインストールする
 (leaf cyberpunk-theme :ensure t)
 (leaf solarized-theme :ensure t)
@@ -74,8 +75,10 @@
 ;; emacsの設定
 (leaf emacs
   :config
-  (load-theme 'solarized-dark t)
-  (add-to-list 'default-frame-alist '(font . "Hack Nerd Font-10"))
+  (load-theme 'whiteboard t)
+  ;;(add-to-list 'default-frame-alist '(font . "Hack Nerd Font-10"))
+  ;;(add-to-list 'default-frame-alist '(font . "Noto Sans CJK JP-10"))
+  (add-to-list 'default-frame-alist '(font . "Cascadia Code-10"))
   (display-time)
   (require 'linum)
   (global-linum-mode 1)
@@ -90,6 +93,8 @@
   :ensure t
   :config
   (setq default-input-method "japanese-mozc"))
+
+(leaf leaf-convert ensure: t)
 
 (leaf cus-edit
   :doc "tools for customizing Emacs and Lisp packages"
@@ -300,13 +305,7 @@
 (leaf lsp-mode
   :ensure t
   :init (yas-global-mode)
-  :hook ((rust-mode . lsp)
-		 (c-mode . lsp)
-		 (c++-mode . lsp)
-		 (python-mode . lsp))
-  :bind ("C-c h" . lsp-describe-thing-at-point)
-  :config (add-to-list 'exec-path '(expand-file-name "/home/yuro/.cargo/bin"))
-  :custom (lsp-rust-server 'rls))
+  :bind ("C-c h" . lsp-describe-thing-at-point))
 
 (leaf lsp-ui :ensure t)
 
@@ -318,16 +317,11 @@
   :ensure t
   :config (add-hook 'java-mode-hook #'lsp))
 
-(leaf rust-mode
+(leaf rustic
   :ensure t
-  :custom (rust-format-on-save t)
-  :config (add-hook 'rust-mode-hook #'lsp))
-
-(leaf flycheck-rust :ensure t)
-
-(leaf cargo
-  :ensure t
-  :hook (rust-mode . cargo-minor-mode))
+  :custom
+  (rustic-format-trigger . 'on-save)
+  (rustic-lsp-server . 'rust-analyzer))
 
 (provide 'init)
 
