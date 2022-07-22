@@ -19,9 +19,6 @@ font pango:monospace 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-client.focused		#ef5561	#e81123	#ffffff	#434343	#ef5561
-client.focused_inactive	#ffffff	#f9f9f9	#212121	#212121	#ffffff
-
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex-autostart --autostart --environment i3
@@ -154,8 +151,25 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+e exec --no-startup-id \
-"i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot' -b 'Logout' 'i3-msg exit'"
+set $Locker i3lock && sleep 1
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
+
+mode "$mode_system" {
+	bindsym l exec --no-startup-id $Locker, mode "default"
+	bindsym e exec --no-startup-id i3-msg exit, mode "default"
+	bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+	bindsym h exec --no-startup-id $Locker && systemctl hybernate, mode "default"
+	bindsym r exec --no-startup-id systemctl reboot, mode "default"
+	bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+	# back to nomrmal: Enter or Escape or $mod+Shift+e
+	bindsym return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+r mode "default"
+}
+
+bindsym $mod+Shift+e mode "$mode_system"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
