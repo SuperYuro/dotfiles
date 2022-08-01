@@ -10,3 +10,36 @@ URxvt.font : xft:Cascadia Code-10, xft:Noto Sans CJK JP-10
 
 URxvt.background : #f9f9f9
 URxvt.foreground : #000000
+
+XTerm*termName: xterm-256color
+
+XTerm*locale: true
+XTerm*metaSendsEscape: true
+
+XTerm*vt100.backarrowKey: false
+XTerm*ttyModes: erase ^?
+
+XTerm*background: rgb:f9/f9/f9
+XTerm*foreground: rgb:00/00/00
+
+XTerm*faceName: Cascadia Code:style=Book:antialias=false
+XTerm*faceNameDoublesize: Noto Sans CJK JP
+XTerm*faceSize: 10
+
+
+UXTerm*termName: xterm-256color
+
+UXTerm*locale: true
+UXTerm*metaSendsEscape: true
+
+UXTerm*vt100.backarrowKey: false
+UXTerm*ttyModes: erase ^?
+
+UXTerm*foreground: rgb:00/00/00
+UXTerm*background: rgb:f9/f9/f9
+
+UXTerm*faceName: Cascadia Code:style=Book:antialias=true
+UXTerm*faceNameDoublesize: Noto Sans CJK JP
+UXTerm*faceSize: 10
+
+Emacs*UseXIM: false
