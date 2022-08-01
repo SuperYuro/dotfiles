@@ -57,17 +57,7 @@
 (setq exec-path (cons (expand-file-name "/usr/bin") exec-path))
 (setq exec-path (cons (expand-file-name "~/.cargo/bin") exec-path))
 ;; いろいろなテーマをインストールする
-(leaf cyberpunk-theme :ensure t)
-(leaf solarized-theme :ensure t)
-(leaf cherry-blossom-theme :ensure t)
-(leaf abyss-theme :ensure t)
-(leaf arc-dark-theme :ensure t)
-(leaf spacemacs-theme :ensure t)
-(leaf zenburn-theme :ensure t)
-(leaf doom-themes :ensure t)
-(leaf vscode-dark-plus-theme :ensure t)
 (leaf blackboard-theme :ensure t)
-(leaf nimbus-theme :ensure t)
 
 ;; アイコンの文字化け防止
 (leaf all-the-icons :ensure t)
@@ -75,7 +65,7 @@
 ;; emacsの設定
 (leaf emacs
   :config
-  (load-theme 'whiteboard t)
+  (load-theme 'blackboard t)
   ;;(add-to-list 'default-frame-alist '(font . "Hack Nerd Font-10"))
   ;;(add-to-list 'default-frame-alist '(font . "Noto Sans CJK JP-10"))
   (add-to-list 'default-frame-alist '(font . "Cascadia Code-10"))
