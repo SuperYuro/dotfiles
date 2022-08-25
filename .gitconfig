@@ -1,0 +1,16 @@
+[safe]
+	directory = /opt/flutter
+[user]
+	name = SuperYuro
+	email = a.gpgtdmgp@gmail.com
+[alias]
+	d = diff
+	co = checkout
+	cm = commit
+	br = branch
+	ba = "branch -a"
+	a = add
+	l = log
+	rs = restore
+	cl = clone
+	st = status
