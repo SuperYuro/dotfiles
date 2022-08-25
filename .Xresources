@@ -6,7 +6,7 @@ URxvt.visualBell : true
 
 URxvt.fading : 10
 
-URxvt.font : xft:Cascadia Code-10, xft:Noto Sans CJK JP-10
+URxvt.font : xft:Hack Nerd Font-10, xft:Noto Sans CJK JP-10
 
 URxvt.background : #f9f9f9
 URxvt.foreground : #000000
@@ -19,26 +19,28 @@ XTerm*metaSendsEscape: true
 XTerm*vt100.backarrowKey: false
 XTerm*ttyModes: erase ^?
 
-XTerm*background: rgb:f9/f9/f9
-XTerm*foreground: rgb:00/00/00
+/* XTerm*reverseVideo: off */
 
-XTerm*faceName: Cascadia Code:style=Book:antialias=false
+XTerm*borderWidth: 0
+
+XTerm*faceName: Hack Nerd Font:style=Book:antialias=false
 XTerm*faceNameDoublesize: Noto Sans CJK JP
 XTerm*faceSize: 10
 
 
-UXTerm*termName: xterm-256color
+uxterm*termname: xterm-256color
 
-UXTerm*locale: true
-UXTerm*metaSendsEscape: true
+uxterm*locale: true
+uxterm*metasendsescape: true
 
-UXTerm*vt100.backarrowKey: false
-UXTerm*ttyModes: erase ^?
+uxterm*vt100.backarrowkey: false
+uxterm*ttymodes: erase ^?
 
-UXTerm*foreground: rgb:00/00/00
-UXTerm*background: rgb:f9/f9/f9
+/* UXTerm*reverseVideo: off */
 
-UXTerm*faceName: Cascadia Code:style=Book:antialias=true
+UXTerm*borderWidth: 0
+
+UXTerm*faceName: Hack Nerd Font:style=Book:antialias=true
 UXTerm*faceNameDoublesize: Noto Sans CJK JP
 UXTerm*faceSize: 10
 
