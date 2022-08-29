@@ -1,8 +1,8 @@
 ;;; init.el --- My init.el  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Yuta Muro
+;; Copyright (C) 2020  SuperYuro
 
-;; Author: Yuta Muro <a.gpgtdmgp@gmail.com>
+;; Author: SuperYuro <a.gpgtdmgp@gmail.com>
 
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
