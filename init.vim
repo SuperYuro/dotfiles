@@ -11,7 +11,7 @@ set hidden
 syntax enable
 filetype plugin indent on
 
-call plug#begin('~/AppData/Local/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'preservim/nerdtree' " NerdTree
@@ -20,7 +20,7 @@ Plug 'tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'ap/vim-css-color' " CSS Color Preview
 Plug 'rafi/awesome-vim-colorschemes' "Retro Scheme
 Plug 'ryanoasis/vim-devicons' " Developper Icons
-Plug 'tc49cal/vim-terminal' " Vim Terminal
+" Plug 'tc49cal/vim-terminal' " Vim Terminal
 Plug 'terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plug 'preservim/tagbar' " Tagbar for code navigation
 " Plug 'neoclide/coc.nvim' " Auto Completion
@@ -38,7 +38,7 @@ set completeopt-=preview " For No Previews
 
 colorscheme default
 
-" Config like Emacs in Insert Mode
+" Configure cursor manipulation like Emacs in Insert Mode
 imap <C-f> <right>
 imap <C-b> <left>
 imap <C-p> <up>
@@ -47,6 +47,10 @@ imap <C-a> <home>
 imap <C-e> <end>
 
 map <silent> <C-x><C-s> :w<Return>
+map <silent> <C-x><C-c> :qa<Return>
+
+" Exit terminal insert mode
+:tnoremap <Esc> <C-\><C-n>
 
 " Config like Emacs in Normal/Visual Mode
 map <C-a> <home>
