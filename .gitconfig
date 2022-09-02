@@ -1,8 +1,3 @@
-[safe]
-	directory = /opt/flutter
-[user]
-	name = SuperYuro
-	email = a.gpgtdmgp@gmail.com
 [alias]
 	d = diff
 	co = checkout
