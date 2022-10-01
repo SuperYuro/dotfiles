@@ -1,44 +1,32 @@
 set number
-" :set relativenumber
+set relativenumber
 set autoindent
 set tabstop=4
 set shiftwidth=4
 set smarttab
 set softtabstop=3
-set mouse=a
-set hidden 
+set mouse=n
+set hidden
+set background=dark
 
-syntax enable
 filetype plugin indent on
+syntax enable
 
-call plug#begin('~/.config/nvim/plugged')
+" Plugins
+packadd vim-jetpack
+call jetpack#begin('~/.config/nvim/plugins')
+Jetpack 'tani/vim-jetpack', {'opt': 1}
+Jetpack 'vim-airline/vim-airline'
+Jetpack 'tpope/vim-commentary'
+Jetpack 'ap/vim-css-color'
+Jetpack 'prabirshrestha/asyncomplete.vim'
+Jetpack 'prabirshrestha/asyncomplete-lsp.vim'
+Jetpack 'prabirshrestha/vim-lsp'
+Jetpack 'mattn/vim-lsp-settings'
+Jetpack 'mattn/vim-lsp-icons'
+call jetpack#end()
 
-Plug 'vim-airline/vim-airline' " Status bar
-Plug 'preservim/nerdtree' " NerdTree
-Plug 'tpope/vim-surround' " Surrounding ysw)
-Plug 'tpope/vim-commentary' " For Commenting gcc & gc
-Plug 'ap/vim-css-color' " CSS Color Preview
-Plug 'rafi/awesome-vim-colorschemes' "Retro Scheme
-Plug 'ryanoasis/vim-devicons' " Developper Icons
-" Plug 'tc49cal/vim-terminal' " Vim Terminal
-Plug 'terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
-Plug 'preservim/tagbar' " Tagbar for code navigation
-" Plug 'neoclide/coc.nvim' " Auto Completion
-" Plug 'rust-lang/rust.vim' " Rust Plugin
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'mattn/vim-lsp-icons'
-call plug#end()
-
-nnoremap <F8> :TagbarToggle<CR>
-
-set completeopt-=preview " For No Previews
-
-colorscheme default
-
-" Configure cursor manipulation like Emacs in Insert Mode
+" Configure cursor manipulatino like Emacsin Insert Mode
 imap <C-f> <right>
 imap <C-b> <left>
 imap <C-p> <up>
@@ -46,80 +34,41 @@ imap <C-n> <down>
 imap <C-a> <home>
 imap <C-e> <end>
 
-map <silent> <C-x><C-s> :w<Return>
-map <silent> <C-x><C-c> :qa<Return>
-
-" Exit terminal insert mode
-:tnoremap <Esc> <C-\><C-n>
-
-" Config like Emacs in Normal/Visual Mode
-map <C-a> <home>
-map <C-e> <end>
-
-" NeoVim
-" Ctrl + g to Escape
-map <C-g> <ESC>
+" Don't yank with x
+nnoremap x "_x
 
 " Increment/Decrement
 nnoremap + <C-a>
 nnoremap - <C-x>
 
 " New tab
-nmap <silent> te :tabedit<Return>
+nnoremap <silent> te :tabedit<Return>
 
-" Open file in new buffer
-nmap <C-x><C-f> :e 
-
-" Kill current buffer
-nmap <C-x>k :close<Return>
-
-" Show buffer list
-nmap <silent> <C-x>b :ls<Return>
-
-" Move between buffers
-nmap <silent> <C-x>n :bNext<Return>
-nmap <silent> <C-x>p :bprevious<Return>
+" Move tab
+nnoremap tn gt
+nnoremap tp gT
 
 " Split window
-nmap <silent> ss :split<Return><C-w>w
-nmap <silent> sv :vsplit<Return><C-w>w
-nmap <silent> <C-x>2 :split<Return><C-w>w
-nmap <silent> <C-x>3 :vsplit<Return><C-w>w
+nnoremap <silent> ss :split<Return>
+nnoremap <silent> sv :vsplit<Return>
 
-" Close current window
-nmap <silent> <C-x>0 :close
-
-" Close unactive window
-nmap <silent> <C-x>1 <C-w>o
-
-" Move between windows
-nmap <C-x>o <C-w>w
+" Move window
+nnoremap <Space> <C-w>w
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
 
 " Resize window
-nmap <C-r><C-b> <C-w><
-nmap <C-r><C-f> <C-w>>
-nmap <C-r><C-p> <C-w>+
-nmap <C-r><C-n> <C-w>-
+nnoremap <C-r>h <C-w><
+nnoremap <C-r>j <C-w>-
+nnoremap <C-r>k <C-w>+
+nnoremap <C-r>l <C-w>>
 
-" NERDTree
-nnoremap <C-t> :NERDTreeToggle<CR>
+" Exit terminal insert mode with ESC
+tnoremap <Esc> <C-\><C-n>
 
-" vim-lsp-settings
-nnoremap <silent> gdf :LspDefinition<CR>
-nnoremap <silent> gtd :LspTypeDefinition<CR>
-nnoremap <silent> gim :LspImplementation<CR>
-nnoremap <silent> gis :LspInstallServer<CR>
-nnoremap <silent> grf :LspReferences<CR>
-nnoremap <silent> grn :LspRename<CR>
-nnoremap <silent> gfm :LspDocumentFormat<CR>
+nnoremap gfm :LspDocumentFormat<Return>
+nnoremap grn :LspRename<Return>
 
-let g:lsp_diagnostics_enabled=1
-let g:lsp_diagnostics_echo_cursor=1
-let g:lsp_text_edit_enabled=1
-let g:asyncomplete_auto_popup=1
-let g:asyncomplete_popup_delay=1
-
-let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeDirArrowCollapsible="~"
-
-let g:rustfmt_autosave = 1
+colorscheme default
