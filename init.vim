@@ -68,7 +68,8 @@ nnoremap <C-r>l <C-w>>
 " Exit terminal insert mode with ESC
 tnoremap <Esc> <C-\><C-n>
 
+nnoremap gis :LspInstallServer<Return>
 nnoremap gfm :LspDocumentFormat<Return>
 nnoremap grn :LspRename<Return>
 
-colorscheme default
+colorscheme desert
