@@ -9,3 +9,5 @@
 	rs = restore
 	cl = clone
 	st = status
+	pl = pull
+	ps = push
