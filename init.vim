@@ -72,4 +72,4 @@ nnoremap gis :LspInstallServer<Return>
 nnoremap gfm :LspDocumentFormat<Return>
 nnoremap grn :LspRename<Return>
 
-colorscheme desert
+colorscheme zellner
