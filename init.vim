@@ -1,5 +1,5 @@
 set number
-set relativenumber
+" set relativenumber
 set autoindent
 set tabstop=4
 set shiftwidth=4
@@ -24,6 +24,7 @@ Jetpack 'prabirshrestha/asyncomplete-lsp.vim'
 Jetpack 'prabirshrestha/vim-lsp'
 Jetpack 'mattn/vim-lsp-settings'
 Jetpack 'mattn/vim-lsp-icons'
+Jetpack 'ryanoasis/vim-devicons'
 call jetpack#end()
 
 " Configure cursor manipulatino like Emacsin Insert Mode
@@ -45,8 +46,7 @@ nnoremap - <C-x>
 nnoremap <silent> te :tabedit<Return>
 
 " Move tab
-nnoremap tn gt
-nnoremap tp gT
+nnoremap <Tab> gt
 
 " Split window
 nnoremap <silent> ss :split<Return>
@@ -68,7 +68,8 @@ nnoremap <C-r>l <C-w>>
 " Exit terminal insert mode with ESC
 tnoremap <Esc> <C-\><C-n>
 
+nnoremap gis :LspInstallServer<Return>
 nnoremap gfm :LspDocumentFormat<Return>
 nnoremap grn :LspRename<Return>
 
-colorscheme default
+colorscheme desert
