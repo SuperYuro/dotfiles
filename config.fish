@@ -28,4 +28,4 @@ alias ll 'ls -lh'
 alias c cd
 alias g git
 alias v vim
-
+alias bi 'acpi --battery --details'
