@@ -47,6 +47,7 @@ nnoremap <silent> te :tabedit<Return>
 
 " Move tab
 nnoremap <Tab> gt
+nnoremap <S-Tab> gT
 
 " Split window
 nnoremap <silent> ss :split<Return>
