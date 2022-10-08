@@ -8,8 +8,42 @@ URxvt.fading : 10
 
 URxvt.font : xft:Hack Nerd Font-10, xft:Noto Sans CJK JP-10
 
-URxvt.background : #f9f9f9
-URxvt.foreground : #000000
+URxvt.foreground: '#839496'
+URxvt.background: '#022B36'
+URxvt.cursorColor: '#FFFFFF'
+URxvt.highlightColor: '#FFFFFF'
+
+!! black dark/light
+URxvt.color0:  '#002B36'
+URxvt.color8:  '#073642'
+
+!! red dark/light
+URxvt.color1:  '#DC322F'
+URxvt.color9:  '#CB4B16'
+
+!! green dark/light
+URxvt.color2:  '#859900'
+URxvt.color10: '#586E75'
+
+!! yellow dark/light
+URxvt.color3:  '#B58900'
+URxvt.color11: '#657B83'
+
+!! blue dark/light
+URxvt.color4:  '#268BD2'
+URxvt.color12: '#839496'
+
+!! magenta dark/light
+URxvt.color5:  '#D33682'
+URxvt.color13: '#6C71C4'
+
+!! cyan dark/light
+URxvt.color6:  '#2AA198'
+URxvt.color14: '#93A1A1'
+
+!! white dark/light
+URxvt.color7:  '#EEE8D5'
+URxvt.color15: '#FDF6E3'
 
 XTerm*termName: xterm-256color
 
