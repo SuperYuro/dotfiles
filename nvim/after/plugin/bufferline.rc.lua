@@ -27,13 +27,13 @@ bufferline.setup {
     },
     fill = {
       bg = '#073642',
-      underline = true,
-      undercurl = true,
-      italic = true,
-      bold = true
+      -- underline = true,
+      -- undercurl = true,
+      -- italic = true,
+      -- bold = true
     }
   }
 }
 
 vim.api.nvim_set_keymap('n', '<Tab>', '<cmd>BufferLineCycleNext<cr>', {})
-vim.api.nvim_set_keymap('n', '<S-Tab>', '<cmd>BufferLineCyclePrevious<cr>', {})
+vim.api.nvim_set_keymap('n', '<S-Tab>', '<cmd>BufferLineCyclePrev<cr>', {})
