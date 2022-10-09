@@ -61,14 +61,13 @@ XTerm*faceName: Hack Nerd Font:style=Book:antialias=false
 XTerm*faceNameDoublesize: Noto Sans CJK JP
 XTerm*faceSize: 10
 
+UXTerm*termname: xterm-256color
 
-uxterm*termname: xterm-256color
+UXTerm*locale: true
+UXTerm*metasendsescape: true
 
-uxterm*locale: true
-uxterm*metasendsescape: true
-
-uxterm*vt100.backarrowkey: false
-uxterm*ttymodes: erase ^?
+UXTerm*vt100.backarrowkey: false
+UXTerm*ttymodes: erase ^?
 
 /* UXTerm*reverseVideo: off */
 
@@ -77,5 +76,42 @@ UXTerm*borderWidth: 0
 UXTerm*faceName: Hack Nerd Font:style=Book:antialias=true
 UXTerm*faceNameDoublesize: Noto Sans CJK JP
 UXTerm*faceSize: 10
+
+UXTerm.foreground: #839496
+UXTerm.background: #022B36
+UXTerm.cursorColor: #FFFFFF
+UXTerm.highlightColor: #FFFFFF
+
+!! black dark/light
+UXTerm.color0:  #002B36
+UXTerm.color8:  #073642
+
+!! red dark/light
+UXTerm.color1:  #DC322F
+UXTerm.color9:  #CB4B16
+
+!! green dark/light
+UXTerm.color2:  #859900
+UXTerm.color10: #586E75
+
+!! yellow dark/light
+UXTerm.color3:  #B58900
+UXTerm.color11: #657B83
+
+!! blue dark/light
+UXTerm.color4:  #268BD2
+UXTerm.color12: #839496
+
+!! magenta dark/light
+UXTerm.color5:  #D33682
+UXTerm.color13: #6C71C4
+
+!! cyan dark/light
+UXTerm.color6:  #2AA198
+UXTerm.color14: #93A1A1
+
+!! white dark/light
+UXTerm.color7:  #EEE8D5
+UXTerm.color15: #FDF6E3
 
 Emacs*UseXIM: false
