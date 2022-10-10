@@ -21,11 +21,19 @@ keymap.set('n', '-', '<C-x>')
 -- New tab
 keymap.set('n', 'te', ':tabedit<Return>', { silent = true })
 
--- Split window
-keymap.set('n', 'ss', ':split<Return>', { silent = true })
-keymap.set('n', 'sv', ':vsplit<Return>', { silent = true })
+-- Switch tab
+keymap.set('n', 'tn', 'gt')
+keymap.set('n', 'tp', 'gT')
 
 -- Switch buffer
+keymap.set('n', '<Tab>', ':bnext<Return>', { silent = true })
+keymap.set('n', '<S-Tab>', ':bprevious<Return>', { silent = true })
+
+-- Split window
+keymap.set('n', 'ss', ':split<Return><C-w>w', { silent = true })
+keymap.set('n', 'sv', ':vsplit<Return><C-w>w', { silent = true })
+
+-- Switch window
 keymap.set('n', '<Space>', '<C-w>w')
 keymap.set('n', 'sh', '<C-w>h')
 keymap.set('n', 'sj', '<C-w>j')
