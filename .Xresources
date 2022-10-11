@@ -64,7 +64,7 @@ XTerm*faceSize: 10
 UXTerm*termname: xterm-256color
 
 UXTerm*locale: true
-UXTerm*metasendsescape: true
+UXTerm*metaSendsEscape: true
 
 UXTerm*vt100.backarrowkey: false
 UXTerm*ttymodes: erase ^?
