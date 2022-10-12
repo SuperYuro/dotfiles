@@ -9,10 +9,10 @@ vim.cmd [[packadd packer.nvim]]
 packer.startup(
     function(use)
         use 'wbthomason/packer.nvim'
-        use {
-            'svrana/neosolarized.nvim',
-            requires = { 'tjdevries/colorbuddy.nvim' }
-        }
+        -- use {
+        --     'svrana/neosolarized.nvim',
+        --     requires = { 'tjdevries/colorbuddy.nvim' }
+        -- }
         use 'kyazdani42/nvim-web-devicons' -- File icons
         use 'glepnir/lspsaga.nvim' -- LSP UIs
         use 'nvim-lualine/lualine.nvim' -- Statusline
