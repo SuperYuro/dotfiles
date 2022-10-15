@@ -25,6 +25,9 @@
 				{
 					"PackageIdentifier": "Docker.DockerDesktop"
 				},
+                {
+                    "PackageIdentifier": "Fedora.FedoraMediaWriter"
+                },
 				{
 					"PackageIdentifier": "GitHub.GitHubDesktop"
 				},
@@ -32,28 +35,13 @@
 					"PackageIdentifier": "Git.Git"
 				},
 				{
-					"PackageIdentifier": "Microsoft.AzureStorageEmulator"
-				},
-				{
-					"PackageIdentifier": "Microsoft.Edge"
-				},
-				{
-					"PackageIdentifier": "Microsoft.EdgeWebView2Runtime"
-				},
-				{
-					"PackageIdentifier": "Microsoft.WindowsTerminal"
+					"PackageIdentifier": "Google.Chrome"
 				},
 				{
 					"PackageIdentifier": "Mozilla.Firefox"
 				},
 				{
 					"PackageIdentifier": "Microsoft.Office"
-				},
-				{
-					"PackageIdentifier": "JanDeDobbeleer.OhMyPosh"
-				},
-				{
-					"PackageIdentifier": "Microsoft.OneDrive"
 				},
 				{
 					"PackageIdentifier": "Rustlang.Rustup"
@@ -65,21 +53,6 @@
 					"PackageIdentifier": "JetBrains.Toolbox"
 				},
 				{
-					"PackageIdentifier": "Balena.Etcher"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VC++2013Redist-x64"
-				},
-				{
-					"PackageIdentifier": "Microsoft.WebDeploy"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VC++2015-2022Redist-x64"
-				},
-				{
-					"PackageIdentifier": "Microsoft.WindowsSDK"
-				},
-				{
 					"PackageIdentifier": "Microsoft.OpenJDK.17"
 				},
 				{
@@ -87,21 +60,6 @@
 				},
 				{
 					"PackageIdentifier": "Microsoft.VisualStudioCode"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VC++2015-2019Redist-x86"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VC++2013Redist-x86"
-				},
-				{
-					"PackageIdentifier": "Neovim.Neovim"
-				},
-				{
-					"PackageIdentifier": "Google.Chrome"
-				},
-				{
-					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.6"
 				}
 			],
 			"SourceDetails": {
@@ -115,9 +73,6 @@
 			"Packages": [
 				{
 					"PackageIdentifier": "9PGCV4V3BK4W"
-				},
-				{
-					"PackageIdentifier": "9MZ1SNWT0N5D"
 				}
 			],
 			"SourceDetails": {
