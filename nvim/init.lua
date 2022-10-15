@@ -1,5 +1,5 @@
 require('base')
--- require('highlights')
+require('highlights')
 require('maps')
 require('plugins')
 
@@ -15,7 +15,4 @@ if is_mac then
 end
 if is_win then
     require('windows')
-    require('highlights_wt')
-else
-    require('highlights')
 end
