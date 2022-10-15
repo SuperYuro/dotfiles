@@ -32,9 +32,6 @@
 					"PackageIdentifier": "GitHub.GitHubDesktop"
 				},
 				{
-					"PackageIdentifier": "Git.Git"
-				},
-				{
 					"PackageIdentifier": "Google.Chrome"
 				},
 				{
@@ -60,7 +57,25 @@
 				},
 				{
 					"PackageIdentifier": "Microsoft.VisualStudioCode"
-				}
+				},
+                {
+                    "PackageIdentifier": "Python.Python.3.10"
+                },
+                {
+                    "PackageIdentifier": "OpenJS.NodeJS.LTS"
+                },
+                {
+                    "PackageIdentifier": "BlenderFoundation.Blender"
+                },
+                {
+                    "PackageIdentifier": "Autodesk.EAGLE"
+                },
+                {
+                    "PackageIdentifier": "Automattic.Simplenote"
+                },
+                {
+                    "PackageIdentifier": "msys2.msys2"
+                }
 			],
 			"SourceDetails": {
 				"Argument": "https://cdn.winget.microsoft.com/cache",
