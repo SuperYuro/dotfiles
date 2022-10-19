@@ -5,11 +5,18 @@ keymap.set('i', '<C-f>', '<right>')
 keymap.set('i', '<C-b>', '<left>')
 keymap.set('i', '<C-p>', '<up>')
 keymap.set('i', '<C-n>', '<down>')
+
 keymap.set('i', '<C-a>', '<home>')
 keymap.set('i', '<C-e>', '<end>')
 
+keymap.set('i', '<M-f>', '<C-right>')
+keymap.set('i', '<M-b>', '<C-left>')
+
 -- Do not yank with x
 keymap.set('n', 'x', '"_x')
+
+-- Crush macro shortcut
+keymap.set('n', 'q', ':w<CR>')
 
 -- Redo with U
 keymap.set('n', 'U', '<C-r>')

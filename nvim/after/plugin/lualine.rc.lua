@@ -1,9 +1,9 @@
 require('lualine').setup {
     options = {
-        icons_enabled = true,
+        icons_enabled = false,
         theme = 'onelight',
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
         disabled_filetypes = {
             statusline = {},
             winbar = {},
@@ -83,7 +83,7 @@ require('lualine').setup {
                 symbols = {
                     modified = ' ●', -- Text to show when the buffer is modified
                     alternate_file = '#', -- Text to show to identify the alternate file
-                    directory = '', -- Text to show when the buffer is a directory
+                    directory = 'D', -- Text to show when the buffer is a directory
                 },
             },
         }
