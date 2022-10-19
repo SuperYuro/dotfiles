@@ -50,6 +50,7 @@ dnf install -y emacs-mozc
 
 # install Fonts
 dnf install -y google-noto-sans-fonts
+dnf install -y google-noto-serif-fonts
 dnf install -y cascadia-fonts-all
 
 # update
