@@ -53,5 +53,8 @@ dnf install -y google-noto-sans-fonts
 dnf install -y google-noto-serif-fonts
 dnf install -y cascadia-fonts-all
 
+# install github cli
+dnf install -y gh
+
 # update
 dnf update -y
