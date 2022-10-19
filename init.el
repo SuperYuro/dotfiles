@@ -65,7 +65,7 @@
 ;; emacsの設定
 (leaf emacs
   :config
-  (load-theme 'blackboard t)
+  (load-theme 'whiteboard t)
   ;;(add-to-list 'default-frame-alist '(font . "Hack Nerd Font-10"))
   ;;(add-to-list 'default-frame-alist '(font . "Noto Sans CJK JP-10"))
   (add-to-list 'default-frame-alist '(font . "Cascadia Code-10"))
@@ -298,6 +298,10 @@
   :bind ("C-c h" . lsp-describe-thing-at-point))
 
 (leaf lsp-ui :ensure t)
+
+(leaf lsp-jedi
+  :ensure t
+  :config (add-hook 'python-mode #'lsp))
 
 (leaf lsp-latex
   :ensure t
