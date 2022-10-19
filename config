@@ -208,4 +208,5 @@ bar {
         status_command i3status
 }
 
+exec --no-startup-id "setxkbmap -layout us"
 exec --no-startup-id "ibus-daemon -drx"
