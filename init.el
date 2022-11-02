@@ -121,7 +121,8 @@
             (indent-tabs-mode . nil))
   :config
   (defalias 'yes-or-no-p 'y-or-n-p)
-  (keyboard-translate ?\C-h ?\C-?))
+  (keyboard-translate ?\C-h ?\C-?)
+  (add-to-list 'default-frame-alist '(font . "Hack Nerd Font-10")))
 
 (leaf autorevert
   :doc "revert buffers when files on disk change"
