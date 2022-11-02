@@ -1,6 +1,6 @@
 ;;; init.el --- My init.el  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  SuperYuro
+;; Copyright (C) 2022  SuperYuro
 
 ;; Author: SuperYuro <a.gpgtdmgp@gmail.com>
 
@@ -15,6 +15,7 @@
 ;; GNU General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
@@ -23,7 +24,7 @@
 ;;; Code:
 
 ;; this enables this running method
-;;   emacs-q -l ~/.debug.emacs.d/init.el
+;;   emacs -q -l ~/.debug.emacs.d/init.el
 (eval-and-compile
   (when (or load-file-name byte-compile-current-file)
     (setq user-emacs-directory
@@ -34,7 +35,6 @@
   (customize-set-variable
    'package-archives '(("gnu"   . "https://elpa.gnu.org/packages/")
                        ("melpa" . "https://melpa.org/packages/")
-                       ("melpa-stable" . "https://stable.melpa.org/packages/")
                        ("org"   . "https://orgmode.org/elpa/")))
   (package-initialize)
   (unless (package-installed-p 'leaf)
@@ -44,47 +44,42 @@
   (leaf leaf-keywords
     :ensure t
     :init
-    ;; optional packages if you want to use :hydra, :el-get, :blackout,,,
-    (leaf hydra :ensure t)
-    (leaf el-get :ensure t)
+    (leaf leaf-convert :ensure t)
     (leaf blackout :ensure t)
 
     :config
     ;; initialize leaf-keywords.el
     (leaf-keywords-init)))
 
-;; 設定をここに書く
-(setq exec-path (cons (expand-file-name "/usr/bin") exec-path))
-(setq exec-path (cons (expand-file-name "~/.cargo/bin") exec-path))
-;; いろいろなテーマをインストールする
-(leaf blackboard-theme :ensure t)
+;; Write settins below
+(add-to-list 'exec-path (expand-file-name "/usr/bin"))
+(add-to-list 'exec-path (expand-file-name "~/.local/bin"))
+(add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
 
-;; アイコンの文字化け防止
-(leaf all-the-icons :ensure t)
+;; Set Theme
+(leaf blackboard-theme
+  :doc "TextMate Blackboard Theme"
+  :req "emacs-24"
+  :tag "emacs>=24"
+  :url "https://github.com/don9z/blackboard-theme"
+  :added "2022-11-02"
+  :emacs>= 24
+  :ensure t
+  :config (load-theme 'whiteboard))
 
-;; emacsの設定
-(leaf emacs
-  :config
-  (load-theme 'whiteboard t)
-  ;;(add-to-list 'default-frame-alist '(font . "Hack Nerd Font-10"))
-  ;;(add-to-list 'default-frame-alist '(font . "Noto Sans CJK JP-10"))
-  (add-to-list 'default-frame-alist '(font . "Cascadia Code-10"))
-  (display-time)
-  (require 'linum)
-  (global-linum-mode 1)
-  (menu-bar-mode 0)
-  (tool-bar-mode 0)
-  (which-function-mode 1)
-  (setq inhibit-startup-message t)
-  (define-key global-map "\C-h" 'delete-backward-char))
-
-;; mozc（日本語IME）の設定
+;; Japanese IME configuration
 (leaf mozc
+  :doc "minor mode to input Japanese with Mozc"
+  :tag "input method" "multilingual" "mule"
   :ensure t
   :config
-  (setq default-input-method "japanese-mozc"))
+  (set-input-method 'japanese-mozc)
+  (set-fontset-font t 'japanese-jisx0208 "Noto Serif CJK JP-10"))
 
-(leaf leaf-convert ensure: t)
+(leaf linum
+  :doc "display line numbers in the left margin"
+  :tag "builtin"
+  :global-minor-mode global-linum-mode)
 
 (leaf cus-edit
   :doc "tools for customizing Emacs and Lisp packages"
@@ -99,10 +94,11 @@
     (interactive)
     (redraw-frame))
 
-  :bind (("M-ESC ESC" . c/redraw-frame))
-  :custom '((user-full-name . "Naoya Yamashita")
-            (user-mail-address . "conao3@gmail.com")
-            (user-login-name . "conao3")
+  :bind (("M-ESC ESC" . c/redraw-frame)
+         ("C-h" . delete-backward-char))
+  :custom '((user-full-name . "SuperYuro")
+            (user-mail-address . "a.gpgtdmgp@gmail.com")
+            (user-login-name . "yuro")
             (create-lockfiles . nil)
             (debug-on-error . t)
             (init-file-debug . t)
@@ -116,10 +112,11 @@
             (ring-bell-function . 'ignore)
             (text-quoting-style . 'straight)
             (truncate-lines . t)
+            (inhibit-splash-screen . t)
             ;; (use-dialog-box . nil)
             ;; (use-file-dialog . nil)
-            ;; (menu-bar-mode . t)
-            ;; (tool-bar-mode . nil)
+            (menu-bar-mode . nil)
+            (tool-bar-mode . nil)
             (scroll-bar-mode . nil)
             (indent-tabs-mode . nil))
   :config
@@ -225,7 +222,7 @@
   :ensure t
   :custom ((prescient-aggressive-file-save . t))
   :global-minor-mode prescient-persist-mode)
-  
+
 (leaf ivy-prescient
   :doc "prescient.el + Ivy"
   :req "emacs-25.1" "prescient-4.0" "ivy-0.11.0"
@@ -247,8 +244,6 @@
   :bind (("M-n" . flycheck-next-error)
          ("M-p" . flycheck-previous-error))
   :global-minor-mode global-flycheck-mode)
-
-(leaf flycheck-rust :ensure t)
 
 (leaf company
   :doc "Modular text completion framework"
@@ -286,36 +281,40 @@
   :config
   (add-to-list 'company-backends 'company-c-headers))
 
-(leaf yasnippet
+(leaf tramp
+  :doc "Transparent Remote Access, Multiple Protocol"
+  :tag "builtin"
+  :added "2022-11-02")
+
+(leaf counsel-tramp
+  :doc "Tramp ivy interface for ssh, docker, vagrant"
+  :req "emacs-24.3" "counsel-0.10"
+  :tag "emacs>=24.3"
+  :url "https://github.com/masasam/emacs-counsel-tramp"
+  :added "2022-11-02"
+  :emacs>= 24.3
   :ensure t
-  :init (yas-global-mode 1)
-  :custom
-  (yas-snippet-dirs . '("~/.emacs.d/yasnippets")))
+  :after counsel)
 
 (leaf lsp-mode
+  :doc "LSP mode"
+  :req "emacs-26.1" "dash-2.18.0" "f-0.20.0" "ht-2.3" "spinner-1.7.3" "markdown-mode-2.3" "lv-0"
+  :tag "languages" "emacs>=26.1"
+  :url "https://github.com/emacs-lsp/lsp-mode"
+  :added "2022-11-02"
+  :emacs>= 26.1
   :ensure t
-  :init (yas-global-mode)
-  :bind ("C-c h" . lsp-describe-thing-at-point))
+  :after spinner markdown-mode lv)
 
-(leaf lsp-ui :ensure t)
-
-(leaf lsp-jedi
+(leaf lsp-ui
+  :doc "UI modules for lsp-mode"
+  :req "emacs-26.1" "dash-2.18.0" "lsp-mode-6.0" "markdown-mode-2.3"
+  :tag "tools" "languages" "emacs>=26.1"
+  :url "https://github.com/emacs-lsp/lsp-ui"
+  :added "2022-11-02"
+  :emacs>= 26.1
   :ensure t
-  :config (add-hook 'python-mode #'lsp))
-
-(leaf lsp-latex
-  :ensure t
-  :config (add-hook 'latex-mode-hook #'lsp))
-
-(leaf lsp-java
-  :ensure t
-  :config (add-hook 'java-mode-hook #'lsp))
-
-(leaf rustic
-  :ensure t
-  :custom
-  (rustic-format-trigger . 'on-save)
-  (rustic-lsp-server . 'rust-analyzer))
+  :after lsp-mode markdown-mode)
 
 (provide 'init)
 
