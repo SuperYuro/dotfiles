@@ -65,7 +65,8 @@
   :added "2022-11-02"
   :emacs>= 24
   :ensure t
-  :config (load-theme 'whiteboard))
+  :config (load-theme 'whiteboard)
+  )
 
 ;; Japanese IME configuration
 (leaf mozc
@@ -316,6 +317,15 @@
   :emacs>= 26.1
   :ensure t
   :after lsp-mode markdown-mode)
+
+(leaf yaml-mode
+  :doc "Major mode for editing YAML files"
+  :req "emacs-24.1"
+  :tag "yaml" "data" "emacs>=24.1"
+  :url "https://github.com/yoshiki/yaml-mode"
+  :added "2022-11-03"
+  :emacs>= 24.1
+  :ensure t)
 
 (provide 'init)
 
