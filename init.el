@@ -298,25 +298,15 @@
   :ensure t
   :after counsel)
 
-(leaf lsp-mode
-  :doc "LSP mode"
-  :req "emacs-26.1" "dash-2.18.0" "f-0.20.0" "ht-2.3" "spinner-1.7.3" "markdown-mode-2.3" "lv-0"
-  :tag "languages" "emacs>=26.1"
-  :url "https://github.com/emacs-lsp/lsp-mode"
-  :added "2022-11-02"
-  :emacs>= 26.1
+(leaf docker-tramp
+  :doc "TRAMP integration for docker containers"
+  :req "emacs-24" "cl-lib-0.5"
+  :tag "convenience" "docker" "emacs>=24"
+  :url "https://github.com/emacs-pe/docker-tramp.el"
+  :added "2022-11-04"
+  :emacs>= 24
   :ensure t
-  :after spinner markdown-mode lv)
-
-(leaf lsp-ui
-  :doc "UI modules for lsp-mode"
-  :req "emacs-26.1" "dash-2.18.0" "lsp-mode-6.0" "markdown-mode-2.3"
-  :tag "tools" "languages" "emacs>=26.1"
-  :url "https://github.com/emacs-lsp/lsp-ui"
-  :added "2022-11-02"
-  :emacs>= 26.1
-  :ensure t
-  :after lsp-mode markdown-mode)
+  :config (set-variable 'docker-tramp-use-names t))
 
 (leaf yaml-mode
   :doc "Major mode for editing YAML files"
@@ -326,6 +316,16 @@
   :added "2022-11-03"
   :emacs>= 24.1
   :ensure t)
+
+(leaf json-mode
+  :doc "Major mode for editing JSON files."
+  :req "json-snatcher-1.0.0" "emacs-24.4"
+  :tag "emacs>=24.4"
+  :url "https://github.com/joshwnj/json-mode"
+  :added "2022-11-04"
+  :emacs>= 24.4
+  :ensure t
+  :after json-snatcher)
 
 (provide 'init)
 
