@@ -13,11 +13,7 @@ mason.setup {
     }
 }
 lspconfig.setup {
-    ensure_installed = {
-        'sumneko_lua',
-        'pylsp',
-        'rust_analyzer',
-    },
+    ensure_installed = {},
     automatic_installation = true
 }
 
