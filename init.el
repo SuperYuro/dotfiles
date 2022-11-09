@@ -51,10 +51,10 @@
     ;; initialize leaf-keywords.el
     (leaf-keywords-init)))
 
-;; Write settins below
-(add-to-list 'exec-path (expand-file-name "/usr/bin"))
-(add-to-list 'exec-path (expand-file-name "~/.local/bin"))
-(add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
+;; ここに設定を書く
+(add-to-list 'exec-path (expand-file-name "/usr/bin" user-emacs-directory))
+(add-to-list 'exec-path (expand-file-name "~/.local/bin" user-emacs-directory))
+(add-to-list 'exec-path (expand-file-name "~/.cargo/bin" user-emacs-directory))
 
 ;; Set Theme
 (leaf blackboard-theme
@@ -64,15 +64,24 @@
   :url "https://github.com/don9z/blackboard-theme"
   :added "2022-11-02"
   :emacs>= 24
+  :ensure t)
+
+(leaf nord-theme
+  :doc "An arctic, north-bluish clean and elegant theme"
+  :req "emacs-24"
+  :tag "emacs>=24"
+  :url "https://github.com/arcticicestudio/nord-emacs"
+  :added "2022-11-09"
+  :emacs>= 24
   :ensure t
-  :config (load-theme 'whiteboard)
-  )
+  :config (load-theme 'nord t))
 
 ;; Japanese IME configuration
 (leaf mozc
   :doc "minor mode to input Japanese with Mozc"
   :tag "input method" "multilingual" "mule"
   :ensure t
+  :custom (mozc-candidate-style . 'echo-area)
   :config
   (set-input-method 'japanese-mozc)
   (set-fontset-font t 'japanese-jisx0208 "Noto Serif CJK JP-10"))
@@ -116,6 +125,8 @@
             (inhibit-splash-screen . t)
             ;; (use-dialog-box . nil)
             ;; (use-file-dialog . nil)
+            (word-wrap . t)
+            (line-wrapping . t)
             (menu-bar-mode . nil)
             (tool-bar-mode . nil)
             (scroll-bar-mode . nil)
@@ -153,6 +164,15 @@
   :tag "builtin"
   :custom ((show-paren-delay . 0.1))
   :global-minor-mode show-paren-mode)
+
+(leaf smartparens
+  :doc "Automatic insertion, wrapping and paredit-like navigation with user defined pairs."
+  :req "dash-2.13.0" "cl-lib-0.3"
+  :tag "editing" "convenience" "abbrev"
+  :url "https://github.com/Fuco1/smartparens"
+  :added "2022-11-06"
+  :ensure t
+  :global-minor-mode smartparens-global-mode)
 
 (leaf simple
   :doc "basic editing commands for Emacs"
@@ -283,11 +303,6 @@
   :config
   (add-to-list 'company-backends 'company-c-headers))
 
-(leaf tramp
-  :doc "Transparent Remote Access, Multiple Protocol"
-  :tag "builtin"
-  :added "2022-11-02")
-
 (leaf counsel-tramp
   :doc "Tramp ivy interface for ssh, docker, vagrant"
   :req "emacs-24.3" "counsel-0.10"
@@ -306,26 +321,29 @@
   :added "2022-11-04"
   :emacs>= 24
   :ensure t
-  :config (set-variable 'docker-tramp-use-names t))
+  :custom (docker-tramp-use-names . t))
 
-(leaf yaml-mode
-  :doc "Major mode for editing YAML files"
-  :req "emacs-24.1"
-  :tag "yaml" "data" "emacs>=24.1"
-  :url "https://github.com/yoshiki/yaml-mode"
-  :added "2022-11-03"
-  :emacs>= 24.1
-  :ensure t)
-
-(leaf json-mode
-  :doc "Major mode for editing JSON files."
-  :req "json-snatcher-1.0.0" "emacs-24.4"
-  :tag "emacs>=24.4"
-  :url "https://github.com/joshwnj/json-mode"
-  :added "2022-11-04"
-  :emacs>= 24.4
+(leaf migemo
+  :doc "Japanese incremental search through dynamic pattern expansion"
+  :req "cl-lib-0.5"
+  :url "https://github.com/emacs-jp/migemo"
+  :added "2022-11-06"
   :ensure t
-  :after json-snatcher)
+  :custom ((migemo-command . "cmigemo")
+           (migemo-options '("-q" "--emacs"))
+           (migemo-user-dictionary . nil)
+           (migemo-regex-dictionary . nil)
+           (migemo-coding-system . 'utf-8-unix)))
+
+(leaf ivy-migemo
+  :doc "Use migemo on ivy"
+  :req "emacs-24.3" "ivy-0.13.0" "migemo-1.9.2" "nadvice-0.3"
+  :tag "matching" "emacs>=24.3"
+  :url "https://github.com/ROCKTAKEY/ivy-migemo"
+  :added "2022-11-06"
+  :emacs>= 24.3
+  :ensure t
+  :after ivy migemo nadvice)
 
 (provide 'init)
 
