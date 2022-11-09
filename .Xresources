@@ -20,7 +20,7 @@ XTerm*ttyModes: erase ^?
 
 XTerm*borderWidth: 0
 
-XTerm*faceName: Hack Nerd Font:style=Book:antialias=true
+XTerm*faceName: MesloLGM Nerd Font:style=Book:antialias=true
 XTerm*faceNameDoublesize: Noto Sans CJK JP
 XTerm*faceSize: 10
 
@@ -36,7 +36,7 @@ UXTerm*ttymodes: erase ^?
 
 UXTerm*borderWidth: 0
 
-UXTerm*faceName: Hack Nerd Font:style=Book:antialias=true
+UXTerm*faceName: MesloLGM Nerd Font:style=Book:antialias=true
 UXTerm*faceNameDoublesize: Noto Sans CJK JP
 UXTerm*faceSize: 10
 
