@@ -21,10 +21,11 @@ set $down  n
 font pango:Cascadia Code 8
 
 # Color settings
-# class                 border      backgr.     text        indicator   child_border
-client.focused          #4C566A     #4C566A     #D8DEE9     #88C0D0     #4C566A
+# class                 border      background  text        indicator   child_border
+client.focused          #4C566A     #4C566A     #D8DEE9     #4C566A     #4C566A
 client.focused_inactive #2E3440     #2E3440     #D8DEE9     #2E3440     #2E3440
 client.unfocused        #2E3440     #2E3440     #D8DEE9     #2E3440     #2E3440
+client.background       #2E3440
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -229,14 +230,20 @@ bar {
 
     font pango:Cascadia Code 8
 
-#     colors {
-#         background #fafafa
-#         statusline #383a42
+    separator_symbol ""
 
-#         focused_workspace #e5e5e6 #e5e5e6 #383a42
-#         active_workspace #fafafa #fafafa #383a42
-#         inactive_workspace #fafafa #fafafa #383a42
-#     }
+    colors {
+        background  #2E3440
+        statusline  #D8DEE9
+        separator   #D8DEE9
+
+        # border background forground
+        focused_workspace   #4C566A #4C566A #D8DEE9
+        # active_workspace    #2E3440 #2E3440 #D8DEE9
+        inactive_workspace  #2E3440 #2E3440 #D8DEE9
+
+        binding_mode        #88C0D0 #88C0D0 #2E3440
+    }
 }
 
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
