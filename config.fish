@@ -34,4 +34,3 @@ alias bi 'acpi --battery --details'
 
 set fish_greeting
 
-node -v
