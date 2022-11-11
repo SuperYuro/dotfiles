@@ -38,8 +38,6 @@ packer.startup(
         use 'nvim-lua/plenary.nvim'
         use 'nvim-telescope/telescope.nvim'
         use 'nvim-telescope/telescope-file-browser.nvim'
-        use 'jose-elias-alvarez/null-ls.nvim'
-        use 'MunifTanjim/prettier.nvim'
         -- use 'akinsho/nvim-bufferline.lua'
         use 'norcalli/nvim-colorizer.lua'
     end
