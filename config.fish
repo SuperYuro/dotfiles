@@ -32,5 +32,3 @@ alias md mkdir
 alias dp 'docker compose'
 alias bi 'acpi --battery --details'
 
-set fish_greeting
-
