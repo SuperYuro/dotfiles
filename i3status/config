@@ -1,0 +1,58 @@
+general {
+        output_format = "i3bar"
+        interval = 1
+
+        colors = false
+
+        color_good = "#D8DEE9"
+        color_degraded = "#EBCB8B"
+        color_bad = "#BF616A"
+}
+
+order += "cpu_usage"
+order += "memory"
+order += "ethernet _first_"
+order += "wireless _first_"
+order += "battery all"
+order += "volume master"
+order += "time"
+
+cpu_usage {
+        format = "CPU: %usage"
+}
+
+memory {
+        format = "RAM: %percentage_used"
+}
+
+ethernet _first_ {
+        format_up = "E: %ip %speed"
+        format_down = ""
+}
+
+wireless _first_ {
+        format_up = "W: %essid %quality"
+        format_down = ""
+}
+
+battery all {
+        status_chr = "C"
+        status_bat = "B"
+        status_unk = "?"
+        status_full = "F"
+
+        low_threshold = 20
+
+        format = "%status %percentage"
+}
+
+volume master {
+        format = "♪ %volume"
+        format_muted = "♪ Muted"
+        device = "default"
+        mixer = "Master"
+}
+
+time {
+        format = "%Y/%m/%d %H:%M:%S"
+}
