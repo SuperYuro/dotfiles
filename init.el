@@ -134,7 +134,7 @@
   :config
   (defalias 'yes-or-no-p 'y-or-n-p)
   (keyboard-translate ?\C-h ?\C-?)
-  (add-to-list 'default-frame-alist '(font . "Hack Nerd Font-10")))
+  (add-to-list 'default-frame-alist '(font . "MesloLGM Nerd Font-10")))
 
 (leaf autorevert
   :doc "revert buffers when files on disk change"
@@ -267,41 +267,41 @@
          ("M-p" . flycheck-previous-error))
   :global-minor-mode global-flycheck-mode)
 
-(leaf company
-  :doc "Modular text completion framework"
-  :req "emacs-24.3"
-  :tag "matching" "convenience" "abbrev" "emacs>=24.3"
-  :url "http://company-mode.github.io/"
-  :emacs>= 24.3
-  :ensure t
-  :blackout t
-  :leaf-defer nil
-  :bind ((company-active-map
-          ("M-n" . nil)
-          ("M-p" . nil)
-          ("C-s" . company-filter-candidates)
-          ("C-n" . company-select-next)
-          ("C-p" . company-select-previous)
-          ("<tab>" . company-complete-selection))
-         (company-search-map
-          ("C-n" . company-select-next)
-          ("C-p" . company-select-previous)))
-  :custom ((company-idle-delay . 0)
-           (company-minimum-prefix-length . 1)
-           (company-transformers . '(company-sort-by-occurrence)))
-  :global-minor-mode global-company-mode)
+;; (leaf company
+;;   :doc "Modular text completion framework"
+;;   :req "emacs-24.3"
+;;   :tag "matching" "convenience" "abbrev" "emacs>=24.3"
+;;   :url "http://company-mode.github.io/"
+;;   :emacs>= 24.3
+;;   :ensure t
+;;   :blackout t
+;;   :leaf-defer nil
+;;   :bind ((company-active-map
+;;           ("M-n" . nil)
+;;           ("M-p" . nil)
+;;           ("C-s" . company-filter-candidates)
+;;           ("C-n" . company-select-next)
+;;           ("C-p" . company-select-previous)
+;;           ("<tab>" . company-complete-selection))
+;;          (company-search-map
+;;           ("C-n" . company-select-next)
+;;           ("C-p" . company-select-previous)))
+;;   :custom ((company-idle-delay . 0)
+;;            (company-minimum-prefix-length . 1)
+;;            (company-transformers . '(company-sort-by-occurrence)))
+;;   :global-minor-mode global-company-mode)
 
-(leaf company-c-headers
-  :doc "Company mode backend for C/C++ header files"
-  :req "emacs-24.1" "company-0.8"
-  :tag "company" "development" "emacs>=24.1"
-  :added "2020-03-25"
-  :emacs>= 24.1
-  :ensure t
-  :after company
-  :defvar company-backends
-  :config
-  (add-to-list 'company-backends 'company-c-headers))
+;; (leaf company-c-headers
+;;   :doc "Company mode backend for C/C++ header files"
+;;   :req "emacs-24.1" "company-0.8"
+;;   :tag "company" "development" "emacs>=24.1"
+;;   :added "2020-03-25"
+;;   :emacs>= 24.1
+;;   :ensure t
+;;   :after company
+;;   :defvar company-backends
+;;   :config
+;;   (add-to-list 'company-backends 'company-c-headers))
 
 (leaf counsel-tramp
   :doc "Tramp ivy interface for ssh, docker, vagrant"
