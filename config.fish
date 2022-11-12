@@ -29,6 +29,7 @@ alias c cd
 alias g git
 alias v vim
 alias md mkdir
+alias cv 'cd ~/Development/'
 alias dp 'docker compose'
 alias bi 'acpi --battery --details'
 
