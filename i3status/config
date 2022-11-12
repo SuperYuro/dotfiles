@@ -44,6 +44,7 @@ battery all {
         low_threshold = 20
 
         format = "%status %percentage"
+        format_down = ""
 }
 
 volume master {
