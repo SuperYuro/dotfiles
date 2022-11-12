@@ -6,7 +6,7 @@ URxvt.visualBell : true
 
 URxvt.fading : 10
 
-URxvt.font : xft:Cascadia Code-10, xft:Noto Sans CJK JP-10
+URxvt.font : xft:MesloLGM Nerd Font-10, xft:Noto Sans CJK JP-10
 
 XTerm*termName: xterm-256color
 
