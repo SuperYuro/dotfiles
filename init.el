@@ -134,7 +134,7 @@
   :config
   (defalias 'yes-or-no-p 'y-or-n-p)
   (keyboard-translate ?\C-h ?\C-?)
-  (add-to-list 'default-frame-alist '(font . "MesloLGM Nerd Font-10")))
+  (add-to-list 'default-frame-alist '(font . "MesloLGM Nerd Font-6")))
 
 (leaf autorevert
   :doc "revert buffers when files on disk change"
