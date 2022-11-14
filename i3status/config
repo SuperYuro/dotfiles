@@ -22,7 +22,7 @@ cpu_usage {
 }
 
 memory {
-        format = "RAM: %percentage_used"
+        format = "RAM: %used (%percentage_used)"
 }
 
 ethernet _first_ {
