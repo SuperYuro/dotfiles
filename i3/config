@@ -11,7 +11,7 @@
 
 set $mod Mod4
 
-set $fontsize 6
+set $fontsize 8
 
 set $left  b
 set $right f
@@ -24,7 +24,7 @@ font pango:MesloLGM Nerd Font $fontsize
 
 # Color settings
 # class                 border      background  text        indicator   child_border
-client.focused          #88C0D0     #88C0D0     #D8DEE9     #88C0D0     #88C0D0
+client.focused          #88C0D0     #88C0D0     #2E3440     #88C0D0     #88C0D0
 client.focused_inactive #2E3440     #2E3440     #D8DEE9     #2E3440     #2E3440
 client.unfocused        #2E3440     #2E3440     #D8DEE9     #2E3440     #2E3440
 client.background       #2E3440
@@ -65,7 +65,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 # Take screenshot
-set $ss_path ~/Pictures/screenshots/%Y_%m_%d_%T_screenshot.png
+set $ss_path ~/Pictures/screenshots/%Y%m%d_%H%M%S_screenshot.png
 bindsym Print exec --no-startup-id scrot $ss_path
 bindsym Mod1+Print exec --no-startup-id scrot -F $ss_path -u
 bindsym $mod+Shift+s exec --no-startup-id scrot -F $ss_path -s -f
