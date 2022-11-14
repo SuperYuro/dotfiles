@@ -267,41 +267,54 @@
          ("M-p" . flycheck-previous-error))
   :global-minor-mode global-flycheck-mode)
 
-;; (leaf company
-;;   :doc "Modular text completion framework"
-;;   :req "emacs-24.3"
-;;   :tag "matching" "convenience" "abbrev" "emacs>=24.3"
-;;   :url "http://company-mode.github.io/"
-;;   :emacs>= 24.3
-;;   :ensure t
-;;   :blackout t
-;;   :leaf-defer nil
-;;   :bind ((company-active-map
-;;           ("M-n" . nil)
-;;           ("M-p" . nil)
-;;           ("C-s" . company-filter-candidates)
-;;           ("C-n" . company-select-next)
-;;           ("C-p" . company-select-previous)
-;;           ("<tab>" . company-complete-selection))
-;;          (company-search-map
-;;           ("C-n" . company-select-next)
-;;           ("C-p" . company-select-previous)))
-;;   :custom ((company-idle-delay . 0)
-;;            (company-minimum-prefix-length . 1)
-;;            (company-transformers . '(company-sort-by-occurrence)))
-;;   :global-minor-mode global-company-mode)
+(leaf company
+  :doc "Modular text completion framework"
+  :req "emacs-24.3"
+  :tag "matching" "convenience" "abbrev" "emacs>=24.3"
+  :url "http://company-mode.github.io/"
+  :emacs>= 24.3
+  :ensure t
+  :blackout t
+  :leaf-defer nil
+  :bind ((company-active-map
+          ("M-n" . nil)
+          ("M-p" . nil)
+          ("C-s" . company-filter-candidates)
+          ("C-n" . company-select-next)
+          ("C-p" . company-select-previous)
+          ("<tab>" . company-complete-selection))
+         (company-search-map
+          ("C-n" . company-select-next)
+          ("C-p" . company-select-previous)))
+  :custom ((company-idle-delay . 0)
+           (company-minimum-prefix-length . 1)
+           (company-transformers . '(company-sort-by-occurrence)))
+  :global-minor-mode global-company-mode)
 
-;; (leaf company-c-headers
-;;   :doc "Company mode backend for C/C++ header files"
-;;   :req "emacs-24.1" "company-0.8"
-;;   :tag "company" "development" "emacs>=24.1"
-;;   :added "2020-03-25"
-;;   :emacs>= 24.1
-;;   :ensure t
-;;   :after company
-;;   :defvar company-backends
-;;   :config
-;;   (add-to-list 'company-backends 'company-c-headers))
+(leaf company-c-headers
+  :doc "Company mode backend for C/C++ header files"
+  :req "emacs-24.1" "company-0.8"
+  :tag "company" "development" "emacs>=24.1"
+  :added "2020-03-25"
+  :emacs>= 24.1
+  :ensure t
+  :after company
+  :defvar company-backends
+  :config
+  (add-to-list 'company-backends 'company-c-headers))
+
+(leaf company-quickhelp
+  :doc "Popup documentation for completion candidates"
+  :req "emacs-24.3" "company-0.8.9" "pos-tip-0.4.6"
+  :tag "quickhelp" "documentation" "popup" "company" "emacs>=24.3"
+  :url "https://www.github.com/expez/company-quickhelp"
+  :added "2022-11-14"
+  :emacs>= 24.3
+  :ensure t
+  :after company pos-tip
+  :custom ((company-quickhelp-color-foreground . "white")
+           (company-quickhelp-color-background . "dark slate gray"))
+  :global-minor-mode t)
 
 (leaf counsel-tramp
   :doc "Tramp ivy interface for ssh, docker, vagrant"
@@ -344,6 +357,55 @@
   :emacs>= 24.3
   :ensure t
   :after ivy migemo nadvice)
+
+(leaf lsp-mode
+  :doc "LSP mode"
+  :req "emacs-26.1" "dash-2.18.0" "f-0.20.0" "ht-2.3" "spinner-1.7.3" "markdown-mode-2.3" "lv-0"
+  :tag "languages" "emacs>=26.1"
+  :url "https://github.com/emacs-lsp/lsp-mode"
+  :added "2022-11-14"
+  :emacs>= 26.1
+  :ensure t
+  :after spinner markdown-mode lv
+  :custom ((lsp-keymap-prefix . "s-l")))
+
+(leaf lsp-ui
+  :doc "UI modules for lsp-mode"
+  :req "emacs-26.1" "dash-2.18.0" "lsp-mode-6.0" "markdown-mode-2.3"
+  :tag "tools" "languages" "emacs>=26.1"
+  :url "https://github.com/emacs-lsp/lsp-ui"
+  :added "2022-11-14"
+  :emacs>= 26.1
+  :ensure t
+  :after lsp-mode markdown-mode)
+
+(leaf rust-mode
+  :doc "A major-mode for editing Rust source code"
+  :req "emacs-25.1"
+  :tag "languages" "emacs>=25.1"
+  :url "https://github.com/rust-lang/rust-mode"
+  :added "2022-11-14"
+  :emacs>= 25.1
+  :ensure t
+  :config (add-hook 'rust-mode-hook #'lsp)
+  :custom (rust-format-on-save . t))
+
+(leaf python-mode
+  :doc "Python major mode"
+  :tag "oop" "python" "processes" "languages"
+  :url "https://gitlab.com/groups/python-mode-devs"
+  :added "2022-11-14"
+  :ensure t
+  :config (add-hook 'python-mode-hoook #'lsp))
+
+(leaf all-the-icons
+  :doc "A library for inserting Developer icons"
+  :req "emacs-24.3"
+  :tag "lisp" "convenient" "emacs>=24.3"
+  :url "https://github.com/domtronn/all-the-icons.el"
+  :added "2022-11-14"
+  :emacs>= 24.3
+  :ensure t)
 
 (provide 'init)
 
