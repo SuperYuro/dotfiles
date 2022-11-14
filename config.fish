@@ -32,4 +32,4 @@ alias md mkdir
 alias cv 'cd ~/Development/'
 alias dp 'docker compose'
 alias bi 'acpi --battery --details'
-
+alias rn ranger
