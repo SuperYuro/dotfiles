@@ -13,7 +13,7 @@ set cmdheight=1
 set laststatus=2
 set expandtab
 set scrolloff=10
-set shell=zsh
+set shell=fish
 set backupskip=/etc/*,/usr/bin/*,/usr/share/*,/usr/src/*,/bin/*
 set inccommand=split
 set ignorecase
