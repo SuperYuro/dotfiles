@@ -31,7 +31,12 @@ lualine.setup {
             newfile_status = false,
             path = 1
         } },
-        lualine_x = { {
+        lualine_x = {
+            'fileformat',
+            'filetype'
+        },
+        lualine_y = { 'progress', 'location' },
+        lualine_z = { {
             'diagnostics',
             sources = { 'nvim_diagnostic', 'nvim_lsp' },
             sections = { 'error', 'warn', 'info', 'hint' },
@@ -47,12 +52,7 @@ lualine.setup {
                 info = 'I',
                 hint = 'H',
             }
-        },
-            'fileformat',
-            'filetype'
-        },
-        lualine_y = { 'progress', 'location' },
-        lualine_z = {}
+        }, }
     },
     inactive_sections = {
         lualine_a = {},
