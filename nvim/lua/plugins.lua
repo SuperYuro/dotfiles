@@ -16,7 +16,8 @@ packer.startup(
         --     'svrana/neosolarized.nvim',
         --     requires = { 'tjdevries/colorbuddy.nvim' }
         -- }
-        use 'arcticicestudio/nord-vim' -- Nord colorscheme
+        -- use 'arcticicestudio/nord-vim' -- Nord colorscheme
+        use 'joshdick/onedark.vim'
         use 'kyazdani42/nvim-web-devicons' -- File icons
         use 'glepnir/lspsaga.nvim' -- LSP UIs
         use 'nvim-lualine/lualine.nvim' -- Statusline

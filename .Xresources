@@ -6,7 +6,7 @@ URxvt.visualBell : true
 
 URxvt.fading : 10
 
-URxvt.font : xft:MesloLGM Nerd Font-9, xft:Noto Sans CJK JP-9
+URxvt.font : xft:Cascadia Code-9, xft:Noto Sans CJK JP-9
 
 XTerm*termName: xterm-256color
 
@@ -20,7 +20,7 @@ XTerm*ttyModes: erase ^?
 
 XTerm*borderWidth: 0
 
-XTerm*faceName: MesloLGM Nerd Font:style=Book:antialias=true
+XTerm*faceName: Cascadia Code:style=Book:antialias=true
 XTerm*faceNameDoublesize: Noto Sans CJK JP
 XTerm*faceSize: 10
 
@@ -36,29 +36,20 @@ UXTerm*ttymodes: erase ^?
 
 UXTerm*borderWidth: 0
 
-UXTerm*faceName: MesloLGM Nerd Font:style=Book:antialias=true
+UXTerm*faceName: Cascadia Code:style=Book:antialias=true
 UXTerm*faceNameDoublesize: Noto Sans CJK JP
 UXTerm*faceSize: 10
 
-UXTerm*background: #2e3440
-UXTerm*foreground: #d8dee9
+UXTerm*background: #282c34
+UXTerm*foreground: #abb2bf
 
-UXTerm*color0:  #3b4252
-UXTerm*color1:  #bf616a
-UXTerm*color2:  #a3be8c
-UXTerm*color3:  #ebcb8b
-UXTerm*color4:  #81a1c1
-UXTerm*color5:  #b48ead
-UXTerm*color6:  #88c0d0
-UXTerm*color7:  #e5e9f0
-UXTerm*color8:  #4c566a
-UXTerm*color9:  #bf616a
-UXTerm*color10: #a3be8c
-UXTerm*color11: #ebcb8b
-UXTerm*color12: #81a1c1
-UXTerm*color13: #b48ead
-UXTerm*color14: #8fbcbb
-UXTerm*color15: #eceff4
+UXTerm*cursorColor: #528bff
 
-
-Emacs*UseXIM: false
+UXTerm*color0: #5c6370
+UXTerm*color1: #e06c75
+UXTerm*color2: #98c379
+UXTerm*color3: #e5c07b
+UXTerm*color4: #51afef
+UXTerm*color5: #c678dd
+UXTerm*color6: #56b6c2
+UXTerm*color7: #828997

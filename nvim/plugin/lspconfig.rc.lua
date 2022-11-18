@@ -33,3 +33,7 @@ lspconfig.setup_handlers {
         }
     end
 }
+
+nvim_lsp['rust_analyzer'].setup {
+    on_attach = on_attach_sync
+}

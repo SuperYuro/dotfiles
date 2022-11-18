@@ -237,7 +237,8 @@ bar {
 
     font pango:MesloLGM Nerd Font $fontsize
 
-    separator_symbol "  "
+    # separator_symbol "  "
+    separator_symbol " | "
 
     colors {
         background  #2E3440

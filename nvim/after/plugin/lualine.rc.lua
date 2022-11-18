@@ -3,8 +3,8 @@ if (not status) then return end
 
 lualine.setup {
     options = {
-        icons_enabled = true,
-        theme = 'nord',
+        icons_enabled = false,
+        theme = 'onedark',
         component_separators = { left = '|', right = '|' },
         section_separators = { left = '', right = '' },
         -- component_separators = { left = '', right = '' },
@@ -82,9 +82,9 @@ lualine.setup {
                 inactive = 'lualine_b_inactive', -- Color for inactive buffer.
             },
             symbols = {
-                modified = 'M', -- Text to show when the buffer is modified
-                alternate_file = '#', -- Text to show to identify the alternate file
-                directory = 'D', -- Text to show when the buffer is a directory
+                modified = ' M ', -- Text to show when the buffer is modified
+                alternate_file = ' # ', -- Text to show to identify the alternate file
+                directory = ' D ', -- Text to show when the buffer is a directory
             }
         } }
     },
