@@ -40,16 +40,16 @@ UXTerm*faceName: Cascadia Code:style=Book:antialias=true
 UXTerm*faceNameDoublesize: Noto Sans CJK JP
 UXTerm*faceSize: 10
 
-UXTerm*background: #282c34
-UXTerm*foreground: #abb2bf
+UXTerm*background: #fafafa
+UXTerm*foreground: #383a42
 
-UXTerm*cursorColor: #528bff
+UXTerm*cursorColor: #526eff
 
-UXTerm*color0: #5c6370
-UXTerm*color1: #e06c75
-UXTerm*color2: #98c379
-UXTerm*color3: #e5c07b
-UXTerm*color4: #51afef
-UXTerm*color5: #c678dd
-UXTerm*color6: #56b6c2
-UXTerm*color7: #828997
+UXTerm*color0: #696c77
+UXTerm*color1: #e45649
+UXTerm*color2: #50a14f
+UXTerm*color3: #c18401
+UXTerm*color4: #4078f2
+UXTerm*color5: #a626a4
+UXTerm*color6: #0184bc
+UXTerm*color7: #a0a1a7
