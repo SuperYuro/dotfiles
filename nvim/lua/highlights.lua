@@ -1,5 +1,4 @@
 -- vim.opt.cursorline = true
-vim.cmd [[colorscheme onedark]]
 vim.opt.termguicolors = true
 vim.opt.winblend = 0
 vim.opt.wildoptions = 'pum'
