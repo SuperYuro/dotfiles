@@ -63,30 +63,30 @@ lualine.setup {
         lualine_z = {}
     },
     tabline = {
-        lualine_a = { {
-            'tabs',
-            mode = 1,
-            tabs_color = {
-                active = 'lualine_a_normal',
-                inactive = 'lualine_a_inactive',
-            },
-        } },
-        lualine_b = { {
-            'buffers',
-            show_filename_only = true,
-            show_modified_status = true,
-            mode = 2,
-            buffers_color = {
-                -- Same values as the general color option can be used here.
-                active = 'lualine_b_normal', -- Color for active buffer.
-                inactive = 'lualine_b_inactive', -- Color for inactive buffer.
-            },
-            symbols = {
-                modified = ' M ', -- Text to show when the buffer is modified
-                alternate_file = ' # ', -- Text to show to identify the alternate file
-                directory = ' D ', -- Text to show when the buffer is a directory
-            }
-        } }
+        -- lualine_a = { {
+        --     'tabs',
+        --     mode = 1,
+        --     tabs_color = {
+        --         active = 'lualine_a_normal',
+        --         inactive = 'lualine_a_inactive',
+        --     },
+        -- } },
+        -- lualine_b = { {
+        --     'buffers',
+        --     show_filename_only = true,
+        --     show_modified_status = true,
+        --     mode = 2,
+        --     buffers_color = {
+        --         -- Same values as the general color option can be used here.
+        --         active = 'lualine_b_normal', -- Color for active buffer.
+        --         inactive = 'lualine_b_inactive', -- Color for inactive buffer.
+        --     },
+        --     symbols = {
+        --         modified = ' M ', -- Text to show when the buffer is modified
+        --         alternate_file = ' # ', -- Text to show to identify the alternate file
+        --         directory = ' D ', -- Text to show when the buffer is a directory
+        --     }
+        -- } }
     },
     winbar = {},
     inactive_winbar = {},

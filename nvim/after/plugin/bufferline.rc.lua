@@ -16,25 +16,25 @@ bufferline.setup {
     },
     highlights = {
         separator = {
-            fg = '#073642',
-            bg = '#002b36'
+            fg = '#3b4252', -- normal black
+            bg = '#2e3440' -- background
         },
         separator_selected = {
-            fg = '#073642'
+            fg = '#3b4252' -- normal black
         },
         background = {
-            fg = '#657b83',
-            bg = '#002b36'
+            fg = '#4c566a', -- light theme foreground
+            bg = '#2e3440' -- background
         },
         buffer_selected = {
-            fg = '#fdf6e3',
+            fg = '#d8dee9', -- light theme background
         },
         fill = {
-            bg = '#073642',
-            -- underline = true,
-            -- undercurl = true,
-            -- italic = true,
-            -- bold = true
+            bg = '#3b4252', -- normal black
+            underline = true,
+            undercurl = true,
+            italic = true,
+            bold = true
         }
     }
 }
