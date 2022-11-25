@@ -6,7 +6,7 @@ bufferline.setup {
         mode = 'tabs',
         separator_style = 'slant',
         always_show_bufferline = true,
-        show_buffer_close_icons = false,
+        show_buffer_close_icons = true,
         show_close_icon = false,
         color_icons = true,
         modified_icon = '●',
@@ -14,29 +14,11 @@ bufferline.setup {
         left_trunc_marker = '',
         right_trunc_marker = '',
     },
-    highlights = {
-        separator = {
-            fg = '#3b4252', -- normal black
-            bg = '#2e3440' -- background
-        },
-        separator_selected = {
-            fg = '#3b4252' -- normal black
-        },
-        background = {
-            fg = '#4c566a', -- light theme foreground
-            bg = '#2e3440' -- background
-        },
-        buffer_selected = {
-            fg = '#d8dee9', -- light theme background
-        },
-        fill = {
-            bg = '#3b4252', -- normal black
-            underline = true,
-            undercurl = true,
-            italic = true,
-            bold = true
-        }
-    }
+    highlights = require('nord').bufferline.highlights({
+        italic = true,
+        bold = true,
+        fill = '#181c24'
+    })
 }
 
 vim.api.nvim_set_keymap('n', 'tn', '<cmd>BufferLineCycleNext<cr>', {})
