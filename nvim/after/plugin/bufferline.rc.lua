@@ -14,11 +14,29 @@ bufferline.setup {
         left_trunc_marker = '',
         right_trunc_marker = '',
     },
-    highlights = require('nord').bufferline.highlights({
-        italic = true,
-        bold = true,
-        fill = '#181c24'
-    })
+    highlights = {
+        separator = {
+            fg = '#3b4252', -- normal black
+            bg = '#2e3440' -- background
+        },
+        separator_selected = {
+            fg = '#3b4252' -- normal black
+        },
+        background = {
+            fg = '#4c566a', -- light theme foreground
+            bg = '#2e3440' -- background
+        },
+        buffer_selected = {
+            fg = '#e5e9f0', -- light theme background
+        },
+        fill = {
+            bg = '#3b4252', -- normal black
+            underline = true,
+            undercurl = true,
+            italic = true,
+            bold = true
+        }
+    }
 }
 
 vim.api.nvim_set_keymap('n', 'tn', '<cmd>BufferLineCycleNext<cr>', {})

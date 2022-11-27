@@ -40,6 +40,6 @@ nvim_lsp['clangd'].setup {
 nvim_lsp['rust_analyzer'].setup {
     on_attach = on_attach_sync
 }
-nvim_lsp['sumneko_lua'].setup {
-    on_attach = on_attach_sync
-}
+-- nvim_lsp['sumneko_lua'].setup {
+--     on_attach = on_attach_sync
+-- }
