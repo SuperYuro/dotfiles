@@ -6,9 +6,12 @@ if (not status2) then return end
 mason.setup {
     ui = {
         icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
+            -- package_installed = "✓",
+            -- package_pending = "➜",
+            -- package_uninstalled = "✗",
+            package_installed = "I",
+            package_pending = ">",
+            package_uninstalled = "x"
         }
     }
 }

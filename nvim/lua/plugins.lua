@@ -16,11 +16,8 @@ packer.startup(
         --     'svrana/neosolarized.nvim',
         --     requires = { 'tjdevries/colorbuddy.nvim' }
         -- }
-        use {
-            'arcticicestudio/nord-vim',
-            config = vim.cmd [[colorscheme nord]]
-        }
-        use 'kyazdani42/nvim-web-devicons' -- File icons
+        -- use 'shaunsingh/nord.nvim' -- Nord color scheme
+        -- use 'kyazdani42/nvim-web-devicons' -- File icons
         use 'glepnir/lspsaga.nvim' -- LSP UIs
         use 'nvim-lualine/lualine.nvim' -- Statusline
         use 'L3MON4D3/LuaSnip' -- Snippet
@@ -41,7 +38,7 @@ packer.startup(
         use 'nvim-lua/plenary.nvim'
         use 'nvim-telescope/telescope.nvim'
         use 'nvim-telescope/telescope-file-browser.nvim'
-        use 'akinsho/nvim-bufferline.lua'
+        -- use 'akinsho/nvim-bufferline.lua'
         use 'norcalli/nvim-colorizer.lua'
         use 'tpope/vim-fugitive'
         use 'preservim/tagbar' -- Show tagbar
