@@ -1,20 +1,7 @@
-# Set up the prompt
-
 autoload -Uz promptinit
 promptinit
-prompt adam1
+prompt adam1 cyan
 
-setopt histignorealldups sharehistory
-
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
-
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zsh_history
-
-# Use modern completion system
 autoload -Uz compinit
 compinit
 
@@ -35,3 +22,51 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+# Alias
+alias l='ls -1A'
+alias ll='ls -lh'
+alias la='ls -lA'
+
+alias c=cd
+alias g=git
+alias v=nvim
+
+alias dp='docker compose'
+alias md=mkdir
+alias tm=tmux
+
+alias cv='cd ~/Development/'
+
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+# share .zsh_history
+setopt inc_append_history
+setopt share_history
+
+# Configure peco
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tac | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
+# Configure for ruby gem
+export GEM_HOME="$HOME/.gems"
+export PATH="$HOME/.gems/bin:$PATH"
+
+# Configure for rbenv
+eval "$(rbenv init - zsh)"
+
+# Configure for pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Configure for user script
+export PATH="$HOME/scripts:$PATH"
