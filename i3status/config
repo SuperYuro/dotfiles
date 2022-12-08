@@ -13,7 +13,8 @@ order += "cpu_usage"
 order += "memory"
 order += "ethernet _first_"
 order += "wireless _first_"
-order += "battery all"
+order += "battery 0"
+order += "battery 1"
 order += "volume master"
 order += "time"
 
@@ -35,15 +36,27 @@ wireless _first_ {
         format_down = ""
 }
 
-battery all {
+battery 0 {
         status_chr = "C"
-        status_bat = "B"
+        status_bat = "D"
         status_unk = "?"
         status_full = "F"
 
         low_threshold = 20
 
-        format = "%status %percentage"
+        format = "0: %status %percentage"
+        format_down = ""
+}
+
+battery 1 {
+        status_chr = "C"
+        status_bat = "D"
+        status_unk = "?"
+        status_full = "F"
+
+        low_threshold = 20
+
+        format = "1: %status %percentage"
         format_down = ""
 }
 
