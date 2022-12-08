@@ -1,6 +1,6 @@
 autoload -Uz promptinit
 promptinit
-prompt adam1 cyan
+prompt adam1 cyan cyan green
 
 autoload -Uz compinit
 compinit
