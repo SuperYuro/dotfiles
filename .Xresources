@@ -6,7 +6,7 @@ URxvt.visualBell : true
 
 URxvt.fading : 10
 
-URxvt.font : xft:MesloLGM Nerd Font-9, xft:Noto Sans CJK JP-9
+URxvt.font : xft:Cascadia Mono-8, xft:Noto Sans CJK JP-8
 
 XTerm*termName: xterm-256color
 
@@ -20,9 +20,9 @@ XTerm*ttyModes: erase ^?
 
 XTerm*borderWidth: 0
 
-XTerm*faceName: MesloLGM Nerd Font:style=Book:antialias=true
+XTerm*faceName: Cascadia Mono:style=Book:antialias=true
 XTerm*faceNameDoublesize: Noto Sans CJK JP
-XTerm*faceSize: 10
+XTerm*faceSize: 9
 
 UXTerm*termname: xterm-256color
 
@@ -36,9 +36,9 @@ UXTerm*ttymodes: erase ^?
 
 UXTerm*borderWidth: 0
 
-UXTerm*faceName: MesloLGM Nerd Font:style=Book:antialias=true
+UXTerm*faceName: Cascadia Mono:style=Book:antialias=true
 UXTerm*faceNameDoublesize: Noto Sans CJK JP
-UXTerm*faceSize: 10
+UXTerm*faceSize: 9
 
 UXTerm*background: #2e3440
 UXTerm*foreground: #d8dee9
