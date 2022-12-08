@@ -64,7 +64,9 @@
   :url "https://github.com/don9z/blackboard-theme"
   :added "2022-11-02"
   :emacs>= 24
-  :ensure t)
+  :ensure t
+  :config (load-theme 'whiteboard t)
+  )
 
 (leaf nord-theme
   :doc "An arctic, north-bluish clean and elegant theme"
@@ -74,7 +76,8 @@
   :added "2022-11-09"
   :emacs>= 24
   :ensure t
-  :config (load-theme 'nord t))
+  ;; :config (load-theme 'nord t)
+  )
 
 ;; Japanese IME configuration
 (leaf mozc
