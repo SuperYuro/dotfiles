@@ -5,38 +5,38 @@ end
 
 bufferline.setup({
 	options = {
-		mode = "tabs",
-		separator_style = "slant",
+		mode = "buffers",
+		separator_style = "thin",
 		always_show_bufferline = true,
 		show_buffer_close_icons = false,
 		show_close_icon = false,
-		color_icons = false,
-		modified_icon = "●",
-		close_icon = "",
-		left_trunc_marker = "",
-		right_trunc_marker = "",
-		-- modified_icon = 'M',
-		-- close_icon = 'x',
-		-- left_trunc_marker = '<',
-		-- right_trunc_marker = '>',
+		color_icons = true,
+		-- modified_icon = "●",
+		-- close_icon = "",
+		-- left_trunc_marker = "",
+		-- right_trunc_marker = "",
+		modified_icon = "M",
+		close_icon = "x",
+		left_trunc_marker = "<",
+		right_trunc_marker = ">",
 	},
 	highlights = {
 		separator = {
-			fg = "#dcdfe7", -- normal black
-			bg = "#e8e9ec", -- background
+			fg = "#171421", -- normal black
+			bg = "#ffffff", -- background
 		},
 		separator_selected = {
-			fg = "#dcdfe7", -- normal black
+			fg = "#171421", -- normal black
 		},
 		background = {
-			fg = "#d2d4de", -- light theme foreground
-			bg = "#e8e9ec", -- background
+			fg = "#d0cfcc", -- light theme foreground
+			bg = "#ffffff", -- background
 		},
 		buffer_selected = {
-			fg = "#161821", -- light theme background
+			fg = "#171421", -- light theme background
 		},
 		fill = {
-			bg = "#dcdfe7", -- normal black
+			bg = "#171421", -- normal black
 			underline = true,
 			undercurl = true,
 			italic = true,
