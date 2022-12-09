@@ -1,4 +1,6 @@
-local status, nord = pcall(require, 'nord')
-if (not status) then return end
+local status, nord = pcall(require, "nord")
+if not status then
+	return
+end
 
-vim.cmd [[colorscheme nord]]
+vim.cmd([[colorscheme nord]])
