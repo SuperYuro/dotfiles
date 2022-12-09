@@ -382,25 +382,6 @@
   :ensure t
   :after lsp-mode markdown-mode)
 
-(leaf rust-mode
-  :doc "A major-mode for editing Rust source code"
-  :req "emacs-25.1"
-  :tag "languages" "emacs>=25.1"
-  :url "https://github.com/rust-lang/rust-mode"
-  :added "2022-11-14"
-  :emacs>= 25.1
-  :ensure t
-  :config (add-hook 'rust-mode-hook #'lsp)
-  :custom (rust-format-on-save . t))
-
-(leaf python-mode
-  :doc "Python major mode"
-  :tag "oop" "python" "processes" "languages"
-  :url "https://gitlab.com/groups/python-mode-devs"
-  :added "2022-11-14"
-  :ensure t
-  :config (add-hook 'python-mode-hoook #'lsp))
-
 (leaf all-the-icons
   :doc "A library for inserting Developer icons"
   :req "emacs-24.3"
@@ -409,6 +390,19 @@
   :added "2022-11-14"
   :emacs>= 24.3
   :ensure t)
+
+(leaf rustic
+  :doc "Rust development environment"
+  :req "emacs-26.1" "rust-mode-1.0.3" "dash-2.13.0" "f-0.18.2" "let-alist-1.0.4" "markdown-mode-2.3" "project-0.3.0" "s-1.10.0" "seq-2.3" "spinner-1.7.3" "xterm-color-1.6"
+  :tag "languages" "emacs>=26.1"
+  :added "2022-12-09"
+  :emacs>= 26.1
+  :ensure t
+  :after rust-mode markdown-mode project spinner xterm-color
+  :custom
+  (rustic-lsp-client . 'lsp-mode)
+  (rustic-format-trigger . 'on-save)
+  (rustic-lsp-server . 'rust-analyzer))
 
 (provide 'init)
 
