@@ -6,7 +6,28 @@ URxvt.visualBell : true
 
 URxvt.fading : 10
 
-URxvt.font : xft:Cascadia Mono-8, xft:Noto Sans CJK JP-8
+URxvt.font : xft:Cascadia Mono-7, xft:Noto Sans CJK JP-7
+
+! Gnome Light
+URxvt.background: #ffffff
+URxvt.foreground: #171421
+
+URxvt.color0:  #171421
+URxvt.color1:  #c01c28
+URxvt.color2:  #26a269
+URxvt.color3:  #a2734c
+URxvt.color4:  #12488b
+URxvt.color5:  #a347ba
+URxvt.color6:  #2aa1b3
+URxvt.color7:  #d0cfcc
+URxvt.color8:  #5e5c64
+URxvt.color9:  #f66151
+URxvt.color10: #33d17a
+URxvt.color11: #e9ad0c
+URxvt.color12: #2a7bde
+URxvt.color13: #c061cb
+URxvt.color14: #33c7de
+URxvt.color15: #ffffff
 
 XTerm*termName: xterm-256color
 
@@ -40,22 +61,23 @@ UXTerm*faceName: Cascadia Mono:style=Book:antialias=true
 UXTerm*faceNameDoublesize: Noto Sans CJK JP
 UXTerm*faceSize: 9
 
-UXTerm*background: #2e3440
-UXTerm*foreground: #d8dee9
+! Gnome Light
+UXTerm*background: #ffffff
+UXTerm*foreground: #171421
 
-UXTerm*color0:  #3b4252
-UXTerm*color1:  #bf616a
-UXTerm*color2:  #a3be8c
-UXTerm*color3:  #ebcb8b
-UXTerm*color4:  #81a1c1
-UXTerm*color5:  #b48ead
-UXTerm*color6:  #88c0d0
-UXTerm*color7:  #e5e9f0
-UXTerm*color8:  #4c566a
-UXTerm*color9:  #bf616a
-UXTerm*color10: #a3be8c
-UXTerm*color11: #ebcb8b
-UXTerm*color12: #81a1c1
-UXTerm*color13: #b48ead
-UXTerm*color14: #8fbcbb
-UXTerm*color15: #eceff4
+UXTerm*color0:  #171421
+UXTerm*color1:  #c01c28
+UXTerm*color2:  #26a269
+UXTerm*color3:  #a2734c
+UXTerm*color4:  #12488b
+UXTerm*color5:  #a347ba
+UXTerm*color6:  #2aa1b3
+UXTerm*color7:  #d0cfcc
+UXTerm*color8:  #5e5c64
+UXTerm*color9:  #f66151
+UXTerm*color10: #33d17a
+UXTerm*color11: #e9ad0c
+UXTerm*color12: #2a7bde
+UXTerm*color13: #c061cb
+UXTerm*color14: #33c7de
+UXTerm*color15: #ffffff
