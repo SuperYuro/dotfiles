@@ -12,7 +12,7 @@ packer.startup(function(use)
 	--     'svrana/neosolarized.nvim',
 	--     requires = { 'tjdevries/colorbuddy.nvim' }
 	-- }
-	-- use 'shaunsingh/nord.nvim' -- Nord color scheme
+	use("shaunsingh/nord.nvim") -- Nord color scheme
 	use("kyazdani42/nvim-web-devicons") -- File icons
 	use("glepnir/lspsaga.nvim") -- LSP UIs
 	use("nvim-lualine/lualine.nvim") -- Statusline
@@ -30,7 +30,6 @@ packer.startup(function(use)
 	})
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
-	-- use 'tpope/vim-commentary'
 	use("numToStr/Comment.nvim")
 	use("kylechui/nvim-surround")
 	use("nvim-lua/plenary.nvim")
@@ -40,5 +39,6 @@ packer.startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
 	use("tpope/vim-fugitive")
 	use("preservim/tagbar") -- Show tagbar
-	use("jose-elias-alvarez/null-ls.nvim")
+	use("jose-elias-alvarez/null-ls.nvim") -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+	use("MunifTanjim/prettier.nvim") -- Prettier plugin for Neovim's built-in LSP client
 end)

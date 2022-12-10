@@ -10,17 +10,20 @@ end
 mason.setup({
 	ui = {
 		icons = {
-			-- package_installed = "✓",
-			-- package_pending = "➜",
-			-- package_uninstalled = "✗",
-			package_installed = "I",
-			package_pending = ">",
-			package_uninstalled = "x",
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+			-- package_installed = "I",
+			-- package_pending = ">",
+			-- package_uninstalled = "x",
 		},
 	},
 })
 lspconfig.setup({
-	ensure_installed = {},
+	ensure_installed = {
+		"rust_analyzer",
+		"sumneko_lua",
+	},
 	automatic_installation = true,
 })
 

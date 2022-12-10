@@ -33,17 +33,6 @@ lspconfig.setup_handlers({
 	function(server_name)
 		nvim_lsp[server_name].setup({
 			on_attach = on_attach,
-			-- on_attach = on_attach_sync,
 		})
 	end,
 })
-
-nvim_lsp["clangd"].setup({
-	on_attach = on_attach_sync,
-})
-nvim_lsp["rust_analyzer"].setup({
-	on_attach = on_attach_sync,
-})
--- nvim_lsp['sumneko_lua'].setup {
---     on_attach = on_attach_sync
--- }
