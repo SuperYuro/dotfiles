@@ -1,6 +1,9 @@
-autoload -Uz promptinit
-promptinit
-prompt oliver
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 autoload -Uz compinit
 compinit
@@ -73,11 +76,11 @@ eval "$(pyenv init -)"
 export PATH="$HOME/scripts:$PATH"
 
 # Configure for theme
-# source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 
 # Configure zsh plugins
-# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 export NVM_DIR="$HOME/.nvm"
