@@ -1,50 +1,3 @@
-URxvt.scrollBar : false
-
-URxvt.cursorBlink : true
-
-URxvt.visualBell : true
-
-URxvt.fading : 10
-
-URxvt.font : xft:Cascadia Mono-7, xft:Noto Sans CJK JP-7
-
-! Gnome Light
-URxvt.background: #ffffff
-URxvt.foreground: #171421
-
-URxvt.color0:  #171421
-URxvt.color1:  #c01c28
-URxvt.color2:  #26a269
-URxvt.color3:  #a2734c
-URxvt.color4:  #12488b
-URxvt.color5:  #a347ba
-URxvt.color6:  #2aa1b3
-URxvt.color7:  #d0cfcc
-URxvt.color8:  #5e5c64
-URxvt.color9:  #f66151
-URxvt.color10: #33d17a
-URxvt.color11: #e9ad0c
-URxvt.color12: #2a7bde
-URxvt.color13: #c061cb
-URxvt.color14: #33c7de
-URxvt.color15: #ffffff
-
-XTerm*termName: xterm-256color
-
-XTerm*locale: true
-XTerm*metaSendsEscape: true
-
-XTerm*vt100.backarrowKey: false
-XTerm*ttyModes: erase ^?
-
-/* XTerm*reverseVideo: off */
-
-XTerm*borderWidth: 0
-
-XTerm*faceName: Cascadia Mono:style=Book:antialias=true
-XTerm*faceNameDoublesize: Noto Sans CJK JP
-XTerm*faceSize: 9
-
 UXTerm*termname: xterm-256color
 
 UXTerm*locale: true
@@ -53,31 +6,9 @@ UXTerm*metaSendsEscape: true
 UXTerm*vt100.backarrowkey: false
 UXTerm*ttymodes: erase ^?
 
-/* UXTerm*reverseVideo: off */
-
 UXTerm*borderWidth: 0
 
-UXTerm*faceName: Cascadia Mono:style=Book:antialias=true
+UXTerm*faceName: Noto Sans Mono:style=Regular:antialias=true
 UXTerm*faceNameDoublesize: Noto Sans CJK JP
 UXTerm*faceSize: 9
 
-! Gnome Light
-UXTerm*background: #ffffff
-UXTerm*foreground: #171421
-
-UXTerm*color0:  #171421
-UXTerm*color1:  #c01c28
-UXTerm*color2:  #26a269
-UXTerm*color3:  #a2734c
-UXTerm*color4:  #12488b
-UXTerm*color5:  #a347ba
-UXTerm*color6:  #2aa1b3
-UXTerm*color7:  #d0cfcc
-UXTerm*color8:  #5e5c64
-UXTerm*color9:  #f66151
-UXTerm*color10: #33d17a
-UXTerm*color11: #e9ad0c
-UXTerm*color12: #2a7bde
-UXTerm*color13: #c061cb
-UXTerm*color14: #33c7de
-UXTerm*color15: #ffffff
