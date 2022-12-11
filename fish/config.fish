@@ -34,3 +34,7 @@ alias cv 'cd ~/Development/'
 alias dp 'docker compose'
 alias bi 'acpi --battery --details'
 alias rn ranger
+
+pyenv init - | source
+
+status --is-interactive; and /usr/bin/rbenv init - fish | source
