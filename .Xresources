@@ -31,3 +31,5 @@ UXTerm*color12: #81a1c1
 UXTerm*color13: #b48ead
 UXTerm*color14: #8fbcbb
 UXTerm*color15: #ecfff4
+
+Emacs*UseXIM: false
