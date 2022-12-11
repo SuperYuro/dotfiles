@@ -65,7 +65,7 @@
   :added "2022-11-02"
   :emacs>= 24
   :ensure t
-  :config (load-theme 'whiteboard t)
+  ;; :config (load-theme 'whiteboard t)
   )
 
 (leaf nord-theme
@@ -76,7 +76,7 @@
   :added "2022-11-09"
   :emacs>= 24
   :ensure t
-  ;; :config (load-theme 'nord t)
+  :config (load-theme 'nord t)
   )
 
 ;; Japanese IME configuration
