@@ -1,3 +1,5 @@
+Emacs*UseXIM: false
+
 UXTerm*termname: xterm-256color
 
 UXTerm*locale: true
@@ -12,6 +14,7 @@ UXTerm*faceName: MesloLGM Nerd Font:style=Regular:antialias=true
 UXTerm*faceNameDoublesize: Noto Sans CJK JP
 UXTerm*faceSize: 9
 
+! Nord theme
 UXTerm*background: #2e3440
 UXTerm*foreground: #d8dee9
 
@@ -23,6 +26,7 @@ UXTerm*color4:  #81a1c1
 UXTerm*color5:  #b48ead
 UXTerm*color6:  #88c0d0
 UXTerm*color7:  #e5e9f0
+
 UXTerm*color8:  #4c566a
 UXTerm*color9:  #bf616a
 UXTerm*color10: #a3be8c
@@ -31,5 +35,3 @@ UXTerm*color12: #81a1c1
 UXTerm*color13: #b48ead
 UXTerm*color14: #8fbcbb
 UXTerm*color15: #ecfff4
-
-Emacs*UseXIM: false
