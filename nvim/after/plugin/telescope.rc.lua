@@ -22,7 +22,7 @@ telescope.setup({
 		file_browser = {
 			theme = "dropdown",
 			-- hide icons on file_browser
-			disable_devicons = false,
+			disable_devicons = true,
 			-- disable netrw add use telescope-file-browser in its place
 			hijack_netrw = true,
 			mappings = {
