@@ -2,7 +2,13 @@ autoload -Uz colors
 colors
 
 # Configure for original prompt theme
-PROMPT="%{${fg[black]}${bg[blue]}%} %n@%m %{${fg[blue]}${bg[black]}%}%{${fg[white]}${bg[black]}%} %~ %{${fg[black]}%}%{${reset_color}%}"
+PROMPT="%{${fg[black]}${bg[blue]}%} %n@%m %{${reset_color}%} %~ %# "
+
+autoload -Uz select-word-style
+select-word-style default
+
+zstyle ':zle:*' word-chars " /=;@:{},|"
+zstyle ':zle:*' word-style unspecified
 
 autoload -Uz compinit
 compinit
@@ -78,9 +84,9 @@ export PATH="$HOME/scripts:$PATH"
 # source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 
 # Configure zsh plugins
-# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
