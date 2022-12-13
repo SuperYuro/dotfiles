@@ -2,7 +2,7 @@ autoload -Uz colors
 colors
 
 # Configure for original prompt theme
-PROMPT="%{${fg[black]}${bg[blue]}%} %n@%m %{${reset_color}%} %~ %# "
+PROMPT="%{${fg[black]}${bg[cyan]}%} %n@%m %{${reset_color}%} %{${fg[green]}%}%~%{${reset_color}%} %# "
 
 autoload -Uz select-word-style
 select-word-style default
@@ -46,6 +46,8 @@ alias md=mkdir
 alias tm=tmux
 
 alias cv='cd ~/Development/'
+
+alias rl='exec zsh'
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000000
