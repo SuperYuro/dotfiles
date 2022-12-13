@@ -65,18 +65,7 @@
   :added "2022-11-02"
   :emacs>= 24
   :ensure t
-  ;; :config (load-theme 'blackboard t)
-  )
-
-(leaf nord-theme
-  :doc "An arctic, north-bluish clean and elegant theme"
-  :req "emacs-24"
-  :tag "emacs>=24"
-  :url "https://github.com/arcticicestudio/nord-emacs"
-  :added "2022-12-13"
-  :emacs>= 24
-  :ensure t
-  :config (load-theme 'nord t)
+  :config (load-theme 'whiteboard t)
   )
 
 ;; Japanese IME configuration
