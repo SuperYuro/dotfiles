@@ -2,7 +2,8 @@ autoload -Uz colors
 colors
 
 # Configure for original prompt theme
-PROMPT="%{${fg[black]}${bg[cyan]}%} %n@%m %{${reset_color}%} %{${fg[green]}%}%~%{${reset_color}%} %# "
+# PROMPT="%{${fg[black]}${bg[cyan]}%} %n@%m %{${reset_color}%} %{${fg[green]}%}%~%{${reset_color}%} %# "
+PROMPT="%{${fg[black]}${bg[blue]}%} %n@%m %{${reset_color}%}%{${fg[blue]}${bg[black]}%}%{${fg[white]}%} %~ %{${reset_color}%}%{${fg[black]}%}%{${reset_color}%} "
 
 autoload -Uz select-word-style
 select-word-style default
@@ -10,6 +11,7 @@ select-word-style default
 zstyle ':zle:*' word-chars " /=;@:{},|"
 zstyle ':zle:*' word-style unspecified
 
+# Completion
 autoload -Uz compinit
 compinit
 
@@ -30,6 +32,19 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+# Show git branches
+autoload -Uz vcs_info
+autoload -Uz add-zsh-hook
+
+zstyle ':vcs_info:*' formats '%F{green} (%s)-[%b] '
+zstyle ':vcs_info:*' actionformats '%F{red} (%s)-[%b|%a]'
+
+function _update_vcs_info_msg() {
+    LANG=en_US.UTF-8 vcs_info
+    RPROMPT="${vcs_info_msg_0_}"
+}
+add-zsh-hook precmd _update_vcs_info_msg
 
 # Alias
 alias ls='ls --color=auto'
@@ -73,6 +88,9 @@ export PATH="$HOME/.gems/bin:$PATH"
 
 # Configure for rbenv
 eval "$(rbenv init - zsh)"
+
+# Configure for poertry
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
 # Configure for pyenv
 export PYENV_ROOT="$HOME/.pyenv"

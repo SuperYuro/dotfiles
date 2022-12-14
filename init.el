@@ -65,7 +65,7 @@
   :added "2022-11-02"
   :emacs>= 24
   :ensure t
-  :config (load-theme 'whiteboard t)
+  :config (load-theme 'blackboard t)
   )
 
 ;; Japanese IME configuration
@@ -113,7 +113,7 @@
             (mouse-wheel-scroll-amount . '(1 ((control) . 5)))
             (ring-bell-function . 'ignore)
             (text-quoting-style . 'straight)
-            (truncate-lines . t)
+            (truncate-lines . nil)
             (inhibit-splash-screen . t)
             ;; (use-dialog-box . nil)
             ;; (use-file-dialog . nil)
