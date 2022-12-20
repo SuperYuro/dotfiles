@@ -87,6 +87,9 @@ export GEM_HOME="$HOME/.gems"
 export PATH="$HOME/.gems/bin:$PATH"
 
 # Configure for rbenv
+export RUBY_BUILD_ROOT="$HOME/.ruby-build"
+export RBENV_ROOT="$HOME/.rbenv"
+export PATH="$RUBY_BUILD_ROOT/bin:$RBENV_ROOT/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
 # Configure for poertry
@@ -98,7 +101,7 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # Configure for user script
-export PATH="$HOME/scripts:$PATH"
+export PATH="$HOME/.scripts:$PATH"
 
 # Configure for theme
 # source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
