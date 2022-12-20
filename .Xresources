@@ -2,6 +2,8 @@ Emacs*UseXIM: false
 
 UXTerm*termname: xterm-256color
 
+UXTerm*scrollBar: hide
+
 UXTerm*locale: true
 UXTerm*metaSendsEscape: true
 
