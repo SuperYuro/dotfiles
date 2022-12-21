@@ -1,11 +1,10 @@
 #!/bin/bash
 
-# Install rbenv
-git clone https://github.com/rbenv/rbenv ~/.rbenv
-git clone https://github.com/rbenv/ruby-build ~/.ruby-build
+./nvm_installer
 
-# Install pyenv
-git clone https://github.com/pyenv/pyenv ~/.pyenv
+./rbenv_installer
+
+./pyenv_installer
 
 # Install zsh extensions
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
