@@ -43,7 +43,8 @@ dnf groupinstall -y 'Office/Productivity'
 dnf install -y texlive-scheme-full
 
 # install Japanese Input Method
-dnf install -y ibus-mozc
+# dnf install -y ibus-mozc
+dnf install -y fcitx5-mozc fcitx5-configtool
 
 # install ime for editor
 dnf install -y emacs-mozc
