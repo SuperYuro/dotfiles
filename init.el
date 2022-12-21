@@ -57,16 +57,15 @@
 (add-to-list 'exec-path (expand-file-name "~/.cargo/bin" user-emacs-directory))
 
 ;; Set Theme
-(leaf blackboard-theme
-  :doc "TextMate Blackboard Theme"
+(leaf nord-theme
+  :doc "An arctic, north-bluish clean and elegant theme"
   :req "emacs-24"
   :tag "emacs>=24"
-  :url "https://github.com/don9z/blackboard-theme"
-  :added "2022-11-02"
+  :url "https://github.com/arcticicestudio/nord-emacs"
+  :added "2022-12-21"
   :emacs>= 24
   :ensure t
-  :config (load-theme 'blackboard t)
-  )
+  :config (load-theme 'nord t))
 
 ;; Japanese IME configuration
 (leaf mozc
@@ -392,6 +391,8 @@
   (rustic-lsp-client . 'lsp-mode)
   (rustic-format-trigger . 'on-save)
   (rustic-lsp-server . 'rust-analyzer))
+
+
 
 (provide 'init)
 
