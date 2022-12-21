@@ -72,6 +72,11 @@ SAVEHIST=1000000
 setopt inc_append_history
 setopt share_history
 
+# Configure zsh plugins
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+
 # Configure peco
 function peco-history-selection() {
     BUFFER=`history -n 1 | tac | awk '!a[$0]++' | peco`
@@ -100,16 +105,12 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# Configure for Deno
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 # Configure for user script
 export PATH="$HOME/.scripts:$PATH"
-
-# Configure for theme
-# source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
-
-# Configure zsh plugins
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
