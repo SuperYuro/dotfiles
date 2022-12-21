@@ -90,7 +90,7 @@ bindkey '^R' peco-history-selection
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 # Configure for Global Python
-export PATh="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Configure for ruby gem
 export GEM_HOME="$HOME/.gems"
