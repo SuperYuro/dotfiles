@@ -21,6 +21,8 @@ mason.setup({
 })
 lspconfig.setup({
 	ensure_installed = {
+		"clangd",
+		"pylsp",
 		"rust_analyzer",
 		"sumneko_lua",
 	},
