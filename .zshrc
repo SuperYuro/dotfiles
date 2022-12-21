@@ -3,7 +3,7 @@ colors
 
 # Configure for original prompt theme
 # PROMPT="%{${fg[black]}${bg[cyan]}%} %n@%m %{${reset_color}%} %{${fg[green]}%}%~%{${reset_color}%} %# "
-PROMPT="%{${fg[black]}${bg[blue]}%} %n@%m %{${reset_color}%}%{${fg[blue]}${bg[black]}%}%{${fg[white]}%} %~ %{${reset_color}%}%{${fg[black]}%}%{${reset_color}%} "
+PROMPT="%{${fg[black]}${bg[blue]}%} %~ %{${reset_color}%}%{${fg[blue]}%}%{${reset_color}%} "
 
 autoload -Uz select-word-style
 select-word-style default
@@ -64,6 +64,8 @@ alias cv='cd ~/Development/'
 
 alias rl='exec zsh'
 
+alias copy='xsel --input --clipboard'
+
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
@@ -86,6 +88,9 @@ function peco-history-selection() {
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
+# Configure for Global Python
+export PATh="$HOME/.local/bin:$PATH"
 
 # Configure for ruby gem
 export GEM_HOME="$HOME/.gems"
