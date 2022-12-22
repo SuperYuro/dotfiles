@@ -12,7 +12,11 @@ packer.startup(function(use)
 	-- 	"svrana/neosolarized.nvim",
 	-- 	requires = { "tjdevries/colorbuddy.nvim" },
 	-- })
-	use("shaunsingh/nord.nvim") -- Nord color scheme
+	use({
+		"cocopon/iceberg.vim",
+		config = vim.cmd.colorscheme("iceberg"),
+	})
+	-- use("shaunsingh/nord.nvim") -- Nord color scheme
 	use("kyazdani42/nvim-web-devicons") -- File icons
 	use("glepnir/lspsaga.nvim") -- LSP UIs
 	use("nvim-lualine/lualine.nvim") -- Statusline

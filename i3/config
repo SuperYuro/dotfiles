@@ -22,13 +22,6 @@ set $down  n
 # is used in the bar {} block below.
 font pango:Hack Nerd Font $fontsize
 
-# Color settings
-# class                 border      background  text        indicator   child_border
-client.focused          #88C0D0     #88C0D0     #2E3440     #88C0D0     #88C0D0
-client.focused_inactive #2E3440     #2E3440     #D8DEE9     #2E3440     #2E3440
-client.unfocused        #2E3440     #2E3440     #D8DEE9     #2E3440     #2E3440
-client.background       #2E3440
-
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -81,7 +74,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-# bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-10'"
 # A more modern dmenu replacement is rofi:
 bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -113,13 +106,13 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-# bindsym $mod+h split h
+bindsym $mod+h split h
 
 # split in vertical orientation
-# bindsym $mod+v split v
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-# bindsym $mod+ fullscreen toggle
+# bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -203,27 +196,27 @@ bindsym $mod+Shift+e mode "$mode_system"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym b resize shrink width 10 px or 10 ppt
-        bindsym n resize grow height 10 px or 10 ppt
-        bindsym p resize shrink height 10 px or 10 ppt
-        bindsym f resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym b resize shrink width 10 px or 10 ppt
+    bindsym n resize grow height 10 px or 10 ppt
+    bindsym p resize shrink height 10 px or 10 ppt
+    bindsym f resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -232,27 +225,35 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 
 bar {
-    status_command i3status
-    position top
 
-    font pango:Hack Nerd Font $fontsize
+  font pango:Hack Nerd Font $fontsize
 
-    separator_symbol "  "
-    # separator_symbol " | "
+  separator_symbol "  "
 
-    colors {
-        background  #2E3440
-        statusline  #D8DEE9
-        separator   #D8DEE9
+  colors {
+    background #e8e9ec
+    statusline #33374c
+    separator  #8389a3
 
-        # border background forground
-        focused_workspace   #4C566A #4C566A #D8DEE9
-        # active_workspace    #2E3440 #2E3440 #D8DEE9
-        inactive_workspace  #2E3440 #2E3440 #D8DEE9
-
-        binding_mode        #88C0D0 #88C0D0 #2E3440
-    }
+    focused_workspace  #2d539e #2d539e #e8e9ec
+    active_workspace   #8389a3 #8389a3 #e8e9ec
+    inactive_workspace #262a3f #262a3f #e8e9ec
+    urgent_workspace   #cc3768 #cc3768 #e8e9ec
+    binding_mode       #6845ad #6845ad #e8e9ec
+  }
+  position top
+  status_command i3status
 }
+
+# Color settings
+# class                 border  bground text    indicator child_border
+client.focused          #2d539e #2d539e #e8e9ec #2d539e   #2d539e
+client.focused_inactive #8389a3 #8389a3 #e8e9ec #8389a3   #8389a3
+client.unfocused        #e8e9ec #e8e9ec #33374c #e8e9ec   #e8e9ec 
+client.urgent           #BF616A #BF616A #e8e9ec #BF616A   #BF616A
+client.placeholder      #4C566A #4C566A #e8e9ec #4C566A   #4C566A
+
+client.background       #2E3440
 
 for_window [class="Minecraft 1.19.2"] floating enable
 
