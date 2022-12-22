@@ -57,15 +57,15 @@
 (add-to-list 'exec-path (expand-file-name "~/.cargo/bin" user-emacs-directory))
 
 ;; Set Theme
-(leaf nord-theme
-  :doc "An arctic, north-bluish clean and elegant theme"
+(leaf blackboard-theme
+  :doc "TextMate Blackboard Theme"
   :req "emacs-24"
   :tag "emacs>=24"
-  :url "https://github.com/arcticicestudio/nord-emacs"
-  :added "2022-12-21"
+  :url "https://github.com/don9z/blackboard-theme"
+  :added "2022-12-22"
   :emacs>= 24
   :ensure t
-  :config (load-theme 'nord t))
+  :config (load-theme 'whiteboard t))
 
 ;; Japanese IME configuration
 (leaf mozc
@@ -392,7 +392,15 @@
   (rustic-format-trigger . 'on-save)
   (rustic-lsp-server . 'rust-analyzer))
 
-
+(leaf neotree
+  :doc "A tree plugin like NerdTree for Vim"
+  :req "cl-lib-0.5"
+  :url "https://github.com/jaypei/emacs-neotree"
+  :added "2022-12-22"
+  :ensure t
+  :bind ([f8] . neotree-toggle)
+  )
+  
 
 (provide 'init)
 
