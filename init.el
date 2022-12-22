@@ -398,7 +398,17 @@
   :url "https://github.com/jaypei/emacs-neotree"
   :added "2022-12-22"
   :ensure t
-  :bind ([f8] . neotree-toggle)
+  :custom
+  (neo-smart-open . t)
+  (neo-create-file-auto-open . t)
+  (neo-theme . (if (dosplay-graphic-p) 'icons 'arrow))
+  :bind ([f8] . 'neotree-toggle)
+  (neotree-mode-map
+   ;; ("RET" . neotree-enter-hide)
+   ("a" . neotree-hidden-file-toggle)
+   ("<left>" . neotree-select-up-node)
+   ("<right>" . neotree-change-root)
+   )
   )
   
 
