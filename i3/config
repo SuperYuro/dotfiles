@@ -60,7 +60,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 # Take screenshot
 set $ss_path ~/Pictures/screenshots/%Y%m%d_%H%M%S_screenshot.png
 bindsym Print exec --no-startup-id scrot $ss_path
-bindsym Mod1+Print exec --no-startup-id scrot -F $ss_path -u
+bindsym $mod+Print exec --no-startup-id scrot -u $ss_path
 bindsym $mod+Shift+s exec --no-startup-id scrot -F $ss_path -s -f
 
 # Use Mouse+$mod to drag floating windows to their wanted position
