@@ -1,1 +1,6 @@
 packer_compiled.lua
+backup/
+custom.el
+eln-cache/
+elpa/
+var/
