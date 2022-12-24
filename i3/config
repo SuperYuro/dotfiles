@@ -11,6 +11,7 @@
 
 set $mod Mod4
 
+set $font Hack Nerd Font Mono
 set $fontsize 8
 
 set $left  b
@@ -20,7 +21,7 @@ set $down  n
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Hack Nerd Font $fontsize
+font pango:$font $fontsize
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -226,7 +227,7 @@ bindsym $mod+r mode "resize"
 
 bar {
 
-  font pango:Hack Nerd Font $fontsize
+  font pango:$font $fontsize
 
   separator_symbol "  "
 
@@ -254,10 +255,6 @@ client.urgent           #BF616A #BF616A #e8e9ec #BF616A   #BF616A
 client.placeholder      #4C566A #4C566A #e8e9ec #4C566A   #4C566A
 
 client.background       #2E3440
-
-for_window [class="Minecraft 1.19.2"] floating enable
-
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 new_window none
 new_float none
