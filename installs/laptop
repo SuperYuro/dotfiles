@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Install Groups
+sudo dnf groupinstall -y \
+     'Development Tools' \
+     'C Development Tools and Libraries' \
+     'Editors' \
+     'Engineering and Scientific' \
+     'Neuron Modelling Simulators' \
+     'Python Science' \
+     '3D Printing' \
+     'Audio Production' \
+     'Design Suite' \
+     'Authoring and Publishing' \
+     'Office/Productivity'
+
+
+# Install RPM Fusion Repositories
+sudo dnf install -y \
+     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+     https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+# Install Third Party Repositories
+sudo dnf install -y fedora-workstation-repositories
+
+# Install Google Chrome Browser
+sudo dnf config-manager --set-enabled google-chrome
+sudo dnf install -y google-chrome-stable
+
+# Install Visual Studio Code
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+sudo dnf install -y code
+
+# Install Wine
+sudo dnf install -y wine
+
+# Install TeXLive
+sudo dnf install -y texlive-scheme-full
+
+# Install Text Editor
+sudo dnf install -y emacs neovim
+
+# Install Input Method
+sudo dnf install -y fcitx5-mozc fcitx5-configtool
+sudo dnf install -y emacs-mozc
+
+# Install Fonts
+sudo dnf install -y \
+     google-noto-sans-fonts \
+     google-noto-serif-fonts \
+     cascadia-fonts-all
+
+# Install Nerd Font
+git clone https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
+~/nerd-fonts/install.sh Hack
+
+# Install pyenv and rbenv
+sudo dnf install -y gcc patch make bzip2 bzip2-devel sqlite sqlite-devel tk-devel xz-devel libuuid-devel openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel libnsl2-devel
+
+git clone https://github.com/pyenv/pyenv ~/.pyenv
+
+git clone https://github.com/rbenv/rbenv ~/.rbenv
+git clone https://github.com/rbenv/ruby-build ~/.ruby-build
