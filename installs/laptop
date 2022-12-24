@@ -62,3 +62,22 @@ git clone https://github.com/pyenv/pyenv ~/.pyenv
 
 git clone https://github.com/rbenv/rbenv ~/.rbenv
 git clone https://github.com/rbenv/ruby-build ~/.ruby-build
+
+# Put link of config files
+echo "export GTK_IM_MODULE=fcitx" >> ~/.bash_profile
+echo "export QT_IM_MODULE=fcitx" >> ~/.bash_profile
+echo "export XMODIFIERS=@im=fcitx" >> ~/.bash_profile
+echo "export SHELL=/usr/bin/fish" >> ~/.bash_profile
+
+ln -sf ~/dotfiles/.Xresources ~/.Xresources
+ln -sf ~/dotfiles/.Xmodmap ~/.Xmodmap
+
+mkdir -p ~/.config/fish
+mkdir -p ~/Development
+
+ln -sf ~/dotfiles/nvim ~/.config/nvim
+ln -sf ~/dotfiles/emacs ~/.config/emacs
+ln -sf ~/dotfiles/tmux ~/.config/tmux
+
+ln -sf ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
+ln -sf ~/dotfiles/fish/fish_variables ~/.fish_variables/fish_variables
