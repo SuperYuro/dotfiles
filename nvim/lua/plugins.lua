@@ -12,8 +12,8 @@ packer.startup(function(use)
     -- 	"svrana/neosolarized.nvim",
     -- 	requires = { "tjdevries/colorbuddy.nvim" },
     -- })
-    -- use("shaunsingh/nord.nvim") -- Nord color scheme
-    use("Shatur/neovim-ayu") -- Ayu color scheme
+    use("shaunsingh/nord.nvim") -- Nord color scheme
+    -- use("Shatur/neovim-ayu") -- Ayu color scheme
     use("kyazdani42/nvim-web-devicons") -- File icons
     use("glepnir/lspsaga.nvim") -- LSP UIs
     use("nvim-lualine/lualine.nvim") -- Statusline

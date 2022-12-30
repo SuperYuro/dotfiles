@@ -232,15 +232,15 @@ bar {
   separator_symbol "  "
 
   colors {
-    background #202734
-    statusline #cbccc6
-    separator  #686868
+    background #2e3440
+    statusline #d8dee9
+    separator  #4c566a
 
-    focused_workspace  #73d0ff #73d0ff #e8e9ec
-    active_workspace   #686868 #686868 #e8e9ec
-    inactive_workspace #262a3f #262a3f #e8e9ec
-    urgent_workspace   #ff3333 #ff3333 #e8e9ec
-    binding_mode       #ffee99 #ffee99 #e8e9ec
+    focused_workspace  #88c0d0 #88c0d0 #d8dee9
+    active_workspace   #4c566a #4c566a #d8dee9
+    inactive_workspace #262a3f #262a3f #d8dee9
+    urgent_workspace   #bf616a #bf616a #d8dee9
+    binding_mode       #ebcb8b #ebcb8b #d8dee9
   }
   position top
   status_command i3status
@@ -248,13 +248,13 @@ bar {
 
 # Color settings
 # class                 border  bground text    indicator child_border
-client.focused          #73d0ff #73d0ff #e8e9ec #73d0ff   #73d0ff
-client.focused_inactive #686868 #686868 #e8e9ec #686868   #686868
-client.unfocused        #e8e9ec #e8e9ec #33374c #e8e9ec   #e8e9ec 
-client.urgent           #ff3333 #ff3333 #e8e9ec #ff3333   #ff3333
-client.placeholder      #c7c7c7 #c7c7c7 #e8e9ec #c7c7c7   #c7c7c7
+client.focused          #88c0d0 #88c0d0 #d8dee9 #88c0d0   #88c0d0
+client.focused_inactive #4c566a #4c566a #d8dee9 #4c566a   #4c566a
+client.unfocused        #2e3440 #2e3440 #d8dee9 #2e3440   #2e3440 
+client.urgent           #bf616a #bf616a #d8dee9 #bf616a   #bf616a
+client.placeholder      #e5e9f0 #e5e9f0 #3b4252 #e5e9f0   #e5e9f0
 
-client.background       #2E3440
+client.background       #2e3440
 
 new_window none
 new_float none
@@ -263,3 +263,4 @@ for_window [class="^.*"] border pixel 2
 # exec --no-startup-id "ibus-daemon -d"
 exec --no-startup-id "fcitx5 -d"
 # exec --no-startup-id "feh --bg-scale /usr/share/backgrounds/nordic-wallpapers/archlinux.png"
+# exec --no-startup-id "feh --bg-scale /usr/share/backgrounds/f37/default/f37-01-night.png"
