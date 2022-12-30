@@ -236,7 +236,7 @@ bar {
     statusline #d8dee9
     separator  #4c566a
 
-    focused_workspace  #88c0d0 #88c0d0 #d8dee9
+    focused_workspace  #88c0d0 #88c0d0 #2e3440
     active_workspace   #4c566a #4c566a #d8dee9
     inactive_workspace #262a3f #262a3f #d8dee9
     urgent_workspace   #bf616a #bf616a #d8dee9
@@ -248,7 +248,7 @@ bar {
 
 # Color settings
 # class                 border  bground text    indicator child_border
-client.focused          #88c0d0 #88c0d0 #d8dee9 #88c0d0   #88c0d0
+client.focused          #88c0d0 #88c0d0 #2e3440 #88c0d0   #88c0d0
 client.focused_inactive #4c566a #4c566a #d8dee9 #4c566a   #4c566a
 client.unfocused        #2e3440 #2e3440 #d8dee9 #2e3440   #2e3440 
 client.urgent           #bf616a #bf616a #d8dee9 #bf616a   #bf616a
