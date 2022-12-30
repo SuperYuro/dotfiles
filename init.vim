@@ -32,7 +32,7 @@ set termguicolors
 set winblend=0
 set wildoptions=pum
 set pumblend=5
-set background=light
+set background=dark
 
 " Keymaps
 " Emacs-like keymaps in Insert Mode
