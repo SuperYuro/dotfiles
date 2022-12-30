@@ -2,23 +2,23 @@
 
 # Install Groups
 sudo dnf groupinstall -y \
-     'Development Tools' \
-     'C Development Tools and Libraries' \
-     'Editors' \
-     'Engineering and Scientific' \
-     'Neuron Modelling Simulators' \
-     'Python Science' \
-     '3D Printing' \
-     'Audio Production' \
-     'Design Suite' \
-     'Authoring and Publishing' \
-     'Office/Productivity'
+    'Development Tools' \
+    'C Development Tools and Libraries' \
+    'Editors' \
+    'Engineering and Scientific' \
+    'Neuron Modelling Simulators' \
+    'Python Science' \
+    '3D Printing' \
+    'Audio Production' \
+    'Design Suite' \
+    'Authoring and Publishing' \
+    'Office/Productivity'
 
 
 # Install RPM Fusion Repositories
 sudo dnf install -y \
-     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-     https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # Install Third Party Repositories
 sudo dnf install -y fedora-workstation-repositories
@@ -47,12 +47,12 @@ sudo dnf install -y emacs-mozc
 
 # Install Fonts
 sudo dnf install -y \
-     google-noto-sans-fonts \
-     google-noto-serif-fonts \
-     cascadia-fonts-all
+    google-noto-sans-fonts \
+    google-noto-serif-fonts \
+    cascadia-fonts-all
 
 # Install Nerd Font
-git clone https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
+git clone --depth 1 --branch master https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
 ~/nerd-fonts/install.sh Hack
 
 # Install pyenv and rbenv
@@ -69,6 +69,8 @@ echo "export QT_IM_MODULE=fcitx" >> ~/.bash_profile
 echo "export XMODIFIERS=@im=fcitx" >> ~/.bash_profile
 echo "export SHELL=/usr/bin/fish" >> ~/.bash_profile
 
+ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+
 ln -sf ~/dotfiles/.Xresources ~/.Xresources
 ln -sf ~/dotfiles/.Xmodmap ~/.Xmodmap
 
@@ -80,4 +82,4 @@ ln -sf ~/dotfiles/emacs ~/.config/emacs
 ln -sf ~/dotfiles/tmux ~/.config/tmux
 
 ln -sf ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
-ln -sf ~/dotfiles/fish/fish_variables ~/.fish_variables/fish_variables
+ln -sf ~/dotfiles/fish/fish_variables ~/.config/fish/fish_variables
