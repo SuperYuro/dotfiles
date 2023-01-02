@@ -1,6 +1,8 @@
 Emacs*UseXIM: false
 
-URxvt.font: xft:Hack Nerd Font Mono:style=Regular:size=10
+URxvt.font: xft:Hack Nerd Font Mono:style=Regular:size=9
+
+URxvt.letterSpace: -1
 
 URxvt.scrollBar: Hide
 
