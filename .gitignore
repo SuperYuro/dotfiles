@@ -4,3 +4,4 @@ custom.el
 eln-cache/
 elpa/
 var/
+.lsp-session-v1
