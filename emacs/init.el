@@ -65,14 +65,14 @@
   :added "2022-12-22"
   :emacs>= 24
   :ensure t
-  :config (load-theme 'whiteboard t))
+  :config (load-theme 'blackboard t))
 
 ;; Japanese IME configuration
 (leaf mozc
   :doc "minor mode to input Japanese with Mozc"
   :tag "input method" "multilingual" "mule"
   :ensure t
-  :custom (mozc-candidate-style . 'echo-area)
+  :custom (mozc-candidate-style . 'dropdown)
   :config
   (set-input-method 'japanese-mozc)
   (set-fontset-font t 'japanese-jisx0208 "Noto Serif CJK JP-10"))
