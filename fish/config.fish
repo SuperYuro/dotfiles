@@ -34,6 +34,7 @@ alias cv 'cd ~/Development/'
 alias dp 'docker compose'
 alias bi 'acpi --battery --details'
 alias rn ranger
+alias copy 'xsel --input --clipboard'
 
 pyenv init - | source
 
