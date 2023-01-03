@@ -14,6 +14,7 @@ sudo dnf groupinstall -y \
     'Authoring and Publishing' \
     'Office/Productivity'
 
+sudo dnf install -y rxvt-unicode
 
 # Install RPM Fusion Repositories
 sudo dnf install -y \
@@ -39,7 +40,7 @@ sudo dnf install -y wine
 sudo dnf install -y texlive-scheme-full
 
 # Install Text Editor
-sudo dnf install -y emacs neovim
+sudo dnf install -y emacs
 
 # Install Input Method
 sudo dnf install -y fcitx5-mozc fcitx5-configtool
@@ -55,18 +56,15 @@ sudo dnf install -y \
 git clone --depth 1 --branch master https://github.com/ryanoasis/nerd-fonts ~/nerd-fonts
 ~/nerd-fonts/install.sh Hack
 
-# Install pyenv and rbenv
-sudo dnf install -y gcc patch make bzip2 bzip2-devel sqlite sqlite-devel tk-devel xz-devel libuuid-devel openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel libnsl2-devel
+# Install pyenv
+sudo dnf install make gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel tk-devel libffi-devel xz-devel libuuid-devel gdbm-devel libnsl2-devel
 
 git clone https://github.com/pyenv/pyenv ~/.pyenv
 
-git clone https://github.com/rbenv/rbenv ~/.rbenv
-git clone https://github.com/rbenv/ruby-build ~/.ruby-build
-
 # Put link of config files
-echo "export GTK_IM_MODULE=fcitx" >> ~/.bash_profile
-echo "export QT_IM_MODULE=fcitx" >> ~/.bash_profile
-echo "export XMODIFIERS=@im=fcitx" >> ~/.bash_profile
+echo "export GTK_IM_MODULE=fcitx" >> ~/.profile
+echo "export QT_IM_MODULE=fcitx" >> ~/.profile
+echo "export XMODIFIERS=@im=fcitx" >> ~/.profile
 echo "export SHELL=/usr/bin/fish" >> ~/.bash_profile
 
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
@@ -80,6 +78,9 @@ mkdir -p ~/Development
 ln -sf ~/dotfiles/nvim ~/.config/nvim
 ln -sf ~/dotfiles/emacs ~/.config/emacs
 ln -sf ~/dotfiles/tmux ~/.config/tmux
+
+ln -sf ~/dotfiles/i3 ~/.config/i3
+ln -sf ~/dotfiles/i3status ~/.config/i3status
 
 ln -sf ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
 ln -sf ~/dotfiles/fish/fish_variables ~/.config/fish/fish_variables
