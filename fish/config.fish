@@ -37,5 +37,3 @@ alias rn ranger
 alias copy 'xsel --input --clipboard'
 
 pyenv init - | source
-
-status --is-interactive; and rbenv init - fish | source

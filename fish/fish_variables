@@ -1,10 +1,9 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export AVR_CPU_FREQUENCY_HZ:16000000
-SETUVAR --export GEM_HOME:/home/yuro/\x2egems
 SETUVAR --export PYENV_ROOT:/home/yuro/\x2epyenv
 SETUVAR --export PYTHON_KEYRING_BACKEND:keyring\x2ebackends\x2enull\x2eKeyring
-SETUVAR __fish_initialized:3100
+SETUVAR __fish_initialized:3400
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_list\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e\x7e/\x2econfig/fish/completions/nvm\x2efish
 SETUVAR _fisher_oh_2D_my_2D_fish_2F_theme_2D_bobthefish_files:\x7e/\x2econfig/fish/functions/__bobthefish_colors\x2efish\x1e\x7e/\x2econfig/fish/functions/__bobthefish_display_colors\x2efish\x1e\x7e/\x2econfig/fish/functions/__bobthefish_glyphs\x2efish\x1e\x7e/\x2econfig/fish/functions/bobthefish_display_colors\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_greeting\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_mode_prompt\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_prompt\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_right_prompt\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_title\x2efish
@@ -38,7 +37,7 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/home/yuro/.flutter/bin:/home/yuro/\x2elocal/bin\x3a/home/yuro/\x2epyenv/bin\x3a/home/yuro/\x2eruby\x2dbuild/bin\x3a/home/yuro/\x2erbenv/bin\x3a/home/yuro/\x2ecargo/bin\x3a/home/yuro/\x2escripts\x1e/home/yuro/\x2egems/bin
+SETUVAR fish_user_paths:/home/yuro/\x2eflutter/bin\x3a/home/yuro/\x2elocal/bin\x3a/home/yuro/\x2epyenv/bin\x3a/home/yuro/\x2ecargo/bin\x3a/home/yuro/\x2escripts\x1e
 SETUVAR nvm_data:/home/yuro/\x2elocal/share/nvm
 SETUVAR nvm_default_version:v18\x2e12\x2e1
 SETUVAR nvm_mirror:https\x3a//nodejs\x2eorg/dist
