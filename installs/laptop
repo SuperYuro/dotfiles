@@ -14,7 +14,7 @@ sudo dnf groupinstall -y \
     'Authoring and Publishing' \
     'Office/Productivity'
 
-sudo dnf install -y rxvt-unicode
+sudo dnf install -y xterm rxvt-unicode
 
 # Install RPM Fusion Repositories
 sudo dnf install -y \
