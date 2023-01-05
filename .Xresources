@@ -1,32 +1,4 @@
-Emacs*UseXIM: false
-
-URxvt.font: xft:Hack Nerd Font Mono:style=Regular:size=9
-
-URxvt.letterSpace: -1
-
-URxvt.scrollBar: Hide
-
-URxvt.background: rgb:2e/34/40
-URxvt.foreground: rgb:d8/de/e9
-
-URxvt.color0:  rgb:3b/42/52
-URxvt.color1:  rgb:bf/61/6a
-URxvt.color2:  rgb:a3/be/8c
-URxvt.color3:  rgb:eb/cb/8b
-URxvt.color4:  rgb:81/a1/c1
-URxvt.color5:  rgb:b4/8e/ad
-URxvt.color6:  rgb:88/c0/d0
-URxvt.color7:  rgb:e5/e9/f0
-URxvt.color8:  rgb:4c/56/6a
-URxvt.color9:  rgb:bf/61/6a
-URxvt.color10: rgb:a3/be/8c
-URxvt.color11: rgb:eb/cb/8b
-URxvt.color12: rgb:81/a1/c1
-URxvt.color13: rgb:b4/8e/ad
-URxvt.color14: rgb:8f/bc/bb
-URxvt.color15: rgb:ec/ef/f4
-
-UXTerm*termname: xterm-256color
+UXTerm*termName: xterm-256color
 
 UXTerm*scrollBar: hide
 
