@@ -262,5 +262,5 @@ for_window [class="^.*"] border pixel 2
 
 # exec --no-startup-id "ibus-daemon -d"
 exec --no-startup-id "fcitx5 -d"
-# exec --no-startup-id "feh --bg-scale /usr/share/backgrounds/nordic-wallpapers/archlinux.png"
+exec --no-startup-id "feh --bg-scale /usr/share/backgrounds/nordic-wallpapers/archlinux.png"
 # exec --no-startup-id "feh --bg-scale /usr/share/backgrounds/f37/default/f37-01-night.png"
