@@ -8,14 +8,10 @@ if [[ -f $userXresources ]]; then
 fi
 
 if [[ -f $userXmodmap ]]; then
-    xrdb "$userXmodmap"
+    xmodmap "$userXmodmap"
 fi
 
 # set environment variables
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=ibus
-
 export SHELL=/usr/bin/fish
 
 exec i3
