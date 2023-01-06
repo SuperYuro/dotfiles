@@ -64,18 +64,27 @@
   :url "https://github.com/don9z/blackboard-theme"
   :added "2022-12-22"
   :emacs>= 24
+  :ensure t)
+
+(leaf nord-theme
+  :doc "An arctic, north-bluish clean and elegant theme"
+  :req "emacs-24"
+  :tag "emacs>=24"
+  :url "https://github.com/arcticicestudio/nord-emacs"
+  :added "2023-01-06"
+  :emacs>= 24
   :ensure t
-  :config (load-theme 'blackboard t))
+  :config (load-theme 'nord t))
 
 ;; Japanese IME configuration
-(leaf mozc
-  :doc "minor mode to input Japanese with Mozc"
-  :tag "input method" "multilingual" "mule"
-  :ensure t
-  :custom (mozc-candidate-style . 'dropdown)
-  :config
-  (set-input-method 'japanese-mozc)
-  (set-fontset-font t 'japanese-jisx0208 "Noto Serif CJK JP-10"))
+;; (leaf mozc
+;;   :doc "minor mode to input Japanese with Mozc"
+;;   :tag "input method" "multilingual" "mule"
+;;   :ensure t
+;;   :custom (mozc-candidate-style . 'dropdown)
+;;   :config
+;;   (set-input-method 'japanese-mozc)
+;;   (set-fontset-font t 'japanese-jisx0208 "Noto Serif CJK JP-10"))
 
 (leaf linum
   :doc "display line numbers in the left margin"
