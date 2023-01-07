@@ -15,28 +15,24 @@ bufferline.setup({
 		close_icon = "",
 		left_trunc_marker = "",
 		right_trunc_marker = "",
-		-- modified_icon = "M",
-		-- close_icon = "x",
-		-- left_trunc_marker = "<",
-		-- right_trunc_marker = ">",
 	},
 	highlights = {
 		separator = {
-			fg = "#3b4252", -- normal black
-			bg = "#2e3440", -- background
+			fg = "#191e2a", -- normal black
+			bg = "#202734", -- background
 		},
 		separator_selected = {
-			fg = "#3b4252", -- normal black
+			fg = "#191e2a", -- normal black
 		},
 		background = {
-			fg = "#4c566a", -- light theme foreground or bright black
-			bg = "#2e3440", -- background
+			fg = "#686868", -- light theme foreground or bright black
+			bg = "#202734", -- background
 		},
 		buffer_selected = {
-			fg = "#eceff4", -- light theme background or bright white
+			fg = "#ffffff", -- light theme background or bright white
 		},
 		fill = {
-			bg = "#3b4252", -- normal black
+			bg = "#191e2a", -- normal black
 			underline = true,
 			undercurl = true,
 			italic = true,

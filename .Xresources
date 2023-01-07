@@ -14,22 +14,22 @@ UXTerm*faceName: Hack Nerd Font Mono:style=Regular:antialias=true
 UXTerm*faceNameDoublesize: Noto Sans CJK JP
 UXTerm*faceSize: 10
 
-UXTerm*background: rgb:2e/34/40
-UXTerm*foreground: rgb:d8/de/e9
+UXTerm*background: #202734
+UXTerm*foreground: #cbccc6
 
-UXTerm*color0:  rgb:3b/42/52
-UXTerm*color1:  rgb:bf/61/6a
-UXTerm*color2:  rgb:a3/be/8c
-UXTerm*color3:  rgb:eb/cb/8b
-UXTerm*color4:  rgb:81/a1/c1
-UXTerm*color5:  rgb:b4/8e/ad
-UXTerm*color6:  rgb:88/c0/d0
-UXTerm*color7:  rgb:e5/e9/f0
-UXTerm*color8:  rgb:4c/56/6a
-UXTerm*color9:  rgb:bf/61/6a
-UXTerm*color10: rgb:a3/be/8c
-UXTerm*color11: rgb:eb/cb/8b
-UXTerm*color12: rgb:81/a1/c1
-UXTerm*color13: rgb:b4/8e/ad
-UXTerm*color14: rgb:8f/bc/bb
-UXTerm*color15: rgb:ec/ef/f4
+UXTerm*color0:  #191e2a
+UXTerm*color1:  #ff3333
+UXTerm*color2:  #bae67e
+UXTerm*color3:  #ffa759
+UXTerm*color4:  #73d0ff
+UXTerm*color5:  #ffd580
+UXTerm*color6:  #95e6cb
+UXTerm*color7:  #c7c7c7
+UXTerm*color8:  #686868
+UXTerm*color9:  #f27983
+UXTerm*color10: #a6cc70
+UXTerm*color11: #ffcc66
+UXTerm*color12: #5ccfe6
+UXTerm*color13: #ffee99
+UXTerm*color14: #95e6cb
+UXTerm*color15: #ffffff
