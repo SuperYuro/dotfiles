@@ -13,3 +13,5 @@ emacs/.lsp-session-v1
 fish/completions/
 fish/conf.d/
 fish/functions/
+fish/fish_plugins
+fish/fish_variables
