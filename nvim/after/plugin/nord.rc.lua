@@ -1,7 +1,7 @@
 local status, nord = pcall(require, "nord")
 if not status then
-	return
+    return
 end
 
--- vim.cmd([[colorscheme nord]])
-nord.set()
+vim.cmd([[colorscheme nord]])
+-- nord.set()
