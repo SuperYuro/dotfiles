@@ -35,7 +35,7 @@ link_file "fish" "$CONFDIR"
 sudo pacman -S xorg-server xorg-apps xorg-xmodmap xorg-xinit --noconfirm
 
 # Window manager
-sudo pacman -S i3-gaps i3status i3lock i3blocks rofi xterm
+sudo pacman -S i3-gaps i3status i3lock i3blocks rofi xterm --noconfirm
 
 # Shell
 sudo pacman -S fish fisher --noconfirm
@@ -53,6 +53,9 @@ cd ~/paru
 makepkg -si --noconfirm
 cd ~/
 
+# Japanese IME
+paru -S ibus-mozc --noconfirm
+
 # Editor
 sudo pacman -S neovim emacs --noconfirm
 paru -S \
@@ -63,12 +66,21 @@ paru -S \
 sudo pacman -S firefox --noconfirm
 paru -S google-chrome microsoft-edge-stable-bin --noconfirm
 
+# Font
+paru -S \
+    noto-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji \
+    otf-cascadia-code \
+    nerd-fonts-complete --noconfirm
+
 # Python
 sudo pacman -S \
     python python-pip pyenv \
     openssl zlib xz tk --noconfirm
 
 pip install poetry
+
+pyenv install 3.11.0 --verbose
+pyenv install 3.8.16 --verbose
 
 # For AVR-Rust
 rustup toolchain install nightly
