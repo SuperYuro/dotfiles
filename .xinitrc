@@ -12,6 +12,10 @@ if [[ -f $userXmodmap ]]; then
 fi
 
 # set environment variables
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+
 export SHELL=/usr/bin/fish
 
 exec i3
