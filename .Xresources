@@ -1,3 +1,5 @@
+Emacs*UseXIM: false
+
 UXTerm*termName: xterm-256color
 
 UXTerm*scrollBar: hide
@@ -14,22 +16,22 @@ UXTerm*faceName: Hack Nerd Font Mono:style=Regular:antialias=true
 UXTerm*faceNameDoublesize: Noto Sans CJK JP
 UXTerm*faceSize: 10
 
-UXTerm*background: #202734
-UXTerm*foreground: #cbccc6
+UXTerm*background: #2e3440
+UXTerm*foreground: #d8dee9
 
-UXTerm*color0:  #191e2a
-UXTerm*color1:  #ff3333
-UXTerm*color2:  #bae67e
-UXTerm*color3:  #ffa759
-UXTerm*color4:  #73d0ff
-UXTerm*color5:  #ffd580
-UXTerm*color6:  #95e6cb
-UXTerm*color7:  #c7c7c7
-UXTerm*color8:  #686868
-UXTerm*color9:  #f27983
-UXTerm*color10: #a6cc70
-UXTerm*color11: #ffcc66
-UXTerm*color12: #5ccfe6
-UXTerm*color13: #ffee99
-UXTerm*color14: #95e6cb
-UXTerm*color15: #ffffff
+UXTerm*color0:  #3b4252
+UXTerm*color1:  #bf616a
+UXTerm*color2:  #a3be8c
+UXTerm*color3:  #ebcb8b
+UXTerm*color4:  #81a1c1
+UXTerm*color5:  #b48ead
+UXTerm*color6:  #88c0d0
+UXTerm*color7:  #e5e9f0
+UXTerm*color8:  #4c566a
+UXTerm*color9:  #bf616a
+UXTerm*color10: #a3be8c
+UXTerm*color11: #ebcb8b
+UXTerm*color12: #81a1c1
+UXTerm*color13: #b48ead
+UXTerm*color14: #8fbcbb
+UXTerm*color15: #eceff4
