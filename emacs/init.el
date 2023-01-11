@@ -247,6 +247,17 @@
   :custom ((ivy-prescient-retain-classic-highlighting . t))
   :global-minor-mode t)
 
+(leaf flycheck
+  :doc "On-the-fly syntax checking"
+  :req "dash-2.12.1" "pkg-info-0.4" "let-alist-1.0.4" "seq-1.11" "emacs-24.3"
+  :tag "minor-mode" "tools" "languages" "convenience" "emacs>=24.3"
+  :url "http://www.flycheck.org"
+  :emacs>= 24.3
+  :ensure t
+  :bind (("M-n" . flycheck-next-error)
+         ("M-p" . flycheck-previous-error))
+  :global-minor-mode global-flycheck-mode)
+
 (leaf company
   :doc "Modular text completion framework"
   :req "emacs-24.3"
@@ -366,53 +377,60 @@
    )
   )
 
-(leaf exec-path-from-shell
-  :doc "Get environment variables such as $PATH from the shell"
-  :req "emacs-24.1" "cl-lib-0.6"
-  :tag "environment" "unix" "emacs>=24.1"
-  :url "https://github.com/purcell/exec-path-from-shell"
-  :added "2023-01-10"
-  :emacs>= 24.1
+(leaf lsp-mode
+  :doc "LSP mode"
+  :req "emacs-26.1" "dash-2.18.0" "f-0.20.0" "ht-2.3" "spinner-1.7.3" "markdown-mode-2.3" "lv-0"
+  :tag "languages" "emacs>=26.1"
+  :url "https://github.com/emacs-lsp/lsp-mode"
+  :added "2022-11-14"
+  :emacs>= 26.1
   :ensure t
-  :config (exec-path-from-shell-initialize))
+  :after spinner markdown-mode lv
+  :custom ((lsp-keymap-prefix . "s-l")))
 
-(leaf flymake
-  :doc "A universal on-the-fly syntax checker"
-  :tag "builtin"
-  :added "2023-01-10")
+(leaf lsp-ui
+  :doc "UI modules for lsp-mode"
+  :req "emacs-26.1" "dash-2.18.0" "lsp-mode-6.0" "markdown-mode-2.3"
+  :tag "tools" "languages" "emacs>=26.1"
+  :url "https://github.com/emacs-lsp/lsp-ui"
+  :added "2022-11-14"
+  :emacs>= 26.1
+  :ensure t
+  :after lsp-mode markdown-mode)
 
 (leaf python-mode
   :doc "Python major mode"
   :tag "oop" "python" "processes" "languages"
   :url "https://gitlab.com/groups/python-mode-devs"
-  :added "2023-01-10"
+  :added "2023-01-11"
   :ensure t)
 
-(leaf rust-mode
-  :doc "A major-mode for editing Rust source code"
-  :req "emacs-25.1"
-  :tag "languages" "emacs>=25.1"
-  :url "https://github.com/rust-lang/rust-mode"
-  :added "2023-01-10"
-  :emacs>= 25.1
-  :ensure t)
-
-(leaf eglot
-  :doc "The Emacs Client for LSP servers"
-  :req "emacs-26.3" "jsonrpc-1.0.14" "flymake-1.2.1" "project-0.3.0" "xref-1.0.1" "eldoc-1.11.0" "seq-2.23"
-  :tag "languages" "convenience" "emacs>=26.3"
-  :url "https://github.com/joaotavora/eglot"
-  :added "2023-01-10"
-  :emacs>= 26.3
+(leaf lsp-pyright
+  :doc "Python LSP client using Pyright"
+  :req "emacs-26.1" "lsp-mode-7.0" "dash-2.18.0" "ht-2.0"
+  :tag "lsp" "tools" "languages" "emacs>=26.1"
+  :url "https://github.com/emacs-lsp/lsp-pyright"
+  :added "2023-01-11"
+  :emacs>= 26.1
   :ensure t
-  :after jsonrpc flymake project xref eldoc
-  :mode-hook (python-mode-hook . eglot-ensure)
-  :config
-  (add-hook 'python-mode-hook 'eglot-ensure)
-  (add-to-list 'eglot-server-programs
-               `(python-mode . ("pyls" "-v" "--tcp" "--host"
-                                "localhost" "--port" :autoport)))
-  (add-hook 'rust-mode 'eglot-ensure))
+  :after lsp-mode
+  :mode-hook
+  (python-mode . (lambda ()
+                   (require 'lsp-pyright)
+                   (lsp))))
+
+(leaf rustic
+  :doc "Rust development environment"
+  :req "emacs-26.1" "rust-mode-1.0.3" "dash-2.13.0" "f-0.18.2" "let-alist-1.0.4" "markdown-mode-2.3" "project-0.3.0" "s-1.10.0" "seq-2.3" "spinner-1.7.3" "xterm-color-1.6"
+  :tag "languages" "emacs>=26.1"
+  :added "2022-12-09"
+  :emacs>= 26.1
+  :ensure t
+  :after rust-mode markdown-mode project spinner xterm-color
+  :custom
+  (rustic-lsp-client . 'lsp-mode)
+  (rustic-format-trigger . 'on-save)
+  (rustic-lsp-server . 'rust-analyzer))
 
 (provide 'init)
 
