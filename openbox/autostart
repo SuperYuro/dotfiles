@@ -1,5 +1,5 @@
 # Start IME
-ibus-daemon -drx
+(sleep 1s && ibus-daemon -drx) &
 
 # Set wallpaper
-feh --bg-scale /usr/share/backgrounds/nordic-wallpapers/archlinux.png
+(sleep 1s && feh --bg-scale /usr/share/backgrounds/nordic-wallpapers/archlinux.png) &
