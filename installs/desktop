@@ -64,11 +64,6 @@ sudo pacman -S \
     python python-pip pyenv \
     openssl zlib xz tk --noconfirm
 
-pip install poetry
-
-pyenv install 3.11.0 --verbose
-pyenv install 3.8.16 --verbose
-
 # For AVR-Rust
 rustup toolchain install nightly
 rustup component add rust-src --toolchain nightly

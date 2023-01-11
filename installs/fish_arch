@@ -11,19 +11,23 @@ set -Ux PYENV_ROOT $HOME/.pyenv
 set -Ux PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
 
 # For Python modules
-fish_add_path $HOME/.local/bin
+fish_add_path -a $HOME/.local/bin
 
 # For pyenv
-fish_add_path $PYENV_ROOT/shims
+fish_add_path -a $PYENV_ROOT/shims
 
 # For Rust
-fish_add_path $HOME/.cargo/bin
+fish_add_path -a $HOME/.cargo/bin
 
 # Install fish plugins
 fisher install jorgebucaran/fisher jorgebucaran/nvm.fish oh-my-fish/theme-bobthefish
 
 # Install nvm
 nvm install
+
+# Install poetry
+pip install poetry
+poetry config virtualenvs.in-project true
 
 # Install Python using pyenv
 pyenv install 3.8.16 --verbose
