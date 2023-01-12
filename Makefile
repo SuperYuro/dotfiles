@@ -8,20 +8,20 @@ all:
 	@echo " nvidia...Install nvidia driver on Ubuntu on WSL2."
 
 laptop:
-	@sh ~/dotfiles/installs/laptop/archlinux.sh
+	@sh ~/dotfiles/installs/laptop/install.sh
 	@sh ~/dotfiles/installs/laptop/config.sh
 	@fish ~/dotfiles/installs/laptop/archlinux.fish
 
 desktop:
-	@sh ~/dotfiles/installs/desktop/archlinux.sh
+	@sh ~/dotfiles/installs/desktop/install.sh
 	@sh ~/dotfiles/installs/desktop/config.sh
 	@fish ~/dotfiles/installs/desktop/archlinux.fish
 
 wsl2:
-	@sh ~/dotfiles/installs/wsl2/archlinux.sh
+	@sh ~/dotfiles/installs/wsl2/install.sh
 	@sh ~/dotfiles/installs/wsl2/config.sh
 	@sh ~/dotfiles/installs/wsl2/interactive.sh
-	@fish ~/dotfiles/installs/wsl2/archlinux.fish
+	@fish ~/dotfiles/installs/wsl2/ubuntu.fish
 
 nvidia:
 	@sh ~/dotfiles/installs/wsl2/nvidia.sh
