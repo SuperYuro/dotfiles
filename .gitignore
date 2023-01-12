@@ -7,11 +7,13 @@ config/emacs/custom.el
 config/emacs/eln-cache/
 config/emacs/elpa/
 config/emacs/var/
+config/emacs/eshell/
 config/emacs/.lsp-session-v1
 
 # For Fish
 config/fish/completions/
 config/fish/conf.d/
-config/fish/functions/
 config/fish/fish_plugins
 config/fish/fish_variables
+config/fish/functions/
+config/fish/themes/
