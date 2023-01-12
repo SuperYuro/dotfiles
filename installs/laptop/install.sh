@@ -33,7 +33,7 @@ paru -S ibus-mozc --noconfirm
 sudo pacman -S neovim emacs --noconfirm
 paru -S \
     nvim-packer-git emacs-mozc \
-    jetbrains-toolbox visual-studio-code-bin --noconfirm
+    visual-studio-code-bin --noconfirm
 
 # Browser
 sudo pacman -S firefox --noconfirm
