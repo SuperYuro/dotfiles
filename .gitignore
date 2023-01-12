@@ -1,17 +1,17 @@
 # For Neovim
-packer_compiled.lua
+config/nvim/packer_compiled.lua
 
 # For Emacs
-emacs/backup/
-emacs/custom.el
-emacs/eln-cache/
-emacs/elpa/
-emacs/var/
-emacs/.lsp-session-v1
+config/emacs/backup/
+config/emacs/custom.el
+config/emacs/eln-cache/
+config/emacs/elpa/
+config/emacs/var/
+config/emacs/.lsp-session-v1
 
 # For Fish
-fish/completions/
-fish/conf.d/
-fish/functions/
-fish/fish_plugins
-fish/fish_variables
+config/fish/completions/
+config/fish/conf.d/
+config/fish/functions/
+config/fish/fish_plugins
+config/fish/fish_variables
