@@ -4,7 +4,10 @@
 sudo pacman -S xorg-server xorg-apps xorg-xmodmap xorg-xinit --noconfirm
 
 # Window manager
-sudo pacman -S i3-gaps i3status i3lock i3blocks rofi xterm --noconfirm
+sudo pacman -S i3-gaps i3status i3lock i3blocks --noconfirm
+
+# Misc
+sudo pacman -S xterm rofi pcmanfm gvfs udisks2 fwupd --noconfirm
 
 # Shell
 sudo pacman -S fish fisher --noconfirm
@@ -21,6 +24,7 @@ git clone https://aur.archlinux.org/paru ~/paru
 cd ~/paru
 makepkg -si --noconfirm
 cd ~/
+rm ~/paru -rf
 
 # Japanese IME
 paru -S ibus-mozc --noconfirm
@@ -46,7 +50,23 @@ sudo pacman -S \
     python python-pip pyenv \
     openssl zlib xz tk --noconfirm
 
+# Theme
+paru -S arc-gtk-theme paper-icon-theme lxappearance --noconfirm
+
 # For AVR-Rust
 rustup toolchain install nightly
 rustup component add rust-src --toolchain nightly
 sudo pacman -S avr-gcc avr-libc avrdude --noconfirm
+
+# For energy efficiency
+sudo pacman -S powertop tlp tlp-rdw acpi acpi_call tpacpi-bat
+
+sudo cp ~/dotfiles/tlp/performance.conf /etc/tlp.d/
+sudo cp ~/dotfiles/tlp/battery-threshold.conf /etc/tlp.d/
+
+sudo systemctl mask systemd-rfkill.service
+sudo systemctl mask systemd-rfkill.socket
+sudo systemctl enable tlp.service
+
+sudo powertop --auto-tune
+sudo tlp start
