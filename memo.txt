@@ -1,2 +1,0 @@
-title bar active #e81123
-title bar unactive #ef5561

@@ -1,0 +1,4 @@
+ls 
+md-to-pdf 0112_datamining.pdf 
+md-to-pdf 0112_datamining.md 
+echo $PATH
