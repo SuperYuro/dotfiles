@@ -1,4 +1,17 @@
 #!/bin/sh
+
+# # Xorg
+# sudo pacman -S xorg-server xorg-apps xorg-xmodmap xorg-xinit --noconfirm
+#
+# # Window manager
+# sudo pacman -S openbox obconf tint2 --noconfirm
+
+# # Misc
+# sudo pacman -S xterm rofi pcmanfm gvfs udisks2 fwupd --noconfirm
+
+# Desktop Environment
+sudo pacman -S cinnamon xterm --noconfirm
+
 # Shell
 sudo pacman -S fish fisher --noconfirm
 
