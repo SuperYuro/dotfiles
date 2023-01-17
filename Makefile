@@ -18,9 +18,9 @@ desktop:
 	@fish ~/dotfiles/installs/desktop/config.fish
 
 wsl2:
-	@bash ~/dotfiles/installs/wsl2/install.sh
-	@bash ~/dotfiles/installs/wsl2/config.sh
-	@bash ~/dotfiles/installs/wsl2/interactive.sh
+	@bash ~/dotfiles/installs/wsl2/install
+	@bash ~/dotfiles/installs/wsl2/config
+	@bash ~/dotfiles/installs/wsl2/interactive
 
 nvidia:
-	@sh ~/dotfiles/installs/wsl2/nvidia.sh
+	@bash ~/dotfiles/installs/wsl2/nvidia
