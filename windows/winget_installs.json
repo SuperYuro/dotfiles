@@ -1,102 +1,65 @@
 {
-	"$schema": "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate": "2022-08-29T23:42:01.128-00:00",
-	"Sources": [
-		{
-			"Packages": [
-				{
-					"PackageIdentifier": "Microsoft.VisualStudio.2019.Community"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VisualStudio.2022.Community"
-				},
-				{
-					"PackageIdentifier": "7zip.7zip"
-				},
-				{
-					"PackageIdentifier": "Anaconda.Anaconda3"
-				},
-				{
-					"PackageIdentifier": "BraveSoftware.BraveBrowser"
-				},
-				{
-					"PackageIdentifier": "Discord.Discord"
-				},
-				{
-					"PackageIdentifier": "Docker.DockerDesktop"
-				},
-                {
-                    "PackageIdentifier": "Fedora.FedoraMediaWriter"
-                },
-				{
-					"PackageIdentifier": "GitHub.GitHubDesktop"
-				},
-				{
-					"PackageIdentifier": "Google.Chrome"
-				},
-				{
-					"PackageIdentifier": "Mozilla.Firefox"
-				},
-				{
-					"PackageIdentifier": "Microsoft.Office"
-				},
-				{
-					"PackageIdentifier": "Rustlang.Rustup"
-				},
-				{
-					"PackageIdentifier": "Microsoft.Teams"
-				},
-				{
-					"PackageIdentifier": "JetBrains.Toolbox"
-				},
-				{
-					"PackageIdentifier": "Microsoft.OpenJDK.17"
-				},
-				{
-					"PackageIdentifier": "Microsoft.PowerToys"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VisualStudioCode"
-				},
-                {
-                    "PackageIdentifier": "Python.Python.3.10"
-                },
-                {
-                    "PackageIdentifier": "OpenJS.NodeJS.LTS"
-                },
-                {
-                    "PackageIdentifier": "BlenderFoundation.Blender"
-                },
-                {
-                    "PackageIdentifier": "Autodesk.EAGLE"
-                },
-                {
-                    "PackageIdentifier": "Automattic.Simplenote"
-                },
-                {
-                    "PackageIdentifier": "msys2.msys2"
-                }
-			],
-			"SourceDetails": {
-				"Argument": "https://cdn.winget.microsoft.com/cache",
-				"Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
-				"Name": "winget",
-				"Type": "Microsoft.PreIndexed.Package"
-			}
-		},
-		{
-			"Packages": [
-				{
-					"PackageIdentifier": "9PGCV4V3BK4W"
-				}
-			],
-			"SourceDetails": {
-				"Argument": "https://storeedgefd.dsx.mp.microsoft.com/v9.0",
-				"Identifier": "StoreEdgeFD",
-				"Name": "msstore",
-				"Type": "Microsoft.Rest"
-			}
-		}
-	],
-	"WinGetVersion": "1.3.2091"
+  "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
+  "CreationDate": "2022-08-29T23:42:01.128-00:00",
+  "Sources": [
+    {
+      "Packages": [
+        {
+          "PackageIdentifier": "Microsoft.VisualStudio.2022.Community"
+        },
+        {
+          "PackageIdentifier": "7zip.7zip"
+        },
+        {
+          "PackageIdentifier": "Brave.Brave"
+        },
+        {
+          "PackageIdentifier": "Fedora.FedoraMediaWriter"
+        },
+        {
+          "PackageIdentifier": "GitHub.GitHubDesktop"
+        },
+        {
+          "PackageIdentifier": "Google.Chrome"
+        },
+        {
+          "PackageIdentifier": "Mozilla.Firefox"
+        },
+        {
+          "PackageIdentifier": "Microsoft.Office"
+        },
+        {
+          "PackageIdentifier": "Rustlang.Rustup"
+        },
+        {
+          "PackageIdentifier": "Microsoft.OpenJDK.17"
+        },
+        {
+          "PackageIdentifier": "Microsoft.PowerToys"
+        },
+        {
+          "PackageIdentifier": "Microsoft.VisualStudioCode"
+        },
+        {
+          "PackageIdentifier": "Automattic.Simplenote"
+        }
+      ],
+      "SourceDetails": {
+        "Argument": "https://cdn.winget.microsoft.com/cache",
+        "Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+        "Name": "winget",
+        "Type": "Microsoft.PreIndexed.Package"
+      }
+    },
+    {
+      "Packages": [],
+      "SourceDetails": {
+        "Argument": "https://storeedgefd.dsx.mp.microsoft.com/v9.0",
+        "Identifier": "StoreEdgeFD",
+        "Name": "msstore",
+        "Type": "Microsoft.Rest"
+      }
+    }
+  ],
+  "WinGetVersion": "1.3.2091"
 }

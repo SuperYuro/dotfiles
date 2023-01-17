@@ -1,5 +1,5 @@
 {
- "background": "#2E3440",
+  "background": "#2E3440",
   "black": "#3B4252",
   "blue": "#81A1C1",
   "brightBlack": "#4C566A",
@@ -20,4 +20,4 @@
   "selectionBackground": "#FFFFFF",
   "white": "#E5E9F0",
   "yellow": "#EBCB8B"
-} 
+}
