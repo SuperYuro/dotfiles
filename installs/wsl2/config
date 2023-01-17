@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 DOTDIR="$HOME/dotfiles"
 DOTCONFDIR="$DOTDIR/config"
@@ -25,9 +25,8 @@ fi
 
 # Put config files on HOME
 link_file ".gitconfig" "$HOME"
-link_file ".nvmrc" "$HOME"
+link_file ".zshrc" "$HOME"
 
 # Put config files on XDG_CONFIG_DIR
 link_file "nvim" "$CONFDIR"
 link_file "tmux" "$CONFDIR"
-link_file "fish" "$CONFDIR"
