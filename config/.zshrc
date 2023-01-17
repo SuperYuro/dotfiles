@@ -1,9 +1,9 @@
-autoload -Uz colors
-colors
-
-# Configure for original prompt theme
-# PROMPT="%{${fg[black]}${bg[cyan]}%} %n@%m %{${reset_color}%} %{${fg[green]}%}%~%{${reset_color}%} %# "
-PROMPT="%{${fg[black]}${bg[blue]}%} %~ %{${reset_color}%}%{${fg[blue]}%}%{${reset_color}%} "
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 autoload -Uz select-word-style
 select-word-style default
@@ -32,19 +32,6 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
-# Show git branches
-autoload -Uz vcs_info
-autoload -Uz add-zsh-hook
-
-zstyle ':vcs_info:*' formats '%F{green} (%s)-[%b] '
-zstyle ':vcs_info:*' actionformats '%F{red} (%s)-[%b|%a]'
-
-function _update_vcs_info_msg() {
-    LANG=en_US.UTF-8 vcs_info
-    RPROMPT="${vcs_info_msg_0_}"
-}
-add-zsh-hook precmd _update_vcs_info_msg
 
 # Alias
 alias ls='ls --color=auto'
@@ -78,6 +65,7 @@ setopt share_history
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 
 # Configure peco
 function peco-history-selection() {
@@ -90,17 +78,7 @@ bindkey '^R' peco-history-selection
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 # Configure for Global Python
-export PATH="$HOME/.local/bin:$PATH"
-
-# Configure for ruby gem
-export GEM_HOME="$HOME/.gems"
-export PATH="$HOME/.gems/bin:$PATH"
-
-# Configure for rbenv
-export RUBY_BUILD_ROOT="$HOME/.ruby-build"
-export RBENV_ROOT="$HOME/.rbenv"
-export PATH="$RUBY_BUILD_ROOT/bin:$RBENV_ROOT/bin:$PATH"
-eval "$(rbenv init - zsh)"
+# export PATH="$HOME/.local/bin:$PATH"
 
 # Configure for poertry
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
@@ -110,13 +88,12 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Configure for Deno
-export DENO_INSTALL="$HOME/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
 # Configure for user script
 export PATH="$HOME/.scripts:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
