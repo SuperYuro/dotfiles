@@ -42,7 +42,7 @@ pyenv use system
 sudo apt -y install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
 git clone https://github.com/neovim/neovim --branch release-0.8
 cd neovim/
-make CMAKE_BUILD_TYPE=RelWithDebInfo
+make -j9 CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 cd
 
