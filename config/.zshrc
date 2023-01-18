@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 autoload -Uz select-word-style
 select-word-style default
 
@@ -47,6 +40,7 @@ alias dp='docker compose'
 alias md=mkdir
 alias tm=tmux
 
+alias ..='cd ../'
 alias cv='cd ~/Development/'
 
 alias rl='exec zsh'
@@ -78,7 +72,7 @@ bindkey '^R' peco-history-selection
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 # Configure for Global Python
-# export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Configure for poertry
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
