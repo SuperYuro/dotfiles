@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 DOTDIR="$HOME/dotfiles"
 DOTCONFDIR="$DOTDIR/config"
@@ -34,6 +34,5 @@ link_file ".nvmrc" "$HOME"
 link_file "emacs" "$CONFDIR"
 link_file "nvim" "$CONFDIR"
 link_file "tmux" "$CONFDIR"
-link_file "fish" "$CONFDIR"
 link_file "i3" "$CONFDIR"
 link_file "i3status" "$CONFDIR"
