@@ -33,16 +33,16 @@ git clone https://github.com/pyenv/pyenv ~/.pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
-pyenv install 3.11.0
-pyenv install 3.8.16
+pyenv install 3.11.0 --verbose
+pyenv install 3.8.16 --verbose
 
 pyenv use system
 
 # Neovim
 sudo apt -y install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
-git clone https://github.com/neovim/neovim --branch release-0.8
+git clone https://github.com/neovim/neovim --branch stable
 cd neovim/
-make -j9 CMAKE_BUILD_TYPE=RelWithDebInfo
+make -j17 CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 cd
 
