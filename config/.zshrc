@@ -79,7 +79,7 @@ bindkey '^R' peco-history-selection
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 # Configure for Global Python
-export PATH="$HOME/.local/bin:$PATH"
+# export PATH="$HOME/.local/bin:$PATH"
 
 # Configure for poertry
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
