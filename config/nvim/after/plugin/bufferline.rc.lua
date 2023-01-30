@@ -18,21 +18,21 @@ bufferline.setup({
 	},
 	highlights = {
 		separator = {
-			fg = "#073642", -- normal black
-			bg = "#002b36", -- background
+			fg = "#3b4252", -- normal black
+			bg = "#2e3440", -- background
 		},
 		separator_selected = {
-			fg = "#073642", -- normal black
+			fg = "#3b4252", -- normal black
 		},
 		background = {
-			fg = "#657b83", -- light theme foreground or bright black
-			bg = "#002b36", -- background
+			fg = "#4c566a", -- light theme foreground or bright black
+			bg = "#2e3440", -- background
 		},
 		buffer_selected = {
-			fg = "#fdf6e3", -- light theme background or bright white
+			fg = "#eceff4", -- light theme background or bright white
 		},
 		fill = {
-			bg = "#073642", -- normal black
+			bg = "#3b4252", -- normal black
 			underline = true,
 			undercurl = true,
 			italic = true,

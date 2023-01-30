@@ -8,12 +8,11 @@ vim.cmd([[packadd packer.nvim]])
 
 packer.startup(function(use)
 	use({ "wbthomason/packer.nvim", run = ":PackerUpdate" })
-	use({
-		"svrana/neosolarized.nvim",
-		requires = "tjdevries/colorbuddy.nvim",
-	})
-	-- use("shaunsingh/nord.nvim") -- Nord color scheme
-	-- use("Shatur/neovim-ayu") -- Ayu color scheme
+	-- use({
+	-- 	"svrana/neosolarized.nvim",
+	-- 	requires = "tjdevries/colorbuddy.nvim",
+	-- })
+	use("shaunsingh/nord.nvim") -- Nord color scheme
 	use("kyazdani42/nvim-web-devicons") -- File icons
 	use("glepnir/lspsaga.nvim") -- LSP UIs
 	use("nvim-lualine/lualine.nvim") -- Statusline
