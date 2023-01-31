@@ -22,7 +22,7 @@ mason.setup({
 lspconfig.setup({
 	ensure_installed = {
 		"bashls",
-		"jsonls",
+		-- "jsonls",
 		"taplo",
 		"yamlls",
 		"dockerls",
