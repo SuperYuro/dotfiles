@@ -18,5 +18,4 @@ export XMODIFIERS=@im=ibus
 
 export SHELL=/usr/bin/fish
 
-# exec openbox-session
 exec i3

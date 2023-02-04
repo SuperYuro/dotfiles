@@ -10,7 +10,14 @@ sudo pacman -S i3-gaps i3status i3lock i3blocks --noconfirm
 sudo pacman -S xterm rofi pcmanfm gvfs udisks2 fwupd --noconfirm
 
 # Shell
-sudo pacman -S fish fisher --noconfirm
+# sudo pacman -S fish fisher --noconfirm
+sudo pacman -S zsh --noconfirm
+
+# zsh plugins
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-history-substring-search ~/.zsh/zsh-history-substring-search
+git clone https://github.com/romkatv/powerlevel10k ~/.zsh/powerlevel10k
 
 # For C/C++
 sudo pacman -S gcc gdb clang --noconfirm
@@ -49,6 +56,20 @@ paru -S \
 sudo pacman -S \
     python python-pip pyenv \
     openssl zlib xz tk --noconfirm
+
+# Poetry
+export PATH="$HOME/.local/bin:$PATH"
+pip install poetry
+poetry config virtualenvs.in-project true
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+pyenv install 3.11.0 --verbose
+pyenv install 3.8.16 --verbose
+
+pyenv use system
 
 # Theme
 paru -S arc-gtk-theme paper-icon-theme lxappearance --noconfirm
