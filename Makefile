@@ -22,3 +22,6 @@ wsl2:
 
 nvidia:
 	@bash ~/dotfiles/installs/wsl2/nvidia
+
+docker:
+	@bash ~/dotfiles/installs/wsl2/docker
