@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash -e
 
 # Xorg
 sudo pacman -S xorg-server xorg-apps xorg-xmodmap xorg-xinit --noconfirm
@@ -50,7 +50,7 @@ paru -S google-chrome microsoft-edge-stable-bin --noconfirm
 paru -S \
     noto-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji \
     otf-cascadia-code \
-    nerd-fonts-complete --noconfirm
+    nerd-fonts-hack --noconfirm
 
 # Python
 sudo pacman -S \
@@ -71,16 +71,17 @@ pyenv install 3.8.16 --verbose
 
 pyenv use system
 
+# nvm
+paru -S nvm --noconfirm
+source "$HOME/dotfiles/config/nvm"
+nvm install --lts
+nvm use --lts
+
 # Theme
 paru -S arc-gtk-theme paper-icon-theme lxappearance --noconfirm
 
-# For AVR-Rust
-rustup toolchain install nightly
-rustup component add rust-src --toolchain nightly
-sudo pacman -S avr-gcc avr-libc avrdude --noconfirm
-
 # For energy efficiency
-sudo pacman -S powertop tlp tlp-rdw acpi acpi_call tpacpi-bat
+sudo pacman -S powertop tlp tlp-rdw acpi acpi_call tpacpi-bat --noconfirm
 
 sudo cp ~/dotfiles/tlp/performance.conf /etc/tlp.d/
 sudo cp ~/dotfiles/tlp/battery-threshold.conf /etc/tlp.d/
