@@ -73,7 +73,7 @@ pyenv use system
 
 # nvm
 paru -S nvm --noconfirm
-source "$HOME/dotfiles/config/nvm"
+. "$HOME/dotfiles/config/nvm"
 nvm install --lts
 nvm use --lts
 
