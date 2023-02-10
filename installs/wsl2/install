@@ -51,7 +51,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvi
 
 # nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-. "$HOME/dotfiles/config/nvm"
+. "$HOME/dotfiles/config/.init_nvm"
 nvm install --lts
 nvm use --lts
 

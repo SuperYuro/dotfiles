@@ -1,5 +1,12 @@
 #!/bin/bash -e
 
+# AUR helper
+sudo pacman -S go --noconfirm
+git clone https://aur.archlinux.org/yay ~/yay
+cd ~/yay
+makepkg -si --noconfirm
+cd ~/
+
 # Xorg
 sudo pacman -S xorg-server xorg-apps xorg-xmodmap xorg-xinit --noconfirm
 
@@ -26,31 +33,24 @@ sudo pacman -S gcc gdb clang --noconfirm
 sudo pacman -S rustup rust-analyzer --noconfirm
 rustup default stable
 
-# AUR helper
-git clone https://aur.archlinux.org/paru ~/paru
-cd ~/paru
-makepkg -si --noconfirm
-cd ~/
-rm ~/paru -rf
-
 # Japanese IME
-paru -S ibus-mozc --noconfirm
+yay -S ibus-mozc --noconfirm
 
 # Editor
 sudo pacman -S neovim emacs --noconfirm
-paru -S \
+yay -S \
     nvim-packer-git emacs-mozc \
     visual-studio-code-bin --noconfirm
 
 # Browser
 sudo pacman -S firefox --noconfirm
-paru -S google-chrome microsoft-edge-stable-bin --noconfirm
+yay -S google-chrome microsoft-edge-stable-bin --noconfirm
 
 # Font
-paru -S \
+sudo pacman -S \
     noto-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji \
     otf-cascadia-code \
-    nerd-fonts-hack --noconfirm
+    ttf-hack-nerd --noconfirm
 
 # Python
 sudo pacman -S \
@@ -69,18 +69,19 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 pyenv install 3.11.0 --verbose
 pyenv install 3.8.16 --verbose
 
-pyenv use system
+pyenv global system
 
 # nvm
-paru -S nvm --noconfirm
-. "$HOME/dotfiles/config/nvm"
+yay -S nvm --noconfirm
+echo 'source "/usr/share/nvm/init-nvm.sh"' >> "$HOME/.init_nvm"
+source "$HOME/.init_nvm"
 nvm install --lts
 nvm use --lts
 
 # Theme
-paru -S arc-gtk-theme paper-icon-theme lxappearance --noconfirm
+yay -S arc-gtk-theme paper-icon-theme lxappearance --noconfirm
 
-# For energy efficiency
+# Energy efficiency
 sudo pacman -S powertop tlp tlp-rdw acpi acpi_call tpacpi-bat --noconfirm
 
 sudo cp ~/dotfiles/tlp/performance.conf /etc/tlp.d/
