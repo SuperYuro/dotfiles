@@ -1,19 +1,30 @@
-# For Neovim
+# nvim
 config/nvim/packer_compiled.lua
 
-# For Emacs
+# emacs
 config/emacs/backup/
-config/emacs/custom.el
 config/emacs/eln-cache/
 config/emacs/elpa/
 config/emacs/var/
 config/emacs/eshell/
 config/emacs/.lsp-session-v1
+config/emacs/custom.el
 
-# For Fish
+# fish
 config/fish/completions/
 config/fish/conf.d/
 config/fish/fish_plugins
 config/fish/fish_variables
 config/fish/functions/
 config/fish/themes/
+
+# mozc
+config/mozc/*.log
+config/mozc/boundary.db
+config/mozc/segment.db
+config/mozc/cform.db
+config/mozc/.registry.db
+config/mozc/.server.lock
+config/mozc/.session.ipc
+config/mozc/keymap.tsv
+config/mozc/ibus_config.textproto
