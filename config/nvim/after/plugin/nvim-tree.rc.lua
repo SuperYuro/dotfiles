@@ -5,4 +5,4 @@ end
 
 tree.setup({})
 
-vim.keymap.set("n", "<F8>", ":NvimTreeToggle<Return>", { silent = true, noremap = true })
+vim.keymap.set("n", "<C-t>", ":NvimTreeToggle<Return>", { silent = true, noremap = true })
