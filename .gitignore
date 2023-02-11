@@ -25,6 +25,6 @@ config/mozc/segment.db
 config/mozc/cform.db
 config/mozc/.registry.db
 config/mozc/.server.lock
-config/mozc/.session.ipc
 config/mozc/keymap.tsv
 config/mozc/ibus_config.textproto
+config/mozc/*.ipc
