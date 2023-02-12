@@ -68,6 +68,8 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 
+typeset -g POWERLEVEK9K_INSTANT_PROMPT=off
+
 # Configure peco
 function peco-history-selection() {
     BUFFER=`history -n 1 | tac | awk '!a[$0]++' | peco`
