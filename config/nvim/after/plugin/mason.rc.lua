@@ -27,7 +27,7 @@ lspconfig.setup({
 		"yamlls",
 		"dockerls",
 		"rust_analyzer",
-		"sumneko_lua",
+		"lua_ls",
 	},
 	automatic_installation = true,
 })
