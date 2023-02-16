@@ -14,10 +14,12 @@ set -g theme_title_display_path yes
 set -g theme_title_use_abbreviated_path yes
 
 set -g theme_display_ruby yes
+set -g theme_display_rust yes
+set -g theme_display_python yes
 set -g theme_display_node yes
 
-set -g theme_display_user yes
-set -g theme_display_hostname yes
+set -g theme_display_user no
+set -g theme_display_hostname no
 
 set -g theme_show_exit_status yes
 
