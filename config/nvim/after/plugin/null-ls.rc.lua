@@ -14,6 +14,7 @@ nullls.setup({
 		end
 	end,
 	sources = {
+		nullls.builtins.diagnostics.fish,
 		-- For Shell Script
 		nullls.builtins.formatting.beautysh,
 		-- For Ruby
