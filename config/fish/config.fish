@@ -32,6 +32,7 @@ alias c cd
 alias g git
 alias v nvim
 alias md mkdir
+alias th touch
 alias cv 'cd ~/Development/'
 alias dp 'docker compose'
 alias bi 'acpi --battery --details'
