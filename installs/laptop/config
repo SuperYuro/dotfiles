@@ -33,7 +33,7 @@ link_file ".p10k.zsh" "$HOME"
 # link_file ".nvmrc" "$HOME"
 
 # Put config files on XDG_CONFIG_DIR
-# link_file "emacs" "$CONFDIR"
+link_file "emacs" "$CONFDIR"
 link_file "nvim" "$CONFDIR"
 link_file "tmux" "$CONFDIR"
 link_file "i3" "$CONFDIR"
