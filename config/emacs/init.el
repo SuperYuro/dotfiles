@@ -60,7 +60,7 @@
   :added "2023-02-18"
   :emacs>= 24
   :ensure t
-  :config (load-theme 'whiteboard t))
+  :config (load-theme 'blackboard t))
 
 ;; Japanese IME configuration
 (leaf mozc
