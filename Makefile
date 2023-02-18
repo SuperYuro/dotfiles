@@ -25,3 +25,6 @@ nvidia:
 
 docker:
 	@bash ~/dotfiles/installs/wsl2/docker
+
+fish:
+	@fish ~/dotfiles/installs/fish/config.fish
