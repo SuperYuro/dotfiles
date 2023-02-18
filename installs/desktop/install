@@ -7,14 +7,8 @@ cd ~/yay
 makepkg -si --noconfirm
 cd ~/
 
-# Xorg
-sudo pacman -S xorg-server xorg-apps xorg-xmodmap xorg-xinit --noconfirm
-
-# Window manager
-sudo pacman -S i3-gaps i3status i3lock i3blocks --noconfirm
-
 # Misc
-sudo pacman -S xterm rofi pcmanfm gvfs udisks2 fwupd brightnessctl xsel network-manager-applet --noconfirm
+sudo pacman -S xterm rofi xsel --noconfirm
 
 # Shell
 sudo pacman -S fish fisher --noconfirm
@@ -83,4 +77,4 @@ pyenv global system
 # nvm use --lts
 
 # Theme
-yay -S arc-gtk-theme paper-icon-theme lxappearance --noconfirm
+yay -S arc-gtk-theme paper-icon-theme --noconfirm
