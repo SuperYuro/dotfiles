@@ -53,11 +53,11 @@ vim.keymap.set(
 	'<cmd>lua require("telescope.builtin").find_files({ no_ignore = false, hidden = true })<cr>',
 	opts
 )
-vim.keymap.set("n", ";r", '<cmd>lua require("telescope.builtin").live_grep()<cr>', opts)
-vim.keymap.set("n", ";b", '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
-vim.keymap.set("n", ";t", '<cmd>lua require("telescope.builtin").help_tags()<cr>', opts)
-vim.keymap.set("n", ";;", '<cmd>lua require("telescope.builtin").resume()<cr>', opts)
-vim.keymap.set("n", ";e", '<cmd>lua require("telescope.builtin").diagnostics()<cr>', opts)
+vim.keymap.set("n", "sr", '<cmd>lua require("telescope.builtin").live_grep()<cr>', opts)
+vim.keymap.set("n", "sb", '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
+vim.keymap.set("n", "st", '<cmd>lua require("telescope.builtin").help_tags()<cr>', opts)
+vim.keymap.set("n", "s;", '<cmd>lua require("telescope.builtin").resume()<cr>', opts)
+vim.keymap.set("n", "se", '<cmd>lua require("telescope.builtin").diagnostics()<cr>', opts)
 vim.keymap.set(
 	"n",
 	"sf",

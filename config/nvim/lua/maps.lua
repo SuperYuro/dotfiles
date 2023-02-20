@@ -49,3 +49,6 @@ keymap.set("n", "sl", "<C-w>l")
 
 -- Exit terminal insert mode with Esc
 keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
+-- Change to command mode with semicolon
+keymap.set("n", ";", ":")
