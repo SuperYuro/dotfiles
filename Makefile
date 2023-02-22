@@ -27,4 +27,7 @@ docker:
 	@bash ~/dotfiles/installs/wsl2/docker.sh
 
 fish:
-	@fish ~/dotfiles/installs/fish/config.fish
+	@fish ~/dotfiles/installs/config/config.fish
+
+firefox:
+	@bash ~/dotfiles/installs/config/firefox.sh
