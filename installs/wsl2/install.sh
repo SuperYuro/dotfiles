@@ -6,17 +6,17 @@ sudo apt update
 sudo apt upgrade -y
 
 # peco
-sudo apt install -y peco
+# sudo apt install -y peco
 
 # zsh plugins
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-completions ~/.zsh/zsh-completions
-git clone https://github.com/zsh-users/zsh-history-substring-search ~/.zsh/zsh-history-substring-search
-git clone https://github.com/romkatv/powerlevel10k ~/.zsh/powerlevel10k
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
+# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-completions ~/.zsh/zsh-completions
+# git clone https://github.com/zsh-users/zsh-history-substring-search ~/.zsh/zsh-history-substring-search
+# git clone https://github.com/romkatv/powerlevel10k ~/.zsh/powerlevel10k
 
 # Base development
-sudo apt install -y build-essential git gdb tmux curl
+sudo apt install -y build-essential git gdb tmux curl vim
 
 # LaTeX
 sudo apt install -y texlive-full
@@ -24,7 +24,8 @@ sudo apt install -y texlive-full
 # Python
 sudo apt install -y python3 python3-pip python3-venv python-is-python3
 export PATH="$HOME/.local/bin:$PATH"
-pip install poetry
+# pip install poetry
+curl -sSL https://install.python-poetry.org | python3 -
 poetry config virtualenvs.in-project true
 
 # pyenv
@@ -37,7 +38,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 pyenv install 3.11.0 --verbose
 pyenv install 3.8.16 --verbose
 
-pyenv use system
+pyenv global system
 
 # Neovim
 sudo apt -y install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
@@ -45,7 +46,7 @@ git clone https://github.com/neovim/neovim --branch stable
 cd neovim/
 make -j17 CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
-cd
+cd ~/
 
 # packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
