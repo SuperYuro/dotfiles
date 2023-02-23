@@ -7,10 +7,13 @@ end
 # Theme
 fisher install oh-my-fish/theme-bobthefish
 
-
 # pyenv
 set -Ux PYENV_ROOT $HOME/.pyenv
 set -U fish_user_paths $HOME/.local/bin $fish_user_paths
+
+if [ -d "$PYENV_ROOT/bin" ];
+    set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+end
 
 fisher install jorgebucaran/nvm.fish
 nvm install lts
