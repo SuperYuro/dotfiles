@@ -4,8 +4,10 @@ sudo apt update
 sudo apt upgrade -y
 
 # change shell
-sudo apt install -y zsh
-chsh -s $(which zsh)
+sudo add-apt-repository ppa:fish-shell/release-3
+sudo apt update
+sudo apt install -y fish
+chsh -s $(which fish)
 
 # Rust
 sudo apt install -y curl
