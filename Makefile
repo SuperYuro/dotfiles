@@ -6,6 +6,8 @@ all:
 	@echo "desktop...Install openbox wm and some development tools on ArchLinux on Desktop PC."
 	@echo "   wsl2...Install some development tools on Ubuntu on WSL2."
 	@echo " nvidia...Install nvidia driver on Ubuntu on WSL2."
+	@echo " docker...Install docker and docker-compose on Ubuntu."
+	@echo "firefox...Install firefox customize css."
 
 laptop:
 	@bash ~/dotfiles/installs/laptop/install.sh
@@ -25,9 +27,6 @@ nvidia:
 
 docker:
 	@bash ~/dotfiles/installs/wsl2/docker.sh
-
-fish:
-	@fish ~/dotfiles/installs/config/config.fish
 
 firefox:
 	@bash ~/dotfiles/installs/config/firefox.sh
