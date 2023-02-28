@@ -26,6 +26,7 @@ fi
 # Put config files on HOME
 link_file ".gitconfig" "$HOME"
 link_file ".zshrc" "$HOME"
+link_file ".p10k.zsh" "$HOME"
 link_file ".init_nvm" "$HOME"
 
 # Put config files on XDG_CONFIG_DIR
