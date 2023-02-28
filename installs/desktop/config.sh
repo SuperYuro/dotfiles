@@ -29,7 +29,6 @@ link_file ".Xmodmap" "$HOME"
 link_file ".xinitrc" "$HOME"
 link_file ".gitconfig" "$HOME"
 link_file ".zshrc" "$HOME"
-link_file ".p10k.zsh" "$HOME"
 
 # Put config files on XDG_CONFIG_DIR
 link_file "emacs" "$CONFDIR"

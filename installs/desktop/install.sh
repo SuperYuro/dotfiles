@@ -1,20 +1,22 @@
 #!/bin/bash -e
 
 # AUR helper
-
-if !type "yay" > /dev/null 2>&1; then
-    sudo pacman -S go --noconfirm
-    git clone https://aur.archlinux.org/yay ~/yay
-    cd ~/yay
-    makepkg -si --noconfirm
-    cd ~/
-fi
+sudo pacman -S go --noconfirm
+git clone https://aur.archlinux.org/yay ~/yay
+cd ~/yay
+makepkg -si --noconfirm
+cd ~/
 
 # Misc
 sudo pacman -S xterm rofi xsel --noconfirm
 
 # Shell
-sudo pacman -S fish fisher --noconfirm
+sudo pacman -S zsh --noconfirm
+
+# Zsh plugins
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # C/C++
 sudo pacman -S gcc gdb clang --noconfirm
@@ -24,7 +26,7 @@ sudo pacman -S rustup rust-analyzer --noconfirm
 rustup default stable
 
 # Java
-sudo pacman -S jdk-openjdk
+sudo pacman -S jdk-openjdk --noconfirm
 
 # Japanese IME
 yay -S ibus-mozc --noconfirm
@@ -65,11 +67,11 @@ pyenv install 3.8.16 --verbose
 pyenv global system
 
 # nvm
-# yay -S nvm --noconfirm
-# echo 'source "/usr/share/nvm/init-nvm.sh"' >> "$HOME/.init_nvm"
-# source "$HOME/.init_nvm"
-# nvm install --lts
-# nvm use --lts
+yay -S nvm --noconfirm
+echo 'source "/usr/share/nvm/init-nvm.sh"' >> "$HOME/.init_nvm"
+source "$HOME/.init_nvm"
+nvm install --lts
+nvm use --lts
 
 # Theme
 yay -S arc-gtk-theme paper-icon-theme --noconfirm

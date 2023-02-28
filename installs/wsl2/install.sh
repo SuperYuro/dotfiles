@@ -9,11 +9,9 @@ sudo apt upgrade -y
 # sudo apt install -y peco
 
 # zsh plugins
-# git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
-# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-# git clone https://github.com/zsh-users/zsh-completions ~/.zsh/zsh-completions
-# git clone https://github.com/zsh-users/zsh-history-substring-search ~/.zsh/zsh-history-substring-search
-# git clone https://github.com/romkatv/powerlevel10k ~/.zsh/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # Base development
 sudo apt install -y build-essential git gdb tmux curl vim
@@ -52,9 +50,9 @@ cd ~/
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # nvm
-# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-# . "$HOME/dotfiles/config/.init_nvm"
-# nvm install --lts
-# nvm use --lts
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+. "$HOME/dotfiles/config/.init_nvm"
+nvm install --lts
+nvm use --lts
 
 mkdir -p ~/Development
