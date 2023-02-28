@@ -1,9 +1,0 @@
-#
-# Set system-wide environment variables here for Openbox
-# User-specific variables should be placed in $HOME/.config/openbox/environment
-#
-GTK_IM_MODULE=ibus
-QT_IM_MODULE=ibus
-XMODIFIERS=@im=ibus
-
-# SHELL=/usr/bin/zsh

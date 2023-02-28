@@ -1,8 +1,0 @@
-# Start Network Manager Applet
-(sleep 1s && nm-applet) &
-
-# Start IME
-(sleep 1s && ibus-daemon -drx) &
-
-# Set wallpaper
-(sleep 1s && feh --bg-scale /usr/share/backgrounds/nordic-wallpapers/archlinux.png) &
