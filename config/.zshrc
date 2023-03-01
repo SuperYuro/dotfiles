@@ -144,8 +144,26 @@ alias rl='exec zsh'
 
 alias copy='xsel --input --clipboard'
 
+# history
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=100000000
+SAVEHIST=100000000
+
+setopt inc_append_history
+setopt share_history
+
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tac | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/config/.p10k.zsh.
 [[ ! -f ~/dotfiles/config/.p10k.zsh ]] || source ~/dotfiles/config/.p10k.zsh
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
