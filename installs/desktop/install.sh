@@ -11,7 +11,7 @@ cd ~/
 sudo pacman -S xterm rofi xsel --noconfirm
 
 # Shell
-sudo pacman -S zsh --noconfirm
+sudo pacman -S zsh peco --noconfirm
 
 # Zsh plugins
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

@@ -20,7 +20,7 @@ sudo pacman -S xterm rofi pcmanfm gvfs udisks2 fwupd xsel network-manager-applet
 sudo pacman -S pulseaudio-alsa pavucontrol --noconfirm
 
 # Shell
-sudo pacman -S zsh --noconfirm
+sudo pacman -S zsh peco --noconfirm
 
 # Zsh plugins
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

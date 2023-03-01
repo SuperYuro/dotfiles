@@ -6,7 +6,7 @@ sudo apt update
 sudo apt upgrade -y
 
 # peco
-# sudo apt install -y peco
+sudo apt install -y peco
 
 # zsh plugins
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -15,7 +15,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # Base development
-sudo apt install -y build-essential git gdb tmux curl vim
+sudo apt install -y build-essential git gdb tmux curl vim ripgrep silversearcher-ag
 
 # LaTeX
 sudo apt install -y texlive-full
