@@ -42,7 +42,7 @@ zstyle ':omz:update' frequency 7
 DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+DISABLE_LS_COLORS="false"
 
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
@@ -79,10 +79,17 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    gh
+    docker
+    docker-compose
     zsh-autosuggestions
     zsh-syntax-highlighting
+    golang
     python
+    pip
     poetry
+    rust
+    nvm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -96,11 +103,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Poetry
 export PYTHON_KEYRING_BACKEND="keyring.backends.null.Keyring"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 # nvm
 source "$HOME/.init_nvm"
@@ -124,7 +126,7 @@ export ARCHFLAGS="-arch x86_64"
 # For a full list of active aliases, run `alias`.
 #
 # Alias
-alias ls='ls --color=auto'
+# alias ls='ls --color=auto'
 alias l='ls -1A'
 alias ll='ls -lh'
 alias la='ls -lA'
