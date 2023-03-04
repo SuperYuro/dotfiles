@@ -112,6 +112,9 @@ eval "$(pyenv init -)"
 # nvm
 source "$HOME/.init_nvm"
 
+# User scripts
+export PATH="$HOME/.scripts:$PATH"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
