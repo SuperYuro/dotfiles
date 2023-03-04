@@ -104,6 +104,11 @@ export PATH="$HOME/.local/bin:$PATH"
 # Poetry
 export PYTHON_KEYRING_BACKEND="keyring.backends.null.Keyring"
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # nvm
 source "$HOME/.init_nvm"
 
