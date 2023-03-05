@@ -98,6 +98,9 @@ source $ZSH/oh-my-zsh.sh
 
 export MANPATH="/usr/local/man:$MANPATH"
 
+# Golang
+export PATH="$HOME/go/bin:$PATH"
+
 # Python modules
 export PATH="$HOME/.local/bin:$PATH"
 
