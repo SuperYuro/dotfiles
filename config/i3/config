@@ -11,7 +11,7 @@
 
 set $mod Mod4
 
-set $font Hack Nerd Font Mono
+set $font CaskaydiaCove Nerd Font Mono
 set $fontsize 8
 
 set $left  h
@@ -263,9 +263,9 @@ client.placeholder      #e5e9f0 #e5e9f0 #2e3440 #e5e9f0   #e5e9f0
 
 client.background       #2e3440
 
-new_window none
-new_float none
-for_window [class="^.*"] border pixel 1
+# new_window none
+# new_float none
+# for_window [class="^.*"] border pixel 1
 
 exec --no-startup-id "ibus-daemon -drx"
 exec --no-startup-id "feh --bg-scale /usr/share/backgrounds/default.png"
