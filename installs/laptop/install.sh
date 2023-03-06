@@ -23,10 +23,10 @@ sudo pacman -S pulseaudio-alsa pavucontrol --noconfirm
 sudo pacman -S zsh peco --noconfirm
 
 # Zsh plugins
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # For C/C++
 sudo pacman -S gcc gdb clang --noconfirm
@@ -84,7 +84,7 @@ nvm use --lts
 yay -S arc-gtk-theme paper-icon-theme lxappearance --noconfirm
 
 # Energy efficiency
-sudo pacman -S powertop tlp tlp-rdw acpi acpi_call tpacpi-bat --noconfirm
+sudo pacman -S tlp tlp-rdw acpi acpi_call tpacpi-bat --noconfirm
 
 sudo cp ~/dotfiles/tlp/performance.conf /etc/tlp.d/
 sudo cp ~/dotfiles/tlp/battery-threshold.conf /etc/tlp.d/
@@ -93,5 +93,4 @@ sudo systemctl mask systemd-rfkill.service
 sudo systemctl mask systemd-rfkill.socket
 sudo systemctl enable tlp.service
 
-sudo powertop --auto-tune
 sudo tlp start
