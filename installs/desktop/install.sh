@@ -8,16 +8,16 @@ makepkg -si --noconfirm
 cd ~/
 
 # Misc
-sudo pacman -S xterm rofi xsel --noconfirm
+sudo pacman -S xterm xsel curl ripgrep --noconfirm
 
 # Shell
 sudo pacman -S zsh peco --noconfirm
 
 # Zsh plugins
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # C/C++
 sudo pacman -S gcc gdb clang --noconfirm
@@ -45,8 +45,7 @@ yay -S google-chrome microsoft-edge-stable-bin --noconfirm
 # Font
 sudo pacman -S \
     noto-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji \
-    otf-cascadia-code \
-    ttf-hack-nerd --noconfirm
+    otf-cascadia-code-nerd --noconfirm
 
 # Python
 sudo pacman -S \
@@ -55,7 +54,7 @@ sudo pacman -S \
 
 # Poetry
 export PATH="$HOME/.local/bin:$PATH"
-pip install poetry
+curl -sSL https://install.python-poetry.org | python3 -
 poetry config virtualenvs.in-project true
 
 # Pyenv
