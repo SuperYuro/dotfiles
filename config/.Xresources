@@ -12,7 +12,7 @@ UXTerm*ttymodes: erase ^?
 
 UXTerm*borderWidth: 0
 
-UXTerm*faceName: Hack Nerd Font Mono:style=Regular:antialias=true
+UXTerm*faceName: CaskaydiaCove Nerd Font Mono:style=Regular:antialias=true
 UXTerm*faceNameDoublesize: Noto Sans CJK JP
 UXTerm*faceSize: 10
 
