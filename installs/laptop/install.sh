@@ -45,14 +45,16 @@ yay -S \
     visual-studio-code-bin --noconfirm
 
 # Browser
-sudo pacman -S firefox --noconfirm
 yay -S google-chrome microsoft-edge-stable-bin --noconfirm
+
+# Mail client
+sudo pacman -S claws-mail --noconfirm
 
 # Font
 sudo pacman -S \
     noto-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji \
     otf-cascadia-code \
-    ttf-hack-nerd --noconfirm
+    otf-cascadia-code-nerd --noconfirm
 
 # Python
 sudo pacman -S \
