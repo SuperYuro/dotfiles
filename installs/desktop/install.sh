@@ -74,4 +74,4 @@ nvm install --lts
 nvm use --lts
 
 # Theme
-yay -S arc-gtk-theme paper-icon-theme --noconfirm
+yay -S arc-gtk-theme papirus-icon-theme --noconfirm
