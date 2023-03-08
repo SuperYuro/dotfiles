@@ -268,4 +268,4 @@ client.background       #2e3440
 # for_window [class="^.*"] border pixel 1
 
 exec --no-startup-id "ibus-daemon -drx"
-exec --no-startup-id "feh --bg-scale /usr/share/backgrounds/default.png"
+exec --no-startup-id "feh --bg-scale /usr/share/backgrounds/archlinux/small.png"
