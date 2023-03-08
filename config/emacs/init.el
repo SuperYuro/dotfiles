@@ -52,15 +52,15 @@
     (leaf-keywords-init)))
 
 ;; Set Theme
-(leaf blackboard-theme
-  :doc "TextMate Blackboard Theme"
+(leaf nord-theme
+  :doc "An arctic, north-bluish clean and elegant theme"
   :req "emacs-24"
   :tag "emacs>=24"
-  :url "https://github.com/don9z/blackboard-theme"
-  :added "2023-02-18"
+  :url "https://github.com/arcticicestudio/nord-emacs"
+  :added "2023-03-08"
   :emacs>= 24
   :ensure t
-  :config (load-theme 'blackboard t))
+  :config (load-theme 'nord t))
 
 ;; Japanese IME configuration
 (leaf mozc
@@ -120,7 +120,7 @@
   :config
   (defalias 'yes-or-no-p 'y-or-n-p)
   (keyboard-translate ?\C-h ?\C-?)
-  (add-to-list 'default-frame-alist '(font . "Cascadia Code-10")))
+  (add-to-list 'default-frame-alist '(font . "CaskaydiaCove Nerd Font-10")))
 
 (leaf autorevert
   :doc "revert buffers when files on disk change"
