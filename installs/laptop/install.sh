@@ -14,7 +14,7 @@ sudo pacman -S xorg-server xorg-apps xorg-xmodmap xorg-xinit --noconfirm
 sudo pacman -S i3-gaps i3status i3lock i3blocks --noconfirm
 
 # Misc
-sudo pacman -S xterm rofi pcmanfm gvfs udisks2 fwupd xsel network-manager-applet --noconfirm
+sudo pacman -S xterm rofi pcmanfm gvfs udisks2 fwupd xsel network-manager-applet brightnessctl feh --noconfirm
 
 # Audio
 sudo pacman -S pulseaudio-alsa pavucontrol --noconfirm
@@ -83,7 +83,7 @@ nvm install --lts
 nvm use --lts
 
 # Theme
-yay -S arc-gtk-theme paper-icon-theme lxappearance --noconfirm
+yay -S arc-gtk-theme papirus-icon-theme archlinux-wallpaper lxappearance --noconfirm
 
 # Energy efficiency
 sudo pacman -S tlp tlp-rdw acpi acpi_call tpacpi-bat --noconfirm
