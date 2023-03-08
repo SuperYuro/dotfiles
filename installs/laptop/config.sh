@@ -32,8 +32,10 @@ link_file ".zshrc" "$HOME"
 link_file ".p10k.zsh" "$HOME"
 
 # Put config files on XDG_CONFIG_DIR
+# link_file "fish" "$CONFDIR"
 link_file "emacs" "$CONFDIR"
 link_file "nvim" "$CONFDIR"
 link_file "tmux" "$CONFDIR"
 link_file "i3" "$CONFDIR"
 link_file "i3status" "$CONFDIR"
+link_file "mozc" "$CONFDIR"
