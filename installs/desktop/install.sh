@@ -39,6 +39,7 @@ yay -S \
     visual-studio-code-bin jetbrains-toolbox --noconfirm
 
 # Browser
+sudo pacman -S firefox --noconfirm
 yay -S google-chrome microsoft-edge-stable-bin --noconfirm
 
 # Mail client
