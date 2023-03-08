@@ -147,6 +147,7 @@ alias g=git
 alias v=nvim
 
 alias dp='docker compose'
+alias th=touch
 alias md=mkdir
 alias tm=tmux
 
