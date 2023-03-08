@@ -1,5 +1,17 @@
 #!/bin/bash -e
 
+# Energy efficiency
+sudo pacman -S tlp tlp-rdw acpi acpi_call tpacpi-bat --noconfirm
+
+sudo cp ~/dotfiles/tlp/performance.conf /etc/tlp.d/
+sudo cp ~/dotfiles/tlp/battery-threshold.conf /etc/tlp.d/
+
+sudo systemctl mask systemd-rfkill.service
+sudo systemctl mask systemd-rfkill.socket
+sudo systemctl enable --now tlp.service
+
+sudo tlp start
+
 # AUR helper
 sudo pacman -S go --noconfirm
 git clone https://aur.archlinux.org/yay ~/yay
@@ -14,7 +26,7 @@ sudo pacman -S xorg-server xorg-apps xorg-xmodmap xorg-xinit --noconfirm
 sudo pacman -S i3-gaps i3status i3lock i3blocks --noconfirm
 
 # Misc
-sudo pacman -S xterm rofi pcmanfm gvfs udisks2 fwupd xsel network-manager-applet brightnessctl feh --noconfirm
+sudo pacman -S xterm rofi pcmanfm gvfs udisks2 fwupd xsel curl ripgrep network-manager-applet brightnessctl feh gh the_silver_searcher --noconfirm
 
 # Audio
 sudo pacman -S pulseaudio-alsa pavucontrol --noconfirm
@@ -85,15 +97,3 @@ nvm use --lts
 
 # Theme
 yay -S arc-gtk-theme papirus-icon-theme archlinux-wallpaper lxappearance --noconfirm
-
-# Energy efficiency
-sudo pacman -S tlp tlp-rdw acpi acpi_call tpacpi-bat --noconfirm
-
-sudo cp ~/dotfiles/tlp/performance.conf /etc/tlp.d/
-sudo cp ~/dotfiles/tlp/battery-threshold.conf /etc/tlp.d/
-
-sudo systemctl mask systemd-rfkill.service
-sudo systemctl mask systemd-rfkill.socket
-sudo systemctl enable tlp.service
-
-sudo tlp start
