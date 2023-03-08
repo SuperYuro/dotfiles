@@ -3,7 +3,7 @@ all:
 	@echo "You can use following command to install packages and configrations."
 	@echo ""
 	@echo " laptop...Install i3-gaps wm and some development tools on ArchLinux on Laptop PC."
-	@echo "desktop...Install openbox wm and some development tools on ArchLinux on Desktop PC."
+	@echo "desktop...Install some development tools on ArchLinux on Desktop PC."
 	@echo "   wsl2...Install some development tools on Ubuntu on WSL2."
 	@echo " nvidia...Install nvidia driver on Ubuntu on WSL2."
 	@echo " docker...Install docker and docker-compose on Ubuntu."
