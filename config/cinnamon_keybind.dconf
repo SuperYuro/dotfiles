@@ -1,0 +1,16 @@
+[/]
+looking-glass-keybinding=['<Primary><Alt>l']
+
+[media-keys]
+screensaver=['<Super>l', 'XF86ScreenSaver']
+volume-down=['XF86AudioLowerVolume', '<Super>F11']
+volume-mute=['XF86AudioMute', '<Super>F10']
+volume-up=['XF86AudioRaiseVolume', '<Super>F12']
+
+[wm]
+activate-window-menu=@as []
+move-to-workspace-left=['<Primary><Shift><Super>Left', '<Shift><Super>braceleft']
+move-to-workspace-right=['<Primary><Shift><Super>Right', '<Shift><Super>braceright']
+show-desktop=['<Primary><Alt>d']
+switch-to-workspace-left=['<Primary><Super>Left', '<Super>bracketleft']
+switch-to-workspace-right=['<Primary><Super>Right', '<Super>bracketright']
