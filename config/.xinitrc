@@ -1,21 +1,19 @@
 #!/bin/bash
 
-userXresources="$HOME/.Xresources"
-userXmodmap="$HOME/.Xmodmap"
+USER_XRESOURCES="${HOME}/.Xresources"
+USER_XMODMAP="${HOME}/.Xmodmap"
+USER_XPROFILE="${HOME}/.xprofile"
 
-if [[ -f $userXresources ]]; then
-    xrdb "$userXresources"
+if [[ -f $USER_XRESOURCES ]]; then
+    xrdb "${USER_XRESOURCES}"
 fi
 
-if [[ -f $userXmodmap ]]; then
-    xmodmap "$userXmodmap"
+if [[ -f $USER_XMODMAP ]]; then
+    xmodmap "${USER_XMODMAP}"
 fi
 
-# set environment variables
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-
-export SHELL=/usr/bin/zsh
+if [[ -f ${USER_XPROFILE} ]]; then
+    . ${USER_XPROFILE}
+fi
 
 exec i3
