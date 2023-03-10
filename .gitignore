@@ -9,6 +9,7 @@ config/emacs/var/
 config/emacs/eshell/
 config/emacs/.lsp-session-v1
 config/emacs/custom.el
+config/emacs/init.elc
 
 # fish
 config/fish/completions/
