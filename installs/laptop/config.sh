@@ -27,6 +27,7 @@ fi
 link_file ".Xresources" "$HOME"
 link_file ".Xmodmap" "$HOME"
 link_file ".xinitrc" "$HOME"
+link_file ".xprofile" "$HOME"
 link_file ".gitconfig" "$HOME"
 link_file ".clang-format" "$HOME"
 link_file ".zshrc" "$HOME"
