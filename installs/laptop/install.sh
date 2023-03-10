@@ -26,7 +26,7 @@ sudo pacman -S xorg-server xorg-apps xorg-xmodmap xorg-xinit --noconfirm
 sudo pacman -S i3-gaps i3status i3lock i3blocks --noconfirm
 
 # Misc
-sudo pacman -S xterm rofi pcmanfm gvfs udisks2 fwupd xsel curl ripgrep network-manager-applet brightnessctl feh github-cli the_silver_searcher --noconfirm
+sudo pacman -S xterm alacritty rofi pcmanfm gvfs udisks2 fwupd xsel curl ripgrep network-manager-applet brightnessctl feh github-cli the_silver_searcher --noconfirm
 
 # Audio
 sudo pacman -S pulseaudio-alsa pavucontrol --noconfirm

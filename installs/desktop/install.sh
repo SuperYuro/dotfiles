@@ -8,7 +8,7 @@ makepkg -si --noconfirm
 cd ~/
 
 # Misc
-sudo pacman -S xterm xsel curl ripgrep github-cli the_silver_searcher --noconfirm
+sudo pacman -S xterm alacritty xsel curl ripgrep github-cli the_silver_searcher --noconfirm
 
 # Shell
 sudo pacman -S zsh peco --noconfirm
