@@ -8,14 +8,14 @@ makepkg -si --noconfirm
 cd ~/
 
 # Misc
-sudo pacman -S xterm alacritty xsel curl ripgrep github-cli the_silver_searcher --noconfirm
+sudo pacman -S xterm alacritty xsel curl tmux ripgrep github-cli the_silver_searcher --noconfirm
 
 # Shell
 sudo pacman -S zsh peco --noconfirm
 
 # Zsh plugins
 git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+# git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
@@ -77,4 +77,4 @@ nvm install --lts
 nvm use --lts
 
 # Theme
-yay -S arc-gtk-theme papirus-icon-theme --noconfirm
+yay -S arc-gtk-theme papirus-icon-theme archlinux-wallpaper --noconfirm

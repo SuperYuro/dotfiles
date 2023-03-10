@@ -26,7 +26,7 @@ sudo pacman -S xorg-server xorg-apps xorg-xmodmap xorg-xinit --noconfirm
 sudo pacman -S i3-gaps i3status i3lock i3blocks --noconfirm
 
 # Misc
-sudo pacman -S xterm alacritty rofi pcmanfm gvfs udisks2 fwupd xsel curl ripgrep network-manager-applet brightnessctl feh github-cli the_silver_searcher --noconfirm
+sudo pacman -S xterm alacritty rofi pcmanfm gvfs udisks2 fwupd xsel curl tmux ripgrep network-manager-applet brightnessctl feh github-cli the_silver_searcher --noconfirm
 
 # Audio
 sudo pacman -S pulseaudio-alsa pavucontrol --noconfirm
@@ -36,7 +36,7 @@ sudo pacman -S zsh peco --noconfirm
 
 # Zsh plugins
 git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+# git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
