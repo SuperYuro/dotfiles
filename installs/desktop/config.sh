@@ -34,6 +34,7 @@ link_file ".clang-format" "$HOME"
 # link_file ".p10k.zsh" "$HOME"
 
 # Put config files on XDG_CONFIG_DIR
+link_file "alacritty" "$CONFDIR"
 link_file "fish" "$CONFDIR"
 link_file "emacs" "$CONFDIR"
 link_file "nvim" "$CONFDIR"
