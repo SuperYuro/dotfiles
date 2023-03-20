@@ -32,16 +32,17 @@ sudo pacman -S xterm alacritty rofi pcmanfm gvfs udisks2 fwupd xsel curl tmux ri
 sudo pacman -S pulseaudio-alsa pavucontrol --noconfirm
 
 # Shell
-sudo pacman -S zsh peco --noconfirm
+# sudo pacman -S zsh peco --noconfirm
+sudo pacman -S fish fisher --noconfirm
 
 # Zsh plugins
-git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+# git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 # git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # For C/C++
-sudo pacman -S gcc gdb clang --noconfirm
+sudo pacman -S gcc gdb clang llvm --noconfirm
 
 # For Rust
 sudo pacman -S rustup rust-analyzer --noconfirm
@@ -61,7 +62,10 @@ sudo pacman -S firefox --noconfirm
 yay -S google-chrome microsoft-edge-stable-bin --noconfirm
 
 # Mail client
-sudo pacman -S claws-mail --noconfirm
+# sudo pacman -S claws-mail --noconfirm
+
+# Communication
+yay -S discord --noconfirm
 
 # Font
 sudo pacman -S \
@@ -76,7 +80,7 @@ sudo pacman -S \
 
 # Poetry
 export PATH="$HOME/.local/bin:$PATH"
-pip install poetry
+curl -sSL https://install.python-poetry.org | python3 -
 poetry config virtualenvs.in-project true
 
 # Pyenv
@@ -89,11 +93,11 @@ pyenv install 3.8.16 --verbose
 pyenv global system
 
 # nvm
-yay -S nvm --noconfirm
-echo 'source "/usr/share/nvm/init-nvm.sh"' >> "$HOME/.init_nvm"
-source "$HOME/.init_nvm"
-nvm install --lts
-nvm use --lts
+# yay -S nvm --noconfirm
+# echo 'source "/usr/share/nvm/init-nvm.sh"' >> "$HOME/.init_nvm"
+# source "$HOME/.init_nvm"
+# nvm install --lts
+# nvm use --lts
 
 # Theme
 yay -S arc-gtk-theme papirus-icon-theme archlinux-wallpaper lxappearance --noconfirm

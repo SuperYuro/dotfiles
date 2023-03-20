@@ -15,10 +15,10 @@ sudo pacman -S alacritty xsel curl tmux ripgrep github-cli the_silver_searcher -
 sudo pacman -S fish fisher --noconfirm
 
 # Zsh plugins
-git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+# git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 # git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # C/C++
 sudo pacman -S gcc gdb clang llvm --noconfirm
@@ -47,7 +47,7 @@ yay -S google-chrome microsoft-edge-stable-bin --noconfirm
 # sudo pacman -S claws-mail --noconfirm
 
 # Communication
-yay -S discord teams --noconfirm
+yay -S discord --noconfirm
 
 # Font
 sudo pacman -S \
