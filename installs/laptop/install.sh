@@ -71,7 +71,7 @@ yay -S discord --noconfirm
 sudo pacman -S \
     noto-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji \
     otf-cascadia-code \
-    otf-cascadia-code-nerd --noconfirm
+    otf-cascadia-code-nerd ttf-hack-nerd --noconfirm
 
 # Python
 sudo pacman -S \
