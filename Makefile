@@ -22,6 +22,9 @@ wsl2:
 	@bash ~/dotfiles/installs/wsl2/install.sh
 	@bash ~/dotfiles/installs/wsl2/config.sh
 
+fish:
+	@fish ~/dotfiles/installs/config/config.fish
+
 nvidia:
 	@bash ~/dotfiles/installs/wsl2/nvidia.sh
 
