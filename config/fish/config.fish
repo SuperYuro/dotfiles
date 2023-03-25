@@ -37,4 +37,4 @@ alias cv 'cd ~/Development'
 
 alias rl 'exec fish'
 
-pyenv init - | source
+status --is-interactive; and source (anyenv init -|psub)
