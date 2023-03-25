@@ -19,10 +19,3 @@ end
 if [ -d $HOME/.local/bin ]
     fish_add_path $HOME/.local/bin
 end
-
-set -Ux PYENV_ROOT $HOME/.pyenv
-
-if not type pyenv >/dev/null 2>&1
-    fish_add_path $PYENV_ROOT/bin
-end
-
