@@ -2,7 +2,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-set -g theme_color_scheme nord
+set -g theme_color_scheme light
 
 set -g theme_display_git yes
 set -g theme_display_git_default_branch yes
@@ -37,4 +37,5 @@ alias cv 'cd ~/Development'
 
 alias rl 'exec fish'
 
-status --is-interactive; and source (anyenv init -|psub)
+pyenv init - | source
+status --is-interactive; and rbenv init - fish | source
