@@ -8,6 +8,7 @@ vim.cmd([[packadd packer.nvim]])
 
 packer.startup(function(use)
 	use({ "wbthomason/packer.nvim", run = ":PackerUpdate" })
+	use("shaunsingh/nord.nvim") -- Nord color scheme
 	use({
 		"nvim-tree/nvim-tree.lua",
 		requires = {
