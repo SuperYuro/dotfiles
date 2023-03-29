@@ -10,8 +10,8 @@ sudo apt install -y peco
 
 # zsh plugins
 git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone --depth=1 https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
 git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # Base development
@@ -19,6 +19,14 @@ sudo apt install -y build-essential git gdb tmux curl vim ripgrep silversearcher
 
 # LaTeX
 sudo apt install -y texlive-full
+
+# Ruby
+sudo apt install -y ruby-full
+sudo apt install -y autoconf bison patch libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev uuid-dev
+git clone https://github.com/rbenv/rbenv ~/.rbenv
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+git clone https://github.com/rbenv/ruby-build "$(rbenv root)"/plugins/ruby-build
 
 # Python
 sudo apt install -y python3 python3-pip python3-venv python-is-python3
@@ -28,7 +36,7 @@ curl -sSL https://install.python-poetry.org | python3 -
 poetry config virtualenvs.in-project true
 
 # pyenv
-sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+sudo apt install -y build-essential zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 git clone https://github.com/pyenv/pyenv ~/.pyenv
 
 export PYENV_ROOT="$HOME/.pyenv"
@@ -51,7 +59,7 @@ cd ~/
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 . "$HOME/dotfiles/config/.init_nvm"
 nvm install --lts
 nvm use --lts
