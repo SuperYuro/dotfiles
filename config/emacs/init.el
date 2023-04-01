@@ -51,6 +51,17 @@
     ;; initialize leaf-keywords.el
     (leaf-keywords-init)))
 
+;; Write settings below
+(leaf exec-path-from-shell
+  :doc "Get environment variables such as $PATH from the shell"
+  :req "emacs-24.1" "cl-lib-0.6"
+  :tag "environment" "unix" "emacs>=24.1"
+  :url "https://github.com/purcell/exec-path-from-shell"
+  :added "2023-03-30"
+  :emacs>= 24.1
+  :ensure t
+  :config (exec-path-from-shell-copy-envs '("PATH")))
+
 ;; Set Theme
 (leaf nord-theme
   :doc "An arctic, north-bluish clean and elegant theme"
@@ -127,6 +138,18 @@
   :tag "builtin"
   :custom ((auto-revert-interval . 1))
   :global-minor-mode global-auto-revert-mode)
+
+(leaf cc-mode
+  :doc "major mode for editing C and similar languages"
+  :tag "builtin"
+  :defvar (c-basic-offset)
+  :bind (c-mode-base-map
+         ("C-c c" . compile))
+  :mode-hook
+  (c-mode-hook . ((c-set-style "bsd")
+                  (setq c-basic-offset 4)))
+  (c++-mode-hook . ((c-set-style "bsd")
+                    (setq c-basic-offset 4))))
 
 (leaf delsel
   :doc "delete selection if you insert"
@@ -230,6 +253,108 @@
   :custom ((ivy-prescient-retain-classic-highlighting . t))
   :global-minor-mode t)
 
+(leaf flycheck
+  :doc "On-the-fly syntax checking"
+  :req "dash-2.12.1" "pkg-info-0.4" "let-alist-1.0.4" "seq-1.11" "emacs-24.3"
+  :tag "minor-mode" "tools" "languages" "convenience" "emacs>=24.3"
+  :url "http://www.flycheck.org"
+  :emacs>= 24.3
+  :ensure t
+  :bind (("M-n" . flycheck-next-error)
+         ("M-p" . flycheck-previous-error))
+  :global-minor-mode global-flycheck-mode)
+
+(leaf company
+  :doc "Modular text completion framework"
+  :req "emacs-24.3"
+  :tag "matching" "convenience" "abbrev" "emacs>=24.3"
+  :url "http://company-mode.github.io/"
+  :emacs>= 24.3
+  :ensure t
+  :blackout t
+  :leaf-defer nil
+  :bind ((company-active-map
+          ("M-n" . nil)
+          ("M-p" . nil)
+          ("C-s" . company-filter-candidates)
+          ("C-n" . company-select-next)
+          ("C-p" . company-select-previous)
+          ("<tab>" . company-complete-selection))
+         (company-search-map
+          ("C-n" . company-select-next)
+          ("C-p" . company-select-previous)))
+  :custom ((company-idle-delay . 0)
+           (company-minimum-prefix-length . 1)
+           (company-transformers . '(company-sort-by-occurrence)))
+  :global-minor-mode global-company-mode)
+
+(leaf company-c-headers
+  :doc "Company mode backend for C/C++ header files"
+  :req "emacs-24.1" "company-0.8"
+  :tag "company" "development" "emacs>=24.1"
+  :added "2020-03-25"
+  :emacs>= 24.1
+  :ensure t
+  :after company
+  :defvar company-backends
+  :config
+  (add-to-list 'company-backends 'company-c-headers))
+
+(leaf company-quickhelp
+  :doc "Popup documentation for completion candidates"
+  :req "emacs-24.3" "company-0.8.9" "pos-tip-0.4.6"
+  :tag "quickhelp" "documentation" "popup" "company" "emacs>=24.3"
+  :url "https://www.github.com/expez/company-quickhelp"
+  :added "2022-11-14"
+  :emacs>= 24.3
+  :ensure t
+  :after company pos-tip
+  :custom ((company-quickhelp-color-foreground . "white")
+           (company-quickhelp-color-background . "dark slate gray"))
+  :global-minor-mode t)
+
+(leaf counsel-tramp
+  :doc "Tramp ivy interface for ssh, docker, vagrant"
+  :req "emacs-24.3" "counsel-0.10"
+  :tag "emacs>=24.3"
+  :url "https://github.com/masasam/emacs-counsel-tramp"
+  :added "2022-11-02"
+  :emacs>= 24.3
+  :ensure t
+  :after counsel)
+
+(leaf docker-tramp
+  :doc "TRAMP integration for docker containers"
+  :req "emacs-24" "cl-lib-0.5"
+  :tag "convenience" "docker" "emacs>=24"
+  :url "https://github.com/emacs-pe/docker-tramp.el"
+  :added "2022-11-04"
+  :emacs>= 24
+  :ensure t
+  :custom (docker-tramp-use-names . t))
+
+(leaf migemo
+  :doc "Japanese incremental search through dynamic pattern expansion"
+  :req "cl-lib-0.5"
+  :url "https://github.com/emacs-jp/migemo"
+  :added "2022-11-06"
+  :ensure t
+  :custom ((migemo-command . "cmigemo")
+           (migemo-options '("-q" "--emacs"))
+           (migemo-user-dictionary . nil)
+           (migemo-regex-dictionary . nil)
+           (migemo-coding-system . 'utf-8-unix)))
+
+(leaf ivy-migemo
+  :doc "Use migemo on ivy"
+  :req "emacs-24.3" "ivy-0.13.0" "migemo-1.9.2" "nadvice-0.3"
+  :tag "matching" "emacs>=24.3"
+  :url "https://github.com/ROCKTAKEY/ivy-migemo"
+  :added "2022-11-06"
+  :emacs>= 24.3
+  :ensure t
+  :after ivy migemo nadvice)
+
 (leaf all-the-icons
   :doc "A library for inserting Developer icons"
   :req "emacs-24.3"
@@ -257,6 +382,61 @@
    ("<right>" . neotree-change-root)
    )
   )
+
+(leaf lsp-mode
+  :doc "LSP mode"
+  :req "emacs-26.1" "dash-2.18.0" "f-0.20.0" "ht-2.3" "spinner-1.7.3" "markdown-mode-2.3" "lv-0"
+  :tag "languages" "emacs>=26.1"
+  :url "https://github.com/emacs-lsp/lsp-mode"
+  :added "2022-11-14"
+  :emacs>= 26.1
+  :ensure t
+  :after spinner markdown-mode lv
+  :custom ((lsp-keymap-prefix . "s-l")))
+
+(leaf lsp-ui
+  :doc "UI modules for lsp-mode"
+  :req "emacs-26.1" "dash-2.18.0" "lsp-mode-6.0" "markdown-mode-2.3"
+  :tag "tools" "languages" "emacs>=26.1"
+  :url "https://github.com/emacs-lsp/lsp-ui"
+  :added "2022-11-14"
+  :emacs>= 26.1
+  :ensure t
+  :after lsp-mode markdown-mode)
+
+(leaf python-mode
+  :doc "Python major mode"
+  :tag "oop" "python" "processes" "languages"
+  :url "https://gitlab.com/groups/python-mode-devs"
+  :added "2023-01-11"
+  :ensure t)
+
+(leaf lsp-pyright
+  :doc "Python LSP client using Pyright"
+  :req "emacs-26.1" "lsp-mode-7.0" "dash-2.18.0" "ht-2.0"
+  :tag "lsp" "tools" "languages" "emacs>=26.1"
+  :url "https://github.com/emacs-lsp/lsp-pyright"
+  :added "2023-01-11"
+  :emacs>= 26.1
+  :ensure t
+  :after lsp-mode
+  :mode-hook
+  (python-mode . (lambda ()
+                   (require 'lsp-pyright)
+                   (lsp))))
+
+(leaf rustic
+  :doc "Rust development environment"
+  :req "emacs-26.1" "rust-mode-1.0.3" "dash-2.13.0" "f-0.18.2" "let-alist-1.0.4" "markdown-mode-2.3" "project-0.3.0" "s-1.10.0" "seq-2.3" "spinner-1.7.3" "xterm-color-1.6"
+  :tag "languages" "emacs>=26.1"
+  :added "2022-12-09"
+  :emacs>= 26.1
+  :ensure t
+  :after rust-mode markdown-mode project spinner xterm-color
+  :custom
+  (rustic-lsp-client . 'lsp-mode)
+  (rustic-format-trigger . 'on-save)
+  (rustic-lsp-server . 'rust-analyzer))
 
 (provide 'init)
 
