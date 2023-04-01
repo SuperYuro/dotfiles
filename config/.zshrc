@@ -93,6 +93,8 @@ plugins=(
     rust
     ruby
     rbenv
+    node
+    npm
     nvm
 )
 
