@@ -2,7 +2,7 @@ SCRIPTDIR = ~/dotfiles/installs
 
 all:
 	@echo " laptop...Install i3-gaps wm and some development tools on ArchLinux for Laptop."
-	@echo "desktop...Install cinnamon desktop and some development tools on ArchLinux for Desktop."
+	@echo "desktop...Install some development tools on ArchLinux for Desktop."
 	@echo "   wsl2...Install some development tools on Ubuntu on WSL2."
 	@echo " nvidia...Install nvidia driver on Ubuntu on WSL2."
 	@echo " docker...Install docker and docker-compose on Ubuntu."
