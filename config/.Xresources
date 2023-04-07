@@ -12,7 +12,7 @@ XTerm*ttymodes: erase ^?
 
 XTerm*borderWidth: 0
 
-XTerm*faceName: Hack Nerd Font Mono:style=Regular:antialias=true
+XTerm*faceName: CaskaydiaCove Nerd Font Mono:style=Regular:antialias=true
 XTerm*faceNameDoublesize: Noto Sans CJK JP
 XTerm*faceSize: 10
 

@@ -4,19 +4,19 @@ env:
 font:
   size: 10
   normal:
-    family: Hack Nerd Font Mono
+    family: CaskaydiaCove Nerd Font Mono
     style: Regular
 
   bold:
-    family: Hack Nerd Font Mono
+    family: CaskaydiaCove Nerd Font Mono
     style: Bold
 
   italic:
-    family: Hack Nerd Font Mono
+    family: CaskaydiaCove Nerd Font Mono
     style: Italic
 
   bold_italic:
-    family: Hack Nerd Font Mono
+    family: CaskaydiaCove Nerd Font Mono
     style: Bold Italic
 
 colors:
