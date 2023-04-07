@@ -17,13 +17,16 @@ yay -S google-chrome microsoft-edge-stable-bin --noconfirm
 # Mail client
 sudo pacman -S thunderbird --noconfirm
 
+# Office
+sudo pacman -S libreoffice-fresh libreoffice-fresh-ja --noconfirm
+
 # Communication
 yay -S teams discord --noconfirm
 
 # Font
 sudo pacman -S \
     noto-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji \
-    otf-cascadia-code-nerd ttf-hack-nerd --noconfirm
+    otf-cascadia-code-nerd --noconfirm
 
 # Theme
 yay -S arc-gtk-theme papirus-icon-theme archlinux-wallpaper --noconfirm

@@ -64,3 +64,6 @@ echo 'source "/usr/share/nvm/init-nvm.sh"' >> "$HOME/.init_nvm"
 source "$HOME/.init_nvm"
 nvm install --lts
 nvm use --lts
+
+# TeX
+sudo pacman -S texlive-most texlive-langextra texlive-langjapanese --noconfirm
