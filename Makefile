@@ -19,10 +19,10 @@ laptop:
 desktop:
 	@bash ${SCRIPTDIR}/archlinux/general/install.sh
 	@bash ${SCRIPTDIR}/archlinux/gui/install.sh
-	@bash ${SCRIPTDIR}/archlinux/desktop/install.sh
+	# @bash ${SCRIPTDIR}/archlinux/desktop/install.sh
 	@bash ${SCRIPTDIR}/archlinux/general/config.sh
 	@bash ${SCRIPTDIR}/archlinux/gui/config.sh
-	@bash ${SCRIPTDIR}/archlinux/desktop/config.sh
+	# @bash ${SCRIPTDIR}/archlinux/desktop/config.sh
 
 cli:
 	@bash ${SCRIPTDIR}/archlinux/general/install.sh
