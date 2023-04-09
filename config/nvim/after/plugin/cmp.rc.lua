@@ -2,7 +2,7 @@ local status, cmp = pcall(require, "cmp")
 if not status then
 	return
 end
--- local lspkind = require('lspkind')
+-- local lspkind = require("lspkind")
 
 cmp.setup({
 	snippet = {
@@ -23,7 +23,7 @@ cmp.setup({
 		{ name = "buffer" },
 	}),
 	-- formatting = {
-	--   format = lspkind.cmp_format({ wirth_text = false, maxwidth = 50 })
+	-- 	format = lspkind.cmp_format({ wirth_text = false, maxwidth = 50 }),
 	-- },
 })
 
