@@ -139,9 +139,12 @@ export ARCHFLAGS="-arch x86_64"
 #
 # Alias
 # alias ls='ls --color=auto'
-alias l='ls -1A'
+if  type "exa" > /dev/null 2>&1 ;then
+    alias ls=exa
+fi
+alias l='ls -1a'
 alias ll='ls -lh'
-alias la='ls -lA'
+alias la='ls -lha'
 
 alias c=cd
 alias g=git
