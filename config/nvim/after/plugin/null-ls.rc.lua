@@ -20,7 +20,7 @@ nullls.setup({
 		-- For Ruby
 		nullls.builtins.formatting.rubocop,
 		-- For Python
-		nullls.builtins.formatting.autopep8,
+		nullls.builtins.formatting.black,
 		nullls.builtins.formatting.isort,
 		-- For C/C++
 		nullls.builtins.formatting.clang_format,
