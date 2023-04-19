@@ -1,37 +1,37 @@
 Emacs*UseXIM: false
 
-XTerm*termName: xterm-256color
+UXTerm*termName: xterm-256color
 
-XTerm*scrollBar: hide
+UXTerm*scrollBar: hide
 
-XTerm*locale: true
-XTerm*metaSendsEscape: true
+UXTerm*locale: true
+UXTerm*metaSendsEscape: true
 
-XTerm*vt100.backarrowkey: false
-XTerm*ttymodes: erase ^?
+UXTerm*vt100.backarrowkey: false
+UXTerm*ttymodes: erase ^?
 
-XTerm*borderWidth: 0
+UXTerm*borderWidth: 0
 
-XTerm*faceName: CaskaydiaCove Nerd Font Mono:style=Regular:antialias=true
-XTerm*faceNameDoublesize: Noto Sans CJK JP
-XTerm*faceSize: 10
+UXTerm*faceName: CaskaydiaCove Nerd Font Mono:style=Regular:antialias=true
+UXTerm*faceNameDoublesize: Noto Sans CJK JP
+UXTerm*faceSize: 10
 
-XTerm*background: #2e3440
-XTerm*foreground: #d8dee9
+UXTerm*background: #2e3440
+UXTerm*foreground: #d8dee9
 
-XTerm*color0:  #3b4252
-XTerm*color1:  #bf616a
-XTerm*color2:  #a3be8c
-XTerm*color3:  #ebcb8b
-XTerm*color4:  #81a1c1
-XTerm*color5:  #b48ead
-XTerm*color6:  #88c0d0
-XTerm*color7:  #e5e9f0
-XTerm*color8:  #4c566a
-XTerm*color9:  #bf616a
-XTerm*color10: #a3be8c
-XTerm*color11: #ebcb8b
-XTerm*color12: #81a1c1
-XTerm*color13: #b48ead
-XTerm*color14: #8fbcbb
-XTerm*color15: #eceff4
+UXTerm*color0:  #3b4252
+UXTerm*color1:  #bf616a
+UXTerm*color2:  #a3be8c
+UXTerm*color3:  #ebcb8b
+UXTerm*color4:  #81a1c1
+UXTerm*color5:  #b48ead
+UXTerm*color6:  #88c0d0
+UXTerm*color7:  #e5e9f0
+UXTerm*color8:  #4c566a
+UXTerm*color9:  #bf616a
+UXTerm*color10: #a3be8c
+UXTerm*color11: #ebcb8b
+UXTerm*color12: #81a1c1
+UXTerm*color13: #b48ead
+UXTerm*color14: #8fbcbb
+UXTerm*color15: #eceff4

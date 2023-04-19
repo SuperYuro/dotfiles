@@ -88,7 +88,6 @@ plugins=(
     golang
     python
     pip
-    pyenv
     poetry
     rust
     ruby

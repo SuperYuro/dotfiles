@@ -70,7 +70,7 @@ bindsym $mod+Shift+s exec --no-startup-id scrot -F $ss_path -s -f
 floating_modifier $mod
 
 # start a terminal
-set $term uxterm
+set $term alacritty
 bindsym $mod+Return exec $term
 # bindsym $mod+Return exec alacritty
 
