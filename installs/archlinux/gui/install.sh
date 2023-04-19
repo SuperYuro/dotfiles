@@ -4,15 +4,15 @@
 sudo pacman -S gnome-keyring alacritty xsel github-cli --noconfirm
 
 # Japanese IME
-yay -S ibus-mozc --noconfirm
+paru -S ibus-mozc --noconfirm
 
 # Editor/IDE
-yay -S emacs emacs-mozc --noconfirm
-yay -S visual-studio-code-bin jetbrains-toolbox rstudio-desktop --noconfirm
+paru -S emacs emacs-mozc --noconfirm
+paru -S visual-studio-code-bin jetbrains-toolbox rstudio-desktop --noconfirm
 
 # Browser
 sudo pacman -S firefox --noconfirm
-yay -S google-chrome microsoft-edge-stable-bin --noconfirm
+paru -S google-chrome microsoft-edge-stable-bin --noconfirm
 
 # Mail client
 sudo pacman -S thunderbird --noconfirm
@@ -21,7 +21,7 @@ sudo pacman -S thunderbird --noconfirm
 sudo pacman -S libreoffice-fresh libreoffice-fresh-ja --noconfirm
 
 # Communication
-yay -S teams discord --noconfirm
+paru -S teams discord --noconfirm
 
 # Font
 sudo pacman -S \
@@ -29,4 +29,4 @@ sudo pacman -S \
     otf-cascadia-code-nerd --noconfirm
 
 # Theme
-yay -S arc-gtk-theme papirus-icon-theme archlinux-wallpaper --noconfirm
+paru -S arc-gtk-theme papirus-icon-theme archlinux-wallpaper --noconfirm

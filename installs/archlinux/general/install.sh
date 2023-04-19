@@ -1,9 +1,12 @@
 #!/bin/bash -e
 
+# Rust
+sudo pacman -S rustup --noconfirm
+rustup default stable
+
 # AUR helper
-sudo pacman -S go --noconfirm
-git clone https://aur.archlinux.org/yay ~/yay
-cd ~/yay
+git clone https://aur.archlinux.org/paru ~/paru
+cd ~/paru
 makepkg -si --noconfirm
 cd ~/
 
@@ -22,22 +25,18 @@ git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${Z
 # C/C++
 sudo pacman -S gcc gdb clang llvm --noconfirm
 
-# Rust
-sudo pacman -S rustup --noconfirm
-rustup default stable
-
 # Java
 sudo pacman -S jdk-openjdk --noconfirm
 
 # Editor
 sudo pacman -S neovim --noconfirm
-yay -S nvim-packer-git --noconfirm
+paru -S nvim-packer-git --noconfirm
 
 # Ruby
 sudo pacman -S ruby --noconfirm
 
 # Rbenv
-yay -S rbenv ruby-build \
+paru -S rbenv ruby-build \
     libffi libyaml openssl zlib --noconfirm
 
 # Python
@@ -59,7 +58,7 @@ pyenv install 3.11.0 --verbose
 pyenv global system
 
 # nvm
-yay -S nvm --noconfirm
+paru -S nvm --noconfirm
 echo 'source "/usr/share/nvm/init-nvm.sh"' >> "$HOME/.init_nvm"
 source "$HOME/.init_nvm"
 nvm install --lts
