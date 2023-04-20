@@ -2,7 +2,6 @@
 	name = SuperYuro
 	email = a.gpgtdmgp@gmail.com
 [core]
-	excludesfile = /home/yuro/.gitignore
 	bare = true
 [init]
 	defaultBranch = main
