@@ -1,12 +1,16 @@
 SCRIPTDIR = ~/dotfiles/installs
 
 all:
+	@echo "windows...Install for Windows."
 	@echo " laptop...Install i3-gaps wm and some development tools on ArchLinux for Laptop."
 	@echo "desktop...Install some development tools on ArchLinux for Desktop."
 	@echo "   wsl2...Install some development tools on Ubuntu on WSL2."
 	@echo " nvidia...Install nvidia driver on Ubuntu on WSL2."
 	@echo " docker...Install docker and docker-compose on Ubuntu."
 	@echo "firefox...Install firefox customize css."
+
+windows:
+	@echo "Execute ./windows/install.ps1"
 
 laptop:
 	@bash ${SCRIPTDIR}/archlinux/general/install.sh
