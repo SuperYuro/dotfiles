@@ -9,6 +9,12 @@ end
 
 local protocol = require("vim.lsp.protocol")
 
+if vim.fn.has("win32") == 1 then
+	LAD_PATH_RAW = os.getenv("LOCALAPPDATA")
+	LAD_PATH = string.gsub(LAD_PATH_RAW, "\\", "/")
+	PSES_BUNDLE_PATH = LAD_PATH .. "/nvim-data/mason/packages/powershell-editor-services"
+end
+
 local on_attach = function(client, bufnr)
 	-- formatting
 	if client.server_capabilities.documentFormattingProvider then
@@ -31,8 +37,14 @@ end
 
 lspconfig.setup_handlers({
 	function(server_name)
-		nvim_lsp[server_name].setup({
-			on_attach = on_attach,
-		})
+		if server_name == "powershell_es" then
+			nvim_lsp.powershell_es.setup({
+				bundle_path = PSES_BUNDLE_PATH,
+			})
+		else
+			nvim_lsp[server_name].setup({
+				-- on_attach = on_attach,
+			})
+		end
 	end,
 })

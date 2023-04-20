@@ -23,7 +23,7 @@ lspconfig.setup({
 	ensure_installed = {
 		"bashls",
 		-- "jsonls",
-		"taplo",
+		-- "taplo",
 		"yamlls",
 		"dockerls",
 		"rust_analyzer",
