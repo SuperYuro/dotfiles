@@ -29,3 +29,6 @@ config/mozc/.server.lock
 config/mozc/keymap.tsv
 config/mozc/ibus_config.textproto
 config/mozc/*.ipc
+
+# windows
+windows/config/PowerShell/Scripts
