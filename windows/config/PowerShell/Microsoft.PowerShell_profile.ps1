@@ -5,12 +5,11 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\agnoster.minimal.omp.json" 
 Import-Module PSReadLine
 Set-PSReadLineOption -EditMode Emacs
 Set-PSReadLineOption -BellStyle None
-Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
+# Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
 
 # Alias
-Set-Alias .. "cd ../"
 Set-Alias la ls
 Set-Alias c cd
 Set-Alias v nvim
