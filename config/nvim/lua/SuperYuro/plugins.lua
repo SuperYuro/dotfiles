@@ -8,7 +8,10 @@ vim.cmd([[packadd packer.nvim]])
 
 packer.startup(function(use)
 	use({ "wbthomason/packer.nvim", run = ":PackerUpdate" })
-    use"shaunsingh/nord.nvim"
+	use({
+		"bluz71/vim-moonfly-colors",
+		as = "moonfly",
+	})
 	use({
 		"nvim-tree/nvim-tree.lua",
 		requires = {
