@@ -11,7 +11,6 @@ packer.startup(function(use)
 	use({
 		"bluz71/vim-moonfly-colors",
 		as = "moonfly",
-		config = vim.cmd([[colorscheme moonfly]]),
 	})
 	use({
 		"nvim-tree/nvim-tree.lua",
