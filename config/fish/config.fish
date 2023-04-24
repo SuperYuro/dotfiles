@@ -2,7 +2,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-set -g theme_color_scheme nord
+set -g theme_color_scheme dark
 
 set -g theme_display_git yes
 set -g theme_display_git_default_branch yes
@@ -16,9 +16,13 @@ set -g theme_display_hostname ssh
 
 set -g theme_show_exit_status yes
 
-alias l 'ls -1A'
+if type "exa" > /dev/null 2>&1
+    alias ls exa
+end
+
+alias l 'ls -1a'
 alias ll 'ls -lh'
-alias la 'ls -lA'
+alias la 'ls -lha'
 
 alias c cd
 alias th touch

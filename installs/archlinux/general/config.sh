@@ -26,8 +26,9 @@ fi
 # Put config files on $HOME
 link_file ".gitconfig" "$HOME"
 link_file ".clang-format" "$HOME"
-link_file ".zshrc" "$HOME"
+# link_file ".zshrc" "$HOME"
 
 # Put config files on $XDG_CONFIG_DIR
 link_file "nvim" "$CONFDIR"
 link_file "tmux" "$CONFDIR"
+link_file "fish" "$CONFDIR"

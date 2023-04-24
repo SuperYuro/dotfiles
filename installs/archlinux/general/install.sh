@@ -14,13 +14,14 @@ cd ~/
 sudo pacman -S curl tmux ripgrep wget unzip the_silver_searcher --noconfirm
 
 # Shell
-sudo pacman -S zsh peco --noconfirm
+sudo pacman -S fish fisher --noconfirm
+# sudo pacman -S zsh peco --noconfirm
 
 # Zsh plugins
-git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone --depth=1 https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
-git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+# git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone --depth=1 https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
+# git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # C/C++
 sudo pacman -S gcc gdb clang llvm --noconfirm
@@ -58,11 +59,11 @@ pyenv install 3.11.0 --verbose
 pyenv global system
 
 # nvm
-paru -S nvm --noconfirm
-echo 'source "/usr/share/nvm/init-nvm.sh"' >> "$HOME/.init_nvm"
-source "$HOME/.init_nvm"
-nvm install --lts
-nvm use --lts
+# paru -S nvm --noconfirm
+# echo 'source "/usr/share/nvm/init-nvm.sh"' >> "$HOME/.init_nvm"
+# source "$HOME/.init_nvm"
+# nvm install --lts
+# nvm use --lts
 
 # TeX
 sudo pacman -S texlive-most texlive-langextra texlive-langjapanese --noconfirm
