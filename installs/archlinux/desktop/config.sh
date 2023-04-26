@@ -28,4 +28,4 @@ fi
 # Put config files on XDG_CONFIG_DIR
 
 # Cinnamon keybind
-# dconf load /org/cinnamon/desktop/keybindings/ < ${DOTCONFDIR}/cinnamon_keybind.dconf
+dconf load /org/cinnamon/desktop/keybindings/ < ${DOTCONFDIR}/cinnamon_keybind.dconf
