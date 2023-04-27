@@ -16,4 +16,4 @@ if [[ -f ${USER_XPROFILE} ]]; then
     . ${USER_XPROFILE}
 fi
 
-exec i3
+exec startxfce4
