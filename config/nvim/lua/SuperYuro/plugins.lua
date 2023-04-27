@@ -1,13 +1,6 @@
-local status, packer = pcall(require, "packer")
-if not status then
-	print("Packer is not installed!")
-	return
-end
-
-vim.cmd([[packadd packer.nvim]])
-
-packer.startup(function(use)
-	use({ "wbthomason/packer.nvim", run = ":PackerUpdate" })
+vim.cmd("packadd vim-jetpack")
+require("jetpack.packer").startup(function(use)
+	use({ "tani/vim-jetpack", opt = 1 })
 	use("shaunsingh/nord.nvim")
 	use({
 		"nvim-tree/nvim-tree.lua",

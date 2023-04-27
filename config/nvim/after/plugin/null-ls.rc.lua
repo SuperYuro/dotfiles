@@ -17,8 +17,8 @@ nullls.setup({
 		nullls.builtins.diagnostics.fish,
 		-- For Shell Script
 		nullls.builtins.formatting.beautysh,
-		-- For Ruby
-		nullls.builtins.formatting.rubocop,
+		-- For json
+		nullls.builtins.formatting.jq,
 		-- For Python
 		nullls.builtins.formatting.black,
 		nullls.builtins.formatting.isort,

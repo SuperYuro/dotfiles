@@ -9,6 +9,7 @@ git clone https://aur.archlinux.org/paru ~/paru
 cd ~/paru
 makepkg -si --noconfirm
 cd ~/
+rm ~/paru -rf
 
 # Misc
 sudo pacman -S curl tmux ripgrep wget unzip the_silver_searcher --noconfirm
@@ -31,14 +32,15 @@ sudo pacman -S jdk-openjdk --noconfirm
 
 # Editor
 sudo pacman -S neovim --noconfirm
-paru -S nvim-packer-git --noconfirm
+curl -fLo ~/.local/share/nvim/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
+# paru -S nvim-packer-git --noconfirm
 
 # Ruby
 sudo pacman -S ruby --noconfirm
 
 # Rbenv
-paru -S rbenv ruby-build \
-    libffi libyaml openssl zlib --noconfirm
+# paru -S rbenv ruby-build \
+    # libffi libyaml openssl zlib --noconfirm
 
 # Python
 sudo pacman -S python python-pip --noconfirm

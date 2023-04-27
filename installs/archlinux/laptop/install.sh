@@ -16,10 +16,11 @@ sudo tlp start
 sudo pacman -S xorg-server xorg-apps xorg-xmodmap xorg-xinit --noconfirm
 
 # Window manager
-sudo pacman -S i3-gaps i3status i3lock i3blocks --noconfirm
+# sudo pacman -S i3-gaps i3status i3lock i3blocks --noconfirm
+sudo pacman -S xfce4 xfce4-goodies --noconfirm
 
 # Misc
-sudo pacman -S xterm alacritty rofi pcmanfm gvfs udisks2 fwupd network-manager-applet brightnessctl feh --noconfirm
+sudo pacman -S alacritty rofi gvfs udisks2 fwupd network-manager-applet brightnessctl --noconfirm
 
 # Audio
 sudo pacman -S pulseaudio-alsa pavucontrol --noconfirm

@@ -22,11 +22,6 @@ sudo apt install -y texlive-full
 
 # Ruby
 sudo apt install -y ruby-full
-sudo apt install -y autoconf bison patch libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev uuid-dev
-git clone https://github.com/rbenv/rbenv ~/.rbenv
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-git clone https://github.com/rbenv/ruby-build "$(rbenv root)"/plugins/ruby-build
 
 # Python
 sudo apt install -y python3 python3-pip python3-venv python-is-python3
@@ -55,8 +50,8 @@ make CMAKE_BUILD_TYPE=Release
 sudo make install
 cd ~/
 
-# packer
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+# vim-jetpack
+curl -fLo ~/.local/share/nvim/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
 
 # nvm
 # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
