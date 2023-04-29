@@ -1,5 +1,5 @@
 # nvim
-config/nvim/packer_compiled.lua
+config/nvim/plugin/packer_compiled.lua
 
 # emacs
 config/emacs/backup/
