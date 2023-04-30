@@ -9,6 +9,8 @@ local ensure_packer = function()
     return false
 end
 
+
+
 local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
@@ -22,32 +24,84 @@ return require("packer").startup(function(use)
         end,
     })
 
+    -- File tree
+    use({
+        "nvim-tree/nvim-tree.lua",
+        requires = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("nvim-tree").setup({
+                sort_by = "case_sensitive",
+                filters = {
+                    dotfiles = true,
+                },
+            })
+            vim.keymap.set("n", "<C-t>", ":NvimTreeToggle<CR>", { silent = true, noremap = true })
+        end,
+    })
+
     -- Fuzzy finder
     use({
         "nvim-telescope/telescope.nvim",
-        requires = { "nvim-lua/plenary.nvim" },
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope-file-browser.nvim", -- File browser
+            "chip/telescope-software-licenses.nvim", -- Search Software License
+            "xiyaowong/telescope-emoji.nvim",    -- Search emoji
+            "fcying/telescope-ctags-outline.nvim", -- Get outline
+            "LinArcX/telescope-env.nvim",        -- Show environment variables
+        },
         config = function()
             require("SuperYuro.config.telescope")
         end,
     })
 
-    -- Tab bar
+    -- Statusline
+    use({
+        "nvim-lualine/lualine.nvim",
+        config = function()
+            require("lualine").setup({
+                sections = {
+                    lualine_a = { "mode" },
+                    lualine_b = { "branch" },
+                    lualine_c = {
+                        {
+                            "filename",
+                            file_status = true,
+                            newfile_status = true,
+                            path = 1,
+                        },
+                    },
+                    lualine_x = {
+                        "fileformat",
+                        "filetype",
+                    },
+                    lualine_y = {
+                        "diagnostics",
+                        "diff",
+                    },
+                    lualine_z = {
+                        "progress",
+                        "location",
+                    },
+                },
+            })
+        end,
+    })
+
+    -- Tabbar
     use({
         "akinsho/bufferline.nvim",
         tag = "*",
-        requires = {
-            { "nvim-tree/nvim-web-devicons" },
-        },
         config = function()
             require("bufferline").setup({
                 options = {
-                    mode = "buffers",
+                    mode = "tabs",
                     separator_style = "slant",
                     always_show_bufferline = true,
                 },
             })
-            vim.api.nvim_set_keymap("n", "tn", "<cmd>BufferLineCycleNext<cr>", {})
-            vim.api.nvim_set_keymap("n", "tp", "<cmd>BufferLineCyclePrev<cr>", {})
+            vim.api.nvim_set_keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<cr>", {})
+            vim.api.nvim_set_keymap("n", "<S-TAB>", "<cmd>BufferLineCyclePrev<cr>", {})
         end,
     })
 
@@ -71,6 +125,9 @@ return require("packer").startup(function(use)
             {
                 "williamboman/mason-lspconfig.nvim",
             },
+            {
+                "hrsh7th/cmp-nvim-lsp",
+            },
         },
         config = function()
             require("SuperYuro.config.nvim-lspconfig")
@@ -88,11 +145,11 @@ return require("packer").startup(function(use)
         end,
     })
 
-    -- Git
+    -- Diagnostics
     use({
-        "lewis6991/gitsigns.nvim",
-        confg = function()
-            require("gitsigns").setup()
+        "folke/trouble.nvim",
+        config = function()
+            require("trouble").setup()
         end,
     })
 
@@ -110,13 +167,48 @@ return require("packer").startup(function(use)
     -- Completion
     use({
         "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
         requires = {
-            -- { "onsails/lspkind.nvim" }, -- Icons
-            -- { "hrsh7th/cmp-nvim-lsp" },
+            "hrsh7th/cmp-nvim-lsp",        -- from LSP
+            "hrsh7th/cmp-buffer",          -- from Buffer
+            "hrsh7th/cmp-path",            -- from file path
+            "hrsh7th/cmp-vsnip",           -- from snippet
+            "hrsh7th/vim-vsnip",           -- from snippet
+            "hrsh7th/cmp-nvim-lsp-document-symbol", -- from document symbol
+            "hrsh7th/cmp-nvim-lsp-signature-help",-- from signatures
         },
         config = function()
-            -- require("SuperYuro.config.completions")
+            require("SuperYuro.config.completions")
+        end,
+    })
+
+    -- Git
+    use({
+        "lewis6991/gitsigns.nvim",
+        confg = function()
+            require("gitsigns").setup()
+        end,
+    })
+
+    -- Color preview
+    use({
+        "NvChad/nvim-colorizer.lua",
+        config = function()
+            require("colorizer").setup({
+                RGB = true,
+                RRGGBB = true,
+                RRGGBBAA = true,
+                AARRGGBB = true,
+                names = false,
+
+                rgb_fn = false,
+                hsl_fn = false,
+                css = true,
+                css_fn = true,
+
+                tailwind = true,
+
+                mode = "background",
+            })
         end,
     })
 
@@ -128,6 +220,7 @@ return require("packer").startup(function(use)
     -- Autopair
     use({
         "windwp/nvim-autopairs",
+        event = "InsertEnter",
         config = function()
             require("nvim-autopairs").setup({
                 disable_filetype = { "TelescopePrompt", "vim" },
@@ -142,6 +235,23 @@ return require("packer").startup(function(use)
         "numToStr/Comment.nvim",
         config = function()
             require("Comment").setup()
+        end,
+    })
+
+    -- Interactive interface for json
+    use({
+        "gennaro-tedesco/nvim-jqx",
+        ft = { "json", "yaml" },
+    })
+
+    -- Auto pandoc
+    use({
+        "jghauser/auto-pandoc.nvim",
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+        config = function()
+            require("auto-pandoc")
         end,
     })
 

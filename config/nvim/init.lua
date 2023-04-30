@@ -3,6 +3,7 @@ require("SuperYuro.highlights")
 require("SuperYuro.maps")
 require("SuperYuro.plugins")
 
+
 local has = function(x)
 	return vim.fn.has(x) == 1
 end
