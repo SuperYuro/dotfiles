@@ -9,8 +9,6 @@ local ensure_packer = function()
     return false
 end
 
-
-
 local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
@@ -174,7 +172,7 @@ return require("packer").startup(function(use)
             "hrsh7th/cmp-vsnip",           -- from snippet
             "hrsh7th/vim-vsnip",           -- from snippet
             "hrsh7th/cmp-nvim-lsp-document-symbol", -- from document symbol
-            "hrsh7th/cmp-nvim-lsp-signature-help",-- from signatures
+            "hrsh7th/cmp-nvim-lsp-signature-help", -- from signatures
         },
         config = function()
             require("SuperYuro.config.completions")
@@ -196,14 +194,14 @@ return require("packer").startup(function(use)
             require("colorizer").setup({
                 RGB = true,
                 RRGGBB = true,
-                RRGGBBAA = true,
-                AARRGGBB = true,
+                RRGGBBAA = false,
+                AARRGGBB = false,
                 names = false,
 
                 rgb_fn = false,
                 hsl_fn = false,
-                css = true,
-                css_fn = true,
+                css = false,
+                css_fn = false,
 
                 tailwind = true,
 
