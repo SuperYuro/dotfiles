@@ -1,6 +1,14 @@
 local cmp = require("cmp")
+local kind = require("lspkind")
 
 cmp.setup({
+    formatting = {
+        format = kind.cmp_format({
+            mode = "symbol_text",
+            maxwidth = 50,
+            ellipsis_char = "...",
+        }),
+    },
     snippet = {
         expand = function(args)
             vim.fn["vsnip#anonymous"](args.body)
@@ -19,7 +27,7 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        {name="nvim_lsp_signature_help"},
+        { name = "nvim_lsp_signature_help" },
         { name = "vsnip" },
     }, {
         { name = "buffer" },
@@ -46,4 +54,3 @@ cmp.setup.cmdline({
         },
     },
 })
-

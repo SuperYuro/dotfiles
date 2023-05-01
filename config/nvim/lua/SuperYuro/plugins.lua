@@ -22,21 +22,6 @@ return require("packer").startup(function(use)
         end,
     })
 
-    -- File tree
-    use({
-        "nvim-tree/nvim-tree.lua",
-        requires = { "nvim-tree/nvim-web-devicons" },
-        config = function()
-            require("nvim-tree").setup({
-                sort_by = "case_sensitive",
-                filters = {
-                    dotfiles = true,
-                },
-            })
-            vim.keymap.set("n", "<C-t>", ":NvimTreeToggle<CR>", { silent = true, noremap = true })
-        end,
-    })
-
     -- Fuzzy finder
     use({
         "nvim-telescope/telescope.nvim",
@@ -89,6 +74,7 @@ return require("packer").startup(function(use)
     -- Tabbar
     use({
         "akinsho/bufferline.nvim",
+        requires = { "nvim-tree/nvim-web-devicons" },
         tag = "*",
         config = function()
             require("bufferline").setup({
@@ -108,7 +94,36 @@ return require("packer").startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
         config = function()
-            require("SuperYuro.config.treesitter")
+            require("nvim-treesitter.configs").setup({
+                ensure_installed = {
+                    "arduino", -- Arduino
+                    "bash", -- Bash
+                    "c", -- C
+                    "c_sharp", -- C#
+                    "comment", -- Comments like TODO: or FIXME:
+                    "cpp", -- C++
+                    "css", -- CSS
+                    "dockerfile", -- Dockerfile
+                    "fish", -- Fish
+                    "gitcommit", -- git commit
+                    "gitignore", -- .gitignore
+                    "haskell", -- Haskell
+                    "html", -- HTML
+                    "htmldjango", -- Django HTML
+                    "javascript", -- JavaScript
+                    "json", -- Json
+                    "lua", -- Lua
+                    "make", -- Makefile
+                    "markdown", -- Markdown, required by lspsaga
+                    "markdown_inline", -- Markdown, required by lspsaga
+                    "python", -- Python
+                    "rust", -- Rust
+                    "toml", -- TOML
+                    "tsx", -- TypeScriptReact
+                    "typescript", -- TypeScript
+                    "yaml", -- YAML
+                },
+            })
         end,
     })
 
@@ -166,6 +181,7 @@ return require("packer").startup(function(use)
     use({
         "hrsh7th/nvim-cmp",
         requires = {
+            "onsails/lspkind.nvim",        -- Icons
             "hrsh7th/cmp-nvim-lsp",        -- from LSP
             "hrsh7th/cmp-buffer",          -- from Buffer
             "hrsh7th/cmp-path",            -- from file path
@@ -214,6 +230,8 @@ return require("packer").startup(function(use)
     use({
         "jghauser/mkdir.nvim",
     })
+
+    -- Surround
 
     -- Autopair
     use({
