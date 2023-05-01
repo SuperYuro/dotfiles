@@ -33,6 +33,8 @@ alias v nvim
 alias tm tmux
 alias dp 'docker compose'
 
+alias prt 'poetry run tmux'
+
 if type xsel >/dev/null 2>&1
     alias copy 'xsel --input --clipboard'
 end
