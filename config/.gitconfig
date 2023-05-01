@@ -3,6 +3,7 @@
 	email = a.gpgtdmgp@gmail.com
 [core]
 	bare = true
+	autocrlf = input
 [init]
 	defaultBranch = main
 [alias]
@@ -19,10 +20,6 @@
 	pl = pull
 	ps = push
     sh = stash
-[credential "https://github.com"]
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = !/usr/bin/gh auth git-credential
 [pull]
 	rebase = false
 [filter "lfs"]
