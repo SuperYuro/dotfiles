@@ -39,6 +39,10 @@ if type xsel >/dev/null 2>&1
     alias copy 'xsel --input --clipboard'
 end
 
+alias code "/mnt/c/Users/SuperYuro/Appdata/Local/Programs/Microsoft\ VS\ Code/bin/code"
+
+alias explorer "/mnt/c/Windows/explorer.exe"
+
 alias cv 'cd ~/Development'
 
 alias rl 'exec fish'
