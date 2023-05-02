@@ -93,6 +93,10 @@ return require("packer").startup(function(use)
     use({
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
+        requires = {
+            "windwp/nvim-ts-autotag", -- Pair HTML tags automatically
+            "mrjones2014/nvim-ts-rainbow", -- Rainbow brackets
+        },
         config = function()
             require("nvim-treesitter.configs").setup({
                 ensure_installed = {
@@ -123,7 +127,16 @@ return require("packer").startup(function(use)
                     "typescript", -- TypeScript
                     "yaml", -- YAML
                 },
+                autotag = {
+                    enable = true,
+                },
+                rainbow = {
+                    enable = true,
+                    extended_mode = true,
+                    max_file_lines = nil,
+                },
             })
+            require("nvim-ts-autotag").setup()
         end,
     })
 
@@ -232,8 +245,15 @@ return require("packer").startup(function(use)
     })
 
     -- Surround
+    use({
+        "kylechui/nvim-surround",
+        tag = "*",
+        config = function()
+            require("nvim-surround").setup({})
+        end,
+    })
 
-    -- Autopair
+    -- Pair brackets automatically
     use({
         "windwp/nvim-autopairs",
         event = "InsertEnter",
@@ -243,8 +263,6 @@ return require("packer").startup(function(use)
             })
         end,
     })
-
-    -- Autotag
 
     -- Comment
     use({
