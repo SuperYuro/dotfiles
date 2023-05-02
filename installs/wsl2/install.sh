@@ -44,14 +44,14 @@ pyenv global system
 
 # Neovim
 sudo apt -y install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
-git clone https://github.com/neovim/neovim --branch stable
+git clone https://github.com/neovim/neovim
 cd neovim/
 make CMAKE_BUILD_TYPE=Release
 sudo make install
 cd ~/
 
 # vim-jetpack
-curl -fLo ~/.local/share/nvim/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
+# curl -fLo ~/.local/share/nvim/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
 
 # nvm
 # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
