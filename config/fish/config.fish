@@ -39,6 +39,10 @@ if type xsel >/dev/null 2>&1
     alias copy 'xsel --input --clipboard'
 end
 
+if type "nvim" >/dev/null 2>&1
+    set -Ux EDITOR nvim
+end
+
 alias code "/mnt/c/Users/SuperYuro/Appdata/Local/Programs/Microsoft\ VS\ Code/bin/code"
 
 alias explorer "/mnt/c/Windows/explorer.exe"
