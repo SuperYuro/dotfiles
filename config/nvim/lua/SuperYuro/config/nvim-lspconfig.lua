@@ -25,12 +25,7 @@ lspconfig.rust_analyzer.setup({
 
 mason_lsp.setup_handlers({
 	function(server_name)
-		if server_name == "powershell_es" then
-			lspconfig.powershell_es.setup({
-				bundle_path = vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services",
-				capabilities = capabilities,
-			})
-		elseif server_name == "taplo" then
+		if server_name == "taplo" then
 			lspconfig.taplo.setup({
 				on_attach = function()
 					vim.api.nvim_create_autocmd("BufWritePre", {

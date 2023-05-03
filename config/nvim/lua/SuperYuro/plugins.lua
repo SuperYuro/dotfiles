@@ -157,6 +157,8 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- Debag adapter protocol
+
 	-- Format and Lint
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
