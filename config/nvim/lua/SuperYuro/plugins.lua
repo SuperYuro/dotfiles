@@ -40,6 +40,14 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- Show lsp progress
+	use({
+		"j-hui/fidget.nvim",
+		config = function()
+			require("fidget").setup()
+		end,
+	})
+
 	-- Show next key
 	use({
 		"folke/which-key.nvim",
@@ -47,6 +55,20 @@ return require("packer").startup(function(use)
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
 			require("which-key").setup({})
+		end,
+	})
+
+	-- Show scrollbar
+	use({
+		"petertriho/nvim-scrollbar",
+		requires = {
+			"lewis6991/gitsigns.nvim",
+			"kevinhwang91/nvim-hlslens",
+		},
+		config = function()
+			require("hlslens").setup()
+			require("gitsigns").setup()
+			require("scrollbar").setup()
 		end,
 	})
 
