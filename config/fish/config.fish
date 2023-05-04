@@ -33,6 +33,7 @@ alias v nvim
 alias tm tmux
 alias dp 'docker compose'
 
+alias psh 'poetry shell'
 alias prt 'poetry run tmux'
 
 if type xsel >/dev/null 2>&1
