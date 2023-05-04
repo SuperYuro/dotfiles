@@ -5,17 +5,11 @@ cd ~/
 sudo apt update
 sudo apt upgrade -y
 
-# peco
-# sudo apt install -y peco
-
-# zsh plugins
-# git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-# git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-# git clone --depth=1 https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
-# git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
 # Base development
-sudo apt install -y build-essential git gdb tmux curl vim ripgrep silversearcher-ag
+sudo apt install -y build-essential git tmux curl vim ripgrep silversearcher-ag
+
+# C/C++
+sudo apt install -y gcc gdb clangd clang-format cpplint
 
 # LaTeX
 sudo apt install -y texlive-full
