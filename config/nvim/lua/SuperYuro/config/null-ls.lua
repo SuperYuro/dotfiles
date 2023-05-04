@@ -11,18 +11,27 @@ end
 null_ls.setup({
 	on_attach = on_attach,
 	sources = {
+		-- Makefiles
+		null_ls.builtins.diagnostics.checkmake,
 		-- Lua
+		null_ls.builtins.diagnostics.luacheck,
 		null_ls.builtins.formatting.stylua,
+		-- Fish
+		null_ls.builtins.diagnostics.fish,
 		-- Python
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.isort,
 		-- C/C++
+		null_ls.builtins.diagnostics.cpplint,
 		null_ls.builtins.formatting.clang_format,
 		-- Rust
 		null_ls.builtins.formatting.rustfmt,
 		-- Json
 		null_ls.builtins.formatting.jq,
 		-- Prettier
+		null_ls.builtins.code_actions.eslint,
 		null_ls.builtins.formatting.prettier,
+		-- Gitsigns
+		null_ls.builtins.code_actions.gitsigns,
 	},
 })
