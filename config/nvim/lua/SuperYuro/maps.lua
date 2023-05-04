@@ -1,14 +1,17 @@
 local keymap = vim.keymap
 
 -- Emacs like keymap in Insert mode
--- keymap.set("i", "<C-f>", "<right>")
--- keymap.set("i", "<C-b>", "<left>")
+keymap.set("i", "<C-f>", "<right>")
+keymap.set("i", "<C-b>", "<left>")
+
+-- Following keybindings are conflict with nvim-cmp
 -- keymap.set("i", "<C-p>", "<up>")
 -- keymap.set("i", "<C-n>", "<down>")
 
--- keymap.set("i", "<C-a>", "<home>")
--- keymap.set("i", "<C-e>", "<end>")
+keymap.set("i", "<C-a>", "<home>")
+keymap.set("i", "<C-e>", "<end>")
 
+-- Following keybindings doesn't use much
 -- keymap.set("i", "<M-f>", "<C-right>")
 -- keymap.set("i", "<M-b>", "<C-left>")
 
