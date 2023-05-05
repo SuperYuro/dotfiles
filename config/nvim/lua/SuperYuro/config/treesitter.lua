@@ -22,6 +22,7 @@ require("nvim-treesitter.configs").setup({
 		"markdown_inline", -- Markdown, required by lspsaga
 		"python", -- Python
 		"rust", -- Rust
+		"svelte", -- Svelte
 		"toml", -- TOML
 		"tsx", -- TypeScriptReact
 		"typescript", -- TypeScript
