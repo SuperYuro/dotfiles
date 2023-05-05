@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # Misc
-sudo pacman -S gnome-keyring alacritty xsel github-cli --noconfirm
+sudo pacman -S gnome-keyring alacritty xsel --noconfirm
 
 # Japanese IME
 paru -S ibus-mozc --noconfirm
@@ -12,7 +12,7 @@ paru -S emacs emacs-mozc --noconfirm
 
 # Browser
 sudo pacman -S firefox --noconfirm
-paru -S google-chrome microsoft-edge-stable-bin --noconfirm
+# paru -S google-chrome microsoft-edge-stable-bin --noconfirm
 
 # Mail client
 sudo pacman -S thunderbird --noconfirm
@@ -26,7 +26,7 @@ sudo pacman -S libreoffice-fresh libreoffice-fresh-ja --noconfirm
 # Font
 sudo pacman -S \
     noto-fonts noto-fonts-extra noto-fonts-cjk noto-fonts-emoji \
-    otf-cascadia-code-nerd --noconfirm
+    ttf-hack-nerd --noconfirm
 
 # Theme
 paru -S arc-gtk-theme papirus-icon-theme archlinux-wallpaper --noconfirm
