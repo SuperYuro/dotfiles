@@ -22,6 +22,9 @@ lspconfig.pyright.setup({
 lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
 }) -- Rust
+lspconfig.tsserver.setup({
+	capabilities = capabilities,
+}) -- TypeScript
 
 mason_lsp.setup_handlers({
 	function(server_name)
