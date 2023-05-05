@@ -3,8 +3,8 @@
 # set environment variables
 export WINIT_X11_SCALE_FACTOR=1 alacritty
 
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 export SHELL=/usr/bin/fish
