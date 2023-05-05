@@ -3,6 +3,7 @@
 # Rust
 sudo pacman -S rustup --noconfirm
 rustup default stable
+rustup component add rust-analyzer
 
 # AUR helper
 git clone https://aur.archlinux.org/paru ~/paru
@@ -16,13 +17,6 @@ sudo pacman -S curl tmux ripgrep wget unzip the_silver_searcher --noconfirm
 
 # Shell
 sudo pacman -S fish fisher --noconfirm
-# sudo pacman -S zsh peco --noconfirm
-
-# Zsh plugins
-# git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-# git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-# git clone --depth=1 https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
-# git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # C/C++
 sudo pacman -S gcc gdb clang llvm --noconfirm
@@ -32,7 +26,7 @@ sudo pacman -S jdk-openjdk --noconfirm
 
 # Editor
 sudo pacman -S neovim --noconfirm
-curl -fLo ~/.local/share/nvim/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
+# curl -fLo ~/.local/share/nvim/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
 # paru -S nvim-packer-git --noconfirm
 
 # Ruby
