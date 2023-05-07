@@ -29,7 +29,7 @@ keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 -- New tab
-keymap.set("n", "te", ":tabedit<Return>", { silent = true })
+keymap.set("n", "<C-t>", ":tabedit<Return>", { silent = true })
 
 -- Switch tab
 -- keymap.set("n", "tn", "gt")
