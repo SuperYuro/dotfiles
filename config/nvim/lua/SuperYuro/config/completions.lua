@@ -1,12 +1,12 @@
 local cmp = require("cmp")
-local kind = require("lspkind")
 
 cmp.setup({
     view = "wildmenu",
 
     formatting = {
-        format = kind.cmp_format({
+        format = require("lspkind").cmp_format({
             mode = "symbol_text",
+            preset = "codicons",
             maxwidth = 50,
             ellipsis_char = "...",
         }),
@@ -17,8 +17,8 @@ cmp.setup({
         end,
     },
     window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
