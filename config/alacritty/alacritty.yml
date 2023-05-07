@@ -19,31 +19,32 @@ font:
     family: Hack Nerd Font Mono
     style: Bold Italic
 
-# Colors (Nord)
+# Colors (VSCode Dark)
 colors:
-  # Default colors
   primary:
-    background: '0x2E3440'
-    foreground: '0xD8DEE9'
+    background: "#1e1e1e"
+    foreground: "#d4d4d4"
 
-  # Normal colors
+  cursor:
+    text: "#d4d4d4"
+    cursor: "#d4d4d4"
+
   normal:
-    black:   '0x3B4252'
-    red:     '0xBF616A'
-    green:   '0xA3BE8C'
-    yellow:  '0xEBCB8B'
-    blue:    '0x81A1C1'
-    magenta: '0xB48EAD'
-    cyan:    '0x88C0D0'
-    white:   '0xE5E9F0'
+    black: "#1e1e1e"
+    red: "#f44747"
+    green: "#608b4e"
+    yellow: "#dcdcaa"
+    blue: "#569cd6"
+    magenta: "#c678dd"
+    cyan: "#56b6c2"
+    white: "#d4d4d4"
 
-  # Bright colors
   bright:
-    black:   '0x4C566A'
-    red:     '0xBF616A'
-    green:   '0xA3BE8C'
-    yellow:  '0xEBCB8B'
-    blue:    '0x81A1C1'
-    magenta: '0xB48EAD'
-    cyan:    '0x8FBCBB'
-    white:   '0xECEFF4'
+    black: "#545454"
+    red: "#f44747"
+    green: "#608b4e"
+    yellow: "#dcdcaa"
+    blue: "#569cd6"
+    magenta: "#c678dd"
+    cyan: "#56b6c2"
+    white: "#d4d4d4"
