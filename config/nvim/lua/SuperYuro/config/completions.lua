@@ -2,6 +2,8 @@ local cmp = require("cmp")
 local kind = require("lspkind")
 
 cmp.setup({
+    view = "wildmenu",
+
     formatting = {
         format = kind.cmp_format({
             mode = "symbol_text",
@@ -43,14 +45,20 @@ cmp.setup.filetype("gitcommit", {
     }),
 })
 
-cmp.setup.cmdline({
-    "/",
-    {
-        sources = cmp.config.sources({
-            { name = "nvim_lsp_document_symbol" },
-        }),
-        {
-            { name = "buffer" },
-        },
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ "/", "?" }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = "buffer" },
     },
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(":", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = "path" },
+    }, {
+        { name = "cmdline" },
+    }),
 })
