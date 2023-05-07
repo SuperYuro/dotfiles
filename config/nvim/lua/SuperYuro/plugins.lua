@@ -16,32 +16,14 @@ return require("packer").startup(function(use)
 
     -- Colorscheme
     use({
-        "Mofiqul/vscode.nvim",
+        "Mofiqul/dracula.nvim",
         config = function()
-            local c = require("vscode.colors").get_colors()
-            require("vscode").setup({
-                -- Alternatively set style in setup
-                -- style = 'light'
-
-                -- Enable transparent background
-                transparent = true,
-
-                -- Enable italic comment
-                italic_comments = true,
-
-                -- Disable nvim-tree background color
-                disable_nvimtree_bg = true,
-
-                -- Override colors (see ./lua/vscode/colors.lua)
-
-                -- Override highlight groups (see ./lua/vscode/theme.lua)
-                group_overrides = {
-                    -- this supports the same val table as vim.api.nvim_set_hl
-                    -- use colors from this colorscheme by requiring vscode.colors!
-                    Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
-                },
+            require("dracula").setup({
+                show_end_of_buffer = true,
+                transparent_bg = true,
+                italic_comment = true,
             })
-            require("vscode").load()
+            vim.cmd([[colorscheme dracula]])
         end,
     })
 
@@ -121,7 +103,7 @@ return require("packer").startup(function(use)
         config = function()
             require("lualine").setup({
                 options = {
-                    theme = "vscode",
+                    theme = "dracula-nvim",
                 },
                 sections = {
                     lualine_a = { "mode" },
@@ -144,11 +126,23 @@ return require("packer").startup(function(use)
 
     -- Tabbar
     use({
-        "akinsho/bufferline.nvim",
-        requires = { "nvim-tree/nvim-web-devicons" },
-        tag = "*",
+        "romgrk/barbar.nvim",
+        requires = {
+            "nvim-tree/nvim-web-devicons",
+        },
         config = function()
-            require("SuperYuro.config.bufferline")
+            vim.g.barbar_auto_setup = false
+            require("barbar").setup({
+                animation = true,
+                auto_hide = false,
+                clickable = false,
+                highlight_visible = true,
+
+                insert_at_end = true,
+                insert_at_start = false,
+            })
+            vim.keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
+            vim.keymap.set("n", "<S-TAB>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })
         end,
     })
 
@@ -158,7 +152,7 @@ return require("packer").startup(function(use)
         run = ":TSUpdate",
         requires = {
             "windwp/nvim-ts-autotag", -- Pair HTML tags automatically
-            -- "mrjones2014/nvim-ts-rainbow", -- Rainbow brackets
+            "mrjones2014/nvim-ts-rainbow", -- Rainbow brackets
             "RRethy/nvim-treesitter-endwise", -- Complete end automatically
         },
         config = function()
