@@ -16,9 +16,32 @@ return require("packer").startup(function(use)
 
     -- Colorscheme
     use({
-        "shaunsingh/nord.nvim",
+        "Mofiqul/vscode.nvim",
         config = function()
-            vim.cmd([[colorscheme nord]])
+            local c = require("vscode.colors").get_colors()
+            require("vscode").setup({
+                -- Alternatively set style in setup
+                -- style = 'light'
+
+                -- Enable transparent background
+                transparent = true,
+
+                -- Enable italic comment
+                italic_comments = true,
+
+                -- Disable nvim-tree background color
+                disable_nvimtree_bg = true,
+
+                -- Override colors (see ./lua/vscode/colors.lua)
+
+                -- Override highlight groups (see ./lua/vscode/theme.lua)
+                group_overrides = {
+                    -- this supports the same val table as vim.api.nvim_set_hl
+                    -- use colors from this colorscheme by requiring vscode.colors!
+                    Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
+                },
+            })
+            require("vscode").load()
         end,
     })
 
@@ -40,54 +63,7 @@ return require("packer").startup(function(use)
             "rcarriga/nvim-notify",
         },
         config = function()
-            require("noice").setup({
-                lsp = {
-                    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-                    override = {
-                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-                        ["vim.lsp.util.stylize_markdown"] = true,
-                        ["cmp.entry.get_documentation"] = true,
-                    },
-                },
-                -- you can enable a preset for easier configuration
-                presets = {
-                    bottom_search = true, -- use a classic bottom cmdline for search
-                    command_palette = true, -- position the cmdline and popupmenu together
-                    long_message_to_split = true, -- long messages will be sent to a split
-                    inc_rename = false, -- enables an input dialog for inc-rename.nvim
-                    lsp_doc_border = false, -- add a border to hover docs and signature help
-                },
-                views = {
-                    cmdline_popup = {
-                        position = {
-                            row = 5,
-                            col = "50%",
-                        },
-                        size = {
-                            width = 60,
-                            height = "auto",
-                        },
-                    },
-                    popupmenu = {
-                        relative = "editor",
-                        position = {
-                            row = 8,
-                            col = "50%",
-                        },
-                        size = {
-                            width = 60,
-                            height = 10,
-                        },
-                        border = {
-                            style = "rounded",
-                            padding = { 0, 1 },
-                        },
-                        win_options = {
-                            winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
-                        },
-                    },
-                },
-            })
+            require("SuperYuro.config.noice")
         end,
     })
 
@@ -144,6 +120,9 @@ return require("packer").startup(function(use)
         "nvim-lualine/lualine.nvim",
         config = function()
             require("lualine").setup({
+                options = {
+                    theme = "vscode",
+                },
                 sections = {
                     lualine_a = { "mode" },
                     lualine_b = { "branch" },
@@ -169,15 +148,7 @@ return require("packer").startup(function(use)
         requires = { "nvim-tree/nvim-web-devicons" },
         tag = "*",
         config = function()
-            require("bufferline").setup({
-                options = {
-                    mode = "tabs",
-                    separator_style = "slant",
-                    always_show_bufferline = true,
-                },
-            })
-            vim.api.nvim_set_keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<cr>", {})
-            vim.api.nvim_set_keymap("n", "<S-TAB>", "<cmd>BufferLineCyclePrev<cr>", {})
+            require("SuperYuro.config.bufferline")
         end,
     })
 
@@ -187,7 +158,7 @@ return require("packer").startup(function(use)
         run = ":TSUpdate",
         requires = {
             "windwp/nvim-ts-autotag", -- Pair HTML tags automatically
-            "mrjones2014/nvim-ts-rainbow", -- Rainbow brackets
+            -- "mrjones2014/nvim-ts-rainbow", -- Rainbow brackets
             "RRethy/nvim-treesitter-endwise", -- Complete end automatically
         },
         config = function()
@@ -214,9 +185,9 @@ return require("packer").startup(function(use)
     -- LSP UI
     use({
         "glepnir/lspsaga.nvim",
-        opt = true,
+        -- opt = true,
         branch = "main",
-        event = "LspAttach",
+        -- event = "LspAttach",
         config = function()
             require("SuperYuro.config.lspsaga")
         end,
@@ -233,24 +204,8 @@ return require("packer").startup(function(use)
     -- Debag adapter protocol
     use({
         "mfussenegger/nvim-dap",
-        requires = {
-            "mfussenegger/nvim-dap-python",
-        },
         config = function()
-            local dap = require("dap")
-
-            -- C/C++/Rust
-            dap.adapters.codelldb = {
-                type = "server",
-                port = "${port}",
-                executable = {
-                    command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
-                    args = { "--port", "${port}" },
-
-                    -- Windows specified config
-                    detached = not vim.fn.has("win32"),
-                },
-            }
+            require("SuperYuro.config.nvim-dap")
         end,
     })
 
