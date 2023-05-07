@@ -16,14 +16,12 @@ return require("packer").startup(function(use)
 
     -- Colorscheme
     use({
-        "Mofiqul/dracula.nvim",
+        "gbprod/nord.nvim",
         config = function()
-            require("dracula").setup({
-                show_end_of_buffer = true,
-                transparent_bg = true,
-                italic_comment = true,
+            require("nord").setup({
+                transparent = true,
             })
-            vim.cmd([[colorscheme dracula]])
+            vim.cmd([[colorscheme nord]])
         end,
     })
 
@@ -100,10 +98,13 @@ return require("packer").startup(function(use)
     -- Statusline
     use({
         "nvim-lualine/lualine.nvim",
+        requires = {
+            "nvim-tree/nvim-web-devicons",
+        },
         config = function()
             require("lualine").setup({
                 options = {
-                    theme = "dracula-nvim",
+                    theme = "nord",
                 },
                 sections = {
                     lualine_a = { "mode" },
@@ -126,23 +127,33 @@ return require("packer").startup(function(use)
 
     -- Tabbar
     use({
-        "romgrk/barbar.nvim",
-        requires = {
-            "nvim-tree/nvim-web-devicons",
-        },
+        "akinsho/bufferline.nvim",
         config = function()
-            vim.g.barbar_auto_setup = false
-            require("barbar").setup({
-                animation = true,
-                auto_hide = false,
-                clickable = false,
-                highlight_visible = true,
-
-                insert_at_end = true,
-                insert_at_start = false,
+            local bufferline = require("bufferline")
+            bufferline.setup({
+                options = {
+                    mode = "tabs",
+                    themable = true,
+                    numbers = "buffer_id",
+                    close_command = "bdelete! %d",
+                    buffer_close_icon = "󰅖",
+                    modified_icon = "●",
+                    close_icon = "",
+                    left_trunc_marker = "",
+                    right_trunc_marker = "",
+                    diagnostics = "nvim_lsp",
+                    diagnostics_update_in_insert = true,
+                    color_icons = true,
+                    show_buffer_icons = true,
+                    show_buffer_close_icons = true,
+                    show_close_icon = true,
+                    show_tab_indicators = true,
+                    separator_style = "slant",
+                    always_show_bufferline = true,
+                },
             })
-            vim.keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
-            vim.keymap.set("n", "<S-TAB>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })
+            vim.keymap.set("n", "<TAB>", ":BufferLineCycleNext<CR>", { silent = true })
+            vim.keymap.set("n", "<S-TAB>", ":BufferLineCyclePrev<CR>", { silent = true })
         end,
     })
 
