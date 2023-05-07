@@ -52,3 +52,7 @@ keymap.set("n", "sl", "<C-w>l")
 
 -- Exit terminal insert mode with Esc
 keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
+-- Line folding
+keymap.set("n", "fo", ":foldopen<CR>", { silent = true })
+keymap.set("n", "fc", ":foldclose<CR>", { silent = true })
