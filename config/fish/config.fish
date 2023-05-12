@@ -2,7 +2,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-set -g theme_color_scheme nord
+set -g theme_color_scheme dracula
 
 set -g theme_display_git yes
 set -g theme_display_git_default_branch yes
@@ -44,12 +44,21 @@ if type "nvim" >/dev/null 2>&1
     set -Ux EDITOR nvim
 end
 
-alias code "/mnt/c/Users/SuperYuro/Appdata/Local/Programs/Microsoft\ VS\ Code/bin/code"
+if [ -f "/mnt/c/Users/SuperYuro/Appdata/Local/Programs/Microsoft VS Code/bin/code" ]
+  alias code "/mnt/c/Users/SuperYuro/Appdata/Local/Programs/Microsoft\ VS\ Code/bin/code"
+end
 
-alias explorer "/mnt/c/Windows/explorer.exe"
+if [ -f "/mnt/c/Windows/explorer.exe" ]
+  alias explorer "/mnt/c/Windows/explorer.exe"
+end
+
+if [ -f "/mnt/c/Program Files/Mozilla Firefox/firefox.exe" ]
+  alias firefox "/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe"
+end
 
 alias cv 'cd ~/Development'
 
 alias rl 'exec fish'
 
 pyenv init - | source
+
