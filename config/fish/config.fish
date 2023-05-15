@@ -30,6 +30,7 @@ alias md mkdir
 
 alias g git
 alias v nvim
+alias vt 'nvim -c :terminal'
 alias tm tmux
 alias dp 'docker compose'
 
