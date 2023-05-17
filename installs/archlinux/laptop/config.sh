@@ -29,3 +29,4 @@ link_file ".xinitrc" "$HOME"
 # Put config files on XDG_CONFIG_DIR
 link_file "i3" "$CONFDIR"
 link_file "i3status" "$CONFDIR"
+link_file "rofi" "$CONFDIR"
