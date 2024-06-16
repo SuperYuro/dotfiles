@@ -1,10 +1,10 @@
 return {
   {
     "hrsh7th/nvim-cmp",
-    config = function()
+    opts = function()
       local cmp = require("cmp")
 
-      cmp.setup({
+      return {
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
@@ -15,7 +15,7 @@ return {
           ["<C-g>"] = cmp.mapping.abort(),
           ["<Tab>"] = cmp.mapping.confirm({ select = true }),
         }),
-      })
+      }
     end,
   },
   {
@@ -28,10 +28,10 @@ return {
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
     },
-    config = function()
+    opts = function()
       local cmp = require("cmp")
 
-      cmp.setup({
+      return {
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "nvim_lsp_signature_help" },
@@ -40,7 +40,7 @@ return {
           { name = "buffer" },
           { name = "path" },
         }),
-      })
+      }
     end,
   },
   {
@@ -95,6 +95,7 @@ return {
       "hrsh7th/nvim-cmp",
       "Dynge/gitmoji.nvim",
     },
+    opts = {},
     config = function(_, opts)
       local cmp = require("cmp")
 
