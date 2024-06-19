@@ -136,3 +136,5 @@ function goto_venv
 end
 
 alias pyvenv goto_venv
+
+mise activate fish | source
