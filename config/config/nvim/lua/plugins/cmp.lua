@@ -1,10 +1,10 @@
 return {
   {
     "hrsh7th/nvim-cmp",
-    opts = function()
+    config = function()
       local cmp = require("cmp")
 
-      return {
+      cmp.setup({
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
@@ -15,7 +15,7 @@ return {
           ["<C-g>"] = cmp.mapping.abort(),
           ["<Tab>"] = cmp.mapping.confirm({ select = true }),
         }),
-      }
+      })
     end,
   },
   {
@@ -28,10 +28,10 @@ return {
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
     },
-    opts = function()
+    config = function()
       local cmp = require("cmp")
 
-      return {
+      cmp.setup({
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "nvim_lsp_signature_help" },
@@ -40,7 +40,7 @@ return {
           { name = "buffer" },
           { name = "path" },
         }),
-      }
+      })
     end,
   },
   {
@@ -142,6 +142,8 @@ return {
       require("cmp").setup({
         formatting = {
           format = tailwind_colorizer_cmp.formatter,
+          fields = { "kind" },
+          expandable_indicator = true,
         },
       })
     end,
