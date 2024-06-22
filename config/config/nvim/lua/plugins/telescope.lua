@@ -6,6 +6,7 @@ return {
       { ";f", "<cmd>Telescope find_files<cr>", desc = "Telescope find files" },
       { ";g", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
       { ";b", "<cmd>Telescope buffers<cr>", desc = "Telescope buffers" },
+      { ";c", "<cmd>Telescope command_history<cr>", desc = "Telescope command history" },
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
