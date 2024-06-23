@@ -1,26 +1,46 @@
 local ensure_installed = {
-  "clangd",
+  lsp = {
+    "clangd",
 
-  "rust_analyzer",
+    "lua_ls",
 
-  "lua_ls",
+    "gopls",
 
-  "dockerls",
-  "docker_compose_language_service",
+    "dockerls",
+    "docker_compose_language_service",
 
-  "html",
-  "cssls",
-  "tsserver",
-  "svelte",
-  "astro",
-  "tailwindcss",
+    "html",
+    "cssls",
+    "tsserver",
+    "svelte",
+    "astro",
+    "tailwindcss",
 
-  "biome",
-  "eslint",
+    "biome",
+    "eslint",
 
-  "ruff_lsp",
+    "ruff_lsp",
 
-  "taplo",
+    "taplo",
+  },
+  tools = {
+    -- Formatters
+    "stylua",
+    "clang-format",
+    "rustywind",
+
+    "black",
+    "isort",
+
+    "jq",
+    "yamlfmt",
+
+    "biome",
+
+    -- Linters
+    "flake8",
+    "yamllint",
+  },
 }
 
 local builtins = require("conform-selector.builtins")
@@ -92,7 +112,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
 
     opts = {
-      ensure_installed = ensure_installed,
+      ensure_installed = ensure_installed.lsp,
       automatic_installation = false,
     },
   },
@@ -149,7 +169,7 @@ return {
         },
       },
       symbol_in_winbar = {
-        enable = true,
+        enable = false,
         separator = "  ",
         show_file = true,
       },
@@ -184,24 +204,7 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     lazy = false,
     opts = {
-      ensure_installed = {
-        -- Formatters
-        "stylua",
-        "clang-format",
-        "rustywind",
-
-        "black",
-        "isort",
-
-        "jq",
-        "yamlfmt",
-
-        "biome",
-
-        -- Linters
-        "flake8",
-        "yamllint",
-      },
+      ensure_installed = ensure_installed.tools,
       auto_update = false,
       run_on_start = true,
     },
