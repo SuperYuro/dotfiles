@@ -11,7 +11,7 @@
 
 set $mod Mod4
 
-set $font PlemolJP Console NF
+set $font Blex Mono Nerd Font Mono
 set $fontsize 8
 
 set $left  h
@@ -70,7 +70,7 @@ bindsym $mod+Shift+s exec --no-startup-id scrot -F $ss_path -s -f
 floating_modifier $mod
 
 # start a terminal
-set $term kitty
+set $term alacritty
 bindsym $mod+Return exec $term
 # bindsym $mod+Return exec alacritty
 
@@ -272,4 +272,4 @@ client.background       #cdcecf
 exec --no-startup-id "ibus-daemon -drx"
 exec --no-startup-id "feh --bg-scale /usr/share/backgrounds/archlinux/simple.png"
 exec --no-startup-id "xcompmgr"
-exec --no-startup-id "setxkbmap -option altwin:swap_alt_win,ctrl:swapcaps"
+# exec --no-startup-id "setxkbmap -option altwin:swap_alt_win,ctrl:swapcaps"
