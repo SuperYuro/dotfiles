@@ -9,6 +9,8 @@ vim.wo.relativenumber = false
 
 vim.opt.mouse = ""
 
+vim.opt.shell = require("utils.exec").shell()
+
 vim.opt.title = true
 vim.opt.hlsearch = true
 vim.opt.backup = false
