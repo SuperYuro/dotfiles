@@ -46,6 +46,8 @@ local ensure_installed = {
 local builtins = require("conform-selector.builtins")
 local js_formatters = builtins.javascript.formatters()
 
+local browser = require("utils.exec").browser
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -62,19 +64,12 @@ return {
       local lspconfig = require("lspconfig")
 
       local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+      cmp_capabilities.offsetEncoding = "utf-8"
 
       require("mason-lspconfig").setup_handlers({
-
         function(server_name) -- default handler (optional)
           lspconfig[server_name].setup({
             capabilities = cmp_capabilities,
-          })
-        end,
-
-        ["denols"] = function()
-          lspconfig["denols"].setup({
-            capabilities = cmp_capabilities,
-            root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
           })
         end,
 
@@ -87,12 +82,26 @@ return {
         end,
 
         ["clangd"] = function()
-          cmp_capabilities.offsetEncoding = "utf-8"
           lspconfig["clangd"].setup({
             capabilities = cmp_capabilities,
           })
         end,
       })
+
+      lspconfig["denols"].setup({
+        capabilities = cmp_capabilities,
+        root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+      })
+
+      lspconfig["rust_analyzer"].setup({
+        capabilities = cmp_capabilities,
+        settings = {
+          ["rust-analyzer"] = {
+            offsetEncoding = { "utf-8" },
+          },
+        },
+      })
+
       -- Use LspAttach autocommand to only map the following keys
       -- after the language server attaches to the current buffer
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -110,7 +119,6 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-
     opts = {
       ensure_installed = ensure_installed.lsp,
       automatic_installation = false,
@@ -157,7 +165,7 @@ return {
         },
       },
       hover_doc = {
-        open_cmd = "!wslview",
+        open_cmd = browser(),
       },
       code_action = {
         num_shortcut = true,
@@ -169,7 +177,7 @@ return {
         },
       },
       symbol_in_winbar = {
-        enable = false,
+        enable = true,
         separator = "  ",
         show_file = true,
       },
@@ -255,22 +263,25 @@ return {
     opts = {},
   },
   {
-    "folke/neodev.nvim",
-    dependencies = { "neovim/nvim-lspconfig" },
+    "folke/lazydev.nvim",
     ft = { "lua" },
-    opts = {},
-    config = function(_, opts)
-      require("neodev").setup(opts)
-
-      require("lspconfig").lua_ls.setup({
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = "Replace",
-            },
-          },
-        },
-      })
-    end,
+    dependencies = {
+      { "Bilal2453/luvit-meta", lazy = true },
+      {
+        "hrsh7th/nvim-cmp",
+        opts = function(_, opts)
+          opts.sources = opts.sources or {}
+          table.insert(opts.sources, {
+            name = "lazydev",
+            group_index = 0,
+          })
+        end,
+      },
+    },
+    opts = {
+      library = {
+        "lazy.nvim",
+      },
+    },
   },
 }
