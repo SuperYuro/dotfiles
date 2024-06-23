@@ -9,8 +9,9 @@ return {
       options = {
         styles = {
           comments = "italic",
-          variables = "bold",
+          variables = "italic",
           functions = "bold,italic",
+          keywords = "bold",
         },
         inverse = {
           visual = true,
@@ -79,7 +80,6 @@ return {
         lualine_y = {
           "encoding",
           "fileformat",
-          "filetype",
         },
         lualine_z = { "progress", "location" },
       },
@@ -115,17 +115,12 @@ return {
         },
         color_icons = true,
         show_buffer_icons = true,
-        show_buffer_close_icons = true,
-        show_close_icons = true,
+        show_buffer_close_icons = false,
+        show_close_icons = false,
         show_tab_indicators = false,
         show_duplicate_prefix = false,
         separator_style = "slant",
-        always_show_bufferline = false,
-        hover = {
-          enabled = true,
-          delay = 200,
-          reveal = { "close" },
-        },
+        always_show_bufferline = true,
         sort_by = "tabs",
       },
     },
@@ -142,7 +137,6 @@ return {
           timeout = 1000,
         },
       },
-      "smjonas/inc-rename.nvim",
     },
     opts = {
       lsp = {
@@ -170,6 +164,7 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     event = "VeryLazy",
     main = "ibl",
+    enabled = false,
     opts = {},
   },
   {
@@ -198,7 +193,48 @@ return {
   {
     "b0o/incline.nvim",
     event = "VeryLazy",
-    config = true,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "EdenEast/nightfox.nvim",
+    },
+    opts = {
+      hide = {
+        cursorline = true,
+        focused_win = false,
+        only_win = false,
+      },
+      window = {
+        padding = 0,
+        margin = { horizontal = 0, vertical = 1 },
+        overlap = {
+          winbar = true,
+        },
+      },
+      render = function(props)
+        local devicons = require("nvim-web-devicons")
+        local palette = require("nightfox.palette").load("nordfox")
+
+        local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+        if filename == "" then
+          filename = "[No Name]"
+        end
+        local ft_icon, ft_color = devicons.get_icon_color(filename)
+        local modified = vim.bo[props.buf].modified
+
+        local default_bg = palette.bg1
+        local icon_bg = ft_color
+        local icon_fg = palette.bg0
+        local fname_bg = palette.bg0
+        local fname_fg = palette.fg1
+
+        return {
+          { "", guibg = default_bg, guifg = icon_bg },
+          ft_icon and { " ", ft_icon, " ", guibg = icon_bg, guifg = icon_fg } or "",
+          { "", guibg = icon_bg, guifg = fname_bg },
+          { " ", filename, " ", guifg = fname_fg, guibg = fname_bg, gui = modified and "bold,italic" or "bold" },
+        }
+      end,
+    },
   },
   {
     "folke/todo-comments.nvim",
