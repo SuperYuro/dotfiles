@@ -104,7 +104,6 @@ return {
         left_trunc_marker = "",
         right_trunc_marker = "",
         diagnostics = "nvim_lsp",
-        diagnostics_update_in_insert = true,
         offsets = {
           {
             filetype = "NvimTree",
