@@ -1,7 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = { "yioneko/nvim-yati" },
+    dependencies = { { "yioneko/nvim-yati", version = "*" } },
     build = ":TSUpdate",
     lazy = false,
     main = "nvim-treesitter.configs",
