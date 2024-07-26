@@ -93,13 +93,7 @@ return {
         root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
       })
 
-      lspconfig["rust_analyzer"].setup({
         capabilities = cmp_capabilities,
-        settings = {
-          ["rust-analyzer"] = {
-            offsetEncoding = { "utf-8" },
-          },
-        },
       })
 
       -- Use LspAttach autocommand to only map the following keys
@@ -283,5 +277,18 @@ return {
         "lazy.nvim",
       },
     },
+  },
+  {
+    "mrcjkb/rustaceanvim",
+    dependencies = { "nvim-neotest/neotest" },
+    version = "^5",
+    lazy = false,
+    config = function()
+      require("neotest").setup({
+        adapters = {
+          require("rustaceanvim.neotest"),
+        },
+      })
+    end,
   },
 }
