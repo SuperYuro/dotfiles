@@ -22,6 +22,7 @@ local ensure_installed = {
     "ruff_lsp",
 
     "taplo",
+
     "omnisharp",
   },
   tools = {
@@ -117,6 +118,7 @@ return {
         root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
       })
 
+      lspconfig["gleam"].setup({
         capabilities = cmp_capabilities,
       })
 
