@@ -22,6 +22,7 @@ local ensure_installed = {
     "ruff_lsp",
 
     "taplo",
+    "omnisharp",
   },
   tools = {
     -- Formatters
@@ -84,6 +85,29 @@ return {
         ["clangd"] = function()
           lspconfig["clangd"].setup({
             capabilities = cmp_capabilities,
+          })
+        end,
+
+        ["omnisharp"] = function()
+          lspconfig["omnisharp"].setup({
+            capabilities = cmp_capabilities,
+            settings = {
+              FormattingOptions = {
+                EnableEditorConfigSupport = true,
+                OrganizeImports = true,
+              },
+              MsBuild = {
+                LoadProjectsOnDemand = false,
+              },
+              RoslynExtensionsOptions = {
+                EnableAnalyzersSupport = true,
+                EnableImportCompletion = true,
+                AnalyzeOpenDocumentsOnly = false,
+              },
+              Sdk = {
+                IncludePrereleases = true,
+              },
+            },
           })
         end,
       })
