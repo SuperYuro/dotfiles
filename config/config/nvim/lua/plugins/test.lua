@@ -1,52 +1,49 @@
 return {
-  "nvim-neotest/neotest",
-  keys = {
-    { "<F6>", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run test for current file" },
-    { "<S-F6>", function() require("neotest").run.stop() end, desc = "Stop test" },
+  {
+    "nvim-neotest/neotest",
+    keys = {
+      { "<F6>", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run test for current file" },
+      { "<S-F6>", function() require("neotest").run.stop() end, desc = "Stop test" },
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-neotest/nvim-nio",
+    },
+    opts = {},
   },
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "antoinemadec/FixCursorHold.nvim",
-    "nvim-treesitter/nvim-treesitter",
-
-    "nvim-neotest/neotest-python",
-    "nvim-neotest/neotest-jest",
-    "marilari88/neotest-vitest",
-    "thenbe/neotest-playwright",
-    "sidlatau/neotest-dart",
-    "mrcjkb/rustaceanvim",
+  {
+    "fredrikaverpil/neotest-golang",
+    ft = { "go" },
+    dependencies = { "nvim-neotest/neotest" },
+    opts = {
+      go_test_args = { "-v", "-race", "-count=1" },
+      testify_enabled = false,
+      warn_test_name_daps = true,
+      warn_test_no_excuted = true,
+    },
+    config = function(_, opts)
+      require("neotest").setup({
+        adapters = {
+          require("neotest-golang")(opts),
+        },
+      })
+    end,
+  },
+  {
     "Issafalcon/neotest-dotnet",
-    "MarkEmmons/neotest-deno",
+    ft = { "cs" },
+    dependencies = { "nvim-neotest/neotest" },
+    opts = {
+      discovery_root = "project", -- Default
+    },
+    config = function(_, opts)
+      require("neotest").setup({
+        adapters = {
+          require("neotest-dotnet")(opts),
+        },
+      })
+    end,
   },
-  config = function()
-    require("neotest").setup({
-      adapters = {
-        require("neotest-python"),
-        require("neotest-jest")({
-          jestCommand = "npm test --",
-          jestConfigFile = "custom.jest.config.ts",
-          env = { CI = true },
-          cwd = function(path) return vim.fn.getcwd() end,
-        }),
-        require("neotest-vitest"),
-        require("neotest-playwright").adapter({
-          options = {
-            persist_project_selection = true,
-            enable_dynamic_test_discovery = true,
-          },
-        }),
-        require("neotest-dart")({
-          command = "flutter", -- Command being used to run tests. Defaults to `flutter`
-          -- Change it to `fvm flutter` if using FVM
-          -- change it to `dart` for Dart only tests
-          use_lsp = true, -- When set Flutter outline information is used when constructing test name.
-          -- Useful when using custom test names with @isTest annotation
-          custom_test_method_names = {},
-        }),
-        require("rustaceanvim.neotest"),
-        require("neotest-dotnet"),
-        require("neotest-deno"),
-      },
-    })
-  end,
 }
