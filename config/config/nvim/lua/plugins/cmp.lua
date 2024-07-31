@@ -89,25 +89,29 @@ return {
     end,
   },
   {
-    "petertriho/cmp-git",
+    "Dynge/gitmoji.nvim",
     ft = { "gitcommit", "octo", "NeogitCommitMessage" },
     dependencies = {
       "hrsh7th/nvim-cmp",
-      "Dynge/gitmoji.nvim",
     },
-    opts = {},
+    opts = { -- the values below are the defaults
+      filetypes = { "gitcommit", "octo", "NeogitCommitMessage" },
+      completion = {
+        append_space = true,
+        complete_as = "emoji",
+      },
+    },
     config = function(_, opts)
       local cmp = require("cmp")
 
       cmp.setup.filetype({ "gitcommit", "octo", "NeogitCommitMessage" }, {
         sources = cmp.config.sources({
-          { name = "git" },
           { name = "gitmoji" },
         }, {
           { name = "buffer" },
         }),
       })
-      require("cmp_git").setup(opts)
+      require("gitmoji").setup(opts)
     end,
   },
   {

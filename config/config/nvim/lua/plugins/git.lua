@@ -42,14 +42,4 @@ return {
     "lewis6991/gitsigns.nvim",
     opts = {},
   },
-  {
-    "Dynge/gitmoji.nvim",
-    opts = { -- the values below are the defaults
-      filetypes = { "gitcommit", "octo", "NeogitCommitMessage" },
-      completion = {
-        append_space = true,
-        complete_as = "emoji",
-      },
-    },
-  },
 }
