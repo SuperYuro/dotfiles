@@ -203,14 +203,14 @@ return {
       },
       window = {
         padding = 0,
-        margin = { horizontal = 0, vertical = 1 },
+        margin = { horizontal = 1, vertical = 1 },
         overlap = {
           winbar = true,
         },
       },
       render = function(props)
         local devicons = require("nvim-web-devicons")
-        local palette = require("nightfox.palette").load("nordfox")
+        local helpers = require("incline.helpers")
 
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
         if filename == "" then
@@ -219,17 +219,11 @@ return {
         local ft_icon, ft_color = devicons.get_icon_color(filename)
         local modified = vim.bo[props.buf].modified
 
-        local default_bg = palette.bg1
-        local icon_bg = ft_color
-        local icon_fg = palette.bg0
-        local fname_bg = palette.bg0
-        local fname_fg = palette.fg1
+        local bg = ft_color
+        local fg = helpers.contrast_color(bg)
 
         return {
-          { "", guibg = default_bg, guifg = icon_bg },
-          ft_icon and { " ", ft_icon, " ", guibg = icon_bg, guifg = icon_fg } or "",
-          { "", guibg = icon_bg, guifg = fname_bg },
-          { " ", filename, " ", guifg = fname_fg, guibg = fname_bg, gui = modified and "bold,italic" or "bold" },
+          { " ", ft_icon, " ", filename, " ", guifg = fg, guibg = bg, gui = modified and "bold,italic" or "bold" },
         }
       end,
     },
