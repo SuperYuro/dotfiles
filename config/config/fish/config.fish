@@ -2,6 +2,21 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+# bobthefish prompt settings
+set -g theme_color_scheme nord
+
+set -g theme_display_git yes
+set -g theme_display_git_default_branch yes
+
+set -g theme_display_virtualenv yes
+set -g theme_display_ruby no
+set -g theme_display_nord yes
+
+set -g theme_display_user ssh
+set -g theme_display_hostname ssh
+
+set -g theme_show_exit_status yes
+
 # Nightfox Color Palette
 # Style: nordfox
 # Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/nordfox/nightfox_fish.fish
@@ -123,5 +138,3 @@ end
 alias pyvenv goto_venv
 
 mise activate fish | source
-
-starship init fish | source
