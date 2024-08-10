@@ -1,51 +1,114 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: "Noto Sans CJK JP", sans-serif;
-    font-size: 12px;
+    font-family: "UDEV Gothic 35NFLG", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+
+    background-color: transparent;
 }
 
-#workspaces {
+tooltip,
+menu {
     background-color: #2e3440;
+    color: #cdcecf;
+}
+
+/* general module config */
+#pulseaudio,
+#clock,
+#cpu,
+#memory,
+#network,
+#tray {
+    border-radius: 5px;
+    padding: 1px 10px;
+    margin: 5px;
+
+    color: #cdcecf;
+    background-color: #5a657d;
+}
+
+#workspaces button {
+    padding: 1px 5px;
+    margin: 5px;
+    color: #cdcecf;
 }
 
 #workspaces button.active {
     background-color: #81a1c1;
-    /* active_tab_background */
-    color: #232831;
-    /* active_tab_foreground */
+    color: #2e3440;
 }
 
 #workspaces button.empty {
-    background-color: #3e4a5b;
-    /* inactive_tab_background */
-    color: #60728a;
-    /* inactive_tab_foreground */
+    background-color: #2e3440;
 }
 
 #workspaces button.visible {
     background-color: #81a1c1;
-    /* active_tab_background */
-    color: #232831;
-    /* active_tab_foreground */
+    color: #2e3440;
 }
 
 #workspaces button.persistent {
-    background-color: #3e4a5b;
-    /* inactive_tab_background */
-    color: #60728a;
-    /* inactive_tab_foreground */
-}
-
-#workspaces button.special {
-    background-color: #a3be8c;
-    /* url_color (近い色を選択) */
-    color: #2e3440;
-    /* background */
+    background-color: #2e3440;
 }
 
 #workspaces button.urgent {
-    background-color: #bf616a;
-    /* color1 */
-    color: #e5e9f0;
-    /* color7 */
+    background-color: #c9826b;
+    color: #2e3440;
+}
+
+#window {
+    border-radius: 10px;
+    margin: 1px 5px;
+    padding: 1px 20px;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+#network.ethernet {
+    background-color: #d06f79;
+}
+
+#network.wifi {
+    background-color: #93ccdc;
+    color: #2e3440;
+}
+
+#network.disconnected {
+    background-color: #c9826b;
+    color: #2e3440;
+}
+
+#tray>.needs-attention {
+    background-color: #c9826b;
+}
+
+#custom-lock,
+#custom-suspend,
+#custom-reboot,
+#custom-shutdown {
+    color: #2e3440;
+    padding: 1px 5px;
+    margin: 5px 0px;
+}
+
+#custom-lock {
+    margin-left: 5px;
+    border-radius: 5px 0px 0px 5px;
+    background-color: #a3be8c;
+}
+
+#custom-suspend {
+    background-color: #ebcb8b;
+}
+
+#custom-reboot {
+    background-color: #c9826b;
+}
+
+#custom-shutdown {
+    margin-right: 5px;
+    border-radius: 0px 5px 5px 0px;
+    background-color: #d06f79;
 }

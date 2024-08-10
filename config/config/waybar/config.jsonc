@@ -1,0 +1,146 @@
+{
+  "layer": "top",
+  "height": 38,
+  "reload_style_on_change": true,
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "clock",
+    "group/hardware",
+    "battery",
+    "cpu",
+    "memory",
+    "network",
+    "tray",
+    "group/buttons"
+  ],
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "all-outputs": true,
+    "active-only": false
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "icon": true
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume:3d}%",
+    "format-bluetooth": "󰂯 {icon} {volume:3d}%",
+    "format-muted": "{icon}",
+    "format-sources": "{icon} {volume:3d}%",
+    "format-sources-muted": "{icon} Muted",
+    "format-icons": {
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ],
+      "headphone": "󰋋",
+      "headphone-muted": "󰟎",
+      "speaker": "󰓃",
+      "speaker-muted": "󰓄",
+      "headset": "󰋎",
+      "headset-muted": "󰋐"
+    },
+    "on-click": "pavucontrol"
+  },
+  "clock": {
+    "interval": 1,
+    "timezone": "Asia/Tokyo",
+    "format": " {:%H:%M}",
+    "tooltip": true,
+    "tooltip-format": "󰃭 {:%Y/%m/%d %A %H:%M:%S}"
+  },
+  "battery": {
+    "design-capacity": true,
+    "interval": 60,
+    "format": "{icon} {capacity}",
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+    "tooltip": false,
+    "bat-compatibility": true
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "{usage:3d}%",
+    "align": 1,
+    "justify": "right",
+    "tooltip": false
+  },
+  "memory": {
+    "interval": 1,
+    "format": "{percentage:3d}%{swapPercentage:3d}%",
+    "align": 1,
+    "justify": "right",
+    "tooltip": false
+  },
+  "network": {
+    "interval": 1,
+    "tooltip": true,
+    "format-ethernet": "󰈀 {ipaddr}",
+    "tooltip-format-ethernet": "󰈀 {ifname}\nIP: {ipaddr}\nGateway: {gwaddr}\nNetmask: {netmask}",
+    "format-wifi": "{icon} {essid}",
+    "tooltip-format-wifi": "{icon} {ifname}\nSSID: {essid}\nMac: {bssid}\nStrength: {signalStrength}%\nIP: {ipaddr}",
+    "format-disabled": "󰲜 No network",
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ]
+  },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10
+  },
+  "group/buttons": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/lock",
+      "custom/suspend",
+      "custom/reboot",
+      "custom/shutdown"
+    ]
+  },
+  "custom/lock": {
+    "format": " 󰷛 ",
+    "align": 0.4,
+    "on-click": "hyprlock",
+    "tooltip-format": "Lock your computer."
+  },
+  "custom/suspend": {
+    "format": " 󰒲 ",
+    "align": 0.4,
+    "on-click": "systemctl suspend",
+    "tooltip-format": "Suspend your computer."
+  },
+  "custom/reboot": {
+    "format": " 󰜉 ",
+    "align": 0.4,
+    "on-click": "systemctl reboot",
+    "tooltip-format": "Reboot your computer."
+  },
+  "custom/shutdown": {
+    "format": " 󰐥 ",
+    "align": 0.4,
+    "on-click": "systemctl poweroff -i",
+    "tooltip-format": "Shutdown your computer."
+  }
+}
