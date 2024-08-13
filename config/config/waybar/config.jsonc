@@ -15,7 +15,6 @@
     "battery",
     "cpu",
     "memory",
-    "network",
     "tray",
     "group/buttons"
   ],
@@ -78,33 +77,17 @@
   },
   "cpu": {
     "interval": 1,
-    "format": "{usage:3d}%",
+    "format": " {usage:3d}%",
     "align": 1,
     "justify": "right",
     "tooltip": false
   },
   "memory": {
     "interval": 1,
-    "format": "{percentage:3d}%{swapPercentage:3d}%",
+    "format": " {percentage:3d}% {swapPercentage:3d}%",
     "align": 1,
     "justify": "right",
     "tooltip": false
-  },
-  "network": {
-    "interval": 1,
-    "tooltip": true,
-    "format-ethernet": "󰈀 {ipaddr}",
-    "tooltip-format-ethernet": "󰈀 {ifname}\nIP: {ipaddr}\nGateway: {gwaddr}\nNetmask: {netmask}",
-    "format-wifi": "{icon} {essid}",
-    "tooltip-format-wifi": "{icon} {ifname}\nSSID: {essid}\nMac: {bssid}\nStrength: {signalStrength}%\nIP: {ipaddr}",
-    "format-disabled": "󰲜 No network",
-    "format-icons": [
-      "󰤯",
-      "󰤟",
-      "󰤢",
-      "󰤥",
-      "󰤨"
-    ]
   },
   "tray": {
     "icon-size": 20,
