@@ -1,7 +1,6 @@
 [user]
     name = SuperYuro
     email = a.gpgtdmgp@gmail.com
-    signingKey = 26DF8CAA46679DED
 [core]
     bare = true
     autocrlf = input
@@ -53,5 +52,3 @@
     helper = !/usr/bin/gh auth git-credential
 [ghq]
     root = "~/Development"
-[commit]
-	gpgSign = true
