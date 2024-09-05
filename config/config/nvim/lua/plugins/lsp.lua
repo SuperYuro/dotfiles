@@ -21,7 +21,7 @@ local ensure_installed = {
 
     "ruff_lsp",
 
-    "taplo",
+    -- "taplo",
 
     "omnisharp",
   },
