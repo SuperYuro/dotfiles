@@ -3,15 +3,26 @@
 
 format = """
 [](black)\
+$os\
 $directory\
-$python\
+$git_branch\
+$git_status\
+$env_var\
 [](black)
 $character
 """
 
 right_format= """
 [](black)
-$time
+$dart\
+$deno\
+$dotnet\
+$golang\
+$nodejs\
+$python\
+$rust\
+$cmd_duration\
+$time\
 [](black)
 """
 
@@ -23,24 +34,174 @@ disabled = true
 
 [palettes.nordfox]
 foreground = '#cdcecf'
+background = '#2e3440'
 separator = '#60728a'
 black = '#3b4252'
 red = '#bf616a'
+green = '#a3be8c'
+yellow = '#ebcb8b'
 blue = '#81a1c1'
 cyan = '#88c0d0'
+white = '#e5e9f0'
+
+## Left prompt
+[os]
+format = '[ $symbol ]($style)'
+style = 'bg:black fg:foreground bold'
+disabled = false
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
 
 [directory]
 truncation_length = 0
-truncate_to_repo = false
+truncate_to_repo = true
 format = '[ $read_only]($read_only_style)[$path ]($style)'
 style = 'bg:black fg:foreground'
 read_only = '󰌾 '
 read_only_style = 'bg:black fg:red'
-truncation_symbol = '.../'
+truncation_symbol = ''
 use_os_path_sep = false
 
+[git_branch]
+format = '[ ](bg:black fg:foreground)[$symbol $branch ]($style)'
+symbol = '' # nf-pl-branch
+style = 'bg:black fg:green'
+
+# TODO: もっといい感じにやる
+# https://starship.rs/config/#git-status
+[git_status]
+format = '[$all_status ]($style)'
+style = 'bg:black fg:foreground'
+conflicted = '='
+ahead = '⇡'
+behind = '⇣'
+diverged = '⇕'
+up_to_date = ''
+untracked = '?'
+stashed = '$'
+modified = '!'
+staged = '+'
+renamed = '»'
+deleted = '✘'
+
+[env_var.venv]
+variable = 'VIRTUAL_ENV'
+format = '[ ](bg:black fg:foreground)[venv]($style)[ ](bg:black fg:foreground)'
+style = 'bg:black fg:blue underline bold italic'
+
+## Right prompt
+
+[cmd_duration]
+min_time = 2_000
+show_milliseconds = false
+format = '[ 󱦟 $duration ]($style)'
+style = 'bg:black fg:foreground'
+
+[time]
+format = '[  $time ]($style)'
+time_format = '%H:%M'
+style = 'bg:black fg:foreground'
+disabled = false
+
+## Runtimes
+[dart]
+format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
+version_format = 'v${raw}'
+symbol = '' # nf-seti-dart
+detect_extensions = [ 'dart' ]
+detect_files = [ 'pubspec.yaml', 'pubspec.yml', 'pubspec.lock' ]
+style = 'bg:black fg:blue'
+
+[deno]
+format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
+version_format = 'v${raw}'
+symbol = '' # nf-cod-snake
+detect_extensions = []
+detect_files = [ 'deno.json', 'deno.jsonc' ]
+style = 'bg:black fg:green'
+
+[dotnet]
+format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
+version_format = 'v${raw}'
+symbol = '󰪮' # nf-md-dot_net
+detect_extensions = [ 'csproj', 'fsproj', 'xproj', 'sln' ]
+detect_files = []
+style = 'bg:black fg:blue'
+
+[golang]
+format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
+version_format = 'v${raw}'
+symbol = '󰟓' # nf-md-language_go
+detect_extensions = [ 'go' ]
+detect_files = [ 'go.mod', '.mise.toml' ]
+style = 'bg:black fg:blue'
+
+[nodejs]
+format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
+version_format = 'v${raw}'
+symbol = '' # nf-dev-nodejs
+detect_extensions = []
+detect_files = [ 'package.json', '.node-version', '.mise.toml' ]
+detect_folders = [ 'node_modules' ]
+style = 'bg:black fg:green'
+
 [python]
-format = '[ ](bg:black fg:separator)[${symbol} ${version} ]($style)'
-version_format = '${raw}'
+format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
+version_format = 'v${raw}'
 symbol = '' # nf-dev-python
-style = 'bg:black fg:cyan bold'
+detect_extensions = [ 'py' ]
+detect_files = [ 'pyproject.toml','requirements.txt', '.python-version', '.mise.toml' ]
+detect_folders = [ 'venv', '.venv' ]
+style = 'bg:black fg:blue'
+
+[rust]
+format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
+version_format = 'v${raw}'
+symbol = '' # nf-dev-rust
+detect_extensions = [ 'rs' ]
+detect_files = [ 'Cargo.toml', 'Cargo.lock', '.mise.toml' ]
+detect_folders = []
+style = 'bg:black fg:red'
