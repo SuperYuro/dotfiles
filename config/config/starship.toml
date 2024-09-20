@@ -14,6 +14,7 @@ $character
 
 right_format= """
 [](black)
+$cmd_duration\
 $dart\
 $deno\
 $dotnet\
@@ -21,7 +22,6 @@ $golang\
 $nodejs\
 $python\
 $rust\
-$cmd_duration\
 $time\
 [](black)
 """
@@ -99,7 +99,7 @@ Windows = "󰍲 "
 truncation_length = 0
 truncate_to_repo = true
 format = '[ $read_only]($read_only_style)[$path ]($style)'
-style = 'bg:black fg:foreground'
+style = 'bg:black fg:foreground bold'
 read_only = '󰌾 '
 read_only_style = 'bg:black fg:red'
 truncation_symbol = ''
@@ -176,15 +176,15 @@ format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
 version_format = 'v${raw}'
 symbol = '󰟓' # nf-md-language_go
 detect_extensions = [ 'go' ]
-detect_files = [ 'go.mod', '.mise.toml' ]
+detect_files = [ 'go.mod' ]
 style = 'bg:black fg:blue'
 
 [nodejs]
 format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
 version_format = 'v${raw}'
-symbol = '' # nf-dev-nodejs
+symbol = '󰎙' # nf-md-nodejs
 detect_extensions = []
-detect_files = [ 'package.json', '.node-version', '.mise.toml' ]
+detect_files = [ 'package.json', '.node-version' ]
 detect_folders = [ 'node_modules' ]
 style = 'bg:black fg:green'
 
@@ -193,7 +193,7 @@ format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
 version_format = 'v${raw}'
 symbol = '' # nf-dev-python
 detect_extensions = [ 'py' ]
-detect_files = [ 'pyproject.toml','requirements.txt', '.python-version', '.mise.toml' ]
+detect_files = [ 'pyproject.toml','requirements.txt', '.python-version' ]
 detect_folders = [ 'venv', '.venv' ]
 style = 'bg:black fg:blue'
 
@@ -202,6 +202,6 @@ format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
 version_format = 'v${raw}'
 symbol = '' # nf-dev-rust
 detect_extensions = [ 'rs' ]
-detect_files = [ 'Cargo.toml', 'Cargo.lock', '.mise.toml' ]
+detect_files = [ 'Cargo.toml', 'Cargo.lock' ]
 detect_folders = []
 style = 'bg:black fg:red'
