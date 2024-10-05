@@ -99,6 +99,8 @@ alias gl "cd (ghq root)/(ghq list | peco)"
 
 alias lg lazygit
 
+alias flutter "fvm flutter"
+
 function goto_venv
     set -l venv_dirs ".venv" venv
 
