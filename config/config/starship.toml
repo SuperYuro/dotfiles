@@ -8,12 +8,9 @@ $directory\
 $git_branch\
 $git_status\
 $env_var\
-[](black)
-$character
-"""
-
-right_format= """
-[](black)
+[](black)\
+$fill\
+[](black)\
 $cmd_duration\
 $dart\
 $deno\
@@ -21,9 +18,14 @@ $dotnet\
 $golang\
 $nodejs\
 $python\
+$ruby\
 $rust\
 $time\
 [](black)
+$character
+"""
+
+right_format= """
 """
 
 add_newline = false
@@ -42,7 +44,31 @@ green = '#a3be8c'
 yellow = '#ebcb8b'
 blue = '#81a1c1'
 cyan = '#88c0d0'
-white = '#e5e9f0'
+white = '#e6e9f0'
+
+[palettes.carbonfox]
+foreground = '#f2f4f8'
+background = '#161616'
+separator = '#60728a'
+black = '#282828'
+red = '#ee5396'
+green = '#25be6a'
+yellow = '#08bdba'
+blue = '#78a9ff'
+cyan = '#33b1ff'
+white = '#dfdfe0'
+
+[palettes.github_dark_default]
+background = '#0d1117'
+foreground = '#e6edf3'
+separator = '#6e7681'
+black = '#111d2e'
+red = '#ff7b72'
+green = '#3fb950'
+yellow = '#d29922'
+blue = '#58a6ff'
+cyan = '#39c5cf'
+white = '#b1bac4'
 
 ## Left prompt
 [os]
@@ -132,7 +158,9 @@ variable = 'VIRTUAL_ENV'
 format = '[ ](bg:black fg:foreground)[venv]($style)[ ](bg:black fg:foreground)'
 style = 'bg:black fg:blue underline bold italic'
 
-## Right prompt
+[fill]
+symbol = ' '
+style = 'black'
 
 [cmd_duration]
 min_time = 2_000
@@ -196,6 +224,15 @@ detect_extensions = [ 'py' ]
 detect_files = [ 'pyproject.toml','requirements.txt', '.python-version' ]
 detect_folders = [ 'venv', '.venv' ]
 style = 'bg:black fg:blue'
+
+[ruby]
+format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
+version_format = 'v${raw}'
+symbol = '' # nf-cod-ruby
+detect_extensions = [ 'rb' ]
+detect_files = [ 'Gemfile', '.ruby-version' ]
+detect_folders = []
+style = 'bg:black fg:red'
 
 [rust]
 format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
