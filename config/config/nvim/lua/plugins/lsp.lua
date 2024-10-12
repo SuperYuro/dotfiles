@@ -247,8 +247,6 @@ return {
 
         lua = { "stylua" },
 
-        python = { "black", "isort" },
-
         html = js_formatters,
         css = js_formatters,
         scss = js_formatters,
