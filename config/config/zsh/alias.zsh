@@ -4,6 +4,8 @@ alias l="ls -1a"
 alias ll="ls -lh"
 alias la="ls -lha"
 
+alias cat="bat"
+
 alias c="cd"
 alias th="touch"
 alias md="mkdir"
