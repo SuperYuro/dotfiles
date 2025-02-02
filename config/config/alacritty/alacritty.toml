@@ -1,41 +1,20 @@
-shell = "/bin/fish"
+[terminal]
+shell = "/bin/zsh"
+
+[window.dimensions]
+columns = 160
+lines = 40
 
 [font]
-size = 10
-
-[font.bold]
-family = "PlemolJP Console NF"
-style = "Bold"
-
-[font.bold_italic]
-family = "PlemolJP Console NF"
-style = "Bold Italic"
-
-[font.italic]
-family = "PlemolJP Console NF"
-style = "Italic"
+size = 12
 
 [font.normal]
-family = "PlemolJP Console NF"
+family = "UDEV Gothic NF"
 style = "Regular"
 
-[[colors.indexed_colors]]
-color = "0xc9826b"
-index = 16
-
-[[colors.indexed_colors]]
-color = "0xbf88bc"
-index = 17
-
-[colors.bright]
-black = "0x465780"
-blue = "0x8cafd2"
-cyan = "0x93ccdc"
-green = "0xb1d196"
-magenta = "0xc895bf"
-red = "0xd06f79"
-white = "0xe7ecf4"
-yellow = "0xf0d399"
+[colors.primary]
+background = "0x2e3440"
+foreground = "0xcdcecf"
 
 [colors.normal]
 black = "0x3b4252"
@@ -47,6 +26,20 @@ red = "0xbf616a"
 white = "0xe5e9f0"
 yellow = "0xebcb8b"
 
-[colors.primary]
-background = "0x2e3440"
-foreground = "0xcdcecf"
+[colors.bright]
+black = "0x465780"
+blue = "0x8cafd2"
+cyan = "0x93ccdc"
+green = "0xb1d196"
+magenta = "0xc895bf"
+red = "0xd06f79"
+white = "0xe7ecf4"
+yellow = "0xf0d399"
+
+[[colors.indexed_colors]]
+color = "0xc9826b"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xbf88bc"
+index = 17
