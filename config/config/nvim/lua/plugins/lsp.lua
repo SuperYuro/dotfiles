@@ -19,9 +19,9 @@ local ensure_installed = {
     "biome",
     "eslint",
 
-    "ruff_lsp",
+    "ruff",
 
-    -- "taplo",
+    "taplo",
 
     "omnisharp",
   },
@@ -66,7 +66,7 @@ return {
       local lspconfig = require("lspconfig")
 
       local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-      cmp_capabilities.offsetEncoding = "utf-8"
+      cmp_capabilities.offsetEncoding = { "utf-8" }
 
       require("mason-lspconfig").setup_handlers({
         function(server_name) -- default handler (optional)
@@ -75,8 +75,8 @@ return {
           })
         end,
 
-        ["tsserver"] = function()
-          lspconfig["tsserver"].setup({
+        ["ts_ls"] = function()
+          lspconfig["ts_ls"].setup({
             capabilities = cmp_capabilities,
             root_dir = lspconfig.util.root_pattern("package.json"),
             single_file_support = false,
@@ -197,7 +197,7 @@ return {
         },
       },
       symbol_in_winbar = {
-        enable = true,
+        enable = false,
         separator = "  ",
         show_file = true,
       },

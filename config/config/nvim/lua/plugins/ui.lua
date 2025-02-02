@@ -9,7 +9,6 @@ return {
       options = {
         styles = {
           comments = "italic",
-          variables = "italic",
           functions = "bold,italic",
           keywords = "bold",
         },
@@ -22,7 +21,7 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
-    event = "VimEnter",
+    event = "UIEnter",
     opts = {
       options = {
         icons_enabled = true,
@@ -89,7 +88,7 @@ return {
     "akinsho/bufferline.nvim",
     version = "*",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    event = "VimEnter",
+    event = "UIEnter",
     opts = {
       options = {
         mode = "tabs",
@@ -125,17 +124,18 @@ return {
     },
   },
   {
+    "rcarriga/nvim-notify",
+    opts = {
+      -- background_colour = "#2e3440",
+      timeout = 1000,
+    },
+  },
+  {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
-      {
-        "rcarriga/nvim-notify",
-        opts = {
-          -- background_colour = "#2e3440",
-          timeout = 1000,
-        },
-      },
+      "rcarriga/nvim-notify",
     },
     opts = {
       lsp = {
@@ -146,7 +146,7 @@ return {
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,
+          ["cmp.entry.get_documentation"] = false,
         },
       },
       -- you can enable a preset for easier configuration
@@ -161,7 +161,7 @@ return {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     main = "ibl",
     opts = {},
   },
@@ -197,7 +197,7 @@ return {
     },
     opts = {
       hide = {
-        cursorline = true,
+        cursorline = false,
         focused_win = false,
         only_win = false,
       },
@@ -210,17 +210,17 @@ return {
       },
       render = function(props)
         local devicons = require("nvim-web-devicons")
-        local helpers = require("incline.helpers")
+        local palette = require("nightfox.palette").load("nordfox")
 
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
         if filename == "" then
           filename = "[No Name]"
         end
-        local ft_icon, ft_color = devicons.get_icon_color(filename)
+        local ft_icon, _ = devicons.get_icon_color(filename)
         local modified = vim.bo[props.buf].modified
 
-        local bg = ft_color
-        local fg = helpers.contrast_color(bg)
+        local bg = palette.blue.base
+        local fg = palette.bg0
 
         return {
           { " ", ft_icon, " ", filename, " ", guifg = fg, guibg = bg, gui = modified and "bold,italic" or "bold" },
