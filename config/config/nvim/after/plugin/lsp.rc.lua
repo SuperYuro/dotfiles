@@ -2,10 +2,10 @@
 vim.diagnostic.config({
   virtual_text = {
     prefix = require("utils.icons").prelude.bell,
-    source = "always",
+    source = true,
   },
   float = {
-    source = "always",
+    source = true,
   },
   signs = false,
   underline = true,
