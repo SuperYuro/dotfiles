@@ -2,6 +2,8 @@ local ensure_installed = {
   lsp = {
     "clangd",
 
+    "rust_analyzer",
+
     "lua_ls",
 
     "gopls",
@@ -302,18 +304,5 @@ return {
         "lazy.nvim",
       },
     },
-  },
-  {
-    "mrcjkb/rustaceanvim",
-    dependencies = { "nvim-neotest/neotest" },
-    version = "^5",
-    lazy = false,
-    config = function()
-      require("neotest").setup({
-        adapters = {
-          require("rustaceanvim.neotest"),
-        },
-      })
-    end,
   },
 }
