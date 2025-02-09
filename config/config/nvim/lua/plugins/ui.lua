@@ -16,6 +16,30 @@ return {
           visual = true,
         },
       },
+      groups = {
+        all = {
+          DiagnosticUnderlineError = {
+            fg = "palette.white",
+            bg = "palette.red.dim",
+            style = "NONE",
+          },
+          DiagnosticUnderlineWarn = {
+            fg = "palette.white",
+            bg = "palette.yellow.dim",
+            style = "NONE",
+          },
+          DiagnosticUnderlineInfo = {
+            fg = "palette.white",
+            bg = "palette.blue.dim",
+            style = "NONE",
+          },
+          DiagnosticUnderlineHint = {
+            fg = "palette.white",
+            bg = "palette.green.dim",
+            style = "NONE",
+          },
+        },
+      },
     },
     init = function() vim.cmd("colorscheme nordfox") end,
   },
