@@ -24,6 +24,7 @@ return {
       local mason_dap = require("mason-nvim-dap")
 
       mason_dap.setup({
+        automatic_installation = false,
         ensure_installed = debuggers,
         handlers = {
           function(config) mason_dap.default_setup(config) end,
