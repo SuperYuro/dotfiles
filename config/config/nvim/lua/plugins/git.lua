@@ -31,4 +31,24 @@ return {
     "lewis6991/gitsigns.nvim",
     opts = {},
   },
+  {
+    "Dynge/gitmoji.nvim",
+    ft = "gitcommit",
+    opts = {
+      filetypes = { "gitcommit" },
+      completion = {
+        append_space = false,
+        complete_as = "emoji",
+      },
+    },
+    config = function(_, opts)
+      require("gitmoji").setup(opts)
+
+      require("cmp").setup({
+        sources = {
+          { name = "gitmoji" },
+        },
+      })
+    end,
+  },
 }
