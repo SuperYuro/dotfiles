@@ -16,30 +16,6 @@ return {
           visual = true,
         },
       },
-      groups = {
-        all = {
-          DiagnosticUnderlineError = {
-            fg = "palette.white",
-            bg = "palette.red.dim",
-            style = "NONE",
-          },
-          DiagnosticUnderlineWarn = {
-            fg = "palette.white",
-            bg = "palette.yellow.dim",
-            style = "NONE",
-          },
-          DiagnosticUnderlineInfo = {
-            fg = "palette.white",
-            bg = "palette.blue.dim",
-            style = "NONE",
-          },
-          DiagnosticUnderlineHint = {
-            fg = "palette.white",
-            bg = "palette.green.dim",
-            style = "NONE",
-          },
-        },
-      },
     },
     init = function() vim.cmd("colorscheme nordfox") end,
   },
@@ -49,17 +25,17 @@ return {
     opts = {
       options = {
         icons_enabled = true,
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
         theme = "auto",
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
         disabled_filetypes = {},
         ignore_focus = {},
-        always_divide_middle = true,
+        always_divide_middle = false,
         globalstatus = true,
         refresh = {
-          statusline = 1000,
-          tabline = 1000,
-          winbar = 1000,
+          statusline = 100,
+          tabline = 100,
+          winbar = 100,
         },
       },
       sections = {
@@ -111,7 +87,9 @@ return {
   {
     "akinsho/bufferline.nvim",
     version = "*",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
     event = "UIEnter",
     opts = {
       options = {
@@ -164,7 +142,7 @@ return {
     opts = {
       lsp = {
         progress = {
-          enabled = true,
+          enabled = false,
         },
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
@@ -187,6 +165,12 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPre", "BufNewFile" },
     main = "ibl",
+    opts = {},
+  },
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    main = "rainbow-delimiters.setup",
     opts = {},
   },
   {

@@ -4,6 +4,11 @@
 [core]
     bare = true
     autocrlf = input
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[merge]
+    conflictstyle = zdiff3
 [init]
     defaultBranch = main
 [color]
@@ -51,3 +56,6 @@
     helper = !/usr/bin/gh auth git-credential
 [ghq]
     root = "~/.ghq"
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection

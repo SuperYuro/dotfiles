@@ -14,6 +14,7 @@ local ensure_installed = {
     "html",
     "cssls",
     "ts_ls",
+    "volar",
     "svelte",
     "astro",
     "tailwindcss",
@@ -137,6 +138,7 @@ return {
   },
   {
     "williamboman/mason.nvim",
+    build = ":MasonUpdate",
     opts = {},
   },
   {
@@ -149,10 +151,6 @@ return {
   {
     "nvimdev/lspsaga.nvim",
     event = "LspAttach",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    },
     cmd = { "Lspsaga" },
     keys = {
       { "<leader>lf", "<cmd>Lspsaga finder<cr>", desc = "Lspsaga finder" },
@@ -161,7 +159,8 @@ return {
       { "<leader>ca", "<cmd>Lspsaga code_action<cr>", desc = "Code action" },
       { "gd", "<cmd>Lspsaga goto_definition<cr>", desc = "Goto definition" },
       { "gD", "<cmd>Lspsaga goto_type_definition<cr>", desc = "Goto type definition" },
-      { "<C-j>", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Goto next diagnostics" },
+      { "g]", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Goto next diagnostics" },
+      { "g[", "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "Goto previous diagnostics" },
       { "<leader>e", "<cmd>Lspsaga show_line_diagnostics<cr>", desc = "Show line diagnostics" },
     },
     opts = {
@@ -207,6 +206,17 @@ return {
         show_code_action = true,
         keys = {
           quit = { "q", "<ESC>" },
+        },
+      },
+    },
+  },
+  {
+    "j-hui/fidget.nvim",
+    event = "LspAttach",
+    opts = {
+      notification = {
+        window = {
+          winblend = 0,
         },
       },
     },
