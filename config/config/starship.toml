@@ -25,9 +25,6 @@ $time\
 $character
 """
 
-right_format= """
-"""
-
 add_newline = false
 palette = 'nordfox'
 
@@ -133,7 +130,7 @@ use_os_path_sep = false
 
 [git_branch]
 format = '[ ](bg:black fg:foreground)[$symbol $branch ]($style)'
-symbol = '' # nf-pl-branch
+symbol = ''                                                      # nf-pl-branch
 style = 'bg:black fg:green'
 
 # TODO: もっといい感じにやる
@@ -178,67 +175,67 @@ disabled = false
 [dart]
 format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
 version_format = 'v${raw}'
-symbol = '' # nf-seti-dart
-detect_extensions = [ 'dart' ]
-detect_files = [ 'pubspec.yaml', 'pubspec.yml', 'pubspec.lock' ]
+symbol = ''                                                       # nf-seti-dart
+detect_extensions = ['dart']
+detect_files = ['pubspec.yaml', 'pubspec.yml', 'pubspec.lock']
 style = 'bg:black fg:blue'
 
 [deno]
 format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
 version_format = 'v${raw}'
-symbol = '' # nf-cod-snake
+symbol = ''                                                       # nf-cod-snake
 detect_extensions = []
-detect_files = [ 'deno.json', 'deno.jsonc' ]
+detect_files = ['deno.json', 'deno.jsonc']
 style = 'bg:black fg:green'
 
 [dotnet]
 format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
 version_format = 'v${raw}'
-symbol = '󰪮' # nf-md-dot_net
-detect_extensions = [ 'csproj', 'fsproj', 'xproj', 'sln' ]
+symbol = '󰪮'                                                       # nf-md-dot_net
+detect_extensions = ['csproj', 'fsproj', 'xproj', 'sln']
 detect_files = []
 style = 'bg:black fg:blue'
 
 [golang]
 format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
 version_format = 'v${raw}'
-symbol = '󰟓' # nf-md-language_go
-detect_extensions = [ 'go' ]
-detect_files = [ 'go.mod' ]
+symbol = '󰟓'                                                       # nf-md-language_go
+detect_extensions = ['go']
+detect_files = ['go.mod']
 style = 'bg:black fg:blue'
 
 [nodejs]
 format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
 version_format = 'v${raw}'
-symbol = '󰎙' # nf-md-nodejs
+symbol = '󰎙'                                                       # nf-md-nodejs
 detect_extensions = []
-detect_files = [ 'package.json', '.node-version' ]
-detect_folders = [ 'node_modules' ]
+detect_files = ['package.json', '.node-version']
+detect_folders = ['node_modules']
 style = 'bg:black fg:green'
 
 [python]
 format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
 version_format = 'v${raw}'
-symbol = '' # nf-dev-python
-detect_extensions = [ 'py' ]
-detect_files = [ 'pyproject.toml','requirements.txt', '.python-version' ]
-detect_folders = [ 'venv', '.venv' ]
+symbol = ''                                                             # nf-dev-python
+detect_extensions = ['py']
+detect_files = ['pyproject.toml', 'requirements.txt', '.python-version']
+detect_folders = ['venv', '.venv']
 style = 'bg:black fg:blue'
 
 [ruby]
 format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
 version_format = 'v${raw}'
-symbol = '' # nf-cod-ruby
-detect_extensions = [ 'rb' ]
-detect_files = [ 'Gemfile', '.ruby-version' ]
+symbol = ''                                                       # nf-cod-ruby
+detect_extensions = ['rb']
+detect_files = ['Gemfile', '.ruby-version']
 detect_folders = []
 style = 'bg:black fg:red'
 
 [rust]
 format = '[ $symbol $version ]($style)[](bg:black fg:foreground)'
 version_format = 'v${raw}'
-symbol = '' # nf-dev-rust
-detect_extensions = [ 'rs' ]
-detect_files = [ 'Cargo.toml', 'Cargo.lock' ]
+symbol = ''                                                       # nf-dev-rust
+detect_extensions = ['rs']
+detect_files = ['Cargo.toml', 'Cargo.lock']
 detect_folders = []
 style = 'bg:black fg:red'
