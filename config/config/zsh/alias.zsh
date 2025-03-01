@@ -17,6 +17,8 @@ alias dp="docker compose"
 
 alias lg="lazygit"
 
+alias flutter="fvm flutter"
+
 alias rl="exec zsh"
 
 function cd-ghq() {
