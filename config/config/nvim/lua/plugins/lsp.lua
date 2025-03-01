@@ -291,7 +291,12 @@ return {
       "nvim-lua/plenary.nvim",
       "stevearc/dressing.nvim", -- optional for vim.ui.select
     },
-    opts = {},
+    opts = {
+      fvm = true,
+      debugger = {
+        enabled = true,
+      },
+    },
   },
   {
     "folke/lazydev.nvim",

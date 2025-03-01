@@ -1,7 +1,6 @@
 local debuggers = {
   "chrome",
   "js",
-  "dart",
   "cppdbg",
   "codelldb",
   "python",
