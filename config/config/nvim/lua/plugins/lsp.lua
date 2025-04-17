@@ -66,74 +66,35 @@ return {
     },
     lazy = false,
     config = function()
-      local lspconfig = require("lspconfig")
+      local capabilities = {
+        offsetEncoding = { "utf-8" },
+      }
 
-      local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-      cmp_capabilities.offsetEncoding = { "utf-8" }
+      vim.lsp.config("*", {
+        capabilities = capabilities,
+      })
 
       require("mason-lspconfig").setup_handlers({
         function(server_name) -- default handler (optional)
-          lspconfig[server_name].setup({
-            capabilities = cmp_capabilities,
-          })
+          vim.lsp.enable(server_name)
         end,
 
         ["ts_ls"] = function()
-          lspconfig["ts_ls"].setup({
-            capabilities = cmp_capabilities,
-            root_dir = lspconfig.util.root_pattern("package.json"),
+          vim.lsp.config("ts_ls", {
+            root_marker = { "package.json" },
             single_file_support = false,
           })
-        end,
-
-        ["clangd"] = function()
-          lspconfig["clangd"].setup({
-            capabilities = cmp_capabilities,
-          })
-        end,
-
-        ["omnisharp"] = function()
-          lspconfig["omnisharp"].setup({
-            capabilities = cmp_capabilities,
-            settings = {
-              FormattingOptions = {
-                EnableEditorConfigSupport = true,
-                OrganizeImports = true,
-              },
-              MsBuild = {
-                LoadProjectsOnDemand = false,
-              },
-              RoslynExtensionsOptions = {
-                EnableAnalyzersSupport = true,
-                EnableImportCompletion = true,
-                AnalyzeOpenDocumentsOnly = false,
-              },
-              Sdk = {
-                IncludePrereleases = true,
-              },
-            },
-          })
+          vim.lsp.enable("ts_ls")
         end,
       })
 
-      lspconfig["denols"].setup({
-        capabilities = cmp_capabilities,
-        root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+      vim.lsp.config("denols", {
+        root_marker = { "deno.json", "deno.jsonc" },
       })
 
-      lspconfig["gleam"].setup({
-        capabilities = cmp_capabilities,
-      })
+      vim.lsp.enable("denols")
 
-      -- Use LspAttach autocommand to only map the following keys
-      -- after the language server attaches to the current buffer
-      vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-        callback = function(ev)
-          -- Enable completion triggered by <c-x><c-o>
-          vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-        end,
-      })
+      vim.lsp.enable("gleam")
     end,
   },
   {
