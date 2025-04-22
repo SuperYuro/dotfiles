@@ -3,10 +3,12 @@ return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = { { "yioneko/nvim-yati", version = "*" } },
     build = ":TSUpdate",
-    lazy = false,
+    -- lazy = false,
+    event = "UIEnter",
     main = "nvim-treesitter.configs",
     opts = {
-      ensure_installed = "all",
+      ensure_installed = {},
+      auto_install = true,
       highlight = { enable = true },
       yati = {
         enable = true,
