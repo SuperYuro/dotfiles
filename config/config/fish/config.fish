@@ -124,6 +124,4 @@ end
 
 alias pyvenv goto_venv
 
-[ ! $VIRTUAL_ENV ] && mise activate fish | source
-
 starship init fish | source
