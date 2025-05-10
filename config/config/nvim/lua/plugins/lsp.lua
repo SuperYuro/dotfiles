@@ -51,58 +51,20 @@ local js_formatters = builtins.javascript.formatters()
 
 return {
   {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      -- LSP Installer
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-    },
-    lazy = false,
-    config = function()
-      local capabilities = {
-        offsetEncoding = { "utf-8" },
-      }
-
-      vim.lsp.config("*", {
-        capabilities = capabilities,
-      })
-
-      require("mason-lspconfig").setup_handlers({
-        function(server_name) -- default handler (optional)
-          vim.lsp.enable(server_name)
-        end,
-
-        ["ts_ls"] = function()
-          vim.lsp.config("ts_ls", {
-            root_marker = { "package.json" },
-            single_file_support = false,
-          })
-          vim.lsp.enable("ts_ls")
-        end,
-      })
-
-      vim.lsp.config("denols", {
-        root_marker = { "deno.json", "deno.jsonc" },
-      })
-
-      vim.lsp.enable("denols")
-
-      vim.lsp.enable("gleam")
-    end,
-  },
-  {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     build = ":MasonUpdate",
     opts = {},
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     dependencies = {
+      "williamboman/mason.nvim",
       "neovim/nvim-lspconfig",
     },
+    event = "LspAttach",
     opts = {
       ensure_installed = ensure_installed.lsp,
-      automatic_installation = false,
+      automatic_enable = true,
     },
   },
   {
