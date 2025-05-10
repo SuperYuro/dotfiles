@@ -7,6 +7,7 @@ return {
     priority = 1000,
     opts = {
       options = {
+        transparent = true,
         styles = {
           comments = "italic",
           functions = "bold,italic",
@@ -119,7 +120,7 @@ return {
         show_close_icons = false,
         show_tab_indicators = false,
         show_duplicate_prefix = false,
-        separator_style = "slant",
+        separator_style = "thin",
         always_show_bufferline = true,
         sort_by = "tabs",
       },
