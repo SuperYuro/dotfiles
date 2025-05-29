@@ -7,7 +7,7 @@ vim.opt.fileencoding = "utf-8"
 vim.wo.number = true
 vim.wo.relativenumber = true
 
-vim.opt.mouse = ""
+-- vim.opt.mouse = ""
 
 vim.opt.shell = require("utils.exec").shell()
 
