@@ -14,7 +14,7 @@ local ensure_installed = {
     "html",
     "cssls",
     "ts_ls",
-    "volar",
+    "vue_ls",
     "svelte",
     "astro",
     "tailwindcss",
