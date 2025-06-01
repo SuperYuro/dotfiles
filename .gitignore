@@ -7,3 +7,4 @@ config/config/fish/conf.d/rustup.fish
 # Emacs
 config/config/emacs/elpa
 config/config/emacs/custom.el
+config/config/hypr/monitor.conf
