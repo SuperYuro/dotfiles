@@ -127,3 +127,5 @@ alias pyvenv goto_venv
 starship init fish | source
 
 set -x TMUX_SHELL (which fish)
+status --is-interactive; and rbenv init - --no-rehash fish | source
+status --is-interactive; and nodenv init - --no-rehash fish | source
