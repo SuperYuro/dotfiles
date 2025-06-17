@@ -125,6 +125,3 @@ end
 alias pyvenv goto_venv
 
 starship init fish | source
-
-status --is-interactive; and rbenv init - --no-rehash fish | source
-status --is-interactive; and nodenv init - --no-rehash fish | source
