@@ -277,8 +277,8 @@ client.background       #cdcecf
 #
 # border
 #
-title_align center
-default_border pixel 1
+# title_align center
+# default_border pixel 1
 
 exec --no-startup-id "fcitx5 -dr"
 exec --no-startup-id nm-applet
