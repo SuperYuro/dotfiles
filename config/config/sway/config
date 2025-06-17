@@ -240,7 +240,7 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
-    bindsym Print exec grim
+    # bindsym Print exec grim
 
 #
 # Status Bar:
@@ -285,3 +285,25 @@ exec --no-startup-id nm-applet
 
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*
+
+#
+# スクリーンショット
+#
+
+### アクティブウィンドウのスクリーンショット（Alt + PrintScreen）
+bindsym Mod1+Print exec grim -g "$(swaymsg -t get_tree | jq -r '.. | objects | select(.type == "con" and .focused == true) | "\(.rect.x),\(.rect.y) \(.rect.width)x\(.rect.height)"')" - | wl-copy
+
+### アクティブウィンドウのスクリーンショットを保存（Alt + Win + PrintScreen）
+bindsym $mod+Mod1+Print exec grim -g "$(swaymsg -t get_tree | jq -r \
+  '.. | objects | select(.type == "con" and .focused == true) | "\(.rect.x),\(.rect.y) \(.rect.width)x\(.rect.height)"')" \
+  ~/Pictures/screenshots/window-$(date +'%Y%m%d-%H%M%S').png
+
+### 全画面のスクリーンショット（PrintScreen）
+bindsym Print exec grim - | wl-copy
+
+### 全画面スクリーンショットを保存（Win + PrintScreen）
+# ※ $mod は通常 Windowsキー（Mod4）
+bindsym $mod+Print exec grim ~/Pictures/screenshots/full-$(date +'%Y%m%d-%H%M%S').png
+
+### 選択範囲のスクリーンショット（Win + Shift + S）
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
