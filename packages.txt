@@ -1,5 +1,6 @@
 arc-gtk-theme
 arc-icon-theme
+aspnet-runtime
 bat
 bottom
 chafa
@@ -7,11 +8,12 @@ deno
 docker
 docker-buildx
 docker-compose
+dotnet-sdk
 dunst
 dust
 eza
 fastfetch
-fcitx5
+fcitx5-im
 fcitx5-skk
 fd
 ffmpeg
@@ -24,6 +26,7 @@ git-delta
 github-cli
 gnome-keyring
 go
+grim
 gvfs
 htop
 i3status
@@ -33,7 +36,7 @@ lazygit
 libvirt
 llvm
 minecraft-launcher
-mise
+proto
 neovim
 nodejs
 noto-fonts
@@ -50,12 +53,14 @@ pulseaudio-jack
 python
 qemu-full
 ripgrep
+rocm-hip-sdk
+rocm-ml-sdk
+rocm-opencl-sdk
 rofi-wayland
 ruby
-rustup
 sd
+slurp
 starship
-sudo
 sway
 sway-contrib
 swaybg
