@@ -1,4 +1,4 @@
 gui:
   showIcons: true
-  nerdFontVersion: 2
+  nerdFontsVersion: "3"
   border: single
