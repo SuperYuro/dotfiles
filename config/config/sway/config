@@ -27,8 +27,8 @@ font pango:$font $fontsize
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg /usr/share/backgrounds/archlinux/simple.png fill
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
+# output * bg /usr/share/backgrounds/archlinux/simple.png fill
 #
 # Example configuration:
 #
@@ -106,8 +106,8 @@ input type:keyboard {
         bindsym e exec --no-startup-id swaymsg exit, mode "default"
         bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
         bindsym h exec --no-startup-id $Locker && systemctl hybernate, mode "default"
-        bindsym r exec --no-startup-id systemctl reboot, mode "default"
-        bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+        bindsym r exec --no-startup-id sudo reboot, mode "default"
+        bindsym Shift+s exec --no-startup-id sudo poweroff, mode "default"
 
         # back to nomrmal: Enter or Escape or $mod+Shift+e
         bindsym return mode "default"
@@ -282,6 +282,7 @@ client.background       #cdcecf
 
 exec --no-startup-id "fcitx5 -dr"
 exec --no-startup-id nm-applet
+exec --no-startup-id mako
 
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*
@@ -307,3 +308,5 @@ bindsym $mod+Print exec grim ~/Pictures/screenshots/full-$(date +'%Y%m%d-%H%M%S'
 
 ### 選択範囲のスクリーンショット（Win + Shift + S）
 bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
+
+exec gentoo-pipewire-launcher
