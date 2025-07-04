@@ -4,6 +4,7 @@
 format = """
 [](black)\
 $os\
+$hostname\
 $directory\
 $git_branch\
 $git_status\
@@ -93,6 +94,12 @@ Ubuntu = " "
 Unknown = " "
 Void = " "
 Windows = "󰍲 "
+
+[hostname]
+ssh_only = true
+ssh_symbol = ' '
+format = '[ $ssh_symbol$hostname]($style)[ ](bg:black fg:foreground)'
+style = "italic bg:black fg:cyan"
 
 [directory]
 truncation_length = 0
