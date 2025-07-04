@@ -127,3 +127,5 @@ alias pyvenv goto_venv
 starship init fish | source
 
 mise activate fish | source
+
+set -x TMUX_SHELL (which fish)
