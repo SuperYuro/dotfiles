@@ -8,3 +8,6 @@ config/config/fish/conf.d/rustup.fish
 config/config/emacs/elpa
 config/config/emacs/custom.el
 config/config/hypr/monitor.conf
+
+# Neovim
+config/config/nvim/lazy-lock.json
