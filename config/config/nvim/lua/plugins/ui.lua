@@ -278,4 +278,10 @@ return {
       hijack_netrw = true,
     },
   },
+  {
+    "onsails/lspkind.nvim",
+  },
+  {
+    "nvim-tree/nvim-web-devicons",
+  },
 }
