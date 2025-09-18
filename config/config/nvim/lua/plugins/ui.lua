@@ -105,14 +105,7 @@ return {
         left_trunc_marker = "",
         right_trunc_marker = "",
         diagnostics = "nvim_lsp",
-        offsets = {
-          {
-            filetype = "NvimTree",
-            text = "NvimTree",
-            text_align = "center",
-            separator = true,
-          },
-        },
+        offsets = {},
         color_icons = true,
         show_buffer_icons = true,
         show_buffer_close_icons = false,
@@ -263,25 +256,7 @@ return {
     config = function(_, opts) require("illuminate").configure(opts) end,
   },
   {
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    keys = {
-      { "<C-f>", "<cmd>NvimTreeToggle<cr>", desc = "Open file tree" },
-    },
-    opts = {
-      filters = {
-        dotfiles = true,
-      },
-      disable_netrw = false,
-      hijack_netrw = true,
-    },
-  },
-  {
-    "onsails/lspkind.nvim",
-  },
-  {
-    "nvim-tree/nvim-web-devicons",
+    "antosha417/nvim-lsp-file-operations",
+    opts = {},
   },
 }
