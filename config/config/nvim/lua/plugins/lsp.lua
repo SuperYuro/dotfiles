@@ -2,7 +2,7 @@ local ensure_installed = {
   lsp = {
     "clangd",
 
-    -- "rust_analyzer",
+    "rust_analyzer",
 
     "lua_ls",
 
@@ -48,6 +48,7 @@ local ensure_installed = {
 
 local builtins = require("conform-selector.builtins")
 local js_formatters = builtins.javascript.formatters()
+local configure_lsp = require("utils.lsp").configure_lsp
 
 return {
   {
@@ -92,10 +93,12 @@ return {
       }
 
       local vue_ls_config = {}
-      vim.lsp.config("vue_ls", vue_ls_config)
-      vim.lsp.config("ts_ls", ts_ls_config)
 
-      vim.lsp.enable({ "tsls", "vue_ls" }) -- If using `ts_ls` replace `vtsls` to `ts_ls`
+      configure_lsp("vue_ls", vue_ls_config)
+      configure_lsp("ts_ls", ts_ls_config)
+
+      configure_lsp("csharp_ls", {})
+      configure_lsp("gleam", {})
     end,
   },
   {
@@ -210,7 +213,6 @@ return {
     lazy = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "stevearc/dressing.nvim", -- optional for vim.ui.select
     },
     opts = {
       fvm = true,
@@ -229,5 +231,8 @@ return {
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
       },
     },
+  },
+  {
+    "Decodetalkers/csharpls-extended-lsp.nvim",
   },
 }
