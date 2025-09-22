@@ -54,7 +54,12 @@ return {
   {
     "mason-org/mason.nvim",
     build = ":MasonUpdate",
-    opts = {},
+    opts = {
+      registries = {
+        "github:mason-org/mason-registry",
+        "github:Crashdummyy/mason-registry",
+      },
+    },
   },
   {
     "mason-org/mason-lspconfig.nvim",
@@ -97,8 +102,19 @@ return {
       configure_lsp("vue_ls", vue_ls_config)
       configure_lsp("ts_ls", ts_ls_config)
 
-      configure_lsp("csharp_ls", {})
       configure_lsp("gleam", {})
+
+      configure_lsp("roslyn", {
+        settings = {
+          ["csharp|inlay_hints"] = {
+            csharp_enable_inlay_hints_for_implicit_object_creation = true,
+            csharp_enable_inlay_hints_for_implicit_variable_types = true,
+          },
+          ["csharp|code_lens"] = {
+            dotnet_enable_references_code_lens = true,
+          },
+        },
+      })
     end,
   },
   {
@@ -233,6 +249,8 @@ return {
     },
   },
   {
-    "Decodetalkers/csharpls-extended-lsp.nvim",
+    "seblyng/roslyn.nvim",
+    ft = "cs",
+    opts = {},
   },
 }
