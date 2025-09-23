@@ -190,6 +190,10 @@ return {
     end,
   },
   {
+    "linrongbin16/lsp-progress.nvim",
+    opts = {},
+  },
+  {
     "stevearc/conform.nvim",
     event = "VeryLazy",
     opts = {
