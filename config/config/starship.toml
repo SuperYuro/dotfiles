@@ -27,7 +27,7 @@ $character
 """
 
 add_newline = false
-palette = 'nordfox'
+palette = 'catppuccin_frappe'
 
 [package]
 disabled = true
@@ -43,6 +43,18 @@ yellow = '#ebcb8b'
 blue = '#81a1c1'
 cyan = '#88c0d0'
 white = '#e6e9f0'
+
+[palettes.catppuccin_frappe]
+foreground = "#c6d0f5"
+background = "#303446"
+separator = "#a5adce"
+black = "#414559"
+red = "#e78284"
+green = "#a6d189"
+yellow = "#e5c890"
+blue = "#8caaee"
+cyan = "#99d1db"
+white = "#b5bfe2"
 
 ## Left prompt
 [os]

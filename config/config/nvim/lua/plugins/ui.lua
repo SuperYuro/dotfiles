@@ -2,22 +2,50 @@ local icons = require("utils.icons")
 
 return {
   {
-    "EdenEast/nightfox.nvim",
-    lazy = false,
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
     opts = {
-      options = {
-        styles = {
-          comments = "italic",
-          functions = "bold,italic",
-          keywords = "bold",
+      flavour = "frappe",
+      float = {
+        solid = true,
+      },
+      styles = {
+        comments = { "italic" },
+        conditionals = {},
+        loops = {},
+        functions = { "bold", "italic" },
+        keywords = { "bold" },
+        strings = {},
+        variables = { "italic" },
+        numbers = {},
+        booleans = {},
+        properties = {},
+        types = {},
+        operators = {},
+      },
+      lsp_styles = {
+        virtual_text = {
+          errors = { "italic" },
+          hints = { "italic" },
+          warnings = { "italic" },
+          information = { "italic" },
+          ok = { "italic" },
         },
-        inverse = {
-          visual = true,
+        underlines = {
+          errors = { "underline" },
+          hints = { "underline" },
+          warnings = { "underline" },
+          information = { "underline" },
+          ok = { "underline" },
+        },
+        inlay_hints = {
+          background = true,
         },
       },
+      auto_integrations = true,
     },
-    init = function() vim.cmd("colorscheme nordfox") end,
+    init = function() vim.cmd("colorscheme catppuccin") end,
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -87,36 +115,36 @@ return {
   {
     "akinsho/bufferline.nvim",
     version = "*",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
     event = "UIEnter",
-    opts = {
-      options = {
-        mode = "tabs",
-        themable = true,
-        numbers = "buffer_id",
-        indicator = {
-          style = "icon",
+    opts = function()
+      return {
+        options = {
+          highlights = require("catppuccin.special.bufferline").get_theme(),
+          mode = "tabs",
+          themable = true,
+          numbers = "buffer_id",
+          indicator = {
+            style = "icon",
+          },
+          buffer_close_icon = "󰅖",
+          modified_icon = "●",
+          close_icon = "",
+          left_trunc_marker = "",
+          right_trunc_marker = "",
+          diagnostics = "nvim_lsp",
+          offsets = {},
+          color_icons = true,
+          show_buffer_icons = true,
+          show_buffer_close_icons = false,
+          show_close_icons = false,
+          show_tab_indicators = false,
+          show_duplicate_prefix = false,
+          separator_style = "slant",
+          always_show_bufferline = true,
+          sort_by = "tabs",
         },
-        buffer_close_icon = "󰅖",
-        modified_icon = "●",
-        close_icon = "",
-        left_trunc_marker = "",
-        right_trunc_marker = "",
-        diagnostics = "nvim_lsp",
-        offsets = {},
-        color_icons = true,
-        show_buffer_icons = true,
-        show_buffer_close_icons = false,
-        show_close_icons = false,
-        show_tab_indicators = false,
-        show_duplicate_prefix = false,
-        separator_style = "slant",
-        always_show_bufferline = true,
-        sort_by = "tabs",
-      },
-    },
+      }
+    end,
   },
   {
     "rcarriga/nvim-notify",
@@ -192,10 +220,6 @@ return {
   {
     "b0o/incline.nvim",
     event = "VeryLazy",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-      "EdenEast/nightfox.nvim",
-    },
     opts = {
       hide = {
         cursorline = false,
@@ -211,7 +235,7 @@ return {
       },
       render = function(props)
         local devicons = require("nvim-web-devicons")
-        local palette = require("nightfox.palette").load("nordfox")
+        local palette = require("catppuccin.palettes").get_palette("frappe")
 
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
         if filename == "" then
@@ -220,8 +244,8 @@ return {
         local ft_icon, _ = devicons.get_icon_color(filename)
         local modified = vim.bo[props.buf].modified
 
-        local bg = palette.blue.base
-        local fg = palette.bg0
+        local bg = props.focused and palette.flamingo or palette.blue
+        local fg = palette.base
 
         return {
           { " ", ft_icon, " ", filename, " ", guifg = fg, guibg = bg, gui = modified and "bold,italic" or "bold" },
