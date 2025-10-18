@@ -65,7 +65,7 @@ return {
         },
         lualine_x = {
           {
-            function() return require("lsp-progress").progress() end,
+            "filetype",
           },
           {
             "diagnostics",
@@ -74,9 +74,6 @@ return {
             colored = true,
             update_in_insert = true,
             always_visible = true,
-          },
-          {
-            "overseer",
           },
         },
         lualine_y = {
