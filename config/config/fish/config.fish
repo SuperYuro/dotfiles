@@ -52,7 +52,7 @@ end
 alias rl 'exec fish'
 
 alias cv "cd (ghq root)"
-alias gl "cd (ghq root)/(ghq list | fzf)"
+alias gl "cd (ghq root)/(ghq list | fzf --layout=reverse)"
 # alias cv "cd ~/Development"
 # alias ghl "cd ~/Development/(ls ~/Development | peco)"
 
@@ -85,6 +85,6 @@ alias pyvenv goto_venv
 
 starship init fish | source
 
-proto activate fish | source
+~/.nodenv/bin/nodenv init - fish | source
 
 set -x TMUX_SHELL (which fish)
