@@ -4,7 +4,11 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
-config.default_prog = { "/usr/bin/fish", "--login", "--interactive" }
+if wezterm.target_triple:find("linux") then
+	config.default_prog = { "/usr/bin/fish", "--login", "--interactive" }
+elseif wezterm.target_triple:find("darwin") then
+	config.default_prog = { "/opt/homebrew/bin/fish", "--login", "--interactive" }
+end
 
 config.initial_cols = 200
 config.initial_rows = 50
