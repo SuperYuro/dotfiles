@@ -1,6 +1,7 @@
---cookies-from-browser firefox
-
 --sleep-interval 1
 --max-sleep-interval 10
 
 -o "~/Videos/YouTube/%(title)s.%(ext)s"
+
+-f b
+--cookies-from-browser firefox
