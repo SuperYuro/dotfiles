@@ -22,6 +22,7 @@
     ghq
     fzf
     delta
+    bottom
     fastfetch
 
     nodejs
