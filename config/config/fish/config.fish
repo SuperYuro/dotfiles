@@ -85,6 +85,8 @@ alias pyvenv goto_venv
 
 starship init fish | source
 
-~/.nodenv/bin/nodenv init - fish | source
+# ~/.nodenv/bin/nodenv init - fish | source
+
+fish_config theme choose "Catppuccin Frappe"
 
 set -x TMUX_SHELL (which fish)
