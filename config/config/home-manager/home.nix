@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.username = "yuro";
@@ -10,7 +10,7 @@
   home.packages = with pkgs; [
     fish
     starship
-    neovim
+
     tmux
     lsd
     bat
@@ -24,6 +24,11 @@
     delta
     bottom
     fastfetch
+
+    neovim
+    nixd
+    nixpkgs-fmt
+    nixfmt-rfc-style
 
     nodejs
     python3

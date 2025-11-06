@@ -104,6 +104,8 @@ return {
 
       configure_lsp("gleam", {})
 
+      configure_lsp("nixd", {})
+
       configure_lsp("roslyn", {
         settings = {
           ["csharp|inlay_hints"] = {
