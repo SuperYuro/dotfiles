@@ -17,13 +17,20 @@
     fd
     ripgrep
     sd
+    dust
     lazygit
     gh
     ghq
     fzf
     delta
     bottom
+    btop
     fastfetch
+
+    yt-dlp
+
+    kubectl
+    k9s
 
     neovim
     nixd
