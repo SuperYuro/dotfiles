@@ -22,6 +22,7 @@ local ensure_installed = {
     "biome",
     "eslint",
 
+    "basedpyright",
     "ruff",
 
     "taplo",
@@ -31,9 +32,6 @@ local ensure_installed = {
     "stylua",
     "clang-format",
     "rustywind",
-
-    "black",
-    "isort",
 
     -- "jq",
     "yamlfmt",
@@ -114,6 +112,19 @@ return {
           },
           ["csharp|code_lens"] = {
             dotnet_enable_references_code_lens = true,
+          },
+        },
+      })
+
+      configure_lsp("basedpyright", {
+        settings = {
+          basedpyright = {
+            analysis = {
+              typeCheckingMode = "basic",
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+            },
+            disableOrganizeImports = true,
           },
         },
       })
