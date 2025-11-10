@@ -15,7 +15,7 @@ config.initial_cols = 200
 config.initial_rows = 50
 
 config.font = wezterm.font_with_fallback({ "PlemolJP Console NF", "Noto Color Emoji" })
-config.font_size = 12
+config.font_size = 13
 
 config.color_scheme = "Catppuccin Frappe"
 
