@@ -1,8 +1,11 @@
 return {
   diff = {
-    added = " ", -- nf-oct-diff_added
-    modified = " ", -- nf-oct-diff_modified
-    removed = " ", -- nf-oct-diff_removed
+    -- added = " ", -- nf-oct-diff_added
+    -- modified = " ", -- nf-oct-diff_modified
+    -- removed = " ", -- nf-oct-diff_removed
+    added = "[+]",
+    modified = "[*]",
+    removed = "[-]",
   },
   diagnostics = {
     error = " ", -- nf-oct-bug
