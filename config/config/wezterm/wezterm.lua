@@ -19,8 +19,10 @@ config.font_size = 13
 
 config.color_scheme = "Catppuccin Frappe"
 
-config.use_fancy_tab_bar = true
-config.enable_tab_bar = false
+config.use_fancy_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
+config.enable_tab_bar = true
+config.tab_bar_at_bottom = true
 
 -- すべてのデフォルトキーバインディングを無効化
 config.disable_default_key_bindings = true
@@ -62,6 +64,100 @@ config.keys = {
 		key = "Insert",
 		mods = "SHIFT",
 		action = wezterm.action.PasteFrom("PrimarySelection"),
+	},
+
+	-- ========================================
+	-- ウィンドウ操作
+	-- ========================================
+	-- 新しいウィンドウを作成 (macOS)
+	{
+		key = "n",
+		mods = "SUPER",
+		action = wezterm.action.SpawnWindow,
+	},
+	-- 新しいウィンドウを作成 (Windows/Linux)
+	{
+		key = "n",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.SpawnWindow,
+	},
+
+	-- ========================================
+	-- タブ操作
+	-- ========================================
+	-- 新しいタブを作成 (macOS)
+	{
+		key = "t",
+		mods = "SUPER",
+		action = wezterm.action.SpawnTab("CurrentPaneDomain"),
+	},
+	-- 新しいタブを作成 (Windows/Linux)
+	{
+		key = "t",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.SpawnTab("CurrentPaneDomain"),
+	},
+	-- タブを閉じる (macOS)
+	{
+		key = "w",
+		mods = "SUPER",
+		action = wezterm.action.CloseCurrentTab({ confirm = true }),
+	},
+	-- タブを閉じる (Windows/Linux)
+	{
+		key = "w",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.CloseCurrentTab({ confirm = true }),
+	},
+
+	-- 前のタブへ移動 (macOS)
+	{
+		key = "[",
+		mods = "SUPER|SHIFT",
+		action = wezterm.action.ActivateTabRelative(-1),
+	},
+	-- 次のタブへ移動 (macOS)
+	{
+		key = "]",
+		mods = "SUPER|SHIFT",
+		action = wezterm.action.ActivateTabRelative(1),
+	},
+	-- 前のタブへ移動 (Windows/Linux)
+	{
+		key = "Tab",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ActivateTabRelative(-1),
+	},
+	{
+		key = "PageUp",
+		mods = "CTRL",
+		action = wezterm.action.ActivateTabRelative(-1),
+	},
+	-- 次のタブへ移動 (Windows/Linux)
+	{
+		key = "Tab",
+		mods = "CTRL",
+		action = wezterm.action.ActivateTabRelative(1),
+	},
+	{
+		key = "PageDown",
+		mods = "CTRL",
+		action = wezterm.action.ActivateTabRelative(1),
+	},
+	-- ========================================
+	-- デバッグ・便利機能 (推奨)
+	-- ========================================
+	-- デバッグオーバーレイ
+	{
+		key = "L",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ShowDebugOverlay,
+	},
+	-- コマンドパレット
+	{
+		key = "P",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ActivateCommandPalette,
 	},
 }
 
