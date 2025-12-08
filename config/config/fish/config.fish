@@ -1,94 +1,65 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
 
-# Alias settings
-if type lsd >/dev/null 2>&1
-    alias ls lsd
-    alias lt 'lsd --tree'
-end
-
-if type bat >/dev/null 2>&1
-    alias cat bat
-else if type batcat >/dev/null 2>&1
-    alias cat batcat
-end
-
-alias l 'ls -1a'
-alias ll 'ls -lh'
-alias la 'ls -lha'
-
-alias c cd
-alias th touch
-alias md mkdir
-
-alias g git
-alias v nvim
-alias vt 'nvim -c :terminal'
-alias tm tmux
-alias dp 'docker compose'
-
-alias psh 'poetry shell'
-alias prt 'poetry run tmux'
-
-if type acpi >/dev/null 2>&1
-    alias bi 'acpi -bi'
-end
-
-if type xsel >/dev/null 2>&1
-    alias copy 'xsel --input --clipboard'
-end
-
-if type nvim >/dev/null 2>&1
-    set -Ux EDITOR nvim
-end
-
-if [ -d /mnt/c ]
-    alias code "/mnt/c/Users/SuperYuro/Appdata/Local/Programs/Microsoft\ VS\ Code/bin/code"
-    alias explorer "/mnt/c/Windows/explorer.exe"
-    alias clip "/mnt/c/Windows/system32/clip.exe"
-end
-
-alias rl 'exec fish'
-
-alias cv "cd (ghq root)"
-alias gl "cd (ghq root)/(ghq list | fzf --layout=reverse)"
-# alias cv "cd ~/Development"
-# alias ghl "cd ~/Development/(ls ~/Development | peco)"
-
-alias lg lazygit
-
-alias flutter "fvm flutter"
-
-function goto_venv
-    set -l venv_dirs ".venv" venv
-
-    for dir in $venv_dirs
-        if test -e "$dir/bin/activate.fish"
-            # 仮想環境をアクティブにする
-            source "$dir/bin/activate.fish"
-
-            # 新しいシェルインスタンスを開始
-            fish
-
-            # シェルインスタンスが終了したら仮想環境を終了する
-            deactivate
-            return 0
-        end
+    # Alias settings
+    if type lsd >/dev/null 2>&1
+        alias ls lsd
+        alias lt 'lsd --tree'
     end
 
-    echo "No venv script files are found."
-    return 1
+    if type bat >/dev/null 2>&1
+        alias cat bat
+    else if type batcat >/dev/null 2>&1
+        alias cat batcat
+    end
+
+    alias l 'ls -1a'
+    alias ll 'ls -lh'
+    alias la 'ls -lha'
+
+    alias c cd
+    alias th touch
+    alias md mkdir
+
+    alias g git
+    alias v nvim
+    alias vt 'nvim -c :terminal'
+    alias tm tmux
+    alias dp 'docker compose'
+
+    alias psh 'poetry shell'
+    alias prt 'poetry run tmux'
+
+    if type acpi >/dev/null 2>&1
+        alias bi 'acpi -bi'
+    end
+
+    if type xsel >/dev/null 2>&1
+        alias copy 'xsel --input --clipboard'
+    end
+
+    if type nvim >/dev/null 2>&1
+        set -Ux EDITOR nvim
+    end
+
+    if [ -d /mnt/c ]
+        alias code "/mnt/c/Users/SuperYuro/Appdata/Local/Programs/Microsoft\ VS\ Code/bin/code"
+        alias explorer "/mnt/c/Windows/explorer.exe"
+        alias clip "/mnt/c/Windows/system32/clip.exe"
+    end
+
+    alias rl 'exec fish'
+
+    alias gl ghq-tmux
+
+    alias pyvenv goto-venv
+
+    alias lg lazygit
+
+    starship init fish | source
+
+    fish_config theme choose "Catppuccin Frappe"
+
+    set -x FZF_DEFAULT_OPTS "--color=bg+:#414559,bg:#303446,spinner:#F2D5CF,hl:#E78284 --color=fg:#C6D0F5,header:#E78284,info:#CA9EE6,pointer:#F2D5CF --color=marker:#BABBF1,fg+:#C6D0F5,prompt:#CA9EE6,hl+:#E78284 --color=selected-bg:#51576D --color=border:#737994,label:#C6D0F5"
+
+    set -x TMUX_SHELL (which fish)
 end
-
-alias pyvenv goto_venv
-
-starship init fish | source
-
-# ~/.nodenv/bin/nodenv init - fish | source
-
-fish_config theme choose "Catppuccin Frappe"
-
-set -x FZF_DEFAULT_OPTS "--color=bg+:#414559,bg:#303446,spinner:#F2D5CF,hl:#E78284 --color=fg:#C6D0F5,header:#E78284,info:#CA9EE6,pointer:#F2D5CF --color=marker:#BABBF1,fg+:#C6D0F5,prompt:#CA9EE6,hl+:#E78284 --color=selected-bg:#51576D --color=border:#737994,label:#C6D0F5"
-
-set -x TMUX_SHELL (which fish)
