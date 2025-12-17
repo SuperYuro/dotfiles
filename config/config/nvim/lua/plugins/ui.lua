@@ -227,7 +227,7 @@ return {
       },
       window = {
         padding = 0,
-        margin = { horizontal = 1, vertical = 1 },
+        margin = { horizontal = 0, vertical = 0 },
         overlap = {
           winbar = true,
         },
@@ -243,8 +243,8 @@ return {
         local ft_icon, _ = devicons.get_icon_color(filename)
         local modified = vim.bo[props.buf].modified
 
-        local bg = props.focused and palette.flamingo or palette.blue
-        local fg = palette.base
+        local bg = props.focused and palette.blue or palette.base
+        local fg = props.focused and palette.base or palette.subtext0
 
         return {
           { " ", ft_icon, " ", filename, " ", guifg = fg, guibg = bg, gui = modified and "bold,italic" or "bold" },
