@@ -87,6 +87,9 @@ return {
       }
 
       local ts_ls_config = {
+        root_markers = {
+          "package.json",
+        },
         init_options = {
           plugins = {
             vue_plugin,
@@ -99,6 +102,11 @@ return {
 
       configure_lsp("vue_ls", vue_ls_config)
       configure_lsp("ts_ls", ts_ls_config)
+
+      -- configure_lsp("deno", {
+      --   cmd = { "deno", "lsp" },
+      --   root_markers = { "deno.json" },
+      -- })
 
       configure_lsp("gleam", {})
 

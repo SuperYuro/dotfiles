@@ -1,26 +1,8 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = { { "yioneko/nvim-yati", version = "*" } },
     build = ":TSUpdate",
-    -- lazy = false,
-    event = "UIEnter",
-    main = "nvim-treesitter.configs",
-    opts = {
-      ensure_installed = {},
-      auto_install = true,
-      highlight = { enable = true },
-      yati = {
-        enable = true,
-        -- Whether to enable lazy mode (recommend to enable this if bad indent happens frequently)
-        default_lazy = true,
-
-        default_fallback = "asis",
-      },
-      indent = {
-        enable = false, -- disable builtin indent module
-      },
-    },
+    lazy = false,
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
