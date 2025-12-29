@@ -9,6 +9,7 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     event = "VeryLazy",
     opts = {},
+    enabled = false,
   },
   {
     "stevearc/aerial.nvim",
