@@ -1,3 +1,5 @@
+local icons = require("utils.icons")
+
 return {
   {
     "catppuccin/nvim",
@@ -44,6 +46,71 @@ return {
       auto_integrations = true,
     },
     init = function() vim.cmd("colorscheme catppuccin") end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "UIEnter",
+    opts = {
+      options = {
+        icons_enabled = true,
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        theme = "auto",
+        disabled_filetypes = {},
+        ignore_focus = {},
+        always_divide_middle = false,
+        globalstatus = true,
+        refresh = {
+          statusline = 100,
+          tabline = 100,
+          winbar = 100,
+        },
+      },
+      sections = {
+        lualine_a = {
+          {
+            "mode",
+          },
+        },
+        lualine_b = {
+          {
+            "branch",
+          },
+        },
+        lualine_c = {
+          {
+            "diff",
+            colored = true,
+            symbols = icons.diff,
+          },
+          {
+            "filename",
+            file_status = false,
+            newfile_status = false,
+            path = 1,
+            -- symbols = {},
+          },
+        },
+        lualine_x = {
+          {
+            "filetype",
+          },
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic", "nvim_lsp" },
+            symbols = icons.diagnostics,
+            colored = true,
+            update_in_insert = true,
+            always_visible = true,
+          },
+        },
+        lualine_y = {
+          "encoding",
+          "fileformat",
+        },
+        lualine_z = { "progress", "location" },
+      },
+    },
   },
   {
     "akinsho/bufferline.nvim",
@@ -232,24 +299,5 @@ return {
   {
     "antosha417/nvim-lsp-file-operations",
     opts = {},
-  },
-  {
-    "mvllow/modes.nvim",
-    tag = "v0.2.1",
-    event = "VeryLazy",
-    opts = function()
-      local palette = require("catppuccin.palettes").get_palette("frappe")
-
-      return {
-        colors = {
-          copy = palette.yellow,
-          delete = palette.red,
-          format = palette.peach,
-          insert = palette.green,
-          replace = palette.teal,
-          visual = palette.mauve,
-        },
-      }
-    end,
   },
 }

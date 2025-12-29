@@ -1,7 +1,7 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    tag = "v0.2.0",
+    branch = "0.1.x",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
       { ";f", "<cmd>Telescope find_files<cr>", desc = "Telescope find files" },
@@ -46,8 +46,8 @@ return {
       { ";;", "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>", desc = "Telescope file browser" },
     },
     opts = {
-      theme = "dropdown",
-      hijack_netrw = true,
+      theme = "ivy",
+      hijack_netrw = false,
       initial_mode = "normal",
     },
     config = function(_, opts)
