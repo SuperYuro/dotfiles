@@ -17,6 +17,8 @@ vim.opt.backup = false
 vim.opt.showcmd = true
 vim.opt.cmdheight = 0
 vim.opt.laststatus = 0
+vim.opt.statusline = "─"
+vim.opt.fillchars:append({ stl = "─", stlnc = "─" })
 vim.opt.expandtab = true
 vim.opt.scrolloff = 10
 vim.opt.backupskip = "/etc/*,/usr/bin/*,/usr/share/*,/usr/src/*"

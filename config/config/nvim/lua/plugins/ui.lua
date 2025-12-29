@@ -1,5 +1,3 @@
-local icons = require("utils.icons")
-
 return {
   {
     "catppuccin/nvim",
@@ -156,13 +154,13 @@ return {
     event = "VeryLazy",
     opts = {
       hide = {
-        cursorline = false,
+        cursorline = true,
         focused_win = false,
         only_win = false,
       },
       window = {
         padding = 0,
-        margin = { horizontal = 0, vertical = 0 },
+        margin = { horizontal = 0, vertical = 1 },
         overlap = {
           winbar = true,
         },
@@ -170,6 +168,23 @@ return {
       render = function(props)
         local devicons = require("nvim-web-devicons")
         local palette = require("catppuccin.palettes").get_palette("frappe")
+
+        local function get_diagnostic_label()
+          local icons = require("utils.icons").diagnostics
+          local label = {}
+
+          for severity, icon in pairs(icons) do
+            local n = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity[string.upper(severity)] })
+            if n > 0 then
+              table.insert(label, { " " .. icon .. n, group = "DiagnosticSign" .. severity })
+            end
+          end
+          if #label > 0 then
+            table.insert(label, { " " })
+          end
+
+          return label
+        end
 
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
         if filename == "" then
@@ -182,6 +197,7 @@ return {
         local fg = props.focused and palette.base or palette.subtext0
 
         return {
+          { get_diagnostic_label() },
           { " ", ft_icon, " ", filename, " ", guifg = fg, guibg = bg, gui = modified and "bold,italic" or "bold" },
         }
       end,
