@@ -237,10 +237,10 @@ return {
         local palette = require("catppuccin.palettes").get_palette("frappe")
 
         local function get_diagnostic_label()
-          local icons = require("utils.icons").diagnostics
+          local diagnostics_icons = icons.diagnostics
           local label = {}
 
-          for severity, icon in pairs(icons) do
+          for severity, icon in pairs(diagnostics_icons) do
             local n = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity[string.upper(severity)] })
             if n > 0 then
               table.insert(label, { " " .. icon .. n, group = "DiagnosticSign" .. severity })
