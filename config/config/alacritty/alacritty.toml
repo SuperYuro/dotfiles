@@ -1,46 +1,84 @@
 [terminal]
-shell = "/bin/zsh"
+shell = "/opt/homebrew/bin/fish"
 
 [window.dimensions]
-columns = 160
-lines = 40
+columns = 120
+lines = 30
+
+[window.padding]
+x = 5
+y = 5
 
 [font]
-size = 12
-builtin_box_drawing = false
+size = 15
+builtin_box_drawing = true
 
 [font.normal]
-family = "UDEV Gothic NF"
+family = "PlemolJP35 Console NF"
 style = "Regular"
 
 [colors.primary]
-background = "0x2e3440"
-foreground = "0xcdcecf"
+background = "#303446"
+foreground = "#c6d0f5"
+dim_foreground = "#838ba7"
+bright_foreground = "#c6d0f5"
+
+[colors.cursor]
+text = "#303446"
+cursor = "#f2d5cf"
+
+[colors.vi_mode_cursor]
+text = "#303446"
+cursor = "#babbf1"
+
+[colors.search.matches]
+foreground = "#303446"
+background = "#a5adce"
+
+[colors.search.focused_match]
+foreground = "#303446"
+background = "#a6d189"
+
+[colors.footer_bar]
+foreground = "#303446"
+background = "#a5adce"
+
+[colors.hints.start]
+foreground = "#303446"
+background = "#e5c890"
+
+[colors.hints.end]
+foreground = "#303446"
+background = "#a5adce"
+
+[colors.selection]
+text = "#303446"
+background = "#f2d5cf"
 
 [colors.normal]
-black = "0x3b4252"
-blue = "0x81a1c1"
-cyan = "0x88c0d0"
-green = "0xa3be8c"
-magenta = "0xb48ead"
-red = "0xbf616a"
-white = "0xe5e9f0"
-yellow = "0xebcb8b"
+black = "#51576d"
+red = "#e78284"
+green = "#a6d189"
+yellow = "#e5c890"
+blue = "#8caaee"
+magenta = "#f4b8e4"
+cyan = "#81c8be"
+white = "#b5bfe2"
 
 [colors.bright]
-black = "0x465780"
-blue = "0x8cafd2"
-cyan = "0x93ccdc"
-green = "0xb1d196"
-magenta = "0xc895bf"
-red = "0xd06f79"
-white = "0xe7ecf4"
-yellow = "0xf0d399"
+black = "#626880"
+red = "#e78284"
+green = "#a6d189"
+yellow = "#e5c890"
+blue = "#8caaee"
+magenta = "#f4b8e4"
+cyan = "#81c8be"
+white = "#a5adce"
 
 [[colors.indexed_colors]]
-color = "0xc9826b"
 index = 16
+color = "#ef9f76"
 
 [[colors.indexed_colors]]
-color = "0xbf88bc"
 index = 17
+color = "#f2d5cf"
