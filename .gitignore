@@ -10,3 +10,4 @@ config/config/hypr/monitor.conf
 
 # Neovim
 config/config/nvim/lazy-lock.json
+config/config/fish/conf.d
