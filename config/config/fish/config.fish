@@ -26,8 +26,6 @@ if status is-interactive
     alias tm tmux
     alias dp 'docker compose'
 
-    alias psh 'poetry shell'
-    alias prt 'poetry run tmux'
 
     if type acpi >/dev/null 2>&1
         alias bi 'acpi -bi'
