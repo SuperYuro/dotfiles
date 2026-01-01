@@ -55,6 +55,7 @@ if status is-interactive
     alias lg lazygit
 
     starship init fish | source
+    proto activate fish | source
     direnv hook fish | source
 
     fish_config theme choose "Catppuccin Frappe"
