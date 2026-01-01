@@ -26,6 +26,7 @@ if status is-interactive
     alias tm tmux
     alias dp 'docker compose'
 
+    abbr da "direnv allow"
 
     if type acpi >/dev/null 2>&1
         alias bi 'acpi -bi'
@@ -54,6 +55,7 @@ if status is-interactive
     alias lg lazygit
 
     starship init fish | source
+    direnv hook fish | source
 
     fish_config theme choose "Catppuccin Frappe"
 
