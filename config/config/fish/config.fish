@@ -23,14 +23,12 @@ if status is-interactive
     alias g git
     alias v nvim
     alias vt 'nvim -c :terminal'
-    alias tm tmux
-    alias dp 'docker compose'
+
+    alias tm open-tmux
+
+    abbr dp 'docker compose'
 
     abbr da "direnv allow"
-
-    if type acpi >/dev/null 2>&1
-        alias bi 'acpi -bi'
-    end
 
     if type xsel >/dev/null 2>&1
         alias copy 'xsel --input --clipboard'
@@ -38,12 +36,6 @@ if status is-interactive
 
     if type nvim >/dev/null 2>&1
         set -Ux EDITOR nvim
-    end
-
-    if [ -d /mnt/c ]
-        alias code "/mnt/c/Users/SuperYuro/Appdata/Local/Programs/Microsoft\ VS\ Code/bin/code"
-        alias explorer "/mnt/c/Windows/explorer.exe"
-        alias clip "/mnt/c/Windows/system32/clip.exe"
     end
 
     alias rl 'exec fish'
