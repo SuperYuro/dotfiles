@@ -1,6 +1,0 @@
-sys-apps/sd ~amd64
-app-misc/ghq ~amd64
-dev-util/github-cli ~amd64
-dev-vcs/lazygit ~amd64
-app-shells/peco ~amd64
-sys-apps/pnpm-bin ~amd64

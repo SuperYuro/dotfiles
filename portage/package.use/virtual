@@ -1,7 +1,0 @@
-app-emulation/libvirt qemu virt-network libvirtd policykit udev
-app-emulation/qemu spice gtk slirp opengl usb udev vhost-net virtfs
-app-emulation/virt-manager gtk policykit
-
-net-misc/spice-gtk usbredir
-net-dns/dnsmasq script
-net-libs/gnutls pkcs11 tools
