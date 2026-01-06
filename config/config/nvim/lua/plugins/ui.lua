@@ -7,6 +7,7 @@ return {
     priority = 1000,
     opts = {
       flavour = "frappe",
+      transparent_background = true,
       float = {
         solid = true,
       },
@@ -53,8 +54,6 @@ return {
     opts = {
       options = {
         icons_enabled = true,
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
         theme = "auto",
         disabled_filetypes = {},
         ignore_focus = {},
@@ -139,7 +138,7 @@ return {
           show_close_icons = false,
           show_tab_indicators = false,
           show_duplicate_prefix = false,
-          separator_style = "slant",
+          separator_style = "thin",
           always_show_bufferline = true,
           sort_by = "tabs",
         },
