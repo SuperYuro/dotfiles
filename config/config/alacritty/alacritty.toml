@@ -1,9 +1,13 @@
 [terminal]
 shell = "/opt/homebrew/bin/fish"
 
+[window]
+opacity = 0.8
+blur = true
+
 [window.dimensions]
 columns = 120
-lines = 30
+lines = 40
 
 [window.padding]
 x = 5
