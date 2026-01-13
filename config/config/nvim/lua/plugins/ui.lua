@@ -9,7 +9,8 @@ return {
       flavour = "frappe",
       transparent_background = true,
       float = {
-        solid = true,
+        transparent = true,
+        solid = false,
       },
       styles = {
         comments = { "italic" },
