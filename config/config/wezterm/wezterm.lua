@@ -11,37 +11,72 @@ config.font = wezterm.font_with_fallback({ "PlemolJP Console NF", "Noto Color Em
 
 config.color_scheme = "Catppuccin Frappe"
 
-config.window_frame = {
-	-- The font used in the tab bar.
-	-- Roboto Bold is the default; this font is bundled
-	-- with wezterm.
-	-- Whatever font is selected here, it will have the
-	-- main font setting appended to it to pick up any
-	-- fallback fonts you may have used there.
-	font = wezterm.font({ family = "PlemolJP Console HS", weight = "Bold" }),
+config.use_ime = true
 
-	-- The size of the font in the tab bar.
-	-- Default to 10.0 on Windows but 12.0 on other systems
-	font_size = 13.0,
-}
-
-config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
+config.window_decorations = "TITLE | RESIZE"
+config.window_background_opacity = 0.75
 
 config.use_fancy_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = false
 config.enable_tab_bar = true
-config.tab_bar_at_bottom = false
+config.tab_bar_at_bottom = true
+config.show_new_tab_button_in_tab_bar = false
+-- config.show_close_tab_button_in_tabs = false
+config.show_tab_index_in_tab_bar = false
+
+config.window_frame = {
+	font = wezterm.font({ family = "PlemolJP NF", weight = "Bold" }),
+	font_size = 12.0,
+	inactive_titlebar_bg = "none",
+	active_titlebar_bg = "none",
+}
+
+config.window_background_gradient = {
+	colors = { "#303446" },
+}
+
+config.colors = {
+	tab_bar = {
+		inactive_tab_edge = "none",
+	},
+}
+
+local tab_left = wezterm.nerdfonts.ple_lower_right_triangle
+local tab_right = wezterm.nerdfonts.ple_lower_left_triangle
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+	local background = "#303446"
+	local foreground = "#c6d0f5"
+	local edge_background = "none"
+
+	if tab.is_active then
+		background = "#8caaee"
+		foreground = "#303446"
+	end
+
+	local edge_foreground = background
+	local title = "   " .. wezterm.truncate_right(tab.active_pane.title, max_width - 1) .. "   "
+
+	return {
+		{ Background = { Color = edge_background } },
+		{ Foreground = { Color = edge_foreground } },
+		{ Text = tab_left },
+		{ Background = { Color = background } },
+		{ Foreground = { Color = foreground } },
+		{ Text = title },
+		{ Background = { Color = edge_background } },
+		{ Foreground = { Color = edge_foreground } },
+		{ Text = tab_right },
+	}
+end)
 
 -- すべてのデフォルトキーバインディングを無効化
 config.disable_default_key_bindings = true
 
 -- クリップボード関連のキーバインディングのみを明示的に設定
-
 if wezterm.target_triple:find("linux") then
 	config.default_prog = { "/usr/bin/fish", "--login", "--interactive" }
 	config.font_size = 13
-
-	config.integrated_title_button_style = "Gnome"
 
 	config.keys = {
 		-- コピー (Windows/Linux)
