@@ -15,8 +15,7 @@ vim.opt.title = true
 vim.opt.hlsearch = true
 vim.opt.backup = false
 vim.opt.showcmd = true
-vim.opt.cmdheight = 1
-vim.opt.laststatus = 3
+vim.opt.cmdheight = 0
 vim.opt.expandtab = true
 vim.opt.scrolloff = 10
 vim.opt.backupskip = "/etc/*,/usr/bin/*,/usr/share/*,/usr/src/*"
@@ -56,3 +55,8 @@ vim.opt.background = "dark"
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- clear statusline
+vim.opt.laststatus = 0
+vim.opt.statusline = "─"
+vim.opt.fillchars:append({ stl = "─", stlnc = "─" })

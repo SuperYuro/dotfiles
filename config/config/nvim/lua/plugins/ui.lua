@@ -52,6 +52,7 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "UIEnter",
+    enabled = false,
     opts = {
       options = {
         icons_enabled = true,
