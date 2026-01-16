@@ -7,10 +7,9 @@ return {
     priority = 1000,
     opts = {
       flavour = "frappe",
-      transparent_background = true,
       float = {
-        transparent = true,
-        solid = false,
+        transparent = false,
+        solid = true,
       },
       styles = {
         comments = { "italic" },
@@ -140,7 +139,7 @@ return {
           show_close_icons = false,
           show_tab_indicators = false,
           show_duplicate_prefix = false,
-          separator_style = "thin",
+          separator_style = "slant",
           always_show_bufferline = true,
           sort_by = "tabs",
         },
@@ -300,5 +299,28 @@ return {
   {
     "antosha417/nvim-lsp-file-operations",
     opts = {},
+  },
+  {
+    "mvllow/modes.nvim",
+    tag = "v0.2.1",
+    event = "VeryLazy",
+    opts = function()
+      local palette = require("catppuccin.palettes").get_palette("frappe")
+
+      return {
+        colors = {
+          bg = "",
+          copy = palette.yellow,
+          delete = palette.red,
+          change = palette.red,
+          format = palette.crust,
+          insert = palette.blue,
+          replace = palette.sky,
+          select = palette.lavender,
+          visual = palette.lavender,
+        },
+        line_opacity = 0.25,
+      }
+    end,
   },
 }
