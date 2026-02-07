@@ -57,6 +57,6 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- clear statusline
-vim.opt.laststatus = 0
-vim.opt.statusline = "─"
-vim.opt.fillchars:append({ stl = "─", stlnc = "─" })
+-- vim.opt.laststatus = 0
+-- vim.opt.statusline = "─"
+-- vim.opt.fillchars:append({ stl = "─", stlnc = "─" })
