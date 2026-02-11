@@ -16,6 +16,8 @@ if status is-interactive
     alias ll 'ls -lh'
     alias la 'ls -lha'
 
+    abbr wcl "wc -l"
+
     alias c cd
     alias th touch
     alias md mkdir
