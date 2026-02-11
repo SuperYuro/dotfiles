@@ -4,4 +4,4 @@
 -o "~/Videos/YouTube/%(channel)s/%(title)s.%(ext)s"
 
 -f bestvideo+bestaudio
---cookies-from-browser chrome
+--cookies-from-browser firefox
