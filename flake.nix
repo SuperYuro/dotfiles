@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,6 +25,7 @@
   outputs =
     {
       nixpkgs,
+      nixpkgs-unstable,
       disko,
       # impermanence,
       home-manager,
@@ -42,6 +44,7 @@
     {
       nixosConfigurations = {
         magenta = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit nixpkgs-unstable; };
           modules = [
             disko.nixosModules.disko
             # impermanence.nixosModules.impermanence
@@ -62,6 +65,7 @@
         };
 
         midori = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit nixpkgs-unstable; };
           modules = [
             disko.nixosModules.disko
             # impermanence.nixosModules.impermanence

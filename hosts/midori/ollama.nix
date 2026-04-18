@@ -1,9 +1,15 @@
-{ ... }:
+{ pkgs, nixpkgs-unstable, ... }:
 
+let
+  unstable = import nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+in
 {
   services.ollama = {
     enable = true;
     openFirewall = true;
-    acceleration = "cuda";
+    package = unstable.ollama-cuda;
   };
 }
