@@ -1,0 +1,39 @@
+Emacs*UseXIM: false
+
+UXTerm*termName: xterm-256color
+
+UXTerm*scrollBar: hide
+
+UXTerm*locale: true
+UXTerm*metaSendsEscape: true
+
+UXTerm*vt100.backarrowkey: false
+UXTerm*ttymodes: erase ^?
+
+UXTerm*borderWidth: 0
+
+UXTerm*faceName: Hack Nerd Font:style=Regular:antialias=true
+UXTerm*faceNameDoublesize: Noto Sans CJK JP
+UXTerm*faceSize: 10
+
+! Nightfox colors for Xresources
+! Style: nordfox
+! Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/nordfox/nightfox_xresources.Xresources
+UXTerm*background: #2e3440
+UXTerm*foreground: #cdcecf
+UXTerm*color0:  #3b4252
+UXTerm*color1:  #bf616a
+UXTerm*color2:  #a3be8c
+UXTerm*color3:  #ebcb8b
+UXTerm*color4:  #81a1c1
+UXTerm*color5:  #b48ead
+UXTerm*color6:  #88c0d0
+UXTerm*color7:  #e5e9f0
+UXTerm*color8:  #465780
+UXTerm*color9:  #d06f79
+UXTerm*color10: #b1d196
+UXTerm*color11: #f0d399
+UXTerm*color12: #8cafd2
+UXTerm*color13: #c895bf
+UXTerm*color14: #93ccdc
+UXTerm*color15: #e7ecf4

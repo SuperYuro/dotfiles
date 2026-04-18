@@ -1,0 +1,99 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: "UDEV Gothic 35NFLG", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+
+    background-color: transparent;
+}
+
+tooltip,
+menu {
+    background-color: #2e3440;
+    color: #cdcecf;
+}
+
+/* general module config */
+#pulseaudio,
+#clock,
+#cpu,
+#memory,
+#tray {
+    border-radius: 5px;
+    padding: 1px 10px;
+    margin: 5px;
+
+    color: #cdcecf;
+    background-color: #5a657d;
+}
+
+#workspaces button {
+    padding: 1px 5px;
+    margin: 5px;
+    color: #cdcecf;
+}
+
+#workspaces button.active {
+    background-color: #81a1c1;
+    color: #2e3440;
+}
+
+#workspaces button.empty {
+    background-color: #2e3440;
+}
+
+#workspaces button.visible {
+    background-color: #81a1c1;
+    color: #2e3440;
+}
+
+#workspaces button.persistent {
+    background-color: #2e3440;
+}
+
+#workspaces button.urgent {
+    background-color: #c9826b;
+    color: #2e3440;
+}
+
+#window {
+    border-radius: 10px;
+    margin: 1px 5px;
+    padding: 1px 20px;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+#tray>.needs-attention {
+    background-color: #c9826b;
+}
+
+#custom-lock,
+#custom-suspend,
+#custom-reboot,
+#custom-shutdown {
+    color: #2e3440;
+    padding: 1px 5px;
+    margin: 5px 0px;
+}
+
+#custom-lock {
+    margin-left: 5px;
+    border-radius: 5px 0px 0px 5px;
+    background-color: #a3be8c;
+}
+
+#custom-suspend {
+    background-color: #ebcb8b;
+}
+
+#custom-reboot {
+    background-color: #c9826b;
+}
+
+#custom-shutdown {
+    margin-right: 5px;
+    border-radius: 0px 5px 5px 0px;
+    background-color: #d06f79;
+}
