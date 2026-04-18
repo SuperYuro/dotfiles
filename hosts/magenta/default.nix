@@ -33,6 +33,8 @@
     curl
     wget
 
+    net-tools
+
     docker-compose
     docker-buildx
   ];
