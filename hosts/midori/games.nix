@@ -1,8 +1,16 @@
-{ ... }:
+{ pkgs, nixpkgs-unstable, ... }:
 
+let
+  unstable = import nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+in
 {
   services.minecraft-server = {
     enable = true;
+    package = unstable.minecraft-server;
+
     eula = true;
     openFirewall = true;
 
