@@ -9,6 +9,7 @@
     ./server.nix
     ./games.nix
     ./monitor.nix
+    ./ollama.nix
   ];
 
   networking.hostName = "midori"; # Define your hostname.

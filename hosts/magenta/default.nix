@@ -9,6 +9,7 @@
     ./desktop.nix
     ./monitor.nix
     ./games.nix
+    ./ollama.nix
   ];
 
   networking.hostName = "magenta"; # Define your hostname.
