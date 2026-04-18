@@ -39,7 +39,13 @@
   ];
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
+  };
 
   services.avahi = {
     enable = true;
@@ -50,6 +56,9 @@
       enable = true;
       workstation = true;
       addresses = true;
+    };
+    extraServiceFiles = {
+      ssh = "${pkgs.avahi}/etc/avahi/services/ssh.service";
     };
   };
 
