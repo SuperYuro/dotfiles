@@ -35,6 +35,8 @@
     LIBVA_DRIVER_NAME = "iHD";
   };
 
+  powerManagement.cpuFreqGovernor = "performance";
+
   hardware = {
     cpu.intel.npu.enable = true;
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

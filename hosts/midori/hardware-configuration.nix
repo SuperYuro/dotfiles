@@ -29,6 +29,8 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  powerManagement.cpuFreqGovernor = "performance";
+
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
