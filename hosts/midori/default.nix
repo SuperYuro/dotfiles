@@ -7,7 +7,6 @@
     ./boot-loader.nix
     ./ffmpeg.nix
     ./server.nix
-    ./games.nix
     ./monitor.nix
     ./ollama.nix
   ];
