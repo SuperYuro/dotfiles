@@ -60,6 +60,26 @@
             }
           ];
         };
+
+        midori = nixpkgs.lib.nixosSystem {
+          modules = [
+            disko.nixosModules.disko
+            # impermanence.nixosModules.impermanence
+            catppuccin.nixosModules.catppuccin
+            home-manager.nixosModules.home-manager
+
+            ./disko/midori.nix
+            ./system
+            ./hosts/midori
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.yuro = {
+                imports = homeModules;
+              };
+            }
+          ];
+        };
       };
     };
 }
