@@ -15,13 +15,18 @@
 
   networking.networkmanager.enable = true;
 
-  users.users.yuro.extraGroups = [
-    "networkmanager"
-    "wheel"
-    "video"
-    "render"
-    "docker"
-  ];
+  users.users.yuro = {
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "render"
+      "docker"
+    ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOfPIHLXZYsZQg6MSDgEXMKegtN6+yOmx/YC5nfuwKBD yuro@midori"
+    ];
+  };
 
   security.sudo = {
     wheelNeedsPassword = false;
