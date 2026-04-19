@@ -10,6 +10,7 @@
     ./monitor.nix
     ./games.nix
     ./ollama.nix
+    ./virtualisation.nix
   ];
 
   networking.hostName = "magenta"; # Define your hostname.
@@ -21,7 +22,6 @@
     "wheel"
     "video"
     "render"
-    "docker"
   ];
 
   security.sudo = {
@@ -35,9 +35,6 @@
     wget
 
     net-tools
-
-    docker-compose
-    docker-buildx
   ];
 
   # Enable the OpenSSH daemon.
@@ -53,9 +50,5 @@
       workstation = true;
       addresses = true;
     };
-  };
-
-  virtualisation.docker = {
-    enable = true;
   };
 }
