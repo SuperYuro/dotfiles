@@ -116,9 +116,9 @@
         format = "[$all_status ]($style)";
         style = "bg:black fg:foreground";
         conflicted = "=";
-        ahead = "⇡";
-        behind = "⇣";
-        diverged = "⇕";
+        ahead = "⇡\${count}";
+        behind = "⇣\${count}";
+        diverged = "⇡\${ahead_count}⇣\${behind_count}";
         up_to_date = "";
         untracked = "?";
         stashed = "$";
