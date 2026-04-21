@@ -9,6 +9,7 @@
     ./games.nix
     ./ollama.nix
     ./virtualisation.nix
+    ../../system/impermanence.nix
   ];
 
   networking.hostName = "magenta"; # Define your hostname.

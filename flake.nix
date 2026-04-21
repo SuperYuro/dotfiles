@@ -20,6 +20,9 @@
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    impermanence = {
+      url = "github:nix-community/impermanence";
+    };
   };
 
   outputs =
@@ -31,6 +34,7 @@
       nixvim,
       nix-claude-code,
       disko,
+      impermanence,
       ...
     }:
     let
@@ -49,6 +53,7 @@
             disko.nixosModules.disko
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
+            impermanence.nixosModules.impermanence
 
             ./disko/magenta.nix
             ./system

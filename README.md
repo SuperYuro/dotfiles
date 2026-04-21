@@ -22,9 +22,11 @@ $   --mode disko ./disko/magenta.nix
 
 $ sudo nixos-install --flake .#magenta
 
-$ sudo nixos-enter --root /mnt
-$ passwd yuro
-$ exit
+# パスワードを /persist に設置（passwd の代わり）
+$ sudo mkdir -p /mnt/persist/passwords
+$ nix shell nixpkgs#mkpasswd -c 'mkpasswd -m sha-512' \
+$   | sudo tee /mnt/persist/passwords/yuro
+$ sudo chmod 600 /mnt/persist/passwords/yuro
 
 $ sudo reboot
 ```
