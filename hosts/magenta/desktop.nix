@@ -86,11 +86,10 @@ in
 
   programs.foot = {
     enable = true;
-    enableFishIntegration = true;
+    enableZshIntegration = true;
     theme = "catppuccin-frappe";
     settings = {
       main = {
-        shell = "${pkgs.fish}/bin/fish";
         font = "PlemolJP Console NF:size=12";
         line-height = "19px";
         initial-window-size-pixels = "1920x1080";

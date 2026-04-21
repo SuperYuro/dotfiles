@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -10,8 +10,8 @@
     "flakes"
   ];
 
-  programs.fish.enable = true;
-  environment.pathsToLink = [ "/share/fish" ];
+  programs.zsh.enable = true;
+  environment.pathsToLink = [ "/share/zsh" ];
 
   programs.nix-ld.enable = true;
 
@@ -20,6 +20,7 @@
   users.users.yuro = {
     isNormalUser = true;
     description = "SuperYuro";
+    shell = pkgs.zsh;
   };
 
   # This value determines the NixOS release from which the default

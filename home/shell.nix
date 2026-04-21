@@ -1,8 +1,25 @@
 { ... }:
 
 {
-  programs.fish = {
+  programs.zsh = {
     enable = true;
+    enableCompletion = true;
+    autocd = true;
+    autosuggestion = {
+      enable = true;
+    };
+    syntaxHighlighting = {
+      enable = true;
+    };
+    defaultKeymap = "emacs";
+    history = {
+      append = true;
+      ignoreDups = true;
+      ignoreSpace = true;
+      save = 100000000;
+      saveNoDups = false;
+      size = 100000000;
+    };
     shellAliases = {
       c = "cd";
       th = "touch";
@@ -10,59 +27,48 @@
       g = "git";
       v = "nvim";
       pyvenv = "goto-venv";
-    };
-    shellAbbrs = {
-      wcl = "wc -l";
-      tm = "open-tmux";
+      tm = "launch-tmux";
       gl = "ghq-tmux";
-      dp = "docker compose";
+      wcl = "wc -l";
       da = "direnv allow";
     };
-    functions = {
+    zsh-abbr = {
+      enable = true;
+      abbreviations = {
+        dp = "docker compose";
+      };
+    };
+    siteFunctions = {
+      launch-tmux = ''
+        if [[ $# -eq 0 ]]; then
+          tmux new-session -A -s "''${PWD##*/}"
+        else
+          tmux new-session -A -s "$1"
+        fi
+      '';
       ghq-tmux = ''
-        function ghq-tmux
-          set -l repository (ghq root)/(ghq list | fzf --layout=reverse)
+        local repository="$(ghq root)/$(ghq list | fzf --layout=reverse)"
 
-          if test -z "$repository"
-            return 0
-          end
+        if [[ -z "$repository" || "$repository" == "$(ghq root)/" ]]; then
+          return 0
+        fi
 
-          set -l session_name (basename $repository)
+        local session_name="''${repository##*/}"
 
-          # 新しいセッションを作成（作業ディレクトリを指定）
-          tmux new-session -A -s $session_name -c $repository
-        end
+        tmux new-session -A -s "$session_name" -c "$repository"
       '';
       goto-venv = ''
-        function goto-venv
-          set -l venv_dirs ".venv" venv
-
-          for dir in $venv_dirs
-            if test -e "$dir/bin/activate.fish"
-              # 仮想環境をアクティブにする
-              source "$dir/bin/activate.fish"
-
-              # 新しいシェルインスタンスを開始
-              fish
-
-              # シェルインスタンスが終了したら仮想環境を終了する
-              deactivate
-              return 0
-            end
-          end
-
-          echo "No venv script files are found."
-          return 1
-        end
-      '';
-      open-tmux = ''
-        function open-tmux
-          if test (count $argv) -eq 0
-            tmux new-session -A -s (basename (pwd))
-          else
-            tmux new-session -A -s $argv[1]
-          end
-        end
+        local venv_dirs=(".venv" "venv")
+        for dir in "''${venv_dirs[@]}"; do
+          if [[ -e "$dir/bin/activate" ]]; then
+            source "$dir/bin/activate"
+            zsh
+            deactivate
+            return 0
+          fi
+        done
+        echo "No venv script files are found."
+        return 1
       '';
     };
   };

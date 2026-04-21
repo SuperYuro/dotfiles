@@ -3,7 +3,7 @@
 {
   programs.lsd = {
     enable = true;
-    enableFishIntegration = true;
+    enableZshIntegration = true;
   };
 
   programs.bat = {
@@ -25,7 +25,7 @@
 
   programs.fzf = {
     enable = true;
-    enableFishIntegration = true;
+    enableZshIntegration = true;
   };
 
   programs.direnv = {

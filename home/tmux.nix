@@ -8,7 +8,6 @@
     keyMode = "vi";
     mouse = true;
     shortcut = "x";
-    shell = "${pkgs.fish}/bin/fish";
     terminal = "xterm-256color";
     historyLimit = 1048576;
     extraConfig = ''
