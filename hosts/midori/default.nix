@@ -3,8 +3,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./locale.nix
-    ./boot-loader.nix
     ./ffmpeg.nix
     ./server.nix
     ./monitor.nix

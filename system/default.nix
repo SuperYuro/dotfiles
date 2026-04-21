@@ -3,6 +3,8 @@
 {
   imports = [
     ./catppuccin.nix
+    ./boot-loader.nix
+    ./locale.nix
   ];
 
   nix.settings.experimental-features = [

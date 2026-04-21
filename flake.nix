@@ -16,9 +16,6 @@
     nix-claude-code = {
       url = "github:ryoppippi/nix-claude-code";
     };
-    # impermanence = {
-    #   url = "github:nix-community/impermanence";
-    # };
     disko = {
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,7 +30,6 @@
       catppuccin,
       nixvim,
       nix-claude-code,
-      # impermanence,
       disko,
       ...
     }:
@@ -51,7 +47,6 @@
           specialArgs = { inherit nixpkgs-unstable; };
           modules = [
             disko.nixosModules.disko
-            # impermanence.nixosModules.impermanence
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
 
@@ -74,7 +69,6 @@
           specialArgs = { inherit nixpkgs-unstable; };
           modules = [
             disko.nixosModules.disko
-            # impermanence.nixosModules.impermanence
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
 
