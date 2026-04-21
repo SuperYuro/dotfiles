@@ -13,6 +13,9 @@
       url = "github:nix-community/nixvim/nixos-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-claude-code = {
+      url = "github:ryoppippi/nix-claude-code";
+    };
     # impermanence = {
     #   url = "github:nix-community/impermanence";
     # };
@@ -26,11 +29,12 @@
     {
       nixpkgs,
       nixpkgs-unstable,
-      disko,
-      # impermanence,
       home-manager,
       catppuccin,
       nixvim,
+      nix-claude-code,
+      # impermanence,
+      disko,
       ...
     }:
     let
@@ -55,6 +59,8 @@
             ./system
             ./hosts/magenta
             {
+              nixpkgs.overlays = [ nix-claude-code.overlays.default ];
+
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.yuro = {

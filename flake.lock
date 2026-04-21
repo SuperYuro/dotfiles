@@ -128,6 +128,24 @@
         "type": "github"
       }
     },
+    "nix-claude-code": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1776715915,
+        "narHash": "sha256-I7fkAJ6AVn5DYMHbEKrSJs3tEeKfttlV+KtAJQGiZNk=",
+        "owner": "ryoppippi",
+        "repo": "nix-claude-code",
+        "rev": "2a785ef23ac866c91b372c89ea75eae95ece5832",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ryoppippi",
+        "repo": "nix-claude-code",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1764521362,
@@ -161,6 +179,22 @@
       }
     },
     "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1774106199,
+        "narHash": "sha256-US5Tda2sKmjrg2lNHQL3jRQ6p96cgfWh3J1QBliQ8Ws=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "6c9a78c09ff4d6c21d0319114873508a6ec01655",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1776434932,
         "narHash": "sha256-gyqXNMgk3sh+ogY5svd2eNLJ6oEwzbAeaoBrrxD0lKk=",
@@ -228,7 +262,8 @@
         "catppuccin": "catppuccin",
         "disko": "disko",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_2",
+        "nix-claude-code": "nix-claude-code",
+        "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim"
       }
