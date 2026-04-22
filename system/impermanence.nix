@@ -18,7 +18,6 @@
       "/var/lib/bluetooth"
       "/var/lib/systemd/coredump"
       "/var/lib/docker"
-      "/var/lib/libvirt"
       "/var/lib/ollama"
     ];
     files = [

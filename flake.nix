@@ -76,6 +76,7 @@
             disko.nixosModules.disko
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
+            impermanence.nixosModules.impermanence
 
             ./disko/midori.nix
             ./system

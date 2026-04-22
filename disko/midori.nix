@@ -30,6 +30,12 @@
                   "nixos"
                   "-f"
                 ]; # ラベル "nixos" を付与
+                postCreateHook = ''
+                  MNTPOINT=$(mktemp -d)
+                  mount -t btrfs -o subvol=/ /dev/disk/by-label/nixos "$MNTPOINT"
+                  trap 'umount "$MNTPOINT"; rm -rf "$MNTPOINT"' EXIT
+                  btrfs subvolume snapshot -r "$MNTPOINT/root" "$MNTPOINT/root-blank"
+                '';
                 subvolumes = {
                   "/root" = {
                     mountpoint = "/";

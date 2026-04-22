@@ -7,6 +7,7 @@
     ./server.nix
     ./monitor.nix
     ./ollama.nix
+    ../../system/impermanence.nix
   ];
 
   networking.hostName = "midori"; # Define your hostname.
