@@ -93,6 +93,7 @@ in
         font = "PlemolJP Console NF:size=12";
         line-height = "19px";
         initial-window-size-pixels = "1920x1080";
+        pad = "5x5 center";
       };
     };
   };
