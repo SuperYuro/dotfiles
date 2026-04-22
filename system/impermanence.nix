@@ -14,6 +14,7 @@
   environment.persistence."/persist" = {
     hideMounts = true;
     directories = [
+      "/var/lib/nixos"
       "/etc/NetworkManager/system-connections"
       "/var/lib/bluetooth"
       "/var/lib/systemd/coredump"
