@@ -1,4 +1,9 @@
-{ pkgs, nixpkgs-unstable, ... }:
+{
+  pkgs,
+  lib,
+  nixpkgs-unstable,
+  ...
+}:
 
 let
   unstable = import nixpkgs-unstable {
@@ -10,6 +15,12 @@ in
   services.ollama = {
     enable = true;
     openFirewall = true;
+    loadModels = [
+      #
+    ];
     package = unstable.ollama-vulkan;
   };
+
+  # DynamicUser=true だと /var/lib/private が 0700 必須になり Impermanence と競合するため無効化
+  systemd.services.ollama.serviceConfig.DynamicUser = lib.mkForce false;
 }
