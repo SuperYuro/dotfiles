@@ -1,8 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, nixpkgs-unstable, ... }:
 
+let
+  unstable = import nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+in
 {
   environment.systemPackages = [
-    (pkgs.ffmpeg-full.override {
+    (unstable.ffmpeg-full.override {
       # Feature flags
       withAlsa = true; # Alsa in/output supporT
       withAmf = false; # AMD Media Framework video encoding
