@@ -90,4 +90,14 @@
   # neededForBoot だけは追記が必要
   fileSystems."/persist".neededForBoot = true;
   fileSystems."/var/log".neededForBoot = true;
+
+  fileSystems."/mnt/backup" = {
+    device = "/dev/disk/by-uuid/9e8dda81-979c-403c-b078-c42721ba78b5";
+    fsType = "xfs";
+    options = [
+      "defaults"
+      "nofail"
+      "noatime"
+    ];
+  };
 }
