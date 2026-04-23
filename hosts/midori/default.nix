@@ -7,6 +7,7 @@
     ./server.nix
     ./monitor.nix
     ./ollama.nix
+    ./virtualisation.nix
     ../../system/impermanence.nix
   ];
 
@@ -22,9 +23,6 @@
       "render"
       "docker"
     ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOfPIHLXZYsZQg6MSDgEXMKegtN6+yOmx/YC5nfuwKBD yuro@midori"
-    ];
   };
 
   security.sudo = {
@@ -38,9 +36,6 @@
     wget
 
     net-tools
-
-    docker-compose
-    docker-buildx
   ];
 
   # Enable the OpenSSH daemon.
@@ -48,7 +43,7 @@
     enable = true;
     settings = {
       PermitRootLogin = "no";
-      PasswordAuthentication = false;
+      PasswordAuthentication = true;
     };
   };
 
@@ -67,7 +62,4 @@
     };
   };
 
-  virtualisation.docker = {
-    enable = true;
-  };
 }
