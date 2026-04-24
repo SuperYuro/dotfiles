@@ -1,18 +1,9 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    nvtopPackages.nvidia
+  environment.systemPackages = [
+    pkgs.nvtopPackages.nvidia
   ];
 
-  home-manager.users.yuro = {
-    programs.btop = {
-      enable = true;
-      package = pkgs.btop-cuda;
-      settings = {
-        update_ms = 100;
-        mem_graphs = false;
-      };
-    };
-  };
+  home-manager.users.yuro.programs.btop.package = pkgs.btop-cuda;
 }

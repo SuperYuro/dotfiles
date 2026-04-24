@@ -12,9 +12,7 @@
     ../../system/impermanence.nix
   ];
 
-  networking.hostName = "midori"; # Define your hostname.
-
-  networking.networkmanager.enable = true;
+  networking.hostName = "midori";
 
   users.users.yuro = {
     extraGroups = [
@@ -26,41 +24,7 @@
     ];
   };
 
-  security.sudo = {
-    wheelNeedsPassword = false;
+  services.avahi.extraServiceFiles = {
+    ssh = "${pkgs.avahi}/etc/avahi/services/ssh.service";
   };
-
-  # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [
-    vim
-    curl
-    wget
-
-    net-tools
-  ];
-
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = true;
-    };
-  };
-
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    nssmdns6 = true;
-    openFirewall = true;
-    publish = {
-      enable = true;
-      workstation = true;
-      addresses = true;
-    };
-    extraServiceFiles = {
-      ssh = "${pkgs.avahi}/etc/avahi/services/ssh.service";
-    };
-  };
-
 }

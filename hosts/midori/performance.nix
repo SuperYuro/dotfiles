@@ -1,27 +1,5 @@
 { ... }:
 
 {
-  # サーバー用途向けのCPUスケジューラ
-  services.scx = {
-    enable = true;
-    scheduler = "scx_rusty";
-  };
-
-  # zramへのswap
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    memoryPercent = 50;
-  };
-
-  systemd.oomd.enable = true; # zramのロックアップ防止
-
-  boot.kernel.sysctl = {
-    "vm.swappiness" = 150; # zram swapを使うのであればこのぐらい
-  };
-
-  # tmpfsを使う
-  boot.tmp = {
-    useTmpfs = true;
-  };
+  services.scx.scheduler = "scx_rusty"; # サーバー用途向けのCPUスケジューラ
 }

@@ -52,4 +52,12 @@
   programs.pandoc = {
     enable = true;
   };
+
+  programs.btop = {
+    enable = true;
+    settings = {
+      update_ms = 100;
+      mem_graphs = false;
+    };
+  };
 }

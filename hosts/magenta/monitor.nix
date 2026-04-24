@@ -7,14 +7,5 @@
     })
   ];
 
-  home-manager.users.yuro = {
-    programs.btop = {
-      enable = true;
-      package = pkgs.btop-rocm;
-      settings = {
-        update_ms = 100;
-        mem_graphs = false;
-      };
-    };
-  };
+  home-manager.users.yuro.programs.btop.package = pkgs.btop-rocm;
 }

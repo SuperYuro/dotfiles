@@ -5,6 +5,8 @@
     ./catppuccin.nix
     ./boot-loader.nix
     ./locale.nix
+    ./performance.nix
+    ./base.nix
   ];
 
   nix.settings.experimental-features = [
