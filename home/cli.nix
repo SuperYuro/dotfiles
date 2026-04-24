@@ -45,14 +45,6 @@
     };
   };
 
-  programs.btop = {
-    enable = true;
-    settings = {
-      update_ms = 100;
-      mem_graphs = false;
-    };
-  };
-
   programs.fastfetch = {
     enable = true;
   };
