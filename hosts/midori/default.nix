@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./performance.nix
     ./ffmpeg.nix
     ./server.nix
     ./monitor.nix
