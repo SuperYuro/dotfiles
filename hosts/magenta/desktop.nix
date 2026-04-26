@@ -90,7 +90,7 @@ in
     theme = "catppuccin-frappe";
     settings = {
       main = {
-        font = "PlemolJP Console NF:size=12";
+        font = "PlemolJP Console NF:size=13";
         line-height = "19px";
         initial-window-size-pixels = "1920x1080";
         pad = "5x5 center";
