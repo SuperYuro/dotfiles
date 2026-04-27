@@ -1,4 +1,9 @@
-{ pkgs, nixpkgs-unstable, ... }:
+{
+  pkgs,
+  lib,
+  nixpkgs-unstable,
+  ...
+}:
 
 let
   unstable = import nixpkgs-unstable {
@@ -12,4 +17,7 @@ in
     openFirewall = true;
     package = unstable.ollama-cuda;
   };
+
+  # DynamicUser=true だと /var/lib/private が 0700 必須になり Impermanence と競合するため無効化
+  systemd.services.ollama.serviceConfig.DynamicUser = lib.mkForce false;
 }
