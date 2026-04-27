@@ -10,6 +10,8 @@
     curl
     wget
     net-tools
+
+    p7zip
   ];
 
   services.openssh = {
