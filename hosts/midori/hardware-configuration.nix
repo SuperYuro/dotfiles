@@ -32,7 +32,7 @@
   powerManagement.cpuFreqGovernor = "performance";
 
   hardware = {
-    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    cpu.amd.updateMicrocode = true;
 
     graphics = {
       enable = true;

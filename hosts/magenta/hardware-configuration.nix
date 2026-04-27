@@ -39,7 +39,7 @@
 
   hardware = {
     cpu.intel.npu.enable = true;
-    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    cpu.intel.updateMicrocode = true;
 
     graphics = {
       enable = true;
