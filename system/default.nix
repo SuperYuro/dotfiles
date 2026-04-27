@@ -9,10 +9,13 @@
     ./base.nix
   ];
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix = {
+    package = pkgs.lixPackageSets.stable.lix;
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
 
   programs.zsh.enable = true;
   environment.pathsToLink = [ "/share/zsh" ];
