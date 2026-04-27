@@ -15,5 +15,6 @@
 
   home.packages = with pkgs; [
     mutagen
+    deno
   ];
 }
