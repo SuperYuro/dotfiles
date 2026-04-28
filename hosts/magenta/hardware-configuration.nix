@@ -35,6 +35,10 @@
     LIBVA_DRIVER_NAME = "iHD";
   };
 
+  environment.systemPackages = with pkgs; [
+    libva-utils
+  ];
+
   powerManagement.cpuFreqGovernor = "performance";
 
   hardware = {
