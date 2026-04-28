@@ -20,7 +20,7 @@
       "wheel"
       "video"
       "render"
-      "docker"
+      "podman"
     ];
   };
 

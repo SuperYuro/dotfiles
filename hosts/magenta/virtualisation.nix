@@ -2,8 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
-    docker-compose
-    docker-buildx
+    podman-compose
+    podman-desktop
 
     dnsmasq
   ];
@@ -12,20 +12,24 @@
     enable = true;
   };
 
-  virtualisation.docker = {
-    enable = true;
-  };
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+    libvirtd = {
+      enable = true;
 
-  virtualisation.libvirtd = {
-    enable = true;
-
-    qemu = {
-      swtpm.enable = true;
+      qemu = {
+        swtpm.enable = true;
+      };
     };
   };
 
   users.users.yuro.extraGroups = [
-    "docker"
+    "podman"
     "libvirtd"
   ];
 }

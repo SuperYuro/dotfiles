@@ -2,15 +2,22 @@
 
 {
   environment.systemPackages = with pkgs; [
-    docker-compose
-    docker-buildx
+    podman-compose
   ];
 
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      swtpm = {
-        enable = true;
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+    libvirtd = {
+      enable = true;
+      qemu = {
+        swtpm = {
+          enable = true;
+        };
       };
     };
   };
@@ -23,8 +30,4 @@
   #     };
   #   };
   # };
-
-  virtualisation.docker = {
-    enable = true;
-  };
 }

@@ -18,7 +18,7 @@
       "/etc/NetworkManager/system-connections"
       "/var/lib/bluetooth"
       "/var/lib/systemd/coredump"
-      "/var/lib/docker"
+      "/var/lib/containers"
       "/var/lib/ollama"
     ];
     files = [
