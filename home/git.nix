@@ -59,6 +59,7 @@
     enable = true;
     gitCredentialHelper = {
       enable = true;
+      hosts = [ "https://github.com" ];
     };
     settings = {
       git_protocol = "https";
