@@ -1,6 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, nixpkgs-unstable, ... }:
 
 let
+  unstable = import nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+
   # Mochaフレーバー、Mauveアクセントの例
   ctpPkg = pkgs.catppuccin-gtk.override {
     accents = [ "mauve" ];
@@ -27,7 +32,6 @@ in
     grim
     slurp
     mako
-    labwc-tweaks-gtk
     wlr-randr
   ];
 
@@ -58,6 +62,7 @@ in
 
   programs.labwc = {
     enable = true;
+    package = unstable.labwc;
   };
 
   services.greetd = {
@@ -103,6 +108,7 @@ in
       windowManager = {
         labwc = {
           enable = true;
+          package = unstable.labwc;
           systemd.enable = true;
           autostart = [
             # IMEを起動する
