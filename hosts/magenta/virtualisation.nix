@@ -19,9 +19,11 @@
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
+    lxc = {
+      enable = true;
+    };
     libvirtd = {
       enable = true;
-
       qemu = {
         swtpm.enable = true;
       };
