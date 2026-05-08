@@ -26,13 +26,16 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    waybar
     swaybg
+    swayidle
+    wlopm
     wl-clipboard
     grim
     slurp
     mako
     wlr-randr
+
+    vlc
   ];
 
   i18n.inputMethod = {
@@ -113,12 +116,16 @@ in
           autostart = [
             # IMEを起動する
             "fcitx5 -dr"
+
             # ディスプレイ配置
-            " wlr-randr --output DP-6 --mode 1920x1080@60.000000Hz --transform 90 --pos 0,0 --output DP-4 --mode 3440x1440@180.000000Hz --transform normal --pos 1080,240 --output DP-5 --mode 2560x1440@74.968002Hz --transform normal --pos 4520,240"
+            "wlr-randr --output DP-6 --mode 1920x1080@60.000000Hz --transform 90 --pos 0,0 --output DP-4 --mode 3440x1440@180.000000Hz --transform normal --pos 1080,240 --output DP-5 --mode 2560x1440@74.968002Hz --transform normal --pos 4520,240"
+
             # テーマが読み込まれるようにする
             "gsettings set org.gnome.desktop.interface gtk-theme 'catppuccin-frappe-mauve-standard+rimless'"
             "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
             "gsettings set org.gnome.desktop.interface cursor-theme 'catppuccin-frappe-dark-cursors'"
+
+            "waybar &"
           ];
           environment = [
             "GTK_IM_MODULE=fcitx"
@@ -173,6 +180,65 @@ in
           };
         };
       };
+    };
+
+    services.swayidle = {
+      enable = true;
+      timeouts = [
+        {
+          timeout = 600;
+          command = "${pkgs.wlopm}/bin/wlopm --off '*'";
+          resumeCommand = "${pkgs.wlopm}/bin/wlopm --on '*'";
+        }
+      ];
+    };
+
+    programs.waybar = {
+      enable = true;
+      settings = [
+        {
+          output = [
+            "DP-4"
+            "DP-5"
+          ];
+          layer = "top";
+          position = "bottom";
+          height = 16;
+          modules-left = [
+            "ext/workspaces"
+            "wlr/taskbar"
+          ];
+          modules-center = [ ];
+          modules-right = [
+            "cpu"
+            "memory"
+            "tray"
+          ];
+
+          "ext/workspaces" = {
+            format = "{name}";
+            on-click = "activate";
+            sort-by-name = true;
+          };
+          "wlr/taskbar" = {
+            sort-by-app-id = true;
+            format = "{icon} {title}";
+            on-click = "activate";
+          };
+
+          "cpu" = {
+            interval = 1;
+            format = "{usage}%";
+          };
+          "memory" = {
+            interval = 1;
+            format = "{used}/{total}% {swapUsed}/{swapTotal}%";
+          };
+          "tray" = {
+            icon-size = 12;
+          };
+        }
+      ];
     };
     programs.fuzzel = {
       enable = true;
@@ -232,6 +298,7 @@ in
     };
     preferences = {
       "browser.uidensity" = 1;
+      "browser.tabs.inTitlebar" = 0;
       "browser.backspace_action" = 0;
       "sidebar.revamp" = true;
       "browser.cache.disk.enable" = false;
