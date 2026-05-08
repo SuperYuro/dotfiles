@@ -16,5 +16,6 @@
   home.packages = with pkgs; [
     mutagen
     deno
+    mkvtoolnix
   ];
 }
