@@ -261,7 +261,7 @@ in
                   "@key" = "W-C-Left";
                   action = {
                     "@name" = "GoToDesktop";
-                    to = "previous";
+                    to = "left";
                   };
                 }
                 # Win+Ctrl+→ → 次の仮想デスクトップ
@@ -269,7 +269,7 @@ in
                   "@key" = "W-C-Right";
                   action = {
                     "@name" = "GoToDesktop";
-                    to = "next";
+                    to = "right";
                   };
                 }
                 # Win+Ctrl+Shift+← → ウィンドウを前のデスクトップへ
@@ -277,7 +277,7 @@ in
                   "@key" = "W-C-S-Left";
                   action = {
                     "@name" = "SendToDesktop";
-                    to = "previous";
+                    to = "left";
                   };
                 }
                 # Win+Ctrl+Shift+→ → ウィンドウを次のデスクトップへ
@@ -285,7 +285,7 @@ in
                   "@key" = "W-C-S-Right";
                   action = {
                     "@name" = "SendToDesktop";
-                    to = "next";
+                    to = "right";
                   };
                 }
 
