@@ -28,6 +28,7 @@ in
   environment.systemPackages = with pkgs; [
     swaybg
     swayidle
+    swaylock
     wlopm
     wl-clipboard
     grim
@@ -77,6 +78,8 @@ in
     };
     useTextGreeter = true;
   };
+
+  security.pam.services.swaylock = { };
 
   security.rtkit = {
     enable = true;
@@ -144,14 +147,142 @@ in
             keyboard = {
               default = true;
               keybind = [
+                # =========================================
+                # ウィンドウ管理
+                # =========================================
+
+                # Alt+F4 → ウィンドウを閉じる
+                {
+                  "@key" = "A-F4";
+                  action."@name" = "Close";
+                }
+                # Win+↑ → 最大化トグル
+                {
+                  "@key" = "W-Up";
+                  action."@name" = "ToggleMaximize";
+                }
+                # Win+↓ → 最小化
+                {
+                  "@key" = "W-Down";
+                  action."@name" = "Minimize";
+                }
+                # Win+← → 左半分にスナップ
+                {
+                  "@key" = "W-Left";
+                  action = {
+                    "@name" = "SnapToEdge";
+                    direction = "left";
+                  };
+                }
+                # Win+→ → 右半分にスナップ
+                {
+                  "@key" = "W-Right";
+                  action = {
+                    "@name" = "SnapToEdge";
+                    direction = "right";
+                  };
+                }
+                # Win+Shift+← → 左のモニターへ移動
+                {
+                  "@key" = "W-S-Left";
+                  action = {
+                    "@name" = "MoveToOutput";
+                    direction = "left";
+                  };
+                }
+                # Win+Shift+→ → 右のモニターへ移動
+                {
+                  "@key" = "W-S-Right";
+                  action = {
+                    "@name" = "MoveToOutput";
+                    direction = "right";
+                  };
+                }
+                # Win+D → デスクトップを表示/非表示
+                {
+                  "@key" = "W-d";
+                  action."@name" = "ToggleShowDesktop";
+                }
+
+                # =========================================
+                # アプリ起動
+                # =========================================
+
+                # Win+R → fuzzel（「ファイル名を指定して実行」相当）
+                {
+                  "@key" = "W-r";
+                  action = {
+                    "@name" = "Execute";
+                    command = "fuzzel";
+                  };
+                }
+                # Win+E → thunar（エクスプローラー相当）
+                {
+                  "@key" = "W-e";
+                  action = {
+                    "@name" = "Execute";
+                    command = "thunar";
+                  };
+                }
+                # Win+L → swaylock（ロック画面）
+                {
+                  "@key" = "W-l";
+                  action = {
+                    "@name" = "Execute";
+                    command = "swaylock";
+                  };
+                }
+                # Alt+Space → fuzzel（アプリランチャー）
                 {
                   "@key" = "A-Space";
                   action = {
                     "@name" = "Execute";
-                    "@command" = "fuzzel";
+                    command = "fuzzel";
                   };
                 }
-                # [Print] → 全画面スクリーンショット（ファイル保存）
+
+                # =========================================
+                # 仮想デスクトップ
+                # =========================================
+
+                # Win+Ctrl+← → 前の仮想デスクトップ
+                {
+                  "@key" = "W-C-Left";
+                  action = {
+                    "@name" = "GoToDesktop";
+                    to = "previous";
+                  };
+                }
+                # Win+Ctrl+→ → 次の仮想デスクトップ
+                {
+                  "@key" = "W-C-Right";
+                  action = {
+                    "@name" = "GoToDesktop";
+                    to = "next";
+                  };
+                }
+                # Win+Ctrl+Shift+← → ウィンドウを前のデスクトップへ
+                {
+                  "@key" = "W-C-S-Left";
+                  action = {
+                    "@name" = "SendToDesktop";
+                    to = "previous";
+                  };
+                }
+                # Win+Ctrl+Shift+→ → ウィンドウを次のデスクトップへ
+                {
+                  "@key" = "W-C-S-Right";
+                  action = {
+                    "@name" = "SendToDesktop";
+                    to = "next";
+                  };
+                }
+
+                # =========================================
+                # スクリーンショット（既存設定）
+                # =========================================
+
+                # Print → 全画面スクリーンショット（ファイル保存）
                 {
                   "@key" = "Print";
                   action = {
@@ -159,7 +290,7 @@ in
                     command = "sh -c 'mkdir -p ~/Pictures/Screenshots && grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png'";
                   };
                 }
-                # [Win+Shift+S] → 領域選択してクリップボードへ（Windows風）
+                # Win+Shift+S → 領域選択してクリップボードへ
                 {
                   "@key" = "W-S-s";
                   action = {
@@ -167,7 +298,7 @@ in
                     command = ''sh -c 'grim -g "$(slurp)" - | wl-copy' '';
                   };
                 }
-                # [Win+Print] → 領域選択してファイル保存
+                # Win+Print → 領域選択してファイル保存
                 {
                   "@key" = "W-Print";
                   action = {
