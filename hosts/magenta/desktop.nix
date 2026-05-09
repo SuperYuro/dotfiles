@@ -346,7 +346,7 @@ in
           ];
           layer = "top";
           position = "bottom";
-          height = 16;
+          height = 30;
           modules-left = [
             "ext/workspaces"
             "wlr/taskbar"
@@ -356,6 +356,7 @@ in
             "cpu"
             "memory"
             "tray"
+            "clock"
           ];
 
           "ext/workspaces" = {
@@ -371,17 +372,133 @@ in
 
           "cpu" = {
             interval = 1;
-            format = "{usage}%";
+            format = " {usage}%";
           };
           "memory" = {
             interval = 1;
-            format = "{used}/{total}% {swapUsed}/{swapTotal}%";
+            format = " {used:0.1f}G/{total:0.1f}G";
           };
           "tray" = {
-            icon-size = 12;
+            icon-size = 16;
+            spacing = 8;
+          };
+          "clock" = {
+            interval = 1;
+            format = " {:%H:%M:%S}";
+            format-alt = " {:%Y-%m-%d %a}";
+            tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           };
         }
       ];
+      style = ''
+        * {
+          font-family: "PlemolJP Console NF", monospace;
+          font-size: 13px;
+          min-height: 0;
+          border: none;
+          border-radius: 0;
+          box-shadow: none;
+        }
+
+        window#waybar {
+          background-color: #232634;
+          color: #c6d0f5;
+        }
+
+        #workspaces {
+          margin: 3px 4px;
+          padding: 0;
+          background-color: transparent;
+        }
+
+        #workspaces button {
+          padding: 2px 8px;
+          margin: 2px 2px;
+          background-color: #303446;
+          color: #a5adce;
+          border-radius: 5px;
+          min-width: 24px;
+          transition: all 0.15s ease;
+        }
+
+        #workspaces button:hover {
+          background-color: #414559;
+          color: #c6d0f5;
+        }
+
+        #workspaces button.active {
+          background-color: #8caaee;
+          color: #303446;
+          font-weight: bold;
+        }
+
+        #workspaces button.urgent {
+          background-color: #e78284;
+          color: #303446;
+        }
+
+        #taskbar {
+          margin: 3px 4px;
+          background-color: transparent;
+        }
+
+        #taskbar button {
+          padding: 2px 6px;
+          margin: 2px 2px;
+          background-color: #303446;
+          color: #c6d0f5;
+          border-radius: 5px;
+          transition: all 0.15s ease;
+        }
+
+        #taskbar button:hover {
+          background-color: #414559;
+        }
+
+        #taskbar button.active {
+          background-color: #51576d;
+        }
+
+        #clock {
+          padding: 2px 12px;
+          margin: 3px 4px;
+          background-color: #303446;
+          color: #babbf1;
+          border-radius: 5px;
+          font-weight: bold;
+        }
+
+        #cpu,
+        #memory,
+        #tray {
+          padding: 2px 10px;
+          margin: 3px 2px;
+          background-color: #303446;
+          border-radius: 5px;
+        }
+
+        #cpu {
+          color: #e5c890;
+        }
+
+        #memory {
+          color: #a6d189;
+        }
+
+        #tray {
+          color: #c6d0f5;
+          margin-right: 6px;
+        }
+
+        #tray > .passive {
+          -gtk-icon-effect: dim;
+        }
+
+        #tray > .needs-attention {
+          -gtk-icon-effect: highlight;
+          background-color: #ef9f76;
+        }
+      '';
     };
     programs.fuzzel = {
       enable = true;
