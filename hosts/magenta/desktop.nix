@@ -137,6 +137,10 @@ in
             "XKB_DEFAULT_OPTIONS=ctrl:swapcaps"
           ];
           rc = {
+            desktops = {
+              names.name = ["1" "2" "3" "4" "5" "6"];
+              popupTime = 1000;
+            };
             theme = {
               name = "catppuccin-frappe";
               font = {
@@ -277,6 +281,14 @@ in
                     to = "next";
                   };
                 }
+
+                # Win+1〜6 → ワークスペース直接切り替え
+                { "@key" = "W-1"; action = { "@name" = "GoToDesktop"; to = "1"; }; }
+                { "@key" = "W-2"; action = { "@name" = "GoToDesktop"; to = "2"; }; }
+                { "@key" = "W-3"; action = { "@name" = "GoToDesktop"; to = "3"; }; }
+                { "@key" = "W-4"; action = { "@name" = "GoToDesktop"; to = "4"; }; }
+                { "@key" = "W-5"; action = { "@name" = "GoToDesktop"; to = "5"; }; }
+                { "@key" = "W-6"; action = { "@name" = "GoToDesktop"; to = "6"; }; }
 
                 # =========================================
                 # スクリーンショット（既存設定）
