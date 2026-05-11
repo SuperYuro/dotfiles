@@ -128,6 +128,9 @@ in
             "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
             "gsettings set org.gnome.desktop.interface cursor-theme 'catppuccin-frappe-dark-cursors'"
 
+            # 壁紙
+            "swaybg -m fill -i ${pkgs.nixos-artwork.wallpapers.nineish-catppuccin-frappe}/share/backgrounds/nixos/nix-wallpaper-nineish-catppuccin-frappe.png &"
+
             "waybar &"
           ];
           environment = [
