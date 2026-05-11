@@ -121,7 +121,7 @@ in
             "fcitx5 -dr"
 
             # ディスプレイ配置
-            "wlr-randr --output DP-6 --mode 1920x1080@60.000000Hz --transform 90 --pos 0,0 --output DP-1 --mode 3440x1440@180.000000Hz --transform normal --pos 1080,240 --output DP-5 --mode 2560x1440@74.968002Hz --transform normal --pos 4520,240"
+            "wlr-randr --output DP-6 --mode 1920x1080@60.000000Hz --transform 90 --pos 0,0 --output DP-4 --mode 3440x1440@180.000000Hz --transform normal --pos 1080,240 --output DP-5 --mode 2560x1440@74.968002Hz --transform normal --pos 4520,240"
 
             # テーマが読み込まれるようにする
             "gsettings set org.gnome.desktop.interface gtk-theme 'catppuccin-frappe-mauve-standard+rimless'"
@@ -387,7 +387,7 @@ in
       settings = [
         {
           output = [
-            "DP-1"
+            "DP-4"
             "DP-5"
           ];
           layer = "top";
