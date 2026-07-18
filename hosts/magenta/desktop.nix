@@ -559,6 +559,7 @@ in
     };
 
     # GTKテーマ設定（GTK2/3）
+    gtk.gtk4.theme = null;
     gtk = {
       enable = true;
       theme = {
