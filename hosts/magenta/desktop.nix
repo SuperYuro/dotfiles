@@ -156,6 +156,8 @@ in
                 "@name" = "Noto Sans CJK JP";
                 "@size" = "10";
               };
+              # floatingウィンドウに影を付けて境界を目立たせる
+              dropShadows = "yes";
             };
             keyboard = {
               default = true;
@@ -590,6 +592,14 @@ in
       };
     };
     xdg.dataFile."${themePath}".source = "${catppuccinOpenbox}/themes/catppuccin-frappe/openbox-3";
+
+    # catppuccin-frappeテーマはborder.widthが0でアクティブ/非アクティブの枠線色も同一のため、
+    # 影だけでは判別しづらい。themerc-overrideで枠線を有効化しフォーカス状態ごとに色分けする
+    xdg.configFile."labwc/themerc-override".text = ''
+      border.width: 2
+      window.active.border.color: #8caaee
+      window.inactive.border.color: #51576d
+    '';
   };
 
   # Install firefox.
