@@ -90,6 +90,27 @@
             }
           ];
         };
+
+        x260 = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit nixpkgs-unstable; };
+          modules = [
+            disko.nixosModules.disko
+            catppuccin.nixosModules.catppuccin
+            home-manager.nixosModules.home-manager
+            impermanence.nixosModules.impermanence
+
+            ./disko/x260.nix
+            ./system
+            ./hosts/x260
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.yuro = {
+                imports = homeModules;
+              };
+            }
+          ];
+        };
       };
     };
 }
