@@ -24,6 +24,7 @@
       env = {
         EDITOR = "nvim";
         VISUAL = "nvim";
+        CLAUDE_CODE_NO_FLICKER = 1;
       };
     };
   };
