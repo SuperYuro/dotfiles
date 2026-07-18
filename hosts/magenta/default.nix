@@ -7,6 +7,7 @@
     ./ffmpeg.nix
     ./desktop.nix
     ./monitor.nix
+    ./database.nix
     ./games.nix
     ./ollama.nix
     ./virtualisation.nix
