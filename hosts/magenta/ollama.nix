@@ -18,7 +18,7 @@ in
     loadModels = [
       #
     ];
-    package = unstable.ollama-vulkan;
+    package = unstable.ollama-rocm;
   };
 
   # DynamicUser=true だと /var/lib/private が 0700 必須になり Impermanence と競合するため無効化
