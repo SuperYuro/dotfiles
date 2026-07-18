@@ -56,6 +56,9 @@
       lsp-format = {
         enable = true;
       };
+      lz-n = {
+        enable = true;
+      };
       neogit = {
         enable = true;
         lazyLoad = {

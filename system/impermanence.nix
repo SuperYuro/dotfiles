@@ -1,15 +1,27 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   boot.initrd.supportedFilesystems = [ "btrfs" ];
 
   # 起動ごとに /root サブボリュームを root-blank から復元してワイプする
-  boot.initrd.postDeviceCommands = lib.mkAfter ''
-    mkdir -p /mnt
-    mount -t btrfs -o subvol=/ /dev/disk/by-label/nixos /mnt
-    btrfs subvolume delete /mnt/root
-    btrfs subvolume snapshot /mnt/root-blank /mnt/root
-    umount /mnt
-  '';
+  boot.initrd.systemd.services.impermanence-rollback = {
+    description = "Rollback BTRFS root subvolume to a pristine state";
+    wantedBy = [ "initrd.target" ];
+    after = [ "initrd-root-device.target" ]; # LUKS等を使う場合は該当unit
+    before = [ "sysroot.mount" ];
+    unitConfig.DefaultDependencies = "no";
+    serviceConfig.Type = "oneshot";
+    path = with pkgs; [
+      btrfs-progs
+      util-linux
+    ];
+    script = ''
+      mkdir -p /mnt
+      mount -t btrfs -o subvol=/ /dev/disk/by-label/nixos /mnt
+      btrfs subvolume delete /mnt/root
+      btrfs subvolume snapshot /mnt/root-blank /mnt/root
+      umount /mnt
+    '';
+  };
 
   environment.persistence."/persist" = {
     hideMounts = true;
