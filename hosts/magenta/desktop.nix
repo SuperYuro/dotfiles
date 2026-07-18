@@ -66,7 +66,6 @@ in
 
   programs.labwc = {
     enable = true;
-    package = unstable.labwc;
   };
 
   services.greetd = {
