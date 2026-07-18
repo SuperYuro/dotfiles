@@ -6,6 +6,7 @@
     ./performance.nix
     ./ffmpeg.nix
     ./server.nix
+    ./database.nix
     ./monitor.nix
     ./ollama.nix
     ./virtualisation.nix
