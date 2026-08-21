@@ -20,5 +20,6 @@
     nixfmt
     dust
     ghq
+    git-xet
   ];
 }

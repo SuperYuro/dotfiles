@@ -43,6 +43,16 @@
       ghq = {
         root = "~/.ghq";
       };
+      lfs = {
+        "customtransfer.xet" = {
+          path = "git-xet";
+          args = "transfer";
+          concurrent = true;
+        };
+      };
+    };
+    lfs = {
+      enable = true;
     };
   };
 
