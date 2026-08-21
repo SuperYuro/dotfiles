@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 let
   # Mochaフレーバー、Mauveアクセントの例
@@ -137,18 +137,36 @@ in
         keybindings = {
           "${mod}+Return" = "exec foot";
           "${mod}+Shift+q" = "kill";
-          "${mod}+r" = "exec fuzzel";
+          "${mod}+d" = "exec fuzzel";
           "${mod}+e" = "exec thunar";
-          "${mod}+l" = "exec swaylock";
+          # "${mod}+l" = "exec swaylock";
 
+          "${mod}+h" = "focus left";
+          "${mod}+j" = "focus down";
+          "${mod}+k" = "focus up";
+          "${mod}+l" = "focus right";
           "${mod}+Left" = "focus left";
-          "${mod}+Right" = "focus right";
-          "${mod}+Up" = "focus up";
           "${mod}+Down" = "focus down";
+          "${mod}+Up" = "focus up";
+          "${mod}+Right" = "focus right";
+
+          "${mod}+Shift+h" = "move left";
+          "${mod}+Shift+j" = "move down";
+          "${mod}+Shift+k" = "move up";
+          "${mod}+Shift+l" = "move right";
           "${mod}+Shift+Left" = "move left";
-          "${mod}+Shift+Right" = "move right";
-          "${mod}+Shift+Up" = "move up";
           "${mod}+Shift+Down" = "move down";
+          "${mod}+Shift+Up" = "move up";
+          "${mod}+Shift+Right" = "move right";
+
+          "${mod}+b" = "splith";
+          "${mod}+v" = "splitv";
+
+          "${mod}+s" = "layout stacking";
+          "${mod}+w" = "layout tabbed";
+
+          "${mod}+space" = "focus mode_toggle";
+          "${mod}+a" = "focus parent";
 
           "${mod}+1" = "workspace number 1";
           "${mod}+2" = "workspace number 2";
@@ -156,21 +174,31 @@ in
           "${mod}+4" = "workspace number 4";
           "${mod}+5" = "workspace number 5";
           "${mod}+6" = "workspace number 6";
+          "${mod}+7" = "workspace number 7";
+          "${mod}+8" = "workspace number 8";
+          "${mod}+9" = "workspace number 9";
+          "${mod}+0" = "workspace number 10";
           "${mod}+Shift+1" = "move container to workspace number 1";
           "${mod}+Shift+2" = "move container to workspace number 2";
           "${mod}+Shift+3" = "move container to workspace number 3";
           "${mod}+Shift+4" = "move container to workspace number 4";
           "${mod}+Shift+5" = "move container to workspace number 5";
           "${mod}+Shift+6" = "move container to workspace number 6";
+          "${mod}+Shift+7" = "move container to workspace number 7";
+          "${mod}+Shift+8" = "move container to workspace number 8";
+          "${mod}+Shift+9" = "move container to workspace number 9";
+          "${mod}+Shift+0" = "move container to workspace number 10";
 
           "${mod}+f" = "fullscreen";
           "${mod}+Shift+space" = "floating toggle";
           "${mod}+Shift+r" = "reload";
 
           # スクリーンショット
-          "Print" = ''exec sh -c "mkdir -p ~/Pictures/Screenshots && grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"'';
+          "Print" =
+            ''exec sh -c "mkdir -p ~/Pictures/Screenshots && grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"'';
           "${mod}+Shift+s" = ''exec sh -c "grim -g \"$(slurp)\" - | wl-copy"'';
-          "${mod}+Print" = ''exec sh -c "mkdir -p ~/Pictures/Screenshots && grim -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"'';
+          "${mod}+Print" =
+            ''exec sh -c "mkdir -p ~/Pictures/Screenshots && grim -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"'';
 
           # 輝度・音量（ノートPC向けファンクションキー）
           "--locked XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
@@ -186,9 +214,13 @@ in
           { command = "fcitx5 -dr"; }
 
           # テーマが読み込まれるようにする
-          { command = "gsettings set org.gnome.desktop.interface gtk-theme 'catppuccin-frappe-mauve-standard+rimless'"; }
+          {
+            command = "gsettings set org.gnome.desktop.interface gtk-theme 'catppuccin-frappe-mauve-standard+rimless'";
+          }
           { command = "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"; }
-          { command = "gsettings set org.gnome.desktop.interface cursor-theme 'catppuccin-frappe-dark-cursors'"; }
+          {
+            command = "gsettings set org.gnome.desktop.interface cursor-theme 'catppuccin-frappe-dark-cursors'";
+          }
 
           # 壁紙
           {
@@ -236,6 +268,22 @@ in
             };
           }
         ];
+
+        # 標準resizeモード(h/j/k/l+矢印、${mod}+r)はhome-managerのswayモジュールが
+        # デフォルトで提供する。10%刻みリサイズとmod+rでの抜け操作をoldのi3設定に合わせて追加。
+        modes.resize = lib.mkForce {
+          h = "resize shrink width 10 px or 10 ppt";
+          j = "resize grow height 10 px or 10 ppt";
+          k = "resize shrink height 10 px or 10 ppt";
+          l = "resize grow width 10 px or 10 ppt";
+          Left = "resize shrink width 10 px or 10 ppt";
+          Down = "resize grow height 10 px or 10 ppt";
+          Up = "resize shrink height 10 px or 10 ppt";
+          Right = "resize grow width 10 px or 10 ppt";
+          Return = "mode default";
+          Escape = "mode default";
+          "${mod}+r" = "mode default";
+        };
       };
 
       extraConfig = ''
