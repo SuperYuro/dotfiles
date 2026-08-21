@@ -194,11 +194,48 @@ in
           {
             command = "swaybg -m fill -i ${pkgs.nixos-artwork.wallpapers.nineish-catppuccin-frappe}/share/backgrounds/nixos/nix-wallpaper-nineish-catppuccin-frappe.png";
           }
-
-          { command = "waybar"; }
         ];
 
-        bars = [ ]; # waybarを別途起動するため内蔵barは無効化
+        bars = [
+          {
+            position = "bottom";
+            statusCommand = "${pkgs.i3status}/bin/i3status";
+            fonts = {
+              names = [ "PlemolJP Console NF" ];
+              size = 10.0;
+            };
+            colors = {
+              background = "#232634";
+              statusline = "#c6d0f5";
+              separator = "#414559";
+              focusedWorkspace = {
+                border = "#8caaee";
+                background = "#8caaee";
+                text = "#303446";
+              };
+              activeWorkspace = {
+                border = "#303446";
+                background = "#303446";
+                text = "#c6d0f5";
+              };
+              inactiveWorkspace = {
+                border = "#232634";
+                background = "#232634";
+                text = "#a5adce";
+              };
+              urgentWorkspace = {
+                border = "#e78284";
+                background = "#e78284";
+                text = "#303446";
+              };
+              bindingMode = {
+                border = "#e78284";
+                background = "#e78284";
+                text = "#303446";
+              };
+            };
+          }
+        ];
       };
 
       extraConfig = ''
@@ -240,175 +277,79 @@ in
       };
     };
 
-    programs.waybar = {
+    programs.i3status = {
       enable = true;
-      settings = [
-        {
-          layer = "top";
-          position = "bottom";
-          height = 28;
-          modules-left = [
-            "sway/workspaces"
-            "sway/window"
-          ];
-          modules-center = [ ];
-          modules-right = [
-            "cpu"
-            "memory"
-            "battery"
-            "tray"
-            "clock"
-          ];
+      enableDefault = false;
 
-          "sway/workspaces" = {
-            format = "{name}";
+      general = {
+        colors = true;
+        interval = 1;
+        color_good = "#a6d189";
+        color_degraded = "#e5c890";
+        color_bad = "#e78284";
+      };
+
+      modules = {
+        cpu_usage = {
+          position = 1;
+          settings.format = "CPU: %usage";
+        };
+        memory = {
+          position = 2;
+          settings.format = "RAM: %used (%percentage_used)";
+        };
+        "ethernet _first_" = {
+          position = 3;
+          settings = {
+            format_up = "E: %ip %speed";
+            format_down = "";
           };
-          "sway/window" = {
-            max-length = 50;
+        };
+        "wireless _first_" = {
+          position = 4;
+          settings = {
+            format_up = "W: %essid %quality";
+            format_down = "";
           };
-
-          "cpu" = {
-            interval = 1;
-            format = " {usage}%";
+        };
+        "battery 0" = {
+          position = 5;
+          settings = {
+            status_chr = "C";
+            status_bat = "D";
+            status_unk = "?";
+            status_full = "F";
+            low_threshold = 20;
+            format = "0: %status %percentage";
+            format_down = "";
           };
-          "memory" = {
-            interval = 1;
-            format = " {used:0.1f}G/{total:0.1f}G";
+        };
+        "battery 1" = {
+          position = 6;
+          settings = {
+            status_chr = "C";
+            status_bat = "D";
+            status_unk = "?";
+            status_full = "F";
+            low_threshold = 20;
+            format = "1: %status %percentage";
+            format_down = "";
           };
-          "battery" = {
-            interval = 30;
-            states = {
-              warning = 30;
-              critical = 15;
-            };
-            format = "{icon} {capacity}%";
-            format-charging = " {capacity}%";
-            format-icons = [
-              ""
-              ""
-              ""
-              ""
-              ""
-            ];
-            tooltip-format = "{timeTo}";
+        };
+        "volume master" = {
+          position = 7;
+          settings = {
+            format = "♪ %volume";
+            format_muted = "♪ Muted";
+            device = "default";
+            mixer = "Master";
           };
-          "tray" = {
-            icon-size = 16;
-            spacing = 8;
-          };
-          "clock" = {
-            interval = 1;
-            format = " {:%H:%M:%S}";
-            format-alt = " {:%Y-%m-%d %a}";
-            tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-          };
-        }
-      ];
-      style = ''
-        * {
-          font-family: "PlemolJP Console NF", monospace;
-          font-size: 12px;
-          min-height: 0;
-          border: none;
-          border-radius: 0;
-          box-shadow: none;
-        }
-
-        window#waybar {
-          background-color: #232634;
-          color: #c6d0f5;
-        }
-
-        #workspaces {
-          margin: 3px 4px;
-          padding: 0;
-          background-color: transparent;
-        }
-
-        #workspaces button {
-          padding: 2px 8px;
-          margin: 2px 2px;
-          background-color: #303446;
-          color: #a5adce;
-          border-radius: 5px;
-          min-width: 24px;
-          transition: all 0.15s ease;
-        }
-
-        #workspaces button:hover {
-          background-color: #414559;
-          color: #c6d0f5;
-        }
-
-        #workspaces button.focused {
-          background-color: #8caaee;
-          color: #303446;
-          font-weight: bold;
-        }
-
-        #workspaces button.urgent {
-          background-color: #e78284;
-          color: #303446;
-        }
-
-        #window {
-          margin: 3px 4px;
-          background-color: transparent;
-        }
-
-        #clock {
-          padding: 2px 12px;
-          margin: 3px 4px;
-          background-color: #303446;
-          color: #babbf1;
-          border-radius: 5px;
-          font-weight: bold;
-        }
-
-        #cpu,
-        #memory,
-        #battery,
-        #tray {
-          padding: 2px 10px;
-          margin: 3px 2px;
-          background-color: #303446;
-          border-radius: 5px;
-        }
-
-        #cpu {
-          color: #e5c890;
-        }
-
-        #memory {
-          color: #a6d189;
-        }
-
-        #battery {
-          color: #81c8be;
-        }
-
-        #battery.warning {
-          color: #ef9f76;
-        }
-
-        #battery.critical {
-          color: #e78284;
-        }
-
-        #tray {
-          color: #c6d0f5;
-          margin-right: 6px;
-        }
-
-        #tray > .passive {
-          -gtk-icon-effect: dim;
-        }
-
-        #tray > .needs-attention {
-          -gtk-icon-effect: highlight;
-          background-color: #ef9f76;
-        }
-      '';
+        };
+        time = {
+          position = 8;
+          settings.format = "%Y/%m/%d %H:%M:%S";
+        };
+      };
     };
     programs.fuzzel = {
       enable = true;
@@ -416,8 +357,8 @@ in
         main = {
           terminal = "${pkgs.foot}/bin/foot";
           layer = "overlay";
-          font = "Noto Sans Mono CJK JP:size=9";
-          width = 250;
+          font = "Noto Sans Mono CJK JP:size=7";
+          width = 120;
         };
       };
     };
