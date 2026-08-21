@@ -4,55 +4,37 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }:
 
 {
   imports = [
-    (modulesPath + "/hardware/cpu/intel-npu.nix")
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "thunderbolt"
     "nvme"
+    "xhci_pci"
     "ahci"
-    "usbhid"
     "usb_storage"
+    "usbhid"
     "sd_mod"
-    "xe"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
-  };
-
-  environment.systemPackages = with pkgs; [
-    libva-utils
-  ];
-
   powerManagement.cpuFreqGovernor = "performance";
 
   hardware = {
-    cpu.intel.npu.enable = true;
-    cpu.intel.updateMicrocode = true;
+    cpu.amd.updateMicrocode = true;
 
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [
-        intel-media-driver # iHD VA-API
-        vpl-gpu-rt # oneVPL (QSV)
-        intel-compute-runtime # Intel OpenCL
-      ];
     };
     amdgpu = {
       opencl.enable = true;
