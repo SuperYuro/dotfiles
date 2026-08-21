@@ -6,6 +6,7 @@
     ./performance.nix
     ./tlp.nix
     ./desktop.nix
+    ./monitor.nix
     ../../system/impermanence.nix
   ];
 
