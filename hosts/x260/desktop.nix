@@ -108,6 +108,47 @@ in
         terminal = "foot";
         menu = "fuzzel";
 
+        # ウィンドウ枠の配色。foot/bar/GTKと同じCatppuccin Frappe、
+        # アクセントはGTKテーマ(mauve)に合わせる
+        colors = {
+          background = "#303446"; # base
+          focused = {
+            border = "#ca9ee6"; # mauve
+            background = "#ca9ee6";
+            text = "#232634"; # crust
+            indicator = "#ca9ee6";
+            childBorder = "#ca9ee6";
+          };
+          focusedInactive = {
+            border = "#414559"; # surface0
+            background = "#414559";
+            text = "#c6d0f5"; # text
+            indicator = "#414559";
+            childBorder = "#414559";
+          };
+          unfocused = {
+            border = "#232634"; # crust
+            background = "#232634";
+            text = "#a5adce"; # subtext0
+            indicator = "#232634";
+            childBorder = "#232634";
+          };
+          urgent = {
+            border = "#e78284"; # red
+            background = "#e78284";
+            text = "#232634";
+            indicator = "#e78284";
+            childBorder = "#e78284";
+          };
+          placeholder = {
+            border = "#232634";
+            background = "#232634";
+            text = "#c6d0f5";
+            indicator = "#232634";
+            childBorder = "#232634";
+          };
+        };
+
         # X260は内蔵ディスプレイ(eDP-1)のみ。外部出力を使う場合はここに追記する
         output = {
           "eDP-1" = {
@@ -138,8 +179,6 @@ in
           "${mod}+Return" = "exec foot";
           "${mod}+Shift+q" = "kill";
           "${mod}+d" = "exec fuzzel";
-          "${mod}+e" = "exec thunar";
-          # "${mod}+l" = "exec swaylock";
 
           "${mod}+h" = "focus left";
           "${mod}+j" = "focus down";
@@ -161,6 +200,7 @@ in
 
           "${mod}+b" = "splith";
           "${mod}+v" = "splitv";
+          "${mod}+e" = "toggle split";
 
           "${mod}+s" = "layout stacking";
           "${mod}+w" = "layout tabbed";
@@ -241,8 +281,8 @@ in
               statusline = "#c6d0f5";
               separator = "#414559";
               focusedWorkspace = {
-                border = "#8caaee";
-                background = "#8caaee";
+                border = "#ca9ee6";
+                background = "#ca9ee6";
                 text = "#303446";
               };
               activeWorkspace = {
@@ -405,7 +445,8 @@ in
         main = {
           terminal = "${pkgs.foot}/bin/foot";
           layer = "overlay";
-          font = "Noto Sans Mono CJK JP:size=7";
+          # 配色はcatppuccin-nix(home/catppuccin.nix, frappe/mauve)が自動適用する
+          font = "PlemolJP Console NF:size=7";
           width = 120;
         };
       };
