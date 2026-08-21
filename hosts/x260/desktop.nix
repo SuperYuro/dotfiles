@@ -23,6 +23,7 @@ in
     mako
     brightnessctl
 
+    qutebrowser
     vlc
   ];
 
