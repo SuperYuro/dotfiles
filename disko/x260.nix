@@ -4,8 +4,6 @@
     disk = {
       main = {
         type = "disk";
-        # NOTE: X260はSATA接続のSSD/HDDの個体が多い。インストール前に `lsblk` で実機のデバイス名を
-        # 確認し、SATA接続であれば "/dev/sda" 等に修正すること。
         device = "/dev/sda";
         content = {
           type = "gpt";
