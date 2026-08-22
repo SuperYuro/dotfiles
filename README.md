@@ -2,10 +2,10 @@
 
 ## Installation
 
-### Magenta
+### Hinotori
 
 Hardware: 
-- Intel Core Ultra 7 270K Plus
+- AMD Ryzen 9 9950X
 - AMD Radeon RX 9070XT
 
 Software: 
@@ -17,15 +17,15 @@ $ git clone https://github.com/SuperYuro/dotfiles /tmp/dotfiles
 $ cd /tmp/dotfiles
 
 $ sudo nix --experimental-features "nix-command flakes" \
-$   run github:nix-community/disko/latest -- \
-$   --mode disko ./disko/magenta.nix
+    run github:nix-community/disko/latest -- \
+    --mode disko ./disko/hinotori.nix
 
-$ sudo nixos-install --flake .#magenta
+$ sudo nixos-install --flake .#hinotori
 
 # パスワードを /persist に設置（passwd の代わり）
 $ sudo mkdir -p /mnt/persist/passwords
 $ nix shell nixpkgs#mkpasswd -c 'mkpasswd -m sha-512' \
-$   | sudo tee /mnt/persist/passwords/yuro
+    | sudo tee /mnt/persist/passwords/yuro
 $ sudo chmod 600 /mnt/persist/passwords/yuro
 
 $ sudo reboot
@@ -34,8 +34,8 @@ $ sudo reboot
 ### Midori
 
 Hardware:
-- AMD CPU
-- NVIDIA GPU
+- Intel Core Ultra 7 270K Plus
+- NVIDIA GeForce RTX 5060Ti 16GB
 
 Software:
 - Server (headless)
@@ -46,15 +46,15 @@ $ git clone https://github.com/SuperYuro/dotfiles /tmp/dotfiles
 $ cd /tmp/dotfiles
 
 $ sudo nix --experimental-features "nix-command flakes" \
-$   run github:nix-community/disko/latest -- \
-$   --mode disko ./disko/midori.nix
+    run github:nix-community/disko/latest -- \
+    --mode disko ./disko/midori.nix
 
 $ sudo nixos-install --flake .#midori
 
 # パスワードを /persist に設置（passwd の代わり）
 $ sudo mkdir -p /mnt/persist/passwords
 $ nix shell nixpkgs#mkpasswd -c 'mkpasswd -m sha-512' \
-$   | sudo tee /mnt/persist/passwords/yuro
+    | sudo tee /mnt/persist/passwords/yuro
 $ sudo chmod 600 /mnt/persist/passwords/yuro
 
 $ sudo reboot
@@ -75,28 +75,16 @@ $ nix shell nixpkgs#git
 $ git clone https://github.com/SuperYuro/dotfiles /tmp/dotfiles
 $ cd /tmp/dotfiles
 
-# 実機のディスクデバイス名を確認し、disko/x260.nix の device が
-# 実機と異なる場合（SATA接続なら /dev/sda 等）は修正する
-$ lsblk
-
 $ sudo nix --experimental-features "nix-command flakes" \
-$   run github:nix-community/disko/latest -- \
-$   --mode disko ./disko/x260.nix
+    run github:nix-community/disko/latest -- \
+    --mode disko ./disko/x260.nix
 
 $ sudo nixos-install --flake .#x260
-
-# hosts/x260/hardware-configuration.nix はプレースホルダのため、
-# 実機の nixos-generate-config 出力に必ず差し替える
-$ sudo nixos-generate-config --root /mnt
-$ diff /mnt/etc/nixos/hardware-configuration.nix hosts/x260/hardware-configuration.nix
-# ↑を見ながら hosts/x260/hardware-configuration.nix を更新し、
-#   Intel graphics 向け extraPackages 等の手動追記を再度マージする
-# その後 nixos-install --flake .#x260 を再実行する
 
 # パスワードを /persist に設置（passwd の代わり）
 $ sudo mkdir -p /mnt/persist/passwords
 $ nix shell nixpkgs#mkpasswd -c 'mkpasswd -m sha-512' \
-$   | sudo tee /mnt/persist/passwords/yuro
+    | sudo tee /mnt/persist/passwords/yuro
 $ sudo chmod 600 /mnt/persist/passwords/yuro
 
 $ sudo reboot

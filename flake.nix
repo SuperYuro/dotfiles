@@ -68,13 +68,14 @@
                 imports = homeModules;
               };
             }
-          ] ++ extraModules;
+          ]
+          ++ extraModules;
         };
     in
     {
       nixosConfigurations = {
-        magenta = mkHost {
-          name = "magenta";
+        hinotori = mkHost {
+          name = "hinotori";
           extraModules = [
             { nixpkgs.overlays = [ nix-claude-code.overlays.default ]; }
           ];
