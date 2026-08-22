@@ -44,73 +44,45 @@
         ./home
         ./nixvim
       ];
+
+      mkHost =
+        {
+          name,
+          extraModules ? [ ],
+        }:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit nixpkgs-unstable; };
+          modules = [
+            disko.nixosModules.disko
+            catppuccin.nixosModules.catppuccin
+            home-manager.nixosModules.home-manager
+            impermanence.nixosModules.impermanence
+
+            ./disko/${name}.nix
+            ./system
+            ./hosts/${name}
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.yuro = {
+                imports = homeModules;
+              };
+            }
+          ] ++ extraModules;
+        };
     in
     {
       nixosConfigurations = {
-        magenta = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit nixpkgs-unstable; };
-          modules = [
-            disko.nixosModules.disko
-            catppuccin.nixosModules.catppuccin
-            home-manager.nixosModules.home-manager
-            impermanence.nixosModules.impermanence
-
-            ./disko/magenta.nix
-            ./system
-            ./hosts/magenta
-            {
-              nixpkgs.overlays = [ nix-claude-code.overlays.default ];
-
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.yuro = {
-                imports = homeModules;
-              };
-            }
+        magenta = mkHost {
+          name = "magenta";
+          extraModules = [
+            { nixpkgs.overlays = [ nix-claude-code.overlays.default ]; }
           ];
         };
 
-        midori = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit nixpkgs-unstable; };
-          modules = [
-            disko.nixosModules.disko
-            catppuccin.nixosModules.catppuccin
-            home-manager.nixosModules.home-manager
-            impermanence.nixosModules.impermanence
+        midori = mkHost { name = "midori"; };
 
-            ./disko/midori.nix
-            ./system
-            ./hosts/midori
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.yuro = {
-                imports = homeModules;
-              };
-            }
-          ];
-        };
-
-        x260 = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit nixpkgs-unstable; };
-          modules = [
-            disko.nixosModules.disko
-            catppuccin.nixosModules.catppuccin
-            home-manager.nixosModules.home-manager
-            impermanence.nixosModules.impermanence
-
-            ./disko/x260.nix
-            ./system
-            ./hosts/x260
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.yuro = {
-                imports = homeModules;
-              };
-            }
-          ];
-        };
+        x260 = mkHost { name = "x260"; };
       };
     };
 }

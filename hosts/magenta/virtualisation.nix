@@ -1,8 +1,9 @@
 { pkgs, ... }:
 
 {
+  imports = [ ../common/virtualisation.nix ];
+
   environment.systemPackages = with pkgs; [
-    podman-compose
     podman-desktop
 
     dnsmasq
@@ -13,20 +14,8 @@
   };
 
   virtualisation = {
-    containers.enable = true;
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
     lxc = {
       enable = true;
-    };
-    libvirtd = {
-      enable = true;
-      qemu = {
-        swtpm.enable = true;
-      };
     };
   };
 
