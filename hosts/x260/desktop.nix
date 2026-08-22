@@ -92,6 +92,12 @@ in
         line-height = "17px";
         initial-window-size-pixels = "1280x720";
         pad = "5x5 center";
+        initial-color-theme = "dark";
+      };
+      colors-dark = {
+        alpha = "0.8";
+        alpha-mode = "matching";
+        blur = "yes";
       };
     };
   };
