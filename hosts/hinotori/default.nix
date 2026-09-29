@@ -9,7 +9,6 @@
     ./monitor.nix
     ./database.nix
     ./games.nix
-    ./ollama.nix
     ./virtualisation.nix
     ../../system/impermanence.nix
   ];

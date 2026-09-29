@@ -8,7 +8,6 @@
     ./server.nix
     ./database.nix
     ./monitor.nix
-    ./ollama.nix
     ./virtualisation.nix
     ../../system/impermanence.nix
   ];

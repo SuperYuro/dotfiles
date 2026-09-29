@@ -31,7 +31,6 @@
       "/var/lib/bluetooth"
       "/var/lib/systemd/coredump"
       "/var/lib/containers"
-      "/var/lib/ollama"
     ];
     files = [
       "/etc/machine-id"
