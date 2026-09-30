@@ -7,6 +7,7 @@
     ./ffmpeg.nix
     ./desktop.nix
     ./monitor.nix
+    ./llama-cpp.nix
     ./database.nix
     ./games.nix
     ./virtualisation.nix
