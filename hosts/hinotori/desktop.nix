@@ -527,13 +527,16 @@ in
       "browser.uidensity" = 1;
       "browser.tabs.inTitlebar" = 0;
       "browser.backspace_action" = 0;
-      "sidebar.revamp" = true;
+      # "sidebar.revamp" = true;
+      "sidebar.verticalTabs" = true;
+      "sidebar.expandOnHover" = false;
       "browser.cache.disk.enable" = false;
       "browser.cache.memory.enable" = true;
       "browser.cache.memory.capacity" = -1;
       "browser.sessionstore.interval" = 3600000;
       "extensions.picket.enabled" = false;
       "full-screen-api.warning.timeout" = 0;
+      "browser.toolbars.bookmarks.visibility" = "never";
     };
   };
 }
