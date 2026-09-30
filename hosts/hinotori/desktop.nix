@@ -120,10 +120,10 @@ in
                   action."@name" = "ToggleMaximize";
                 }
                 # Win+↓ → 最小化
-                {
-                  "@key" = "W-Down";
-                  action."@name" = "Minimize";
-                }
+                # {
+                #   "@key" = "W-Down";
+                #   action."@name" = "Minimize";
+                # }
                 # Win+← → 左半分にスナップ
                 {
                   "@key" = "W-Left";
