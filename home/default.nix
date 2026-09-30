@@ -9,7 +9,7 @@
     ./tmux.nix
     ./yt-dlp.nix
     ./cli.nix
-    ./claude.nix
+    ./coding-agent.nix
   ];
 
   home.username = "yuro";

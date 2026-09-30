@@ -28,4 +28,29 @@
       };
     };
   };
+
+  programs.opencode = {
+    enable = true;
+    settings = {
+      lsp = true;
+      provider = {
+        "llama.cpp" = {
+          npm = "@ai-sdk/openai-compatible";
+          name = "llama-server (local)";
+          options = {
+            baseURL = "http://127.0.0.1:8080/v1";
+          };
+          models = {
+            "Qwen3.8-27B-UD-Q4_K_M.gguf" = {
+              name = "Qwen3.8 27B Q4_K_M";
+              limit = {
+                context = 524288;
+                output = 65536;
+              };
+            };
+          };
+        };
+      };
+    };
+  };
 }
