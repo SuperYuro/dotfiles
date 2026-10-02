@@ -11,6 +11,7 @@
     ./database.nix
     ./games.nix
     ./virtualisation.nix
+    ./openrazer.nix
     ../../system/impermanence.nix
   ];
 
