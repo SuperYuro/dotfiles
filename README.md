@@ -60,6 +60,36 @@ $ sudo chmod 600 /mnt/persist/passwords/yuro
 $ sudo reboot
 ```
 
+### Sakura
+
+Hardware:
+- AMD Ryzen 7 8845HS
+- AMD Radeon 780M (iGPU, Vulkan)
+
+Software:
+- Server (headless)
+- Ollama (Vulkan) + Open WebUI + SearXNG
+
+```console
+$ nix shell nixpkgs#git
+$ git clone https://github.com/SuperYuro/dotfiles /tmp/dotfiles
+$ cd /tmp/dotfiles
+
+$ sudo nix --experimental-features "nix-command flakes" \
+    run github:nix-community/disko/latest -- \
+    --mode disko ./disko/sakura.nix
+
+$ sudo nixos-install --flake .#sakura
+
+# パスワードを /persist に設置（passwd の代わり）
+$ sudo mkdir -p /mnt/persist/passwords
+$ nix shell nixpkgs#mkpasswd -c 'mkpasswd -m sha-512' \
+    | sudo tee /mnt/persist/passwords/yuro
+$ sudo chmod 600 /mnt/persist/passwords/yuro
+
+$ sudo reboot
+```
+
 ### X260
 
 Hardware:

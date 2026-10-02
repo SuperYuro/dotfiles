@@ -83,6 +83,8 @@
 
         midori = mkHost { name = "midori"; };
 
+        sakura = mkHost { name = "sakura"; };
+
         x260 = mkHost { name = "x260"; };
       };
     };
