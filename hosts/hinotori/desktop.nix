@@ -319,7 +319,7 @@ in
       enable = true;
       timeouts = [
         {
-          timeout = 600;
+          timeout = 10;
           # 画面ロック中(swaylock実行中)のときのみディスプレイをオフにする
           command = "${pkgs.procps}/bin/pgrep -x swaylock >/dev/null && ${pkgs.wlopm}/bin/wlopm --off '*'";
           resumeCommand = "${pkgs.wlopm}/bin/wlopm --on '*'";
