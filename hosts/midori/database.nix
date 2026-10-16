@@ -1,5 +1,0 @@
-{ ... }:
-
-{
-  imports = [ ../common/database.nix ];
-}
