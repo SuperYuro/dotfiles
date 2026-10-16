@@ -1,0 +1,8 @@
+/config/config/fcitx5/conf/cached_layouts
+/config/config/fish/fish_variables
+/config/config/mozc/segment.db
+/config/config/mozc/cform.db
+/config/config/mozc/boundary.db
+/config/config/mozc/.session.ipc
+/config/config/mozc/.server.lock
+/config/config/gh/hosts.yml

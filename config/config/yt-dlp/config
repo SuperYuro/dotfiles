@@ -1,0 +1,10 @@
+--sleep-interval 5
+--max-sleep-interval 20
+
+-o "~/Videos/YouTube/%(channel)s/%(title)s.%(ext)s"
+
+--write-thumbnail
+--embed-metadata
+
+-f bestvideo+bestaudio
+--cookies-from-browser firefox
