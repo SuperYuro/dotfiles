@@ -18,8 +18,11 @@ return {
       "astro",
       "vue",
     },
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = true,
+    opts = {
+      enable_close = true,
+      enable_rename = true,
+      enable_close_on_slash = true,
+    },
   },
   {
     "smoka7/hop.nvim",
