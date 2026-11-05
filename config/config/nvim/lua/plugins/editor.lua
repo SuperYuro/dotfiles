@@ -6,18 +6,7 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
-    ft = {
-      "html",
-      "javascript",
-      "javascriptreact",
-      "javascript.jsx",
-      "typescript",
-      "typescriptreact",
-      "typescript.tsx",
-      "svelte",
-      "astro",
-      "vue",
-    },
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       enable_close = true,
       enable_rename = true,
