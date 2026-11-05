@@ -163,38 +163,4 @@ return {
     end,
     opts = {},
   },
-  {
-    "RRethy/vim-illuminate",
-    event = "BufRead",
-    opts = {
-      providers = {
-        "lsp",
-        "treesitter",
-      },
-    },
-    config = function(_, opts) require("illuminate").configure(opts) end,
-  },
-  {
-    "mvllow/modes.nvim",
-    tag = "v0.2.1",
-    event = "VeryLazy",
-    opts = function()
-      local palette = require("catppuccin.palettes").get_palette("frappe")
-
-      return {
-        colors = {
-          bg = "",
-          copy = palette.yellow,
-          delete = palette.red,
-          change = palette.red,
-          format = palette.crust,
-          insert = palette.blue,
-          replace = palette.sky,
-          select = palette.lavender,
-          visual = palette.lavender,
-        },
-        line_opacity = 0.25,
-      }
-    end,
-  },
 }
