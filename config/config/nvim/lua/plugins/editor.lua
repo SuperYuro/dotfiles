@@ -22,11 +22,6 @@ return {
     config = true,
   },
   {
-    "numToStr/Comment.nvim",
-    lazy = false,
-    config = true,
-  },
-  {
     "monaqa/dial.nvim",
     keys = {
       { "+", function() require("dial.map").manipulate("increment", "normal") end, mode = { "n" } },
