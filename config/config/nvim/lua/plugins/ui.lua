@@ -137,11 +137,6 @@ return {
     opts = {},
   },
   {
-    "m-demare/hlargs.nvim",
-    event = "VeryLazy",
-    config = true,
-  },
-  {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     event = "VeryLazy",
