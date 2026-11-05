@@ -126,11 +126,6 @@ return {
     opts = {},
   },
   {
-    "norcalli/nvim-colorizer.lua",
-    event = "BufRead",
-    opts = { "*" },
-  },
-  {
     "petertriho/nvim-scrollbar",
     event = "VeryLazy",
     dependencies = {
