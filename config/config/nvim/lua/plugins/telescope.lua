@@ -90,14 +90,4 @@ return {
       telescope.load_extension("emoji")
     end,
   },
-  {
-    "chip/telescope-software-licenses.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim" },
-    opts = {},
-    config = function(_, opts)
-      local telescope = require("telescope")
-
-      telescope.load_extension("software-licenses")
-    end,
-  },
 }

@@ -1,5 +1,3 @@
-local icons = require("utils.icons")
-
 return {
   {
     "catppuccin/nvim",
@@ -47,74 +45,6 @@ return {
       auto_integrations = true,
     },
     init = function() vim.cmd("colorscheme catppuccin-nvim") end,
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "UIEnter",
-    enabled = false,
-    opts = {
-      options = {
-        icons_enabled = true,
-        theme = "auto",
-        -- component_separators = { left = "", right = "" },
-        -- section_separators = { left = "", right = "" },
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
-        disabled_filetypes = {},
-        ignore_focus = {},
-        always_divide_middle = false,
-        globalstatus = true,
-        refresh = {
-          statusline = 100,
-          tabline = 100,
-          winbar = 100,
-        },
-      },
-      sections = {
-        lualine_a = {
-          {
-            "mode",
-          },
-        },
-        lualine_b = {
-          {
-            "branch",
-          },
-        },
-        lualine_c = {
-          {
-            "diff",
-            colored = true,
-            symbols = icons.diff,
-          },
-          {
-            "filename",
-            file_status = false,
-            newfile_status = false,
-            path = 1,
-            -- symbols = {},
-          },
-        },
-        lualine_x = {
-          {
-            "filetype",
-          },
-          {
-            "diagnostics",
-            sources = { "nvim_diagnostic", "nvim_lsp" },
-            symbols = icons.diagnostics,
-            colored = true,
-            update_in_insert = true,
-            always_visible = true,
-          },
-        },
-        lualine_y = {
-          "encoding",
-          "fileformat",
-        },
-        lualine_z = { "progress", "location" },
-      },
-    },
   },
   {
     "akinsho/bufferline.nvim",
@@ -172,7 +102,6 @@ return {
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = false,
         },
       },
       -- you can enable a preset for easier configuration
@@ -180,7 +109,6 @@ return {
         bottom_search = true, -- use a classic bottom cmdline for search
         command_palette = true, -- position the cmdline and popupmenu together
         long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = true, -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = true, -- add a border to hover docs and signature help
       },
     },
@@ -245,10 +173,6 @@ return {
       },
     },
     config = function(_, opts) require("illuminate").configure(opts) end,
-  },
-  {
-    "antosha417/nvim-lsp-file-operations",
-    opts = {},
   },
   {
     "mvllow/modes.nvim",

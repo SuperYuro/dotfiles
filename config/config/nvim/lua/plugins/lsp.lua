@@ -179,9 +179,6 @@ return {
             quit = { "<ESC>" },
           },
         },
-        hover_doc = {
-          -- open_cmd = browser(),
-        },
         code_action = {
           num_shortcut = true,
           show_server_name = true,
