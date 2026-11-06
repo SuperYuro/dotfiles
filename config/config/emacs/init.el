@@ -37,7 +37,6 @@
   ;; 操作
   (use-short-answers t)
   (ring-bell-function #'ignore)
-  (confirm-kill-emacs #'y-or-n-p)
   (enable-recursive-minibuffers t)
   ;; 表示
   (frame-title-format '("%b - Emacs"))
