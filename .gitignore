@@ -8,3 +8,6 @@
 /config/config/gh/hosts.yml
 /config/config/nvim/lazy-lock.json
 /config/config/nvim/nvim-pack-lock.json
+/config/config/emacs/*
+!/config/config/emacs/early-init.el
+!/config/config/emacs/init.el
