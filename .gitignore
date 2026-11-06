@@ -6,3 +6,4 @@
 /config/config/mozc/.session.ipc
 /config/config/mozc/.server.lock
 /config/config/gh/hosts.yml
+/config/config/nvim/lazy-lock.json
