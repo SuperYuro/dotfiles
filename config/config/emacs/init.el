@@ -124,6 +124,12 @@
 (use-package marginalia
   :hook (after-init . marginalia-mode))
 
+;; 絞り込みとプレビュー付きの検索・移動コマンド
+(use-package consult
+  :bind
+  ;; 見出しの一覧から選んでジャンプする（Markdown・MDXでも使える）
+  ("M-g o" . consult-outline))
+
 ;; キー入力の途中で続きのキーを表示する
 (use-package which-key
   :ensure nil
@@ -162,6 +168,37 @@
   (markdown-list-indent-width 2)
   ;; 見出しは "# 見出し" の形（閉じの # を付けない）
   (markdown-asymmetric-header t))
+
+(defun my/markdown-outline-search (&optional bound move backward looking-at)
+  "コードブロックの中を除いて、Markdownの見出しを探す。
+`outline-search-function' と同じ引数を取る。"
+  (let ((regexp (concat "^\\(?:" outline-regexp "\\)")))
+    (if looking-at
+        (save-excursion
+          (beginning-of-line)
+          (and (looking-at regexp)
+               (not (markdown-code-block-at-point-p))))
+      (let ((start (point)) found)
+        (while (and (setq found (if backward
+                                    (re-search-backward regexp bound t)
+                                  (re-search-forward regexp bound t)))
+                    (markdown-code-block-at-point-p (match-beginning 0))))
+        (unless found
+          (goto-char (if move
+                         (or bound (if backward (point-min) (point-max)))
+                       start)))
+        found))))
+
+(defun my/markdown-consult-outline ()
+  "コードブロック内の # で始まる行を除いて `consult-outline' を実行する。"
+  (interactive)
+  ;; コードブロックの判定に使うテキストプロパティを全体に付けておく
+  (syntax-propertize (point-max))
+  (let ((outline-search-function #'my/markdown-outline-search))
+    (consult-outline)))
+
+(with-eval-after-load 'markdown-mode
+  (keymap-set markdown-mode-map "M-g o" #'my/markdown-consult-outline))
 
 ;; C-c ' でコードブロックを別バッファで、その言語のモードで編集する
 (use-package edit-indirect)
