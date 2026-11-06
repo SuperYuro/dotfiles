@@ -21,6 +21,13 @@
       tool-bar-mode nil
       scroll-bar-mode nil)
 
+;; フォントと初期サイズ。サイズは文字数で指定するので、
+;; 最初のフレームを作る前にフォントを決めておく（footと同じフォント）
+(push '(font . "PlemolJP Console NF-12") default-frame-alist)
+;; 本文の幅（visual-fill-column の100桁）より広くとり、左右に余白を残す
+(push '(width . 160) default-frame-alist)
+(push '(height . 40) default-frame-alist)
+
 ;; フォント変更などでフレームサイズが変わらないようにする
 (setq frame-inhibit-implied-resize t)
 

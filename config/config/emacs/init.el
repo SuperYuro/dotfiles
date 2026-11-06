@@ -47,8 +47,7 @@
 
 ;;;; 見た目
 
-;; footと同じフォント
-(set-face-attribute 'default nil :family "PlemolJP Console NF" :height 120)
+;; フォントと初期サイズは early-init.el で設定している
 
 ;; NeovimのCatppuccin Latteに揃える
 (use-package catppuccin-theme
