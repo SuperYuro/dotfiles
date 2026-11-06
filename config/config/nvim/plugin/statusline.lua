@@ -14,6 +14,7 @@ end
 local function set_highlights()
   local palette = require("catppuccin.palettes").get_palette("latte")
   vim.api.nvim_set_hl(0, "StatusLineBranch", { fg = palette.mauve, bold = true })
+  vim.api.nvim_set_hl(0, "StatusLineLsp", { bold = true })
 end
 
 -- Symbol path at the cursor (from aerial.nvim)
@@ -32,12 +33,17 @@ end
 local progress = {}
 
 -- Language servers attached to the current buffer (with progress while loading)
+-- Returns statusline items, so "%" in progress messages is escaped
 function M.lsp_status()
   local items = {}
   for _, client in ipairs(vim.lsp.get_clients({ bufnr = 0 })) do
     items[#items + 1] = progress[client.id] or client.name
   end
-  return #items > 0 and ("[" .. table.concat(items, " | ") .. "] ") or ""
+  if #items == 0 then
+    return ""
+  end
+  local text = table.concat(items, ", "):gsub("%%", "%%%%")
+  return "%#StatusLineLsp#[ " .. text .. " ]%* "
 end
 
 local group = vim.api.nvim_create_augroup("statusline", { clear = true })
@@ -90,4 +96,4 @@ vim.api.nvim_create_autocmd("LspDetach", {
 package.loaded["SuperYuro.statusline"] = M
 
 local sl = "v:lua.require'SuperYuro.statusline'"
-vim.o.statusline = "%{%" .. sl .. ".branch()%}%<%f%{" .. sl .. ".breadcrumbs()} %=%{" .. sl .. ".lsp_status()}"
+vim.o.statusline = "%{%" .. sl .. ".branch()%}%<%f%{" .. sl .. ".breadcrumbs()} %=%{%" .. sl .. ".lsp_status()%}"
