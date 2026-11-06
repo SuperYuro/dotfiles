@@ -1,3 +1,28 @@
+-- Language servers, their tools and how diagnostics are shown
+-- (LSP keymaps and reference highlighting are in plugin/autocmds.lua)
+
+---------------------------------------------------------------------------
+-- Diagnostics
+---------------------------------------------------------------------------
+
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = " ", -- nf-oct-bell
+    source = true,
+  },
+  float = {
+    source = true,
+  },
+  signs = false,
+  underline = true,
+  update_in_insert = true,
+  severity_sort = false,
+})
+
+---------------------------------------------------------------------------
+-- Install language servers and tools with mason
+---------------------------------------------------------------------------
+
 local ensure_installed = {
   lsp = {
     "clangd",
@@ -44,14 +69,6 @@ local ensure_installed = {
   },
 }
 
----Configure and enable a language server
----@param name string
----@param config vim.lsp.Config
-local function configure_lsp(name, config)
-  vim.lsp.config(name, config)
-  vim.lsp.enable(name)
-end
-
 require("mason").setup({
   registries = {
     "github:mason-org/mason-registry",
@@ -59,6 +76,7 @@ require("mason").setup({
   },
 })
 
+-- Enables every installed server except the ones configured manually below
 require("mason-lspconfig").setup({
   ensure_installed = ensure_installed.lsp,
   automatic_enable = {
@@ -68,43 +86,40 @@ require("mason-lspconfig").setup({
   },
 })
 
-local vue_language_server_path = vim.fn.expand("$MASON/packages") .. "/vue-language-server" .. "/node_modules/@vue/language-server"
-local tsserver_filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
-local vue_plugin = {
-  name = "@vue/typescript-plugin",
-  location = vue_language_server_path,
-  languages = { "vue" },
-  configNamespace = "typescript",
-}
+require("mason-tool-installer").setup({
+  ensure_installed = ensure_installed.tools,
+  auto_update = true,
+  run_on_start = true,
+})
 
-local ts_ls_config = {
+---------------------------------------------------------------------------
+-- Server settings
+---------------------------------------------------------------------------
+
+---Configure and enable a language server
+---@param name string
+---@param config vim.lsp.Config
+local function configure_lsp(name, config)
+  vim.lsp.config(name, config)
+  vim.lsp.enable(name)
+end
+
+-- TypeScript with Vue support (vue_ls needs ts_ls to load the Vue plugin)
+local vue_language_server_path = vim.fn.expand("$MASON/packages") .. "/vue-language-server" .. "/node_modules/@vue/language-server"
+
+configure_lsp("vue_ls", {})
+configure_lsp("ts_ls", {
   init_options = {
     plugins = {
-      vue_plugin,
+      {
+        name = "@vue/typescript-plugin",
+        location = vue_language_server_path,
+        languages = { "vue" },
+        configNamespace = "typescript",
+      },
     },
   },
-  filetypes = tsserver_filetypes,
-}
-
-local vue_ls_config = {}
-
-configure_lsp("vue_ls", vue_ls_config)
-configure_lsp("ts_ls", ts_ls_config)
-
-configure_lsp("gleam", {})
-
-configure_lsp("nixd", {})
-
-configure_lsp("roslyn", {
-  settings = {
-    ["csharp|inlay_hints"] = {
-      csharp_enable_inlay_hints_for_implicit_object_creation = true,
-      csharp_enable_inlay_hints_for_implicit_variable_types = true,
-    },
-    ["csharp|code_lens"] = {
-      dotnet_enable_references_code_lens = true,
-    },
-  },
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 })
 
 configure_lsp("basedpyright", {
@@ -120,11 +135,25 @@ configure_lsp("basedpyright", {
   },
 })
 
-require("mason-tool-installer").setup({
-  ensure_installed = ensure_installed.tools,
-  auto_update = true,
-  run_on_start = true,
+configure_lsp("roslyn", {
+  settings = {
+    ["csharp|inlay_hints"] = {
+      csharp_enable_inlay_hints_for_implicit_object_creation = true,
+      csharp_enable_inlay_hints_for_implicit_variable_types = true,
+    },
+    ["csharp|code_lens"] = {
+      dotnet_enable_references_code_lens = true,
+    },
+  },
 })
+
+-- Not installed with mason
+configure_lsp("gleam", {})
+configure_lsp("nixd", {})
+
+---------------------------------------------------------------------------
+-- Language-specific plugins
+---------------------------------------------------------------------------
 
 require("lazydev").setup({
   library = {
