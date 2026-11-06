@@ -7,3 +7,4 @@
 /config/config/mozc/.server.lock
 /config/config/gh/hosts.yml
 /config/config/nvim/lazy-lock.json
+/config/config/nvim/nvim-pack-lock.json

@@ -86,7 +86,8 @@ vim.api.nvim_create_autocmd("LspDetach", {
   end,
 })
 
+-- Register as a module so that the statusline expression can call these functions
+package.loaded["SuperYuro.statusline"] = M
+
 local sl = "v:lua.require'SuperYuro.statusline'"
 vim.o.statusline = "%{%" .. sl .. ".branch()%}%<%f%{" .. sl .. ".breadcrumbs()} %=%{" .. sl .. ".lsp_status()}"
-
-return M

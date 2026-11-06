@@ -37,5 +37,13 @@ vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 5
 vim.opt.background = "light"
 
--- Global statusline (see SuperYuro.statusline)
+-- Disable netrw (telescope-file-browser is used instead)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- Show which-key popup quickly
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+
+-- Global statusline (see plugin/statusline.lua)
 vim.opt.laststatus = 3
