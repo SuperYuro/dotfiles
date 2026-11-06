@@ -1,7 +1,7 @@
 -- Customize how diagnostics are displayed
 vim.diagnostic.config({
   virtual_text = {
-    prefix = require("utils.icons").prelude.bell,
+    prefix = " ", -- nf-oct-bell
     source = true,
   },
   float = {

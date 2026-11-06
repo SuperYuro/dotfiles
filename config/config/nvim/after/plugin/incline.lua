@@ -1,4 +1,23 @@
 -- Floating file name, diagnostics and git diff at the top right of each window
+
+-- Labels for git diff counts and diagnostic counts
+local icons = {
+  diff = {
+    -- added = " ", -- nf-oct-diff_added
+    -- changed = " ", -- nf-oct-diff_modified
+    -- removed = " ", -- nf-oct-diff_removed
+    added = "[+]",
+    changed = "[*]",
+    removed = "[-]",
+  },
+  diagnostics = {
+    error = " ", -- nf-oct-bug
+    warn = " ", -- nf-oct-alert
+    info = " ", -- nf-oct-info
+    hint = " ", -- nf-oct-light_bulb
+  },
+}
+
 require("incline").setup({
   hide = {
     cursorline = true,
@@ -13,7 +32,6 @@ require("incline").setup({
     },
   },
   render = function(props)
-    local icons = require("utils.icons")
     local devicons = require("nvim-web-devicons")
     local palette = require("catppuccin.palettes").get_palette("latte")
 

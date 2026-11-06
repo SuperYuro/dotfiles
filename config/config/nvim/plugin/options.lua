@@ -1,5 +1,3 @@
-vim.cmd("autocmd!")
-
 vim.opt.fileencoding = "utf-8"
 
 vim.wo.number = true
@@ -7,7 +5,7 @@ vim.wo.relativenumber = true
 
 -- vim.opt.mouse = ""
 
-vim.opt.shell = require("utils.exec").shell()
+vim.opt.shell = vim.fn.has("win32") == 1 and "pwsh" or "fish"
 
 vim.opt.title = true
 vim.opt.backup = false
