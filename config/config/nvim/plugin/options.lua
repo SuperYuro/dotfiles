@@ -9,11 +9,12 @@ vim.opt.shell = vim.fn.has("win32") == 1 and "pwsh" or "fish"
 
 vim.opt.title = true
 vim.opt.backup = false
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1 -- Always show the command line
+vim.opt.showmode = false -- Mode is shown by the cursorline color (plugin/modes.lua)
 
 -- Built-in message and cmdline UI (experimental in 0.12).
--- Messages go to a small window that disappears after a few seconds,
--- so nothing waits for "Press ENTER" with cmdheight = 0. Use g< to see full output.
+-- Messages go to a small window that disappears after a few seconds
+-- instead of waiting for "Press ENTER". Use g< to see full output.
 require("vim._core.ui2").enable({
   msg = {
     targets = "msg",
