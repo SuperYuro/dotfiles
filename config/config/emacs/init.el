@@ -45,6 +45,23 @@
   (set-language-environment "Japanese")
   (prefer-coding-system 'utf-8))
 
+;;;; キー操作
+
+;; C-h をシェルと同じく1文字削除にする。
+;; DEL（Backspace）に変換するので、ミニバッファや検索中でも同じように効く。
+;; ヘルプは F1 から使う（F1 k、F1 f など）。
+(keymap-set key-translation-map "C-h" "DEL")
+
+(defun my/kill-region-or-backward-word ()
+  "範囲を選択していれば切り取り、なければ直前の1単語を削除する。"
+  (interactive)
+  (if (use-region-p)
+      (call-interactively #'kill-region)
+    (backward-kill-word 1)))
+
+;; C-w をシェルと同じく単語削除にする（範囲選択中は従来どおり切り取り）
+(keymap-global-set "C-w" #'my/kill-region-or-backward-word)
+
 ;;;; 見た目
 
 ;; フォントと初期サイズは early-init.el で設定している
