@@ -31,15 +31,12 @@ vim.api.nvim_create_autocmd("PackChanged", {
 vim.pack.add({
   -- Libraries
   gh("nvim-lua/plenary.nvim"),
-  gh("MunifTanjim/nui.nvim"),
   gh("nvim-tree/nvim-web-devicons"),
   gh("nvim-neotest/nvim-nio"),
 
   -- UI
   { src = gh("catppuccin/nvim"), name = "catppuccin" },
   { src = gh("akinsho/bufferline.nvim"), version = vim.version.range("*") },
-  gh("rcarriga/nvim-notify"),
-  gh("folke/noice.nvim"),
   gh("lukas-reineke/indent-blankline.nvim"),
   gh("HiPhish/rainbow-delimiters.nvim"),
   gh("kevinhwang91/nvim-hlslens"),

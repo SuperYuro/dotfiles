@@ -10,6 +10,18 @@ vim.opt.shell = vim.fn.has("win32") == 1 and "pwsh" or "fish"
 vim.opt.title = true
 vim.opt.backup = false
 vim.opt.cmdheight = 0
+
+-- Built-in message and cmdline UI (experimental in 0.12).
+-- Messages go to a small window that disappears after a few seconds,
+-- so nothing waits for "Press ENTER" with cmdheight = 0. Use g< to see full output.
+require("vim._core.ui2").enable({
+  msg = {
+    targets = "msg",
+  },
+})
+
+-- Rounded border for floating windows (LSP hover, signature help, diagnostics, ...)
+vim.o.winborder = "rounded"
 vim.opt.expandtab = true
 vim.opt.scrolloff = 10
 vim.opt.updatetime = 200 -- Delay for CursorHold (used by LSP reference highlight)
