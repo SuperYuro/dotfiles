@@ -147,9 +147,7 @@ configure_lsp("roslyn", {
   },
 })
 
--- Not installed with mason
 configure_lsp("gleam", {})
-configure_lsp("nixd", {})
 
 ---------------------------------------------------------------------------
 -- Language-specific plugins
