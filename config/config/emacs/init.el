@@ -200,6 +200,16 @@
 (with-eval-after-load 'markdown-mode
   (keymap-set markdown-mode-map "M-g o" #'my/markdown-consult-outline))
 
+;; 本文を画面の中央に、決まった幅で折り返して表示する
+(use-package visual-fill-column
+  :hook (markdown-mode . visual-fill-column-mode)
+  :custom
+  ;; 半角100文字分（全角なら50文字分）
+  (visual-fill-column-width 100)
+  (visual-fill-column-center-text t)
+  ;; ウィンドウを分割するときは、余白を除いた幅で判断する
+  (visual-fill-column-enable-sensible-window-split t))
+
 ;; C-c ' でコードブロックを別バッファで、その言語のモードで編集する
 (use-package edit-indirect)
 
