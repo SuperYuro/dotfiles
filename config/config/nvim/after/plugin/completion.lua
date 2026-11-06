@@ -5,6 +5,7 @@ require("blink.cmp").setup({
   completion = {
     menu = {
       auto_show = true,
+      border = "none",
     },
     keyword = {
       range = "full",
