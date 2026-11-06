@@ -1,0 +1,92 @@
+[general]
+live_config_reload = true
+
+[env]
+TERM = "xterm-256color"
+
+[terminal]
+osc52 = "CopyPaste"
+
+[terminal.shell]
+program = "/opt/local/bin/fish"
+args = ["--login"]
+
+[window]
+startup_mode = "Maximized"
+# Option キーを Alt (Meta) として扱う
+option_as_alt = "Both"
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "PlemolJP Console NF"
+style = "Text"
+
+[font.bold]
+family = "PlemolJP Console NF"
+style = "Bold"
+
+[font.italic]
+family = "PlemolJP Console NF"
+style = "Text Italic"
+
+[font.bold_italic]
+family = "PlemolJP Console NF"
+style = "Bold Italic"
+
+[colors.primary]
+foreground = "#4c4f69"
+background = "#eff1f5"
+
+[colors.cursor]
+text = "#eff1f5"
+cursor = "#dc8a78"
+
+[colors.selection]
+text = "#4c4f69"
+background = "#ccced7"
+
+[colors.search.matches]
+foreground = "#4c4f69"
+background = "#ccd0da"
+
+[colors.search.focused_match]
+foreground = "#dce0e8"
+background = "#fe640b"
+
+[colors.hints.start]
+foreground = "#dce0e8"
+background = "#fe640b"
+
+[colors.hints.end]
+foreground = "#4c4f69"
+background = "#ccd0da"
+
+[colors.normal]
+black = "#5c5f77"
+red = "#d20f39"
+green = "#40a02b"
+yellow = "#df8e1d"
+blue = "#1e66f5"
+magenta = "#ea76cb"
+cyan = "#179299"
+white = "#acb0be"
+
+[colors.bright]
+black = "#6c6f85"
+red = "#d20f39"
+green = "#40a02b"
+yellow = "#df8e1d"
+blue = "#1e66f5"
+magenta = "#ea76cb"
+cyan = "#179299"
+white = "#bcc0cc"
+
+[[colors.indexed_colors]]
+index = 16
+color = "#fe640b"
+
+[[colors.indexed_colors]]
+index = 17
+color = "#dc8a78"
