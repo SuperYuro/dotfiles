@@ -37,7 +37,5 @@ vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 5
 vim.opt.background = "light"
 
--- clear statusline
-vim.opt.laststatus = 0
-vim.opt.statusline = "─"
-vim.opt.fillchars:append({ stl = "─", stlnc = "─" })
+-- Global statusline (see SuperYuro.statusline)
+vim.opt.laststatus = 3

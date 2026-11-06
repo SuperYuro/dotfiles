@@ -175,17 +175,6 @@ return {
     },
   },
   {
-    "j-hui/fidget.nvim",
-    event = "LspAttach",
-    opts = {
-      notification = {
-        window = {
-          winblend = 0,
-        },
-      },
-    },
-  },
-  {
     "akinsho/flutter-tools.nvim",
     lazy = false,
     dependencies = {

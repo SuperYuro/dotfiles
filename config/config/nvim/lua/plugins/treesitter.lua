@@ -12,20 +12,24 @@ return {
   },
   {
     "stevearc/aerial.nvim",
+    -- Loaded on file open to provide breadcrumbs for the statusline
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
-      "nvim-telescope/telescope.nvim",
     },
     keys = {
-      { "<leader>ar", "<cmd>Telescope aerial<cr>", desc = "Telescope aerial" },
+      {
+        "<leader>ar",
+        function()
+          require("telescope").load_extension("aerial")
+          vim.cmd("Telescope aerial")
+        end,
+        desc = "Telescope aerial",
+      },
     },
-    opts = {},
-    config = function(_, opts)
-      require("aerial").setup(opts)
-
-      local telescope = require("telescope")
-      telescope.load_extension("aerial")
-    end,
+    opts = {
+      backends = { "lsp", "treesitter", "markdown", "asciidoc", "man" },
+    },
   },
 }
