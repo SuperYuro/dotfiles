@@ -142,4 +142,41 @@
   (treesit-auto-install-grammar 'ask)
   (treesit-font-lock-level 4))
 
+;;;; Markdown
+
+;; 折り返しを日本語の文字の境界でも行う（visual-line-mode用）
+(setq-default word-wrap-by-category t)
+
+;; .md はGitHub Flavored Markdownとして開く
+(use-package markdown-mode
+  :mode (("\\.md\\'" . gfm-mode)
+         ("\\.markdown\\'" . gfm-mode))
+  :hook (markdown-mode . visual-line-mode)
+  :custom
+  ;; プレビュー（C-c C-c l）で使う変換コマンド
+  (markdown-command "cmark")
+  ;; コードブロックを言語ごとにハイライトする
+  (markdown-fontify-code-blocks-natively t)
+  ;; 見出しのレベルに応じて文字を大きくする
+  (markdown-header-scaling t)
+  (markdown-list-indent-width 2)
+  ;; 見出しは "# 見出し" の形（閉じの # を付けない）
+  (markdown-asymmetric-header t))
+
+;; C-c ' でコードブロックを別バッファで、その言語のモードで編集する
+(use-package edit-indirect)
+
+;; MDX（Markdown + JSX）用のモード。MELPAに専用モードがないため、
+;; gfm-mode を元に、import/export 行・<Component>・{式} の色分けを足す。
+(define-derived-mode mdx-mode gfm-mode "MDX"
+  "MDXファイルを編集するためのモード。"
+  (font-lock-add-keywords
+   nil
+   '(("^\\(?:import\\|export\\)\\_>.*$" . 'font-lock-preprocessor-face)
+     ;; JSXコンポーネントは大文字で始まる（<Chart>、</Chart>、<Foo.Bar>）
+     ("</?\\([A-Z][[:alnum:]_.]*\\)" 1 'font-lock-type-face)
+     ("{[^{}\n]*}" . 'font-lock-constant-face))))
+
+(add-to-list 'auto-mode-alist '("\\.mdx\\'" . mdx-mode))
+
 ;;; init.el ends here
