@@ -36,7 +36,6 @@ vim.pack.add({
 
   -- UI
   { src = gh("catppuccin/nvim"), name = "catppuccin" },
-  { src = gh("akinsho/bufferline.nvim"), version = vim.version.range("*") },
   gh("lukas-reineke/indent-blankline.nvim"),
   gh("HiPhish/rainbow-delimiters.nvim"),
   gh("kevinhwang91/nvim-hlslens"),
