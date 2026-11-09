@@ -1,5 +1,6 @@
 [tools]
 bat = "latest"
+claude = "latest"
 delta = "latest"
 dust = "latest"
 fd = "latest"
@@ -15,3 +16,6 @@ sd = "latest"
 starship = "latest"
 tmux = "latest"
 usage = { version = "latest", workflow = "publish-cli.yml" }
+
+[env]
+DISABLE_AUTOUPDATER = "1"
