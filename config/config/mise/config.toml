@@ -1,0 +1,17 @@
+[tools]
+bat = "latest"
+delta = "latest"
+dust = "latest"
+fd = "latest"
+fzf = "latest"
+gh = "latest"
+ghq = "latest"
+lazygit = "latest"
+lsd = "latest"
+neovim = "latest"
+pnpm = "latest"
+ripgrep = "latest"
+sd = "latest"
+starship = "latest"
+tmux = "latest"
+usage = { version = "latest", workflow = "publish-cli.yml" }
