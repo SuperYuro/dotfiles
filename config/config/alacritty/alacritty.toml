@@ -12,9 +12,16 @@ program = "/opt/local/bin/fish"
 args = ["--login"]
 
 [window]
-startup_mode = "Maximized"
 # Option キーを Alt (Meta) として扱う
 option_as_alt = "Both"
+
+[window.dimensions]
+lines = 40
+columns = 160
+
+[window.padding]
+x = 5
+y = 5
 
 [font]
 size = 14.0
