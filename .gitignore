@@ -11,3 +11,4 @@
 /config/config/emacs/*
 !/config/config/emacs/early-init.el
 !/config/config/emacs/init.el
+/config/config/fish/conf.d
