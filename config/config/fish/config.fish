@@ -1,4 +1,5 @@
 if status is-interactive
+    mise activate fish | source
 
     # Alias settings
     if type lsd >/dev/null 2>&1
