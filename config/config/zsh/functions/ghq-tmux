@@ -1,0 +1,7 @@
+local repo
+repo=$(ghq list | fzf --layout=reverse) || return 0
+[[ -z $repo ]] && return 0
+repo="$(ghq root)/$repo"
+
+# 新しいセッションを作成（作業ディレクトリを指定）
+tmux new-session -A -s "${repo:t}" -c "$repo"
